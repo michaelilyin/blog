@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:task="http://www.springframework.org/schema/task"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+			http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+			http://www.springframework.org/schema/context
+			http://www.springframework.org/schema/context/spring-context-4.0.xsd
+			http://www.springframework.org/schema/aop 
+            http://www.springframework.org/schema/aop/spring-aop-4.0.xsd
+            http://www.springframework.org/schema/task
+            http://www.springframework.org/schema/task/spring-task-4.0.xsd">
+
+	<!-- Activates various annotations to be detected in bean classes -->
+	<context:annotation-config />
+
+	<!-- Aspect oriented programming support -->
+	<aop:aspectj-autoproxy />
+
+	<!-- Scans the classpath for annotated components that will be auto-registered 
+		as Spring beans. For example @Controller and @Service. Make sure to set the 
+		correct base-package -->
+	<context:component-scan base-package="net.medvedmike.vsu.demo" />
+
+	<bean id="messageSource"
+		class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
+		<property name="basename" value="messages"/>
+		<property name="defaultEncoding" value="UTF-8" />
+	</bean>
+
+</beans>

@@ -1,0 +1,31 @@
+<div class="modal-header" draggable-modal>
+	<button type="button" class="close" data-dismiss="modal"
+		aria-label="Cancel" ng-click="close()">
+		<span aria-hidden="true">&times;</span>
+	</button>
+	<h3 class="modal-title">{{title}}</h3>
+</div>
+<div class="modal-body">
+	<form>
+		<div>
+			<label for="itemName">Name</label> <input type="text" id="itemName"
+				ng-model="demo.name">
+		</div>
+		<div>
+			<label for="itemFlag">Flag</label> <input type="checkbox"
+				id="itemFlag" ng-model="demo.flag">
+		</div>
+		<div>
+			<label for="itemDuration">Duration</label> <input type="number"
+				id="itemDuration" ng-model="demo.duration">
+		</div>
+		<div>
+			<label for="itemCost">Cost</label> <input type="number" id="itemCost"
+				ng-model="demo.cost">
+		</div>
+	</form>
+</div>
+<div class="modal-footer">
+	<button class="btn btn-primary" type="button" ng-click="save()">{{id ? 'Save' : 'Create'}}</button>
+	<button class="btn btn-warning" type="button" ng-click="close()">Cancel</button>
+</div>

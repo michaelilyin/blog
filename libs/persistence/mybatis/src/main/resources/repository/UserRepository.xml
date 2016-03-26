@@ -1,0 +1,28 @@
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="net.medvedmike.vsu.demo.repository.UserRepository">
+
+    <select id="getUserViews" resultType="net.medvedmike.vsu.demo.domain.UserView">
+        <include refid="net.medvedmike.vsu.demo.repository.commonSql.pageSupportBegin"/>
+        <![CDATA[
+        SELECT
+          id as id,
+          name as name,
+          surname as surname,
+          login as login,
+          email as email,
+          birthday as birthday
+        FROM users
+        WHERE
+          (#{login}::VARCHAR IS NULL OR UPPER(login) LIKE UPPER('%${login}%'))
+          AND (#{name}::VARCHAR IS NULL OR UPPER(name) LIKE UPPER('%${name}%'))
+          AND (#{surname}::VARCHAR IS NULL OR UPPER(surname) LIKE UPPER('%${surname}%'))
+          AND (#{email}::VARCHAR IS NULL OR UPPER(email) LIKE UPPER('%${email}%'))
+          AND (#{birthday}::DATE IS NULL OR DATE_TRUNC('days', #{birthday}::DATE) = DATE_TRUNC('days', birthday))
+        ]]>
+        <include refid="net.medvedmike.vsu.demo.repository.commonSql.orderBy"/>
+        <include refid="net.medvedmike.vsu.demo.repository.commonSql.pageSupportEnd"/>
+    </select>
+
+</mapper>

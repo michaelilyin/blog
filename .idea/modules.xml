@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/vsu-demo.iml" filepath="$PROJECT_DIR$/vsu-demo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/libs/persistence/schema/vsu-demo-db-schema.iml" filepath="$PROJECT_DIR$/libs/persistence/schema/vsu-demo-db-schema.iml" />
+      <module fileurl="file://$PROJECT_DIR$/libs/vsu-demo-libs.iml" filepath="$PROJECT_DIR$/libs/vsu-demo-libs.iml" />
+      <module fileurl="file://$PROJECT_DIR$/libs/api/vsu-demo-libs-api.iml" filepath="$PROJECT_DIR$/libs/api/vsu-demo-libs-api.iml" />
+      <module fileurl="file://$PROJECT_DIR$/libs/persistence/mybatis/vsu-demo-mybatis.iml" filepath="$PROJECT_DIR$/libs/persistence/mybatis/vsu-demo-mybatis.iml" />
+      <module fileurl="file://$PROJECT_DIR$/libs/persistence/vsu-demo-persistence.iml" filepath="$PROJECT_DIR$/libs/persistence/vsu-demo-persistence.iml" />
+      <module fileurl="file://$PROJECT_DIR$/libs/services/vsu-demo-services.iml" filepath="$PROJECT_DIR$/libs/services/vsu-demo-services.iml" />
+      <module fileurl="file://$PROJECT_DIR$/webapp/vsu-demo-webapp.iml" filepath="$PROJECT_DIR$/webapp/vsu-demo-webapp.iml" />
+    </modules>
+  </component>
+</project>

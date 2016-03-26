@@ -1,0 +1,2 @@
+DROP TABLE IF EXISTS users;
+DROP SEQUENCE IF EXISTS seq_user_id;

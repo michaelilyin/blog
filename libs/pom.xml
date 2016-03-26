@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <artifactId>vsu-demo</artifactId>
+        <groupId>net.medvedmike</groupId>
+        <version>1.0-SNAPSHOT</version>
+        <relativePath>../pom.xml</relativePath>
+    </parent>
+
+    <artifactId>vsu-demo-libs</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <packaging>pom</packaging>
+
+    <name>VSU demo application libs</name>
+
+    <properties>
+        <build.timestamp>${maven.build.timestamp}</build.timestamp>
+        <maven.build.timestamp.format>yyyy-MM-dd HH:mm:ss</maven.build.timestamp.format>
+    </properties>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.codehaus.groovy.maven</groupId>
+                <artifactId>gmaven-mojo</artifactId>
+                <version>1.0</version>
+            </dependency>
+            <dependency>
+                <groupId>org.codehaus.groovy.maven.runtime</groupId>
+                <artifactId>gmaven-runtime-1.6</artifactId>
+                <version>1.0</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+  <modules>
+    <module>api</module>
+    <module>persistence</module>
+    <module>services</module>
+  </modules>
+</project>

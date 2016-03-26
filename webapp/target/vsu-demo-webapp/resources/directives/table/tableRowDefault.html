@@ -1,0 +1,8 @@
+<td ng-repeat="column in config.columns.list" ng-show="isShowColumn($index)"
+    ng-switch="column.type" style="text-wrap: normal; word-wrap: break-word; word-break: break-all;">
+    <span ng-switch-when="date">{{row[column.id] | date:"dd.MM.yyyy"}}</span>
+    <span ng-switch-default>{{row[column.id]}}</span>
+</td>
+<td ng-show="config.rowMenu">
+    <div wm-bind-html="config.rowMenu.html"></div>
+</td>
