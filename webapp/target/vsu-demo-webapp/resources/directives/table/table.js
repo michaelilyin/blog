@@ -8,6 +8,10 @@
 
                 var config = $scope.config;
 
+                angular.forEach(config.actions, function(v, k) {
+                   $scope[k] = v;
+                });
+
                 function getPageNumber(start, number) {
                     if (!start || !number) {
                         return 1;
@@ -87,6 +91,8 @@
                     }
                 };
 
+                config.refresh = $scope.refreshData;
+
                 $scope.getIndex = function(index) {
                     if (!$scope.tableState || $scope.tableState == null)
                         return index + 1;
@@ -96,6 +102,8 @@
                 $scope.getTemplateUrl = function() {
                     return rp + ($scope.config.rowTemplate ? $scope.config.rowTemplate : '/directives/table/tableRowDefault.html');
                 };
+
+                $scope.paginationTemplate = rp + '/directives/table/paginationTemplate.html';
 
                 $scope.isShowColumn = function (index) {
                     return config.columns.list[index].visible;

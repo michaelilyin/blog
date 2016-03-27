@@ -1,6 +1,8 @@
 (function() {
 	'use strict';
-	angular.module('webmodule').run(function ($rootScope) {		
+
+	angular.module('webmodule').run(function ($rootScope) {
+
 //		editableOptions.theme = 'bs3';
 		
 //	    $rootScope.$on('$locationChangeSuccess', function () {

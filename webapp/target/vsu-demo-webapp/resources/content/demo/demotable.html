@@ -4,25 +4,28 @@
 
 <wm-table id="demo-table" config="demoConfig" title="Table of demos">
     <table-menu>
-        <button uib-tooltip="Create demo" ng-click="$parent.createDemo()" type="button"
-                class="btn btn-success">
-            <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+        <button ng-click="createDemo()" class="ui icon green button">
+            <i class="plus icon"></i>
         </button>
     </table-menu>
-	<table-column id="rnum" label="№" disable-sort="true" width="2" disable-filter="true"></table-column>
+
+	<table-column id="rnum" label="№" disable-sort="true" width="5" disable-filter="true"></table-column>
 	<table-column id="login" label="Login" width="15"></table-column>
 	<table-column id="name" label="Name" width="15"></table-column>
     <table-column id="surname" label="Surname" width="15"></table-column>
 	<table-column id="email" label="E-mail" width="15"></table-column>
 	<table-column id="birthday" label="Birthday" width="15" type="date"></table-column>
-    <table-row-menu width="5">
-        <div class="pull-right">
-            <button class="btn btn-xs btn-warning" ng-click="editDemo(row.id)" wm-tooltip="Edit demo">
-                <i class="glyphicon glyphicon-edit"></i>
-            </button>
-            <button class="btn btn-xs btn-danger" ng-click="removeDemo(row.id)" wm-tooltip="Remove demo">
-                <i class="glyphicon glyphicon-remove"></i>
-            </button>
+
+    <table-row-menu width="10">
+        <div class="right aligned">
+            <div class="ui mini buttons">
+                <button class="ui yellow icon button" ng-click="editDemo(row.id)" wm-tooltip="Edit demo">
+                    <i class="write icon"></i>
+                </button>
+                <button class="ui red icon button" ng-click="removeDemo(row.id)" wm-tooltip="Remove demo">
+                    <i class="remove icon"></i>
+                </button>
+            </div>
         </div>
     </table-row-menu>
 </wm-table>

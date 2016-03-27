@@ -7,8 +7,8 @@
 	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
 	
 	<link rel="stylesheet" href="<c:url value="/resources/css/main.css"/>">
-	<link rel="stylesheet" href="<c:url value="/resources/lib/bootstrap/css/bootstrap.min.css"/>">
-	<link rel="stylesheet" href="<c:url value="/resources/lib/bootstrap/css/bootstrap-datetimepicker.min.css"/>">
+	<link rel="stylesheet" href="<c:url value="/resources/lib/semantic/semantic.min.css"/>">
+	<link rel="stylesheet" href="<c:url value="/resources/lib/air-datepicker/datepicker.min.css"/>">
 	
 	<title>VSU demo application</title>
 	<script type="text/javascript">
@@ -24,7 +24,9 @@
 	<script type="text/javascript" src='<c:url value="/resources/lib/moment/moment-with-locales.js"/>'></script>
 	<script type="text/javascript" src='<c:url value="/resources/lib/jquery/jquery-2.1.4.min.js"/>'></script>
 	<script type="text/javascript" src='<c:url value="/resources/lib/jquery/jquery-ui.min.js"/>'></script>
-	<script type="text/javascript" src='<c:url value="/resources/lib/bootstrap/js/bootstrap.min.js"/>'></script>
+	<script type="text/javascript" src='<c:url value="/resources/lib/semantic/semantic.min.js"/>'></script>
+	<script type="text/javascript" src='<c:url value="/resources/lib/air-datepicker/datepicker.min.js"/>'></script>
+	<script type="text/javascript" src='<c:url value="/resources/lib/air-datepicker/datepicker.en.js"/>'></script>
 
 	<script type="text/javascript" src='<c:url value="/resources/lib/angular/angular.min.js"/>'></script>
 	<script type="text/javascript" src='<c:url value="/resources/lib/angular/sanitize.js"/>'></script>
@@ -34,10 +36,8 @@
 	<script type="text/javascript" src='<c:url value="/resources/lib/angular/lodash.min.js"/>'></script>
 	<script type="text/javascript" src='<c:url value="/resources/lib/angular/restangular.min.js"/>'></script>
 	<script type="text/javascript" src='<c:url value="/resources/lib/angular/smart-table.min.js"/>'></script>
-	<script type="text/javascript" src='<c:url value="/resources/lib/bootstrap/ui-bootstrap-tpls-0.14.3.min.js"/>'></script>
 	<script type="text/javascript" src='<c:url value="/resources/lib/angular/angular-local-storage.min.js"/>'></script>
-	<script type="text/javascript" src='<c:url value="/resources/lib/bootstrap/js/bootstrap-datetimepicker.min.js"/>'></script>
-	
+
 	<script type="text/javascript" src='<c:url value="/resources/js/app.js"/>'></script>
 	<script type="text/javascript" src='<c:url value="/resources/js/run.js"/>'></script>
 
@@ -53,6 +53,8 @@
 	<script type="text/javascript" src='<c:url value="/resources/directives/tooltip/tooltip.js"/>'></script>
 	<script type="text/javascript" src='<c:url value="/resources/directives/confirm/confirmClick.js"/>'></script>
 	<script type="text/javascript" src='<c:url value="/resources/directives/datetimepicker/dateTimePicker.js"/>'></script>
+
+	<script type="text/javascript" src='<c:url value="/resources/directives/semantic/dropdown.js"/>'></script>
 	
 	<script type="text/javascript" src='<c:url value="/resources/js/service/util/ModalService.js"/>'></script>
 	<script type="text/javascript" src='<c:url value="/resources/js/service/util/GridService.js"/>'></script>

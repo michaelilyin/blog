@@ -2,9 +2,9 @@
 	'use strict';
 	angular.module('webmodule').service('ModalService', 
 			[
-			 '$uibModal',
+			 //'$uibModal',
 			 'resourcesPrefix',
-			 function($uibModal, rp) {
+			 function(/*$uibModal,*/ rp) {
 				 return {
 					 open: function(conf) {
 						 return $uibModal.open({

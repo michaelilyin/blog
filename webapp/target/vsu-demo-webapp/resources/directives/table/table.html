@@ -1,73 +1,81 @@
-<div>
+<div class="ui one column grid">
 	<ng-transclude></ng-transclude>
-	<div class="row">
-		<div class="col-lg-5">
-			<h3 style="margin-top: 0">{{config.title}}</h3>
-		</div>
-		<div class="col-lg-7">
-			<form class="form-inline pull-right">
-				<div wm-table-menu
-					 refresh-action="refreshData"
-					 rows-on-page="config.rowsOnPage"
-					 headers="config.columns"
+	<div class="column">
+        <div class="ui tablet stackable two column grid">
+            <div class="column">
+                <h2>{{config.title}}</h2>
+            </div>
+            <div class="right aligned column">
+                <div wm-table-menu
+                     refresh-action="refreshData"
+                     rows-on-page="config.rowsOnPage"
+                     headers="config.columns"
                      filter-config="config.filter"
-                     table-menu="config.tableMenu"></div>
-			</form>
-		</div>
+                     table-menu="config.tableMenu"
+                     actions="config.actions">
+                </div>
+            </div>
+        </div>
 	</div>
 
-	<div class="row">
-        <div class="table-responsive">
-            <table class="table table-striped table-hover"
-                   st-table="data" st-pipe="loadData">
-                <colgroup>
-                    <col ng-repeat="column in config.columns.list" class="{{column.css}}" width="{{column.width}}" ng-show="isShowColumn($index)">
-                    <col ng-show="config.rowMenu" width="{{config.rowMenu.width}}">
-                </colgroup>
-                <thead>
-                <tr>
-                    <th class="grid-header" ng-repeat="column in config.columns.list"
-                        st-sort="{{!column.disableSort ? column.id : ''}}" ng-show="isShowColumn($index)">
-                        {{column.label}}
-                    </th>
-                    <th ng-show="config.rowMenu"></th>
-                </tr>
-                <tr ng-show="config.filter.display">
-                    <th ng-repeat="column in config.columns.list" ng-show="isShowColumn($index)">
-                        <div ng-hide="column.disableFilter"
-                             ng-switch="column.type">
-                            <input ng-switch-when="string" ng-model="config.filter.data[column.id]"
+	<div class="column">
+        <table class="ui tablet stackable selectable striped table"
+               st-table="data" st-pipe="loadData">
+            <colgroup>
+                <col ng-repeat="column in config.columns.list" class="{{column.css}}" width="{{column.width}}" ng-show="isShowColumn($index)">
+                <col ng-show="config.rowMenu" width="{{config.rowMenu.width}}">
+            </colgroup>
+            <thead>
+            <tr>
+                <th class="grid-header" ng-repeat="column in config.columns.list"
+                    st-sort="{{!column.disableSort ? column.id : ''}}" ng-show="isShowColumn($index)"
+                    ng-style="{cursor: !column.disableSort ? 'pointer' : ''}">
+                    {{column.label}}
+                </th>
+                <th ng-show="config.rowMenu"></th>
+            </tr>
+            <tr ng-show="config.filter.display">
+                <th ng-repeat="column in config.columns.list" ng-show="isShowColumn($index)">
+                    <div ng-hide="column.disableFilter"
+                         ng-switch="column.type">
+                        <div ng-switch-when="string" class="ui small fluid input">
+                            <input ng-model="config.filter.data[column.id]"
                                    st-search="{{::column.id}}" placeholder="{{::column.label}}"
-                                   class="input-sm form-control table-filter" ng-class="column.id" type="search"/>
-                            <wm-date-time-picker ng-switch-when="date" format="DD.MM.YYYY"
-                                                 ng-model="config.filter.data[column.id]" st-model-search="{{::column.id}}"
-                                                 class="table-filter" ng-class="column.id" use-current="false"
-                                                 show-clear="true" placeholder="{{::column.label}}" size="sm">
-                            </wm-date-time-picker>
+                                   class="table-filter" ng-class="column.id" type="search"/>
                         </div>
-                    </th>
-                    <th ng-show="config.rowMenu"></th>
-                </tr>
-                </thead>
-                <tbody ng-show="config.isLoading">
-                <tr>
-                    <td colspan="{{config.columns.active}}" class="text-center"><wm-loader></wm-loader></td>
-                </tr>
-                </tbody>
-                <tbody ng-show="!config.isLoading">
-                    <tr ng-repeat="row in data" ng-include='getTemplateUrl()'></tr>
-                </tbody>
-                <tfoot>
-                <tr>
-                    <td class="text-center" st-pagination=""
-                        st-items-by-page="config.rowsOnPage"
-                        st-displayed-pages="10"
-                        colspan="{{config.columns.active}}">
-                    </td>
-                </tr>
-                </tfoot>
-            </table>
-        </div>
+                        <wm-date-time-picker ng-switch-when="date" format="dd.mm.yyyy"
+                                             ng-model="config.filter.data[column.id]" st-model-search="{{::column.id}}"
+                                             class="fluid table-filter" ng-class="column.id" use-current="false"
+                                             show-clear="true" placeholder="{{::column.label}}" size="small">
+                        </wm-date-time-picker>
+                    </div>
+                </th>
+                <th ng-show="config.rowMenu"></th>
+            </tr>
+            </thead>
+            <tbody ng-show="config.isLoading">
+            <tr>
+                <td colspan="{{config.columns.active}}">
+                    <div class="ui inline large centered active loader"></div>
+                </td>
+            </tr>
+            </tbody>
+            <tbody ng-show="!config.isLoading">
+                <tr ng-repeat="row in data" ng-include='getTemplateUrl()'></tr>
+            </tbody>
+            <tfoot>
+            <tr>
+                <td class="text-center center aligned"
+                    colspan="{{config.columns.active}}">
+                    <div st-pagination=""
+                         st-items-by-page="config.rowsOnPage"
+                         st-displayed-pages="10"
+                         st-template="/resources/directives/table/paginationTemplate.html">
+                    </div>
+                </td>
+            </tr>
+            </tfoot>
+        </table>
 	</div>
 
 </div>

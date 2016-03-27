@@ -1,54 +1,43 @@
 <div>
-    <div class="form-group horizontal-spacer">
+    <div class="ui small icon buttons">
         <div wm-bind-html="tableMenu.html"></div>
     </div>
-    <div class="form-group btn-group">
-        <button uib-tooltip="Refresh" tooltip-append-to-body="true" ng-click="refreshAction()" type="button" class="btn btn-info">
-            <span class="glyphicon glyphicon-refresh" aria-hidden="true"></span>
+    <div class="ui small icon buttons">
+        <button ng-click="refreshAction()" class="ui teal button">
+            <i class="refresh icon"></i>
         </button>
 
-        <div class="dropdown btn-group" ng-show="filterConfig">
-            <button uib-tooltip="Filter" class="btn btn-default dropdown-toggle grid-rows-on-page" type="button" data-toggle="dropdown"
-                    aria-expanded="true">
-                <span class="dropdown-text"><span class="glyphicon glyphicon-filter"></span></span>
-            </button>
-            <ul class="dropdown-menu pull-right" role="menu">
-                <li>
-                    <a href="#" ng-show="filterConfig.display" ng-click="filterConfig.toggle()">Hide filter</a>
-                    <a href="#" ng-hide="filterConfig.display" ng-click="filterConfig.toggle()">Show filter</a>
-                    <a href="#" ng-click="filterConfig.clear()">Clear all</a>
-                </li>
-            </ul>
-        </div>
+        <wm-dropdown class="ui top right pointing dropdown button" ng-show="filterConfig">
+            <i class="filter icon"></i>
+            <div class="menu">
+                <a href="#" class="item" ng-show="filterConfig.display" ng-click="filterConfig.toggle()">Hide filter</a>
+                <a href="#" class="item" ng-hide="filterConfig.display" ng-click="filterConfig.toggle()">Show filter</a>
+                <div class="divider"></div>
+                <a href="#" class="item" ng-click="filterConfig.clear()">Clear all</a>
+            </div>
+        </wm-dropdown>
 
-        <div class="dropdown btn-group">
-            <button uib-tooltip="Row count on page" class="btn btn-default dropdown-toggle grid-rows-on-page" type="button"
-                    data-toggle="dropdown" aria-expanded="true">
-                <span class="dropdown-text">{{rowsOnPage}}</span>
-            </button>
-            <ul class="dropdown-menu pull-right" role="menu">
-                <li ng-repeat="pageRowNum in pageRowsNum">
-                    <a href="#" ng-click="selectPageRowsNum(pageRowNum)">{{pageRowNum}}</a>
-                </li>
-            </ul>
-        </div>
+        <wm-dropdown class="ui top right pointing dropdown button">
+            <span class="dropdown-text">{{rowsOnPage}}</span>
+            <div class="menu">
+                <a class="item" ng-repeat="pageRowNum in pageRowsNum"
+                   href="#" ng-click="selectPageRowsNum(pageRowNum)">
+                    {{pageRowNum}}
+                </a>
+            </div>
+        </wm-dropdown>
 
-        <div class="dropdown btn-group">
-            <button uib-tooltip="Display columns" class="btn btn-default dropdown-toggle show-hide-grid-cols" type="button" data-toggle="dropdown"
-                    aria-expanded="true">
-                <span class="dropdown-text"><span class="icon glyphicon glyphicon-th-list"></span></span>
-            </button>
-            <ul class="dropdown-menu pull-right" role="menu" style="padding: 10px">
-                <li ng-repeat="header in headers.list">
-                    <div class="checkbox-inline">
-                        <label>
-                            <input ng-model="header.visible" type="checkbox" class="dropdown-item-checkbox"
-                                   ng-change="recalcColumnsCount()">
-                            {{header.label}}
-                        </label>
+        <wm-dropdown class="ui top right pointing dropdown button">
+            <i class="list layout icon"></i>
+            <div class="menu">
+                <div ng-repeat="header in headers.list" class="item">
+                    <div class="ui checkbox">
+                        <input ng-model="header.visible" type="checkbox"
+                               ng-change="recalcColumnsCount()">
+                        <label>{{header.label}}</label>
                     </div>
-                </li>
-            </ul>
-        </div>
+                </div>
+            </div>
+        </wm-dropdown>
     </div>
 </div>

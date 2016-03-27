@@ -10,7 +10,6 @@
         'ui.router',
         'ncy-angular-breadcrumb',
         'restangular',
-        'ui.bootstrap',
         'smart-table',
         'LocalStorageModule',
         'ngSanitize']);

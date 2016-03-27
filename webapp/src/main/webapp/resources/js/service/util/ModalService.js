@@ -2,9 +2,9 @@
 	'use strict';
 	angular.module('webmodule').service('ModalService', 
 			[
-			 '$uibModal',
+			 //'$uibModal',
 			 'resourcesPrefix',
-			 function($uibModal, rp) {
+			 function(/*$uibModal,*/ rp) {
 				 return {
 					 open: function(conf) {
 						 return $uibModal.open({
@@ -13,11 +13,9 @@
 							 windowTemplateUrl: rp + '/directives/modal/draggableTemplate.html',
 							 size: conf.size,
 							 resolve: {
-								 data: typeof conf.data === 'function' ? 
-										 conf.data : 
-										 function () {
-											 return conf.data
-										 }
+								 data: typeof conf.data === 'function' ? conf.data : function () {
+									 return conf.data
+								 }
 							 }
 						 });
 					 }

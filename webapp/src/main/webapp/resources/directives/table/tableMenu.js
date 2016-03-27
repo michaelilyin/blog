@@ -5,6 +5,10 @@
         .controller('TableMenuCtrl', ['$scope', '$timeout', '$log', function ($scope, $timeout, $log) {
             $scope.pageRowsNum = [10, 50, 100, 250, 500, 1000];
 
+            angular.forEach($scope.actions, function(v, k) {
+                $scope[k] = v;
+            });
+
             $scope.selectPageRowsNum = function(pageRowsNum) {
                 if ($scope.rowsOnPage != pageRowsNum) {
                     $scope.rowsOnPage = pageRowsNum;
@@ -38,7 +42,8 @@
                 rowsOnPage: '=',
                 headers: '=',
                 filterConfig: '=',
-                tableMenu: '='
+                tableMenu: '=',
+                actions: '='
             },
             controller: 'TableMenuCtrl',
             templateUrl: rp + '/directives/table/tableMenu.html'
