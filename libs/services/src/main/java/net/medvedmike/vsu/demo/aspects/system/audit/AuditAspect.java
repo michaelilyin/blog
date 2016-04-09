@@ -3,6 +3,7 @@ package net.medvedmike.vsu.demo.aspects.system.audit;
 import net.medvedmike.vsu.demo.annotation.system.audit.AuditBegin;
 import net.medvedmike.vsu.demo.annotation.system.audit.AuditComplete;
 import net.medvedmike.vsu.demo.annotation.system.audit.AuditError;
+import net.medvedmike.vsu.demo.service.exceptions.ServiceException;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.*;
 import org.aspectj.lang.reflect.MethodSignature;

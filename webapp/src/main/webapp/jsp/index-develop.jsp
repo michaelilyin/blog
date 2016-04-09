@@ -9,6 +9,7 @@
 	<link rel="stylesheet" href="<c:url value="/resources/css/main.css"/>">
 	<link rel="stylesheet" href="<c:url value="/resources/lib/semantic/semantic.min.css"/>">
 	<link rel="stylesheet" href="<c:url value="/resources/lib/air-datepicker/datepicker.min.css"/>">
+    <link rel="stylesheet" href="<c:url value="/resources/lib/show-js-error/show-js-error.css"/>"/>
 	
 	<title>VSU demo application</title>
 	<script type="text/javascript">
@@ -20,6 +21,8 @@
 	<div id="header" ng-controller="HeaderCtrl" ng-include="'<c:url value="/resources/content/page/header.html"/>'"></div>
 	<div class="container-fluid main-container" ui-view></div>
 	<div ng-include="'<c:url value="/resources/content/page/footer.html"/>'"></div>
+
+	<script type="text/javascript" src='<c:url value="/resources/lib/show-js-error/show-js-error.js"/>'></script>
 
 	<script type="text/javascript" src='<c:url value="/resources/lib/moment/moment-with-locales.js"/>'></script>
 	<script type="text/javascript" src='<c:url value="/resources/lib/jquery/jquery-2.1.4.min.js"/>'></script>
@@ -41,6 +44,8 @@
 	<script type="text/javascript" src='<c:url value="/resources/js/app.js"/>'></script>
 	<script type="text/javascript" src='<c:url value="/resources/js/run.js"/>'></script>
 
+    <script type="text/javascript" src='<c:url value="/resources/js/providers/ModalProvider.js"/>'></script>
+
 	<script type="text/javascript" src='<c:url value="/resources/filters/commonFilters.js"/>'></script>
 
 	<script type="text/javascript" src='<c:url value="/resources/directives/utils/markupUtils.js"/>'></script>
@@ -59,7 +64,9 @@
 	<script type="text/javascript" src='<c:url value="/resources/js/service/util/ModalService.js"/>'></script>
 	<script type="text/javascript" src='<c:url value="/resources/js/service/util/GridService.js"/>'></script>
 	<script type="text/javascript" src='<c:url value="/resources/js/service/DemoService.js"/>'></script>
-	
+
+    <script type="text/javascript" src='<c:url value="/resources/directives/modal/EditModalController.js"/>'></script>
+
 	<script type="text/javascript" src='<c:url value="/resources/content/MainCtrl.js"/>'></script>
 	<script type="text/javascript" src='<c:url value="/resources/content/page/HeaderCtrl.js"/>'></script>
 	

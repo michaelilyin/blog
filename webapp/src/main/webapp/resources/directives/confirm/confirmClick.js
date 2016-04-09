@@ -2,7 +2,7 @@
 	'use strict';
 
 	angular.module('webmodule')
-			.controller('ConfirmDialogCtrl', ['$scope', '$uibModalInstance', 'data',
+			.controller('ConfirmDialogCtrl', ['$scope', '$wmModalInstance', 'data',
 				function ($scope, $modalInstance, data) {
 					$scope.title = data.title;
 					$scope.message = data.message;
@@ -39,12 +39,13 @@
 
 					function confirm() {
 						var modalInstance = ModalService.open({
-							template : "directives/confirm/confirmDialog.html",
-							controller : 'ConfirmDialogCtrl',
-							size : 'md',
+							template: "directives/confirm/confirmDialog.html",
+							controller: 'ConfirmDialogCtrl',
+							classes: 'basic',
+							size: "small",
 							data: {
-								title : "Подтверждение",
-								message : msg
+								title: "Confirm action",
+								message: msg
 							}
 						});
 						modalInstance.result.then(function() {
@@ -52,7 +53,7 @@
 						});
 					}
 
-					var msg = attr.arConfirmClick || "Are you sure?";
+					var msg = attr.wmConfirmClick || "Are you sure?";
 					element.bind('click', function(event) {
 						if (scope.autoconfirm && typeof scope.autoconfirm === "function") {
 							var res = scope.autoconfirm();

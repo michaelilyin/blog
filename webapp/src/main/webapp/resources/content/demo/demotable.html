@@ -19,10 +19,11 @@
     <table-row-menu width="10">
         <div class="right aligned">
             <div class="ui mini buttons">
-                <button class="ui yellow icon button" ng-click="editDemo(row.id)" wm-tooltip="Edit demo">
+                <button class="ui yellow icon button" ng-click="editDemo(row.id)" wm-tooltip="Edit user">
                     <i class="write icon"></i>
                 </button>
-                <button class="ui red icon button" ng-click="removeDemo(row.id)" wm-tooltip="Remove demo">
+                <button wm-confirm-click="Are you sure to delete user?" class="ui red icon button"
+                        action="removeDemo(row.id)" wm-tooltip="Remove user">
                     <i class="remove icon"></i>
                 </button>
             </div>

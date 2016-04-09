@@ -1,10 +1,5 @@
-CREATE SEQUENCE seq_user_id
-  START WITH 1
-  INCREMENT BY 1
-  NO CYCLE;
-
 CREATE TABLE users (
-  id BIGINT NOT NULL DEFAULT nextval('seq_user_id'),
+  id BIGSERIAL NOT NULL,
   login VARCHAR(32) NOT NULL,
   name VARCHAR(32),
   surname VARCHAR(32),

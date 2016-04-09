@@ -13,10 +13,10 @@ public interface UserService {
 
 	UserDTO getDemo(Long id);
 
-	UserDTO createDemo(UserDTO dto);
+	void createDemo(UserDTO dto);
 
 	void updateDemo(UserDTO dto);
 
-	void deleteDemo(Long id);
+	void deleteDemo(Long ... id);
 
 }

@@ -5,31 +5,45 @@
 			[ '$scope', 'DemoService', '$state', 'GridService', 'ModalService', '$log',
 				function($scope, DemoService, $state, GridService, ModalService, $log) {
 
-                    function createDemo() {
-                        $log.info("Create demo");
-                        ModalService.open({
+                    function loadDemo(data) {
+                        if (angular.isDefined(data.id)) {
+                            return DemoService.getDemo(data.id);
+                        } else
+                            return false;
+                    }
+
+                    function saveDemo(model, data, scope) {
+                        if (angular.isDefined(data.id)) {
+                            return DemoService.updateDemo(model);
+                        } else {
+                            return DemoService.createDemo(model);
+                        }
+                    }
+
+                    function openEditDialog(data) {
+                        ModalService.openEdit({
                             template: 'content/demo/editDemoDlg.html',
-                            controller: 'EditDemoCtrl',
                             size: 'md',
-                            data: {
-                                title: "Create Demo"
+                            data: data,
+                            actions: {
+                                load: loadDemo,
+                                save: saveDemo
                             }
                         }).result.then(function() {
                             refresh();
                         });
                     }
 
+                    function createDemo() {
+                        openEditDialog({
+                            title: "Create user"
+                        });
+                    }
+
                     function editDemo(id) {
-                        ModalService.open({
-                            template: 'content/demo/editDemoDlg.html',
-                            controller: 'EditDemoCtrl',
-                            size: 'md',
-                            data: {
-                                title: "Edit Demo",
-                                id: id
-                            }
-                        }).result.then(function() {
-                            refresh();
+                        openEditDialog({
+                            title: "Edit user",
+                            id: id
                         });
                     }
 

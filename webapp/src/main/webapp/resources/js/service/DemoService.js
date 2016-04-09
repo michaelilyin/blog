@@ -2,23 +2,23 @@
 	'use strict';
 	angular.module('webmodule').service('DemoService', 
 			[
-			 'Restangular', 'apiPrefix',
-			 function(Restangular, apiPrefix) {
+			 'Restangular', function(Restangular) {
 				 
-				 function getPageNumber(start, number) {
-					 if (!start || !number) {
-						 return 1;
-					 }
-					 return Math.round(start / number) + 1;
-				 }
+				 //function getPageNumber(start, number) {
+					// if (!start || !number) {
+					//	 return 1;
+					// }
+					// return Math.round(start / number) + 1;
+				 //}
 				 
-				 function getDemoDTO(obj) {
+				 function getUserDTO(obj) {
 					 return {
-						id: obj.id,
-						name: obj.name,
-						flag: obj.flag,
-						duration: obj.duration,
-						cost: obj.cost
+						 id: obj.id,
+						 name: obj.name,
+						 surname: obj.surname,
+						 login: obj.login,
+						 email: obj.email,
+						 birthday: obj.birthday
 					 };
 				 }
 				 return {
@@ -35,19 +35,19 @@
 //								 getParams[name] = value;
 //							 });
 //						 }
-						 return Restangular.one('demos').get(params);
+						 return Restangular.one('users').get(params);
 					 },
 					 getDemo: function(id) {
-						 return Restangular.one('demos', id).get();
+						 return Restangular.one('users', id).get();
 					 },
 					 createDemo: function(demo) {
-						 return Restangular.one('demos').post("", getDemoDTO(demo));
+						 return Restangular.one('users').post("", getUserDTO(demo));
 					 },
 					 updateDemo: function(demo) {
-						 return Restangular.one('demos', demo.id).customPUT(getDemoDTO(demo));
+						 return Restangular.one('users', demo.id).customPUT(getUserDTO(demo));
 					 },
 					 deleteDemo: function(id) {
-						 return Restangular.one('demos', id).remove();
+						 return Restangular.one('users', id).remove();
 					 },
 				 };
 			 }]);

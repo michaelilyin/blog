@@ -9,6 +9,7 @@ public class User {
 
     private Long id;
     private String name;
+    private String surname;
     private String login;
     private String email;
     private Date birthday;
@@ -51,5 +52,13 @@ public class User {
 
     public void setBirthday(Date birthday) {
         this.birthday = birthday;
+    }
+
+    public String getSurname() {
+        return surname;
+    }
+
+    public void setSurname(String surname) {
+        this.surname = surname;
     }
 }

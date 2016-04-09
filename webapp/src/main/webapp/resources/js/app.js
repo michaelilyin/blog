@@ -16,7 +16,14 @@
 
     module.config(
         function($stateProvider, $urlRouterProvider, $locationProvider, RestangularProvider,
-                 localStorageServiceProvider) {
+                 localStorageServiceProvider, $provide) {
+
+            $provide.decorator("$exceptionHandler", function($delegate, $injector){
+                return function(exception, cause){
+                    showJSError.show(exception);
+                    $delegate(exception, cause);
+                };
+            });
 
             $locationProvider.html5Mode(true).hashPrefix('!');
 

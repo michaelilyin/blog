@@ -17,7 +17,7 @@ public class DemoControllerApi extends BaseControllerApi {
 	@Autowired
 	private UserService userService;
 
-	@RequestMapping(value = "/demos", method = RequestMethod.GET)
+	@RequestMapping(value = "/users", method = RequestMethod.GET)
 	@ResponseBody
 	public ResponseEntity<Page> getDemos(
 			@RequestParam(value = "login", required = false) String login,
@@ -33,7 +33,7 @@ public class DemoControllerApi extends BaseControllerApi {
 						page, rows, sidx, sord), page, rows), HttpStatus.OK);
 	}
 
-	@RequestMapping(value = "/demos/{id}", method = RequestMethod.GET)
+	@RequestMapping(value = "/users/{id}", method = RequestMethod.GET)
 	@ResponseBody
 	public ResponseEntity<UserDTO> getDemo(@PathVariable("id") Long id) {
 		UserDTO dto = userService.getDemo(id);
@@ -43,14 +43,14 @@ public class DemoControllerApi extends BaseControllerApi {
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 	}
 
-	@RequestMapping(value = "/demos", method = RequestMethod.POST)
+	@RequestMapping(value = "/users", method = RequestMethod.POST)
 	@ResponseBody
 	public ResponseEntity<UserDTO> postDemo(@RequestBody UserDTO dto) {
-		return new ResponseEntity<>(userService.createDemo(dto),
-				HttpStatus.CREATED);
+		userService.createDemo(dto);
+		return new ResponseEntity<>(dto, HttpStatus.CREATED);
 	}
 
-	@RequestMapping(value = "/demos/{id}", method = RequestMethod.PUT)
+	@RequestMapping(value = "/users/{id}", method = RequestMethod.PUT)
 	@ResponseBody
 	public ResponseEntity<?> putDemo(@PathVariable("id") Long id,
 			@RequestBody UserDTO dto) {
@@ -60,7 +60,7 @@ public class DemoControllerApi extends BaseControllerApi {
 		return new ResponseEntity<>(HttpStatus.OK);
 	}
 
-	@RequestMapping(value = "/demos/{id}", method = RequestMethod.DELETE)
+	@RequestMapping(value = "/users/{id}", method = RequestMethod.DELETE)
 	@ResponseBody
 	public ResponseEntity<?> deleteDemo(@PathVariable("id") Long id) {
 		userService.deleteDemo(id);

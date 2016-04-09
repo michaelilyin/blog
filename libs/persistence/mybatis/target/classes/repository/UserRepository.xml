@@ -25,4 +25,52 @@
         <include refid="net.medvedmike.vsu.demo.repository.commonSql.pageSupportEnd"/>
     </select>
 
+    <select id="find" resultType="net.medvedmike.vsu.demo.domain.User">
+        <![CDATA[
+        SELECT
+          id as id,
+          name as name,
+          surname as surname,
+          login as login,
+          email as email,
+          birthday as birthday
+        FROM users
+        WHERE
+          id = #{id}
+        ]]>
+    </select>
+
+    <insert id="create" parameterType="net.medvedmike.vsu.demo.domain.User">
+        <![CDATA[
+        INSERT INTO users (login, name, surname, email, birthday)
+        VALUES (#{login}, #{name}, #{surname}, #{email}, #{birthday})
+        ]]>
+        <selectKey keyColumn="id" keyProperty="id" order="AFTER" resultType="long">
+            <![CDATA[
+            SELECT currval('users_id_seq') as id
+            ]]>
+        </selectKey>
+    </insert>
+
+    <update id="update" parameterType="net.medvedmike.vsu.demo.domain.User">
+        <![CDATA[
+        UPDATE users
+        SET
+          login = #{login},
+          name = #{name},
+          surname = #{surname},
+          email = #{email},
+          birthday = #{birthday}
+        WHERE
+          id = #{id}
+        ]]>
+    </update>
+
+    <delete id="delete" parameterType="long">
+        <![CDATA[
+        DELETE FROM users WHERE id IN
+        ]]>
+        <include refid="net.medvedmike.vsu.demo.repository.commonSql.inList"/>
+    </delete>
+
 </mapper>
