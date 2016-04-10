@@ -74,7 +74,6 @@
 	<script type="text/javascript" src='<c:url value="/resources/content/stub/StubModalCtrl.js"/>'></script>
 	
 	<script type="text/javascript" src='<c:url value="/resources/content/demo/DemoTableCtrl.js"/>'></script>
-	<script type="text/javascript" src='<c:url value="/resources/content/demo/EditDemoCtrl.js"/>'></script>
 
 </body>
 </html>

@@ -17,3 +17,7 @@
 .table {
 	table-layout: fixed;
 }
+
+div.datepickers-container * {
+    z-index: 2000 !important;
+}

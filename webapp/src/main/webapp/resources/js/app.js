@@ -21,6 +21,7 @@
             $provide.decorator("$exceptionHandler", function($delegate, $injector){
                 return function(exception, cause){
                     showJSError.show(exception);
+                    //showJSError.show(cause);
                     $delegate(exception, cause);
                 };
             });

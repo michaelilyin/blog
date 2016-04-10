@@ -13,7 +13,7 @@
 						 return $wmModal.open({
 							 templateUrl: rp + '/' + conf.template,
 							 controller: conf.controller,
-							 windowTemplateUrl: rp + '/directives/modal/draggableTemplate.html',
+							 //windowTemplateUrl: rp + '/directives/modal/draggableTemplate.html',
 							 size: conf.size,
 							 classes: conf.classes,
 							 resolve: {

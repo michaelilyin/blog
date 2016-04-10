@@ -23,7 +23,7 @@
                     function openEditDialog(data) {
                         ModalService.openEdit({
                             template: 'content/demo/editDemoDlg.html',
-                            size: 'md',
+                            size: 'small',
                             data: data,
                             actions: {
                                 load: loadDemo,

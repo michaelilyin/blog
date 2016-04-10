@@ -43,7 +43,7 @@
                                    st-search="{{::column.id}}" placeholder="{{::column.label}}"
                                    class="table-filter" ng-class="column.id" type="search"/>
                         </div>
-                        <wm-date-time-picker ng-switch-when="date" format="dd.mm.yyyy"
+                        <wm-date-time-picker id="filter-{{::column.id}}" ng-switch-when="date" format="dd.mm.yyyy"
                                              ng-model="config.filter.data[column.id]" st-model-search="{{::column.id}}"
                                              class="fluid table-filter" ng-class="column.id" use-current="false"
                                              show-clear="true" placeholder="{{::column.label}}" size="small">

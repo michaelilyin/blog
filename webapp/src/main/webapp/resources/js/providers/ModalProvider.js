@@ -77,14 +77,14 @@
                         modalInstance.$element
                             .modal({
                                 closable  : false,
-                                blurring: true,
+                                blurring: false,
                                 onDeny: function () {
                                     return false;
                                 }, onApprove: function () {
                                     return false;
                                 }
                             })
-                            .modal("show");
+                            .modal('refresh').modal("show");
                     }
 
                     function removeWindow(modalInstance) {
