@@ -1,8 +1,8 @@
 (function() {
     'use strict';
     angular.module('webmodule').controller('EditModalCtrl',
-        [ '$scope', '$wmModalInstance', 'DemoService', 'data', '$log',
-            function($scope, $modalInstance, DemoService, data, $log) {
+        [ '$scope', '$wmModalInstance', 'data', '$log',
+            function($scope, $modalInstance, data, $log) {
                 var userData = data.userData;
                 var actions = data.actions;
 

@@ -18,7 +18,7 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.web.context.WebApplicationContext;
 
-@RunWith(MockitoJUnitRunner.class)
+@RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = {
 		"file:src/main/webapp/WEB-INF/mvc-dispatcher-servlet.xml",
 		"classpath*:tests-config.xml" })
@@ -38,15 +38,9 @@ public abstract class BaseControllerTest {
 	
 	protected MockMvc mockMvc;
 
-	private Object[] mocks;
-
 	public void setUp() {
-		mocks = getTestingControllerMocks();
-		Mockito.reset(mocks);
-		MockitoAnnotations.initMocks(this);
 		this.mockMvc = MockMvcBuilders.webAppContextSetup(wac).build();
 	}
-	
-	public abstract Object[] getTestingControllerMocks();
+
 	
 }

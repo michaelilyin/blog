@@ -8,3 +8,19 @@ CREATE TABLE users (
 
   CONSTRAINT user_pkey PRIMARY KEY (id)
 );
+
+CREATE TABLE roles (
+  id BIGSERIAL NOT NULL,
+  name VARCHAR(64),
+  description TEXT,
+  internal BOOLEAN NOT NULL DEFAULT FALSE,
+  CONSTRAINT role_pkey PRIMARY KEY (id)
+);
+
+CREATE TABLE permissions (
+  id BIGSERIAL NOT NULL,
+  name VARCHAR(64),
+  code VARCHAR(64),
+  description TEXT,
+  CONSTRAINT permission_pley PRIMARY KEY (id)
+)

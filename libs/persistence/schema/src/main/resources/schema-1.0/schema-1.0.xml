@@ -8,7 +8,7 @@
         <rollback>
             <sqlFile path="sql/patch-1.0.1-rollback.sql" relativeToChangelogFile="true" stripComments="true"/>
         </rollback>
-        <comment>Adding demo tables.</comment>
+        <comment>Adding primary tables.</comment>
     </changeSet>
 
     <changeSet id="1.0.2" author="generated" runOnChange="true" context="production">

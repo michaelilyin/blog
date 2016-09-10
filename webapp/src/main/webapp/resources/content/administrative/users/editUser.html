@@ -1,0 +1,35 @@
+<div class="ui form">
+    <div class="two fields">
+        <div class="field">
+            <label for="login">Login</label>
+            <input type="text" id="login" ng-model="model.login" placeholder="Login">
+        </div>
+        <div class="field">
+            <label for="email">Email</label>
+            <input type="text" id="email" ng-model="model.email" placeholder="Email">
+        </div>
+    </div>
+    <div class="two fields">
+        <div class="field">
+            <label for="name">Name</label>
+            <input type="text" id="name" ng-model="model.name" placeholder="Name">
+        </div>
+        <div class="field">
+            <label for="surname">Surname</label>
+            <input type="text" id="surname" ng-model="model.surname" placeholder="Surname">
+        </div>
+    </div>
+    <div class="two fields">
+        <div class="field">
+            <label for="birthday">Birthday</label>
+            <wm-date-time-picker id="birthday" format="dd.mm.yyyy"
+                                 ng-model="model.birthday"
+                                 class="fluid table-filter" use-current="true"
+                                 show-clear="true" placeholder="Birthday" position="top left">
+            </wm-date-time-picker>
+        </div>
+        <div class="field">
+
+        </div>
+    </div>
+</div>

@@ -12,7 +12,8 @@
         'restangular',
         'smart-table',
         'LocalStorageModule',
-        'ngSanitize']);
+        'ngSanitize',
+        'ngStomp']);
 
     module.config(
         function($stateProvider, $urlRouterProvider, $locationProvider, RestangularProvider,
@@ -49,8 +50,9 @@
 
             $urlRouterProvider.otherwise(domain + '/web');
 
+            var statePrefix = prefix;
             $stateProvider.state('index', {
-                    url : prefix,
+                    url : statePrefix,
                     templateUrl : resourcesPrefix + "/content/index/index.html",
                     controller : "IndexCtrl",
                     ncyBreadcrumb : {
@@ -58,12 +60,47 @@
                     }
                 })
                 .state('demotable', {
-                    url : prefix + '/demotable',
+                    url : statePrefix + '/demotable',
                     templateUrl : resourcesPrefix + "/content/demo/demotable.html",
                     controller : "DemoTableCtrl",
                     ncyBreadcrumb : {
-                        label : 'Demo table page',
-                        parent: 'index'
+                        label : 'Demo table page'
+                    }
+                })
+
+                .state('administrative', {
+                    url : statePrefix + '/administrative',
+                    ncyBreadcrumb : {
+                        label : 'Administrative'
+                    },
+                    abstract: true,
+                    template: '<ui-view/>'
+                })
+                .state('administrative.users', {
+                    url : '/users',
+                    templateUrl : resourcesPrefix + "/content/administrative/users/usersTable.html",
+                    controller : "UsersCtrl",
+                    ncyBreadcrumb : {
+                        label : 'Users',
+                        parent: 'administrative'
+                    }
+                })
+
+                .state('administrative.system', {
+                    url : '/system',
+                    templateUrl : resourcesPrefix + "/content/administrative/system/system.html",
+                    ncyBreadcrumb : {
+                        label : 'System',
+                        parent: 'administrative'
+                    }
+                })
+                .state('administrative.system.monitoring', {
+                    url : '/monitoring',
+                    templateUrl : resourcesPrefix + "/content/administrative/system/monitoring/monitoring.html",
+                    controller : "SystemMonitoringCtrl",
+                    ncyBreadcrumb : {
+                        label : 'Monitoring',
+                        parent: 'system'
                     }
                 });
 

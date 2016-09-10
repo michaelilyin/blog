@@ -19,8 +19,10 @@
 <body ng-controller="MainCtrl">
 	
 	<div id="header" ng-controller="HeaderCtrl" ng-include="'<c:url value="/resources/content/page/header.html"/>'"></div>
-	<div class="container-fluid main-container" ui-view></div>
-	<div ng-include="'<c:url value="/resources/content/page/footer.html"/>'"></div>
+	<div class="ui bottom attached segment">
+		<div class="container-fluid main-container" ui-view></div>
+		<div ng-include="'<c:url value="/resources/content/page/footer.html"/>'"></div>
+	</div>
 
 	<script type="text/javascript" src='<c:url value="/resources/lib/show-js-error/show-js-error.js"/>'></script>
 
@@ -40,6 +42,7 @@
 	<script type="text/javascript" src='<c:url value="/resources/lib/angular/restangular.min.js"/>'></script>
 	<script type="text/javascript" src='<c:url value="/resources/lib/angular/smart-table.min.js"/>'></script>
 	<script type="text/javascript" src='<c:url value="/resources/lib/angular/angular-local-storage.min.js"/>'></script>
+	<script type="text/javascript" src='<c:url value="/resources/lib/angular/ng-stomp.standalone.min.js"/>'></script>
 
 	<script type="text/javascript" src='<c:url value="/resources/js/app.js"/>'></script>
 	<script type="text/javascript" src='<c:url value="/resources/js/run.js"/>'></script>
@@ -63,7 +66,8 @@
 	
 	<script type="text/javascript" src='<c:url value="/resources/js/service/util/ModalService.js"/>'></script>
 	<script type="text/javascript" src='<c:url value="/resources/js/service/util/GridService.js"/>'></script>
-	<script type="text/javascript" src='<c:url value="/resources/js/service/DemoService.js"/>'></script>
+	<script type="text/javascript" src='<c:url value="/resources/js/service/administrative/UsersService.js"/>'></script>
+	<script type="text/javascript" src='<c:url value="/resources/js/service/administrative/system/MonitoringService.js"/>'></script>
 
     <script type="text/javascript" src='<c:url value="/resources/directives/modal/EditModalController.js"/>'></script>
 
@@ -72,8 +76,10 @@
 	
 	<script type="text/javascript" src='<c:url value="/resources/content/index/IndexCtrl.js"/>'></script>
 	<script type="text/javascript" src='<c:url value="/resources/content/stub/StubModalCtrl.js"/>'></script>
-	
-	<script type="text/javascript" src='<c:url value="/resources/content/demo/DemoTableCtrl.js"/>'></script>
+
+	<script type="text/javascript" src='<c:url value="/resources/content/administrative/users/UsersCtrl.js"/>'></script>
+
+	<script type="text/javascript" src='<c:url value="/resources/content/administrative/system/monitoring/SystemMonitoringCtrl.js"/>'></script>
 
 </body>
 </html>
