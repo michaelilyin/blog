@@ -2,8 +2,18 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:context="http://www.springframework.org/schema/context"
+
        xsi:schemaLocation="http://www.springframework.org/schema/beans
-			http://www.springframework.org/schema/beans/spring-beans-4.0.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+			http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+			http://www.springframework.org/schema/context
+			http://www.springframework.org/schema/context/spring-context.xsd
+			">
+
+    <!--xmlns:websocket="http://www.springframework.org/schema/websocket"-->
+    <!--http://www.springframework.org/schema/websocket
+			http://www.springframework.org/schema/websocket/spring-websocket.xsd-->
+
+    <context:property-placeholder location="/WEB-INF/spring.properties" />
 
     <bean id="multipartResolver"
           class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
@@ -18,7 +28,12 @@
         </property>
     </bean>
 
-    <context:property-placeholder location="/WEB-INF/spring.properties" />
+<!--    <websocket:message-broker application-destination-prefix="/app">
+        <websocket:stomp-endpoint path="/portfolio">
+            <websocket:sockjs/>
+        </websocket:stomp-endpoint>
+        <websocket:simple-broker prefix="/topic, /queue"/>
+    </websocket:message-broker>-->
 
     <import resource="classpath*:component-context.xml" />
     <import resource="classpath*:persistence-config.xml" />

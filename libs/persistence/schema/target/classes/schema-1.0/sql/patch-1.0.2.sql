@@ -1,6 +1,5 @@
-INSERT INTO users (id, login, name, surname, email, birthday)
+INSERT INTO users (login, name, surname, email, birthday)
 VALUES (
-  nextval('seq_user_id'),
   'system',
   'mr. System',
   'Manager',
@@ -8,9 +7,8 @@ VALUES (
   to_date('01.01.1970', 'DD.MM.YYYY')
 );
 
-INSERT INTO users (id, login, name, surname, email, birthday)
+INSERT INTO users (login, name, surname, email, birthday)
 VALUES (
-  nextval('seq_user_id'),
   'harrypotter',
   'Harry',
   'Potter',
@@ -18,9 +16,8 @@ VALUES (
   to_date('10.01.1971', 'DD.MM.YYYY')
 );
 
-INSERT INTO users (id, login, name, surname, email, birthday)
+INSERT INTO users (login, name, surname, email, birthday)
 VALUES (
-  nextval('seq_user_id'),
   'germionagranger',
   'Germiona',
   'Granger',
@@ -28,9 +25,8 @@ VALUES (
   to_date('20.01.1972', 'DD.MM.YYYY')
 );
 
-INSERT INTO users (id, login, name, surname, email, birthday)
+INSERT INTO users (login, name, surname, email, birthday)
 VALUES (
-  nextval('seq_user_id'),
   'ronaldwesley',
   'Ronald',
   'Wesley',
@@ -38,9 +34,8 @@ VALUES (
   to_date('01.02.1973', 'DD.MM.YYYY')
 );
 
-INSERT INTO users (id, login, name, surname, email, birthday)
+INSERT INTO users (login, name, surname, email, birthday)
 VALUES (
-  nextval('seq_user_id'),
   'nevildolgopups',
   'Nevil',
   'Dolgopups',
@@ -48,9 +43,8 @@ VALUES (
   to_date('10.02.1974', 'DD.MM.YYYY')
 );
 
-INSERT INTO users (id, login, name, surname, email, birthday)
+INSERT INTO users (login, name, surname, email, birthday)
 VALUES (
-  nextval('seq_user_id'),
   'dracomalfoy',
   'Draco',
   'Malfoy',
@@ -58,9 +52,8 @@ VALUES (
   to_date('20.02.1975', 'DD.MM.YYYY')
 );
 
-INSERT INTO users (id, login, name, surname, email, birthday)
+INSERT INTO users (login, name, surname, email, birthday)
 VALUES (
-  nextval('seq_user_id'),
   'hagrid',
   'Hagrid',
   null,
@@ -68,9 +61,8 @@ VALUES (
   to_date('01.03.1976', 'DD.MM.YYYY')
 );
 
-INSERT INTO users (id, login, name, surname, email, birthday)
+INSERT INTO users (login, name, surname, email, birthday)
 VALUES (
-  nextval('seq_user_id'),
   'tomredl',
   'Tom',
   'Redl',
@@ -78,9 +70,8 @@ VALUES (
   to_date('10.03.1977', 'DD.MM.YYYY')
 );
 
-INSERT INTO users (id, login, name, surname, email, birthday)
+INSERT INTO users (login, name, surname, email, birthday)
 VALUES (
-  nextval('seq_user_id'),
   'severussnape',
   'Severus',
   'Snape',
@@ -88,9 +79,8 @@ VALUES (
   to_date('20.03.1978', 'DD.MM.YYYY')
 );
 
-INSERT INTO users (id, login, name, surname, email, birthday)
+INSERT INTO users (login, name, surname, email, birthday)
 VALUES (
-  nextval('seq_user_id'),
   'gorgewisley',
   'Gorge',
   'Wisley',
@@ -98,9 +88,8 @@ VALUES (
   to_date('01.04.1979', 'DD.MM.YYYY')
 );
 
-INSERT INTO users (id, login, name, surname, email, birthday)
+INSERT INTO users (login, name, surname, email, birthday)
 VALUES (
-  nextval('seq_user_id'),
   'fredwisley',
   'Fred',
   'Wisley',
@@ -108,9 +97,8 @@ VALUES (
   to_date('10.04.1980', 'DD.MM.YYYY')
 );
 
-INSERT INTO users (id, login, name, surname, email, birthday)
+INSERT INTO users (login, name, surname, email, birthday)
 VALUES (
-  nextval('seq_user_id'),
   'siriusblack',
   'Sirius',
   'Black',
@@ -118,9 +106,8 @@ VALUES (
   to_date('20.04.1981', 'DD.MM.YYYY')
 );
 
-INSERT INTO users (id, login, name, surname, email, birthday)
+INSERT INTO users (login, name, surname, email, birthday)
 VALUES (
-  nextval('seq_user_id'),
   'hodor',
   'Hodor',
   null,
@@ -128,9 +115,8 @@ VALUES (
   to_date('01.05.1982', 'DD.MM.YYYY')
 );
 
-INSERT INTO users (id, login, name, surname, email, birthday)
+INSERT INTO users (login, name, surname, email, birthday)
 VALUES (
-  nextval('seq_user_id'),
   'nedstark',
   'Ned',
   'Stark',
@@ -138,9 +124,8 @@ VALUES (
   to_date('10.05.1983', 'DD.MM.YYYY')
 );
 
-INSERT INTO users (id, login, name, surname, email, birthday)
+INSERT INTO users (login, name, surname, email, birthday)
 VALUES (
-  nextval('seq_user_id'),
   'robstark',
   'Rob',
   'Stark',
@@ -148,9 +133,8 @@ VALUES (
   to_date('20.05.1984', 'DD.MM.YYYY')
 );
 
-INSERT INTO users (id, login, name, surname, email, birthday)
+INSERT INTO users (login, name, surname, email, birthday)
 VALUES (
-  nextval('seq_user_id'),
   'aryastark',
   'Arya',
   'Stark',
@@ -158,9 +142,8 @@ VALUES (
   to_date('01.06.1985', 'DD.MM.YYYY')
 );
 
-INSERT INTO users (id, login, name, surname, email, birthday)
+INSERT INTO users (login, name, surname, email, birthday)
 VALUES (
-  nextval('seq_user_id'),
   'katelin',
   'Katelin',
   'Stark',
@@ -168,9 +151,8 @@ VALUES (
   to_date('10.06.1986', 'DD.MM.YYYY')
 );
 
-INSERT INTO users (id, login, name, surname, email, birthday)
+INSERT INTO users (login, name, surname, email, birthday)
 VALUES (
-  nextval('seq_user_id'),
   'bran',
   'Bran',
   'Stark',
@@ -178,9 +160,8 @@ VALUES (
   to_date('20.06.1987', 'DD.MM.YYYY')
 );
 
-INSERT INTO users (id, login, name, surname, email, birthday)
+INSERT INTO users (login, name, surname, email, birthday)
 VALUES (
-  nextval('seq_user_id'),
   'johnsnow',
   'John',
   'Snow',
@@ -188,9 +169,8 @@ VALUES (
   to_date('01.07.1988', 'DD.MM.YYYY')
 );
 
-INSERT INTO users (id, login, name, surname, email, birthday)
+INSERT INTO users (login, name, surname, email, birthday)
 VALUES (
-  nextval('seq_user_id'),
   'robertbarateon',
   'Robert',
   'Barateon',
@@ -198,9 +178,8 @@ VALUES (
   to_date('10.07.1989', 'DD.MM.YYYY')
 );
 
-INSERT INTO users (id, login, name, surname, email, birthday)
+INSERT INTO users (login, name, surname, email, birthday)
 VALUES (
-  nextval('seq_user_id'),
   'stanisbarateon',
   'Stanis',
   'Barateon',
@@ -208,9 +187,8 @@ VALUES (
   to_date('20.07.1990', 'DD.MM.YYYY')
 );
 
-INSERT INTO users (id, login, name, surname, email, birthday)
+INSERT INTO users (login, name, surname, email, birthday)
 VALUES (
-  nextval('seq_user_id'),
   'sercylanister',
   'Sercy',
   'Lanister',
@@ -218,9 +196,8 @@ VALUES (
   to_date('01.08.1991', 'DD.MM.YYYY')
 );
 
-INSERT INTO users (id, login, name, surname, email, birthday)
+INSERT INTO users (login, name, surname, email, birthday)
 VALUES (
-  nextval('seq_user_id'),
   'tirionlanister',
   'Tirion',
   'Lanister',
@@ -228,9 +205,8 @@ VALUES (
   to_date('10.08.1992', 'DD.MM.YYYY')
 );
 
-INSERT INTO users (id, login, name, surname, email, birthday)
+INSERT INTO users (login, name, surname, email, birthday)
 VALUES (
-  nextval('seq_user_id'),
   'jamelanister',
   'Jame',
   'Lanister',
@@ -238,9 +214,8 @@ VALUES (
   to_date('20.08.1993', 'DD.MM.YYYY')
 );
 
-INSERT INTO users (id, login, name, surname, email, birthday)
+INSERT INTO users (login, name, surname, email, birthday)
 VALUES (
-  nextval('seq_user_id'),
   'robertaren',
   'Robert',
   'Aren',
@@ -248,9 +223,8 @@ VALUES (
   to_date('01.09.1994', 'DD.MM.YYYY')
 );
 
-INSERT INTO users (id, login, name, surname, email, birthday)
+INSERT INTO users (login, name, surname, email, birthday)
 VALUES (
-  nextval('seq_user_id'),
   'lancellanister',
   'Lancel',
   'Lanister',

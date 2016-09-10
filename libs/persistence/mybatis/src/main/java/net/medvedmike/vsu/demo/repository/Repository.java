@@ -14,5 +14,5 @@ public interface Repository<PK extends Serializable, T> {
 
     void update(T entity);
 
-    void delete(PK id);
+    void delete(List<PK> id);
 }

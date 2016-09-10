@@ -16,7 +16,7 @@
 	                var jqe = angular.element(element);
 	                jqe.attr("data-toggle", "tooltip"); 
 	                jqe.attr("title", attrs.wmTooltip);
-	                jqe.tooltip();
+	                //jqe.tooltip();
 	            }
 	        };
 	    });

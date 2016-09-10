@@ -1,0 +1,16 @@
+<div class="header">
+    {{title ? title : "Edit"}}
+</div>
+<div class="content ui segment" style="margin: 0; border: 0; box-shadow: none;">
+    <div class="ui inverted dimmer" ng-class="loading ? 'active' : ''">
+        <div class="ui text loader">Loading</div>
+    </div>
+    <div class="ui inverted dimmer" ng-class="processing ? 'active' : ''">
+        <div class="ui indeterminate text loader">Processing</div>
+    </div>
+    <div ng-include='getTemplateUrl()'></div>
+</div>
+<div class="actions">
+    <button class="ui positive button" type="button" ng-click="save()" ng-disable="loading">{{id ? 'Save' : 'Create'}}</button>
+    <button class="ui black deny button" type="button" ng-click="close()">Cancel</button>
+</div>
