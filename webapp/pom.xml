@@ -41,9 +41,9 @@
                 <artifactId>tomcat7-maven-plugin</artifactId>
                 <version>2.2</version>
                 <configuration>
-                    <url>http://localhost:8080/manager/text</url>
+                    <url>http://michaelilyin.ru/manager/text</url>
                     <server>TomcatServer</server>
-                    <path>/ROOT</path>
+                    <path>/personal</path>
                 </configuration>
             </plugin>
 		</plugins>
