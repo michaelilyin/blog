@@ -44,7 +44,6 @@
                     <url>http://michaelilyin.ru/manager/text</url>
                     <server>TomcatServer</server>
                     <path>/ROOT</path>
-                    <update>true</update>
                 </configuration>
             </plugin>
 		</plugins>
