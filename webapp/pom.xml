@@ -43,7 +43,7 @@
                 <configuration>
                     <url>http://michaelilyin.ru/manager/text</url>
                     <server>TomcatServer</server>
-                    <path>/ROOT</path>
+                    <path>/blog</path>
                 </configuration>
             </plugin>
 		</plugins>
