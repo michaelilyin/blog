@@ -3,17 +3,16 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<parent>
-		<artifactId>vsu-demo-libs</artifactId>
-		<groupId>net.medvedmike</groupId>
+		<groupId>ru.michaelilyin</groupId>
+		<artifactId>blog-libs</artifactId>
 		<version>1.0-SNAPSHOT</version>
 		<relativePath>../pom.xml</relativePath>
 	</parent>
 
-	<artifactId>vsu-demo-libs-api</artifactId>
-	<version>1.0-SNAPSHOT</version>
+	<artifactId>blog-api</artifactId>
 	<packaging>jar</packaging>
 
-	<name>VSU demo application libs api</name>
+	<name>Blog application libs api</name>
 
 	<properties>
 		<build.timestamp>${maven.build.timestamp}</build.timestamp>
@@ -22,6 +21,8 @@
 
 	<build>
 		<finalName>${project.artifactId}</finalName>
+        <sourceDirectory>${project.basedir}/src/main/kotlin</sourceDirectory>
+        <!--<testSourceDirectory>${project.basedir}/src/test/kotlin</testSourceDirectory>-->
 
 		<resources>
 			<resource>
@@ -30,7 +31,12 @@
 			</resource>
 		</resources>
 
-		<plugins>
+        <plugins>
+            <plugin>
+                <groupId>org.jetbrains.kotlin</groupId>
+                <artifactId>kotlin-maven-plugin</artifactId>
+            </plugin>
+
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-resources-plugin</artifactId>
@@ -55,6 +61,10 @@
 	</build>
 
 	<dependencies>
+		<dependency>
+			<groupId>org.jetbrains.kotlin</groupId>
+			<artifactId>kotlin-stdlib</artifactId>
+		</dependency>
         <!-- JSON -->
 		<dependency>
 			<groupId>com.fasterxml.jackson.core</groupId>

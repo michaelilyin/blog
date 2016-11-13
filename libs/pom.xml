@@ -3,17 +3,16 @@
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
-        <artifactId>vsu-demo</artifactId>
-        <groupId>net.medvedmike</groupId>
+        <groupId>ru.michaelilyin</groupId>
+        <artifactId>blog</artifactId>
         <version>1.0-SNAPSHOT</version>
         <relativePath>../pom.xml</relativePath>
     </parent>
 
-    <artifactId>vsu-demo-libs</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <artifactId>blog-libs</artifactId>
     <packaging>pom</packaging>
 
-    <name>VSU demo application libs</name>
+    <name>Blog application libs</name>
 
     <properties>
         <build.timestamp>${maven.build.timestamp}</build.timestamp>

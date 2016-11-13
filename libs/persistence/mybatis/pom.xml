@@ -3,17 +3,16 @@
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
-        <groupId>net.medvedmike</groupId>
-        <artifactId>vsu-demo-persistence</artifactId>
+        <artifactId>blog-persistence</artifactId>
+        <groupId>ru.michaelilyin</groupId>
         <version>1.0-SNAPSHOT</version>
         <relativePath>../pom.xml</relativePath>
     </parent>
 
-    <artifactId>vsu-demo-mybatis</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <artifactId>blog-mybatis</artifactId>
     <packaging>jar</packaging>
 
-    <name>VSU demo application mybatis support</name>
+    <name>Blog application mybatis support</name>
 
     <properties>
         <build.timestamp>${maven.build.timestamp}</build.timestamp>
@@ -22,9 +21,9 @@
 
     <dependencies>
         <dependency>
-            <groupId>net.medvedmike</groupId>
-            <artifactId>vsu-demo-libs-api</artifactId>
-            <version>1.0-SNAPSHOT</version>
+            <groupId>ru.michaelilyin</groupId>
+            <artifactId>blog-api</artifactId>
+            <version>${project.version}</version>
             <scope>provided</scope>
         </dependency>
 

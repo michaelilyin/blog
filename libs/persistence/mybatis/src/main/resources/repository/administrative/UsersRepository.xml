@@ -1,9 +1,9 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="net.medvedmike.vsu.demo.repository.administrative.UsersRepository">
+<mapper namespace="ru.michaelilyin.vsu.demo.repository.administrative.UsersRepository">
 
-    <select id="getUserViews" resultType="net.medvedmike.vsu.demo.domain.administrative.UserView">
+    <select id="getUserViews" resultType="ru.michaelilyin.vsu.demo.domain.administrative.UserView">
         <include refid="net.medvedmike.vsu.demo.repository.commonSql.pageSupportBegin"/>
         <![CDATA[
         SELECT
@@ -25,7 +25,7 @@
         <include refid="net.medvedmike.vsu.demo.repository.commonSql.pageSupportEnd"/>
     </select>
 
-    <select id="find" resultType="net.medvedmike.vsu.demo.domain.administrative.User">
+    <select id="find" resultType="ru.michaelilyin.vsu.demo.domain.administrative.User">
         <![CDATA[
         SELECT
           id as id,
@@ -40,7 +40,7 @@
         ]]>
     </select>
 
-    <insert id="create" parameterType="net.medvedmike.vsu.demo.domain.administrative.User">
+    <insert id="create" parameterType="ru.michaelilyin.vsu.demo.domain.administrative.User">
         <![CDATA[
         INSERT INTO users (login, name, surname, email, birthday)
         VALUES (#{login}, #{name}, #{surname}, #{email}, #{birthday})
@@ -52,7 +52,7 @@
         </selectKey>
     </insert>
 
-    <update id="update" parameterType="net.medvedmike.vsu.demo.domain.administrative.User">
+    <update id="update" parameterType="ru.michaelilyin.vsu.demo.domain.administrative.User">
         <![CDATA[
         UPDATE users
         SET
