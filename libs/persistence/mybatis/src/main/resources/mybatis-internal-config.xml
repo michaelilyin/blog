@@ -9,9 +9,9 @@
     <typeHandlers>
         <typeHandler javaType="java.util.Date" handler="org.apache.ibatis.type.DateTypeHandler" jdbcType="DATE"/>
         <!--<typeHandler javaType="org.joda.time.DateTime" jdbcType="DATE"
-                     handler="net.medvedmike.vsu.demo.mybatis.handlers.DateTimeHandler" />
+                     handler="DateTimeHandler" />
         <typeHandler javaType="org.joda.time.DateTime" jdbcType=""
-                     handler="net.medvedmike.vsu.demo.mybatis.handlers.DateTimeHandler" />-->
+                     handler="DateTimeHandler" />-->
         <!--<typeHandler javaType="oracle.sql.TIMESTAMP" handler="org.apache.ibatis.type.DateTypeHandler" />-->
     </typeHandlers>
 </configuration>

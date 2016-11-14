@@ -3,17 +3,16 @@
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
-        <artifactId>vsu-demo-persistence</artifactId>
-        <groupId>net.medvedmike</groupId>
+        <groupId>ru.michaelilyin</groupId>
+        <artifactId>blog-persistence</artifactId>
         <version>1.0-SNAPSHOT</version>
         <relativePath>../pom.xml</relativePath>
     </parent>
 
-    <artifactId>vsu-demo-db-schema</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <artifactId>blog-db-schema</artifactId>
     <packaging>jar</packaging>
 
-    <name>VSU demo application db schema</name>
+    <name>Blog application db schema</name>
 
     <properties>
         <build.timestamp>${maven.build.timestamp}</build.timestamp>
