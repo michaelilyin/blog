@@ -20,8 +20,9 @@
         <maven.build.timestamp.format>yyyy-MM-dd HH:mm:ss</maven.build.timestamp.format>
     </properties>
 
-  <modules>
-    <module>mybatis</module>
-    <module>schema</module>
-  </modules>
+    <modules>
+        <module>schema</module>
+        <module>persistence-api</module>
+        <module>spring-jdbc</module>
+    </modules>
 </project>
