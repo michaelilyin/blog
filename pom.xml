@@ -183,6 +183,7 @@
                             <goals>
                                 <goal>compile</goal>
                             </goals>
+							<phase>process-sources</phase>
                         </execution>
 
                         <execution>
@@ -190,6 +191,7 @@
                             <goals>
                                 <goal>test-compile</goal>
                             </goals>
+							<phase>process-test-sources</phase>
                         </execution>
                     </executions>
                 </plugin>

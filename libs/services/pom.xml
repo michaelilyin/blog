@@ -20,8 +20,8 @@
 	</properties>
 
 	<build>
-		<finalName>${project.artifactId}</finalName>
-
+        <finalName>${project.artifactId}</finalName>
+        <sourceDirectory>${project.basedir}/src/main/kotlin</sourceDirectory>
 		<resources>
 			<resource>
 				<directory>src/main/resources</directory>
@@ -30,6 +30,11 @@
 		</resources>
 
 		<plugins>
+			<plugin>
+				<groupId>org.jetbrains.kotlin</groupId>
+				<artifactId>kotlin-maven-plugin</artifactId>
+			</plugin>
+
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-resources-plugin</artifactId>
@@ -69,6 +74,12 @@
 	<!--</dependencyManagement>-->
 
 	<dependencies>
+
+		<dependency>
+			<groupId>ru.michaelilyin</groupId>
+			<artifactId>blog-persistence-api</artifactId>
+			<version>${project.version}</version>
+		</dependency>
 
         <dependency>
             <groupId>ru.michaelilyin</groupId>
@@ -113,10 +124,6 @@
 		<dependency>
 			<groupId>org.springframework.security</groupId>
 			<artifactId>spring-security-config</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.security</groupId>
-			<artifactId>spring-security-taglibs</artifactId>
 		</dependency>
 		<!-- END: Spring Security -->
 
@@ -232,28 +239,16 @@
 		</dependency>
 		<!--END TESTING -->
 
-		<!-- LOGGING -->
 		<dependency>
-			<groupId>org.slf4j</groupId>
-			<artifactId>jcl-over-slf4j</artifactId>
-			<version>1.5.8</version>
+			<groupId>io.github.microutils</groupId>
+			<artifactId>kotlin-logging</artifactId>
+			<version>1.4</version>
 		</dependency>
 		<dependency>
 			<groupId>org.slf4j</groupId>
 			<artifactId>slf4j-api</artifactId>
-			<version>1.5.8</version>
+			<version>1.7.21</version>
 		</dependency>
-		<dependency>
-			<groupId>org.slf4j</groupId>
-			<artifactId>slf4j-log4j12</artifactId>
-			<version>1.5.8</version>
-		</dependency>
-		<dependency>
-			<groupId>log4j</groupId>
-			<artifactId>log4j</artifactId>
-			<version>1.2.14</version>
-		</dependency>
-		<!-- END LOGGING -->
 
 	</dependencies>
 
