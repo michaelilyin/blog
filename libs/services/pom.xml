@@ -89,7 +89,7 @@
 
         <dependency>
 			<groupId>ru.michaelilyin</groupId>
-            <artifactId>blog-mybatis</artifactId>
+            <artifactId>blog-spring-jdbc</artifactId>
 			<version>${project.version}</version>
         </dependency>
 
