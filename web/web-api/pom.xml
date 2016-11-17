@@ -194,109 +194,23 @@
                 </resources>
                 <plugins>
                     <plugin>
-                        <groupId>com.samaxes.maven</groupId>
-                        <artifactId>minify-maven-plugin</artifactId>
-                        <version>${maven.minify.plugin}</version>
+                        <groupId>org.eluder.coveralls</groupId>
+                        <artifactId>coveralls-maven-plugin</artifactId>
+                        <version>4.3.0</version>
+                        <configuration>
+                            
+                        </configuration>
+                    </plugin>
+                    
+                    <plugin>
+                        <groupId>org.jacoco</groupId>
+                        <artifactId>jacoco-maven-plugin</artifactId>
+                        <version>0.7.6.201602180812</version>
                         <executions>
                             <execution>
-                                <id>app-minify</id>
-                                <phase>prepare-package</phase>
-                                <configuration>
-                                    <cssSourceDir>resources/css</cssSourceDir>
-                                    <cssSourceFiles>
-                                        <cssSourceFile>../lib/bootstrap/css/bootstrap.min.css</cssSourceFile>
-                                        <cssSourceFile>main.css</cssSourceFile>
-                                    </cssSourceFiles>
-                                    <cssFinalFile>vsu-test.css</cssFinalFile>
-                                    <cssTargetDir>/resources/css</cssTargetDir>
-                                    <closureLanguage>ECMASCRIPT5</closureLanguage>
-                                </configuration>
+                                <id>prepare-agent</id>
                                 <goals>
-                                    <goal>minify</goal>
-                                </goals>
-                            </execution>
-                            <execution>
-                                <id>controllers-minify</id>
-                                <phase>prepare-package</phase>
-                                <configuration>
-                                    <jsSourceDir>resources/content</jsSourceDir>
-                                    <jsSourceIncludes>
-                                        <jsSourceInclude>**/*Ctrl.js</jsSourceInclude>
-                                    </jsSourceIncludes>
-                                    <jsFinalFile>controllers.js</jsFinalFile>
-                                    <jsTargetDir>resources/js</jsTargetDir>
-                                    <jsEngine>CLOSURE</jsEngine>
-                                    <closureLanguage>ECMASCRIPT5</closureLanguage>
-                                </configuration>
-                                <goals>
-                                    <goal>minify</goal>
-                                </goals>
-                            </execution>
-                            <execution>
-                                <id>directives-minify</id>
-                                <phase>prepare-package</phase>
-                                <configuration>
-                                    <jsSourceDir>resources/directives</jsSourceDir>
-                                    <jsSourceIncludes>
-                                        <jsSourceInclude>**/*.js</jsSourceInclude>
-                                    </jsSourceIncludes>
-                                    <jsFinalFile>directives.js</jsFinalFile>
-                                    <jsTargetDir>resources/js</jsTargetDir>
-                                    <jsEngine>CLOSURE</jsEngine>
-                                    <closureLanguage>ECMASCRIPT5</closureLanguage>
-                                </configuration>
-                                <goals>
-                                    <goal>minify</goal>
-                                </goals>
-                            </execution>
-                            <!--<execution> <id>filters-minify</id> <phase>prepare-package</phase>
-                                <configuration> <jsSourceDir>resources/js/filter</jsSourceDir> <jsSourceIncludes>
-                                <jsSourceInclude>**/*.js</jsSourceInclude> </jsSourceIncludes> <jsFinalFile>filters.js</jsFinalFile>
-                                <jsTargetDir>resources/js</jsTargetDir> <jsEngine>CLOSURE</jsEngine> <closureLanguage>ECMASCRIPT5</closureLanguage>
-                                </configuration> <goals> <goal>minify</goal> </goals> </execution> -->
-                            <execution>
-                                <id>services-minify</id>
-                                <phase>prepare-package</phase>
-                                <configuration>
-                                    <jsSourceDir>resources/js/service</jsSourceDir>
-                                    <jsSourceIncludes>
-                                        <jsSourceInclude>**/*.js</jsSourceInclude>
-                                    </jsSourceIncludes>
-                                    <jsFinalFile>services.js</jsFinalFile>
-                                    <jsTargetDir>resources/js</jsTargetDir>
-                                    <jsEngine>CLOSURE</jsEngine>
-                                    <closureLanguage>ECMASCRIPT5</closureLanguage>
-                                </configuration>
-                                <goals>
-                                    <goal>minify</goal>
-                                </goals>
-                            </execution>
-                            <execution>
-                                <id>lib-minify</id>
-                                <phase>prepare-package</phase>
-                                <configuration>
-                                    <jsSourceDir>resources/lib</jsSourceDir>
-                                    <jsSourceFiles>
-                                        <jsSourceFile>jquery/jquery-2.1.4.min.js</jsSourceFile>
-                                        <jsSourceFile>jquery/jquery-ui.min.js</jsSourceFile>
-                                        <jsSourceFile>angular/angular.min.js</jsSourceFile>
-                                        <jsSourceFile>angular/angular-route.min.js</jsSourceFile>
-                                        <jsSourceFile>angular/angular-ui-router.min.js</jsSourceFile>
-                                        <jsSourceFile>angular/angular-breadcrumb.min.js</jsSourceFile>
-                                        <jsSourceFile>angular/lodash.min.js</jsSourceFile>
-                                        <jsSourceFile>angular/restangular.min.js</jsSourceFile>
-                                        <jsSourceFile>bootstrap/ui-bootstrap-tpls-0.14.3.min.js</jsSourceFile>
-                                        <jsSourceFile>bootstrap/js/bootstrap.min.js</jsSourceFile>
-                                        <jsSourceFile>angular/smart-table.min.js</jsSourceFile>
-                                        <jsSourceFile>angular/angular-local-storage.min.js</jsSourceFile>
-                                    </jsSourceFiles>
-                                    <jsFinalFile>lib.js</jsFinalFile>
-                                    <jsTargetDir>resources/js</jsTargetDir>
-                                    <jsEngine>CLOSURE</jsEngine>
-                                    <closureLanguage>ECMASCRIPT5</closureLanguage>
-                                </configuration>
-                                <goals>
-                                    <goal>minify</goal>
+                                    <goal>prepare-agent</goal>
                                 </goals>
                             </execution>
                         </executions>
