@@ -19,15 +19,8 @@
 
 	<mvc:resources mapping="/resources/**" location="/resources/" />
 
-	<context:component-scan base-package="net.medvedmike.vsu.demo.controller" />
+	<context:component-scan base-package="ru.michaelilyin.blog.controllers" />
 
-	<bean id="viewResolver"
-		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-		<property name="viewClass"
-			value="org.springframework.web.servlet.view.JstlView" />
-		<property name="prefix" value="/jsp/" />
-		<property name="suffix" value=".jsp" />
-	</bean>
 	<security:global-method-security pre-post-annotations="enabled" />
 
 </beans>

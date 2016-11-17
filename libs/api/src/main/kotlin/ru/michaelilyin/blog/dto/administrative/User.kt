@@ -1,19 +1,17 @@
 package ru.michaelilyin.blog.dto.administrative
 
-import ru.michaelilyin.blog.domain.administrative.RoleDomain
 import ru.michaelilyin.blog.domain.administrative.UserDomain
-import java.time.Instant
 import java.util.*
 
 /**
  * TODO: javadoc
  * Created by Michael Ilyin on 15.11.2016.
  */
-data class User(var id: Long = 0,
-                var name: String = "",
-                var surname: String = "",
-                var login: String = "",
-                var birthday: Date = Date.from(Instant.MIN)) {
+data class User(var id: Long,
+                var name: String,
+                var surname: String,
+                var login: String,
+                var birthday: Date) {
 
     constructor(domain: UserDomain) : this(
             id = domain.id,
