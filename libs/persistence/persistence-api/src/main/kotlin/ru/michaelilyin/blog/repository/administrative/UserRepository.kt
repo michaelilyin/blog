@@ -7,5 +7,6 @@ import ru.michaelilyin.blog.domain.administrative.UserDomain
  * Created by Michael Ilyin on 15.11.2016.
  */
 interface UserRepository {
+    fun getUsers(page: Int, count: Int): List<UserDomain>
     fun findUser(id: Long): UserDomain
 }

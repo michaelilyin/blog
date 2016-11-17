@@ -15,7 +15,3 @@ annotation class AuditComplete(val type: Long = 0)
 @Target(AnnotationTarget.FUNCTION)
 @Retention(AnnotationRetention.RUNTIME)
 annotation class AuditError(val type: Long = 0)
-
-@Target(AnnotationTarget.FUNCTION)
-@Retention(AnnotationRetention.RUNTIME)
-annotation class AuditFull(val type: Long = 0)

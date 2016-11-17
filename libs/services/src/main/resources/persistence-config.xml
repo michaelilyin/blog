@@ -26,6 +26,6 @@
     <tx:annotation-driven transaction-manager="transactionManager" />
 
     <import resource="classpath*:liquibase-config.xml" />
-    <import resource="classpath*:mybatis-config.xml"/>
+    <!--<import resource="classpath*:mybatis-config.xml"/>-->
 
 </beans>
