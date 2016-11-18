@@ -1,22 +1,6 @@
 language: java
 jdk:
   - oraclejdk8
-after_success:
-  - mvn clean verify jacoco:report coveralls:report
-
-env:
-  global:
-   - secure: "ooEqnl5Rd6C8f69bN5J20aBkoDLd9V3mGCnjQaYz+vT/n9VK0KEKTgGL/ZdZwcvew4d8NydHk76mAyNA6j2tGpyAs7qbAixmq1AstsG1UgsrkC6hgYcchNDXROzExt0fmAdnocqSwY9g1t6bpw6uCVzbAJ4k/dL/FdGw5yKF5mdCObOcr+l51k/ERY7MWrTDLpG+mZfthiPilDfPVrn6la4Ey9QPadgOarnEVkV19eOsCyRHaTolQXsdC+APDv0JHgylXx1fyq4Y5YzuYJ71YjSI8DLaeigR3jS8ZRWLOMxflWpwCvphl/V2PW9Rzl8I5+Jm+DbLr/qP436vraZstacaWMP1Lyndqg39+eiC3ovL2nscYHlxZTQr8nNslAcspKtT7UXe7pwg2tku03ljMjsz4tXW5PxvAfsfPjK0djnfEMTPdv+IJx9YmXO8RlGqCQTBb8ha4GZJ3NSS9SaXn3aWP7FoOAyekVxc/sKKX7P4LcjSHiUBSYmt2AfY6QRdlcEGwUHVsY5tvF+qxjXds3h1kXZOW1X4LGiyPmSuR2PBphhA8yPkDCUaALg+XqgNOa6hznPf4CQUyHH7SHhPHqMM1ifVNo/N0vPza1Cgu5lyz6cAtDZMRqAuAnsFcinNem9HPEKNus93iFINvXU7OPyqAzQOEWCO91jh9HB7PJA="
-
-before_install:
-      - echo -n | openssl s_client -connect scan.coverity.com:443 | sed -ne '/-BEGIN CERTIFICATE-/,/-END CERTIFICATE-/p' | sudo tee -a /etc/ssl/certs/ca-
-
-addons:
-  coverity_scan:
-    project:
-      name: "michaelilyin/blog"
-      description: "Build submitted via Travis CI"
-    notification_email: michael.s.ilyin@gmail.com
-    build_command_prepend: "mvn clean"
-    build_command:   "mvn -DskipTests=true compile"
-    branch_pattern: dev
+  
+script:
+  - mvn clean install jacoco:report coveralls:report
