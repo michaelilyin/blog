@@ -60,5 +60,20 @@ class UserControllerTest {
                         .get("/api/v1/users")
                         .accept(MediaType.APPLICATION_JSON_UTF8_VALUE))
                 .andExpect(status().isOk)
+
+        Mockito.verify(usersService, Mockito.times(1)).getUsers(1, 10)
     }
+
+    @Test
+    fun testGetById() {
+        Mockito.`when`(usersService.findUser(user1.id)).thenReturn(user1)
+        mockMvc
+                .perform(MockMvcRequestBuilders
+                        .get("/api/v1/users/${user1.id}")
+                        .accept(MediaType.APPLICATION_JSON_UTF8_VALUE))
+                .andExpect(status().isOk)
+
+        Mockito.verify(usersService, Mockito.times(1)).findUser(user1.id)
+    }
+
 }
