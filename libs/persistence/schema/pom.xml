@@ -12,8 +12,6 @@
     <artifactId>blog-db-schema</artifactId>
     <packaging>jar</packaging>
 
-    <name>Blog application db schema</name>
-
     <properties>
         <build.timestamp>${maven.build.timestamp}</build.timestamp>
         <maven.build.timestamp.format>yyyy-MM-dd HH:mm:ss</maven.build.timestamp.format>

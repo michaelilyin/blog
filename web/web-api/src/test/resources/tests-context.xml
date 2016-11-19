@@ -5,22 +5,8 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans
 			http://www.springframework.org/schema/beans/spring-beans-4.0.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
 
-    <bean id="multipartResolver"
-          class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
-        <property name="maxUploadSize" value="536870912" />
+    <bean id="usersService" name="userService" class="org.mockito.Mockito" factory-method="mock">
+        <constructor-arg value="ru.michaelilyin.blog.services.administrative.UserService"/>
     </bean>
-
-    <bean id="properties" class="org.springframework.beans.factory.config.PropertiesFactoryBean">
-        <property name="locations">
-            <list>
-                <value>classpath*:**/*.properties</value>
-            </list>
-        </property>
-    </bean>
-
-    <context:property-placeholder location="/WEB-INF/spring.properties" />
-    <context:component-scan base-package="ru.michaelilyin.blog.controllers" />
-
-    <import resource="classpath*:component-context.xml" />
 
 </beans>

@@ -23,4 +23,19 @@
 
 	<security:global-method-security pre-post-annotations="enabled" />
 
+	<context:property-placeholder location="/WEB-INF/spring.properties" />
+
+	<bean id="multipartResolver"
+		  class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+		<property name="maxUploadSize" value="536870912" />
+	</bean>
+
+	<bean id="properties" class="org.springframework.beans.factory.config.PropertiesFactoryBean">
+		<property name="locations">
+			<list>
+				<value>classpath*:**/*.properties</value>
+			</list>
+		</property>
+	</bean>
+
 </beans>

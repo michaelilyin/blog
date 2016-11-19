@@ -8,4 +8,5 @@
     <root level="debug">
         <appender-ref ref="stdout" />
     </root>
+
 </configuration>
