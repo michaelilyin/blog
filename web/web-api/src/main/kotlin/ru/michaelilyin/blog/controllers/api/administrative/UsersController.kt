@@ -5,6 +5,7 @@ import org.springframework.http.ResponseEntity
 import org.springframework.stereotype.Controller
 import org.springframework.web.bind.annotation.PathVariable
 import org.springframework.web.bind.annotation.RequestMapping
+import org.springframework.web.bind.annotation.RequestMethod
 import org.springframework.web.bind.annotation.RequestParam
 import ru.michaelilyin.blog.controllers.api.API_PREFIX
 import ru.michaelilyin.blog.controllers.api.BaseController
@@ -22,7 +23,7 @@ open class UserController @Autowired constructor(
         private val userService: UserService
 ) : BaseController() {
 
-    @RequestMapping("/users")
+    @RequestMapping("/users", method = arrayOf(RequestMethod.GET))
     fun getUsers(@RequestParam("page", required = false, defaultValue = "0") page: Int,
                  @RequestParam("count", required = false, defaultValue = "0") count: Int
     ): ResponseEntity<Page<User>> {
@@ -30,7 +31,7 @@ open class UserController @Autowired constructor(
         return ResponseEntity.ok(Page(users, 0))
     }
 
-    @RequestMapping("/users/{id}")
+    @RequestMapping("/users/{id}", method = arrayOf(RequestMethod.GET))
     fun getUser(@PathVariable("id") id: Long): ResponseEntity<User> {
         val user = userService.findUser(id)
         return ResponseEntity.ok(user)
