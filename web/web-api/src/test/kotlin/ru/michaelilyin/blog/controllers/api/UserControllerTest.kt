@@ -66,12 +66,24 @@ class UserControllerTest {
 
     @Test
     fun testGetById() {
-        Mockito.`when`(usersService.findUser(user1.id)).thenReturn(user1)
+        Mockito.`when`(usersService.findUser(user1.id)).thenReturn(Optional.of(user1))
         mockMvc
                 .perform(MockMvcRequestBuilders
                         .get("/api/v1/users/${user1.id}")
                         .accept(MediaType.APPLICATION_JSON_UTF8_VALUE))
                 .andExpect(status().isOk)
+
+        Mockito.verify(usersService, Mockito.times(1)).findUser(user1.id)
+    }
+
+    @Test
+    fun testGetByIdNotFound() {
+        Mockito.`when`(usersService.findUser(user1.id)).thenReturn(Optional.empty())
+        mockMvc
+                .perform(MockMvcRequestBuilders
+                        .get("/api/v1/users/${user1.id}")
+                        .accept(MediaType.APPLICATION_JSON_UTF8_VALUE))
+                .andExpect(status().isNotFound)
 
         Mockito.verify(usersService, Mockito.times(1)).findUser(user1.id)
     }

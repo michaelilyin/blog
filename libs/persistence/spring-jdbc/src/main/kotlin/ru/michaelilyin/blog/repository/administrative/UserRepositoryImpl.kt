@@ -23,7 +23,7 @@ open class UserRepositoryImpl : UserRepository {
         return users.values.toList()
     }
 
-    override fun findUser(id: Long): UserDomain {
-        return users.getOrElse(id, {throw RuntimeException("not found")})
+    override fun findUser(id: Long): Optional<UserDomain> {
+        return Optional.ofNullable(users.get(id))
     }
 }

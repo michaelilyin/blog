@@ -1,6 +1,7 @@
 package ru.michaelilyin.blog.controllers.api.administrative
 
 import org.springframework.beans.factory.annotation.Autowired
+import org.springframework.http.HttpStatus
 import org.springframework.http.MediaType
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.*
@@ -36,7 +37,8 @@ open class UsersController @Autowired constructor(
     @RequestMapping("/users/{id}", method = arrayOf(RequestMethod.GET))
     fun getUser(@PathVariable("id") id: Long): ResponseEntity<User> {
         val user = userService.findUser(id)
-        return ResponseEntity.ok(user)
+        return if (user.isPresent) ResponseEntity.ok(user.get())
+        else ResponseEntity<User>(HttpStatus.NOT_FOUND)
     }
 
 }

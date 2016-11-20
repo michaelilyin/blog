@@ -1,6 +1,7 @@
 package ru.michaelilyin.blog.services.administrative
 
 import ru.michaelilyin.blog.dto.administrative.User
+import java.util.*
 
 /**
  * TODO: javadoc
@@ -8,5 +9,5 @@ import ru.michaelilyin.blog.dto.administrative.User
  */
 interface UserService {
     fun getUsers(page: Int, count: Int): List<User>
-    fun findUser(id: Long): User
+    fun findUser(id: Long): Optional<User>
 }

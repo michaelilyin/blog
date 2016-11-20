@@ -6,6 +6,7 @@ import ru.michaelilyin.blog.annotation.audit.AuditError
 import ru.michaelilyin.blog.dto.administrative.User
 import ru.michaelilyin.blog.repository.administrative.UserRepository
 import ru.michaelilyin.blog.services.BaseService
+import java.util.*
 
 /**
  * TODO: javadoc
@@ -23,9 +24,9 @@ open class UserServiceImpl @Autowired() constructor(
     }
 
     @AuditError
-    override fun findUser(id: Long): User {
+    override fun findUser(id: Long): Optional<User> {
         val user = userRepository.findUser(id)
-        return User(user)
+        return user.map(::User)
     }
 
 }

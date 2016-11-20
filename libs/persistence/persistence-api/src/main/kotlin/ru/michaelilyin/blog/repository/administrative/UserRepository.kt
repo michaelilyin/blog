@@ -1,6 +1,7 @@
 package ru.michaelilyin.blog.repository.administrative
 
 import ru.michaelilyin.blog.domain.administrative.UserDomain
+import java.util.*
 
 /**
  * TODO: javadoc
@@ -8,5 +9,5 @@ import ru.michaelilyin.blog.domain.administrative.UserDomain
  */
 interface UserRepository {
     fun getUsers(page: Int, count: Int): List<UserDomain>
-    fun findUser(id: Long): UserDomain
+    fun findUser(id: Long): Optional<UserDomain>
 }
