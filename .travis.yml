@@ -3,7 +3,7 @@ jdk:
   - oraclejdk8
   
 script:
-  - mvn clean install
+  - mvn clean install jacoco:report
   
 after_success:
-  - mvn clean verify jacoco:report coveralls:report
+  - bash <(curl -s https://codecov.io/bash)
