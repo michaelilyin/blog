@@ -2,6 +2,8 @@ package ru.michaelilyin.blog.services.administrative
 
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Service
+import ru.michaelilyin.blog.annotation.audit.AuditBegin
+import ru.michaelilyin.blog.annotation.audit.AuditComplete
 import ru.michaelilyin.blog.annotation.audit.AuditError
 import ru.michaelilyin.blog.dto.administrative.User
 import ru.michaelilyin.blog.repository.administrative.UserRepository
@@ -29,4 +31,11 @@ open class UserServiceImpl @Autowired() constructor(
         return user.map(::User)
     }
 
+    @AuditBegin
+    @AuditComplete
+    @AuditError
+    override fun createUser(user: User): Long {
+        val model = user.model()
+        return userRepository.createUser(model)
+    }
 }
