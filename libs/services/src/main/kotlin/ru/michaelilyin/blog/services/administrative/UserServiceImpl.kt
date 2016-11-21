@@ -28,7 +28,7 @@ open class UserServiceImpl @Autowired() constructor(
     @AuditError
     override fun findUser(id: Long): Optional<User> {
         val user = userRepository.findUser(id)
-        return user.map(::User)
+        return user.map({User(it)})
     }
 
     @AuditBegin
