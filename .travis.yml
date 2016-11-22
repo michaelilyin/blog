@@ -1,9 +1,26 @@
+env:
+  global:
+   - secure: "FJDvGh93dR6+BlIpeSM45bK+gE4KZ8Gny70htCv6jrlR+n7kR2cs+UBDx2EvvbT6TeOdv7K/lcUOuNNV4EY0VLU2w/GdQwM/n/1GEl84v7iSXuXpGRNljj66WlFCPC54LzGlaH4MGm8S7s3if5YpNG3mSBXWay/hNFqSxcf8ZDsR7EiNoxPJ5XrwlBSp2hnHLrDkl72DK9zqil1FSF0H428gdW+Ekbii/sRB1j2qtmA3KGAg2tUjqI+wJCv2st0cSKr5vCnGc30Mx01oemIHeue4dlt7KSPcm0fpM/9SAxLZE6bQEI8m2MbwffxQXZ45zhtkZ2OVjJM/T7mnhwKRrguw6DjWaHMmcLZGfHUFfIov6fBEJcEDHcU105gqYfK9Fy0xofoShVHlbl7E0zgT1ayBIl2jc21syoLbWiIr6vvSdCuPy4+DGGy5jNqpk5ii3s1DRC2GfXX4bCfzToP3D6cooWiWtBXBKiUxRKFm8ygDQEVfch8cbSx3HB7aK9fCZJ0Q3HAOD1wafiJ6F+qI070WcWKQMu3bZgQdthyo/kS+mUD8z2BG9bbxLjHUPuNONBdsAECCGS+JcHG0LHYOYIjvkNGfZTX2T6s985LEXDUz4jzA0gCSvRWiqxRxQ6rzmfuEjaG1jHhEXXTg7lT7P9NZdkRw/f4/nDMKP0iuTOA="
+
 language: java
 jdk:
   - oraclejdk8
+  
+before_install:
+  - echo -n | openssl s_client -connect scan.coverity.com:443 | sed -ne '/-BEGIN CERTIFICATE-/,/-END CERTIFICATE-/p' | sudo tee -a /etc/ssl/certs/ca-
   
 script:
   - mvn clean install jacoco:report
   
 after_success:
   - bash <(curl -s https://codecov.io/bash)
+  
+addons:
+  coverity_scan:
+    project:
+      name: "michaelilyin/blog"
+      description: "Build submitted via Travis CI"
+    notification_email: michael.s.ilyin@gmail.com
+    build_command_prepend: "mvn clean"
+    build_command:   "mvn -DskipTests=true compile"
+    branch_pattern: dev
