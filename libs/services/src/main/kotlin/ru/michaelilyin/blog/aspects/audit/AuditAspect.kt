@@ -33,7 +33,7 @@ open class AuditAspect {
     @Before("auditBeginPointcut()")
     fun auditBegin(jp: JoinPoint) {
         try {
-            val message = "Call ${jp.toShortString()} with arguments ${jp.args}"
+            val message = "Call ${jp.toShortString()} with arguments ${listOf(*jp.args)}"
             logger.info(message)
         } catch (throwable: Throwable) {
             logger.error("Error in audit begin methods module.", throwable)

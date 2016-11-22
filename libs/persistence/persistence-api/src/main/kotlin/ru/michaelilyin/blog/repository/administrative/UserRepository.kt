@@ -10,4 +10,5 @@ import java.util.*
 interface UserRepository {
     fun getUsers(page: Int, count: Int): List<UserDomain>
     fun findUser(id: Long): Optional<UserDomain>
+    fun createUser(user: UserDomain): Long
 }

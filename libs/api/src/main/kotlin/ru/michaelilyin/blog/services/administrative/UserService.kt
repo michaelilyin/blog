@@ -10,4 +10,5 @@ import java.util.*
 interface UserService {
     fun getUsers(page: Int, count: Int): List<User>
     fun findUser(id: Long): Optional<User>
+    fun createUser(user: User): Long
 }
