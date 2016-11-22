@@ -11,6 +11,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner
 import ru.michaelilyin.blog.domain.administrative.UserDomain
 import ru.michaelilyin.blog.dto.administrative.User
 import ru.michaelilyin.blog.repository.administrative.UserRepository
+import ru.michaelilyin.blog.services.exceptions.ServiceException
 import java.time.Instant
 import java.util.*
 import kotlin.test.assertEquals
@@ -97,6 +98,15 @@ class UserServiceTest {
         assertEquals(5, result)
 
         Mockito.verify(userRepository, Mockito.times(1)).createUser(createDomain)
+    }
+
+    @Test(expected = ServiceException::class)
+    fun testCreateUserError() {
+        val birthday = Date.from(Instant.now())
+        val createDomain = UserDomain(0, "new", "new", "login", birthday)
+        Mockito.`when`(userRepository.createUser(createDomain)).thenThrow(ServiceException())
+
+        val result = userService.createUser(User(0, "new", "new", "login", birthday))
     }
 
 }

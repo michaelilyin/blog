@@ -22,7 +22,7 @@ open class UserServiceImpl @Autowired() constructor(
     @AuditError
     override fun getUsers(page: Int, count: Int): List<User> {
         val users = userRepository.getUsers(page, count)
-        return users.map(::User)
+        return users.map({User(it)})
     }
 
     @AuditError
