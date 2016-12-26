@@ -1,0 +1,24 @@
+<h1>Test for wizard component</h1>
+<wizard
+        (cancel)="onCancel()"
+        (complete)="onCompleteAll()"
+>
+    <wizard-step
+            key="first"
+            [resolved]="firstStepValue"
+            (completeStep)="onComplete('first')"
+            resolveButton="Configure"
+    >
+        <p>First step</p>
+        <input [(ngModel)]="firstStepValue" type="text"/>
+    </wizard-step>
+    <wizard-step
+            key="second"
+            [resolved]="secondStepValue"
+            (completeStep)="onComplete('second')"
+            resolveButton="Create"
+    >
+        <p>Second step</p>
+        <input [(ngModel)]="secondStepValue" type="text"/>
+    </wizard-step>
+</wizard>
