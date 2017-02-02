@@ -13,7 +13,6 @@
 
     <modules>
         <module>web-api</module>
-        <module>web-app</module>
         <module>web-client</module>
     </modules>
 
