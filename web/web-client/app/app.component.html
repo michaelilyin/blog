@@ -1,14 +1,20 @@
-<md-toolbar>
-    <span>Michael Ilyin</span>
-    <nav>
-        <button md-button>Home</button>
-        <button md-button>Blog</button>
-        <button md-button>Technologies</button>
-        <button md-button>Projects</button>
-        <button md-button>About me</button>
-    </nav>
+<div>
+    <md-toolbar>
+        <span>Michael Ilyin</span>
+        <nav>
+            <a md-button routerLink="home">Home</a>
+            <a md-button routerLink="blog">Blog</a>
+            <a md-button>Technologies</a>
+            <a md-button>Projects</a>
+            <a md-button>About me</a>
+            <a md-button routerLink="administrative">Administrative</a>
+        </nav>
+        <div>
+            <!--<button md-button color="primary">Log in</button>-->
+            <!--<button md-button color="warn">Log out</button>-->
+        </div>
+    </md-toolbar>
     <div>
-        <!--<button md-button color="primary">Log in</button>-->
-        <!--<button md-button color="warn">Log out</button>-->
+        <router-outlet></router-outlet>
     </div>
-</md-toolbar>
+</div>

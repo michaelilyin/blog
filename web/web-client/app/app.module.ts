@@ -3,9 +3,11 @@ import {BrowserModule} from '@angular/platform-browser';
 import {MaterialModule} from '@angular/material';
 
 import {AppComponent}  from './app.component';
+import {AppRoutingModule} from "./app.routing.module";
 
 @NgModule({
     imports: [
+        AppRoutingModule,
         BrowserModule,
         MaterialModule.forRoot()
     ],
