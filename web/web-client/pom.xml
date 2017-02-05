@@ -28,7 +28,7 @@
                         <goals>
                             <goal>install-node-and-npm</goal>
                         </goals>
-                        <phase>generate-resources</phase>
+                        <phase>pre-clean</phase>
                     </execution>
 
                     <execution>
@@ -36,7 +36,7 @@
                         <goals>
                             <goal>npm</goal>
                         </goals>
-                        <phase>generate-resources</phase>
+                        <phase>pre-clean</phase>
                         <configuration>
                             <arguments>install</arguments>
                         </configuration>
@@ -47,9 +47,20 @@
                         <goals>
                             <goal>npm</goal>
                         </goals>
+                        <phase>clean</phase>
+                        <configuration>
+                            <arguments>run clean</arguments>
+                        </configuration>
+                    </execution>
+
+                    <execution>
+                        <id>npm run build</id>
+                        <goals>
+                            <goal>npm</goal>
+                        </goals>
                         <phase>compile</phase>
                         <configuration>
-                            <arguments>run build</arguments>
+                            <arguments>run build:prod</arguments>
                         </configuration>
                     </execution>
 
@@ -60,7 +71,7 @@
                         </goals>
                         <phase>test</phase>
                         <configuration>
-                            <arguments>run test-once</arguments>
+                            <arguments>run test</arguments>
                         </configuration>
                     </execution>
                 </executions>

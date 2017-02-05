@@ -35,13 +35,13 @@ describe('Start page', () => {
         describe('to administrative settings', () => {
             const adminXpath = '//md-toolbar//nav/button[text="Administrative"]';
 
-            it("via button", () => {
+            it('via button', () => {
                 expect(element(by.xpath(adminXpath)).isPresent);
             });
 
-            it("and render final page", () => {
+            it('and render final page', () => {
                 element(by.xpath(adminXpath)).click();
-                expect(element(by.xpath('//p[text()="Summary"]')).isPresent)
+                expect(element(by.xpath('//p[text()="Summary"]')).isPresent);
             });
         });
     });
