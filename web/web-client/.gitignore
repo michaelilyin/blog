@@ -11,3 +11,5 @@ _test-output
 _temp
 node
 coverage
+dll
+dist
