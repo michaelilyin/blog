@@ -3,3 +3,4 @@ target/
 *.iml
 *logs/
 node_modules
+npm-debug.log
