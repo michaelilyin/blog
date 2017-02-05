@@ -4,9 +4,9 @@
     "description": "QuickStart package.json from the documentation, supplemented with testing support",
     "scripts": {
         "rimraf": "rimraf",
-        "clean:dll": "npm run rimraf -- dll",
-        "clean:aot": "npm run rimraf -- compiled",
-        "clean:dist": "npm run rimraf -- dist",
+        "clean:dll": "npm run rimraf -- target/dll",
+        "clean:aot": "npm run rimraf -- target/compiled",
+        "clean:dist": "npm run rimraf -- target/dist",
         "clean": "npm run clean:dist && npm run clean:aot && npm run clean:dll",
         "build:aot:prod": "npm run clean:dist && npm run clean:aot && webpack --config config/webpack.prod.js  --progress --profile --bail",
         "build:aot": "npm run build:aot:prod",

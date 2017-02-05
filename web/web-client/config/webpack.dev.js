@@ -28,7 +28,7 @@ module.exports = function (options) {
     return webpackMerge(commonConfig({env: ENV}), {
         devtool: 'cheap-module-source-map',
         output: {
-            path: helpers.root('dist'),
+            path: helpers.root('target/dist'),
             filename: '[name].bundle.js',
             sourceMapFilename: '[file].map',
             chunkFilename: '[id].chunk.js',
@@ -94,7 +94,7 @@ module.exports = function (options) {
                         'hammerjs'
                     ]
                 },
-                dllDir: helpers.root('dll'),
+                dllDir: helpers.root('target/dll'),
                 webpackConfig: webpackMergeDll(commonConfig({env: ENV}), {
                     devtool: 'cheap-module-source-map',
                     plugins: []
@@ -102,8 +102,8 @@ module.exports = function (options) {
             }),
 
             new AddAssetHtmlPlugin([
-                { filepath: helpers.root(`dll/${DllBundlesPlugin.resolveFile('polyfills')}`) },
-                { filepath: helpers.root(`dll/${DllBundlesPlugin.resolveFile('vendor')}`) }
+                { filepath: helpers.root(`target/dll/${DllBundlesPlugin.resolveFile('polyfills')}`) },
+                { filepath: helpers.root(`target/dll/${DllBundlesPlugin.resolveFile('vendor')}`) }
             ]),
 
             new LoaderOptionsPlugin({

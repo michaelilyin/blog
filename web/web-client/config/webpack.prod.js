@@ -30,7 +30,7 @@ module.exports = function (env) {
         devtool: 'source-map',
 
         output: {
-            path: helpers.root('dist'),
+            path: helpers.root('target/dist'),
             filename: '[name].[chunkhash].bundle.js',
             sourceMapFilename: '[name].[chunkhash].bundle.map',
             chunkFilename: '[id].[chunkhash].chunk.js'
