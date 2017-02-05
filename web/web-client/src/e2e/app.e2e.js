@@ -36,4 +36,4 @@ describe('Start page', function () {
         });
     });
 });
-//# sourceMappingURL=app.e2e-spec.js.map
+//# sourceMappingURL=app.e2e.js.map

@@ -13,27 +13,27 @@ describe('Start page', () => {
 
     describe('should provide navigation', () => {
         it('to home', () => {
-            expect(element(by.xpath('//md-toolbar//nav/button[text="Home"]')).isPresent);
+            expect(element(by.xpath('//md-toolbar//nav/button[text()="Home"]')).isPresent);
         });
 
         it('to blog', () => {
-            expect(element(by.xpath('//md-toolbar//nav/button[text="Blog"]')).isPresent);
+            expect(element(by.xpath('//md-toolbar//nav/button[text()="Blog"]')).isPresent);
         });
 
         it('to technologies', () => {
-            expect(element(by.xpath('//md-toolbar//nav/button[text="Technologies"]')).isPresent);
+            expect(element(by.xpath('//md-toolbar//nav/button[text()="Technologies"]')).isPresent);
         });
 
         it('to projects', () => {
-            expect(element(by.xpath('//md-toolbar//nav/button[text="Projects"]')).isPresent);
+            expect(element(by.xpath('//md-toolbar//nav/button[text()="Projects"]')).isPresent);
         });
 
         it('to about me', () => {
-            expect(element(by.xpath('//md-toolbar//nav/button[text="About me"]')).isPresent);
+            expect(element(by.xpath('//md-toolbar//nav/button[text()="About me"]')).isPresent);
         });
 
         describe('to administrative settings', () => {
-            const adminXpath = '//md-toolbar//nav/button[text="Administrative"]';
+            const adminXpath = '//md-toolbar//nav/button[text()="Administrative"]';
 
             it('via button', () => {
                 expect(element(by.xpath(adminXpath)).isPresent);
