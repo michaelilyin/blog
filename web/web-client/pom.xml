@@ -20,7 +20,6 @@
                 <configuration>
                     <nodeVersion>v4.6.0</nodeVersion>
                     <npmVersion>2.15.9</npmVersion>
-                    <installDirectory>${project.build.directory}</installDirectory>
                 </configuration>
                 <executions>
                     <execution>
