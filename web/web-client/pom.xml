@@ -43,7 +43,7 @@
                     </execution>
 
                     <execution>
-                        <id>npm run build</id>
+                        <id>npm run clean</id>
                         <goals>
                             <goal>npm</goal>
                         </goals>
