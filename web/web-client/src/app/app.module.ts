@@ -4,6 +4,7 @@ import {MaterialModule} from '@angular/material';
 
 import {AppComponent}  from './app.component';
 import {AppRoutingModule} from './app.routing.module';
+import {ENV_PROVIDERS} from './environment';
 
 @NgModule({
     imports: [
@@ -12,7 +13,8 @@ import {AppRoutingModule} from './app.routing.module';
         MaterialModule.forRoot()
     ],
     declarations: [
-        AppComponent
+        AppComponent,
+        ...ENV_PROVIDERS
     ],
     bootstrap: [
         AppComponent

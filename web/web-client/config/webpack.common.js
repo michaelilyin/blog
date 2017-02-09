@@ -17,7 +17,7 @@ const ngcWebpack = require('ngc-webpack');
 
 const AOT = helpers.hasNpmFlag('aot');
 const METADATA = {
-    title: 'Angular2 Webpack Starter by @gdi2290 from @AngularClass',
+    title: 'Personal website',
     baseUrl: '/',
     isDevServer: helpers.isWebpackDevServer()
 };
@@ -86,7 +86,7 @@ module.exports = function (options) {
                 }, {
                     test: /\.html$/,
                     use: 'raw-loader',
-                    exclude: [helpers.root('src/index.html')]
+                    exclude: [helpers.root('src/index.html'), helpers.root('src/404.html')]
                 }, {
                     test: /\.(jpg|png|gif)$/,
                     use: 'file-loader'
@@ -128,7 +128,8 @@ module.exports = function (options) {
 
             new CopyWebpackPlugin([
                 {from: 'src/assets', to: 'assets'},
-                {from: 'src/meta'}
+                {from: 'src/meta'},
+                {from: 'src/404.html', to: '404.html'}
             ]),
 
             new HtmlWebpackPlugin({
