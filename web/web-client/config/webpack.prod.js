@@ -41,14 +41,14 @@ module.exports = function (env) {
                 test: /\.css$/,
                 loader: ExtractTextPlugin.extract({
                     fallback: 'style-loader',
-                    loader: 'css-loader'
+                    use: 'css-loader'
                 }),
                 include: [helpers.root('src', 'styles')]
             }, {
                 test: /\.scss$/,
                 loader: ExtractTextPlugin.extract({
                     fallback: 'style-loader',
-                    loader: 'css-loader!sass-loader'
+                    use: 'css-loader!sass-loader'
                 }),
                 include: [helpers.root('src', 'styles')]
             }]

@@ -14,7 +14,8 @@ before_install:
   - sudo dpkg -i google-chrome*.deb
 
 script:
-  - mvn clean install jacoco:report
+  - mvn clean verify jacoco:report
   
 after_success:
   - bash <(curl -s https://codecov.io/bash)
+  - if [ "$TRAVIS_BRANCH" = "master" ]; mvn clean deploy -DskipTests=true -Pgh-pages -pl :blog-web-client; fi

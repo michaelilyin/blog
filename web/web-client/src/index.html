@@ -9,6 +9,16 @@
 
     <meta name="description" content="<%= htmlWebpackPlugin.options.title %>">
 
+    <script>
+        (function(){
+            const redirect = sessionStorage.redirect;
+            delete sessionStorage.redirect;
+            if (redirect && redirect != location.href) {
+                history.replaceState(null, null, redirect);
+            }
+        })();
+    </script>
+
     <% if (webpackConfig.htmlElements.headTags) { %>
     <!-- Configured Head Tags  -->
     <%= webpackConfig.htmlElements.headTags %>

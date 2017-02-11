@@ -67,7 +67,7 @@ function replaceHtmlWebpackPlugin(plugins, ghRepoName) {
          * This also means all resource URIs (CSS/Images/JS) will have this prefix added by the browser
          * unless they are absolute (start with '/'). We will handle it via `output.publicPath`
          */
-        baseUrl: '/' + ghRepoName + '/' + safeUrl(htmlPlug.options.metadata.baseUrl)
+        baseUrl: '/'/* + ghRepoName + '/'*/ + safeUrl(htmlPlug.options.metadata.baseUrl)
       });
 
       // add the new instance of the html plugin.

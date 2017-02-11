@@ -22,9 +22,11 @@ testing.TestBed.initTestEnvironment(
 );
 
 const testContext = require.context('../src', true, /\.spec\.ts/);
+const appContext = require.context('../src/app', true, /\.ts/);
 
 function requireAll(requireContext) {
     return requireContext.keys().map(requireContext);
 }
 
 const modules = requireAll(testContext);
+const app = requireAll(appContext);
