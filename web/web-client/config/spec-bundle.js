@@ -29,5 +29,4 @@ function requireAll(requireContext) {
 }
 
 const modules = requireAll(testContext);
-
 const app = requireAll(appContext);
