@@ -14,8 +14,8 @@ node {
 
 npm_nstall.dependsOn(npm_cache_clean)
 
-task assembly(type: NpmTask) {
+task assemble(type: NpmTask) {
     args = ['run', 'build:prod']
 }
 
-assembly.dependsOn(npm_install)
+assemble.dependsOn(npm_install)
