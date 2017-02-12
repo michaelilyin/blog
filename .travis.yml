@@ -14,8 +14,8 @@ before_install:
   - sudo dpkg -i google-chrome*.deb
 
 script:
-  - mvn clean verify jacoco:report
-  
+  - gradlew build
+
 after_success:
   - bash <(curl -s https://codecov.io/bash)
-  - if [ "$TRAVIS_BRANCH" = "master" ]; mvn clean deploy -DskipTests=true -Pgh-pages -pl :blog-web-client; fi
+  - if [ "$TRAVIS_BRANCH" = "master" ]; gradlew deploy-gh-pages fi

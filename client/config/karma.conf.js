@@ -29,9 +29,9 @@ module.exports = function (config) {
 
         remapCoverageReporter: {
             'text-summary': null,
-            json: './target/coverage/coverage.json',
-            html: './target/coverage/html',
-            cobertura: './target/coverage/cobertura.xml'
+            json: './build/coverage/coverage.json',
+            html: './build/coverage/html',
+            cobertura: './build/coverage/cobertura.xml'
         },
 
         webpackMiddleware: {
