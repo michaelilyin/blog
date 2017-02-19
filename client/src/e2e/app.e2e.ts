@@ -32,17 +32,8 @@ describe('Start page', () => {
             expect(element(by.xpath('//md-toolbar//nav/button[text()="About me"]')).isPresent);
         });
 
-        describe('to administrative settings', () => {
-            const adminXpath = '//md-toolbar//nav/button[text()="Administrative"]';
-
-            it('via button', () => {
-                expect(element(by.xpath(adminXpath)).isPresent);
-            });
-
-            it('and render final page', () => {
-                element(by.xpath(adminXpath)).click();
-                expect(element(by.xpath('//p[text()="Summary"]')).isPresent);
-            });
+        it('to administrative settings', () => {
+            expect(element(by.xpath('//md-toolbar//nav/button[text()="Administrative"]')).isPresent);
         });
     });
 
