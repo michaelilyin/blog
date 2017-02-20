@@ -1,0 +1,57 @@
+plugins {
+    id "com.moowork.node" version "1.1.1"
+}
+
+node {
+    version = '4.6.0'
+    npmVersion = '2.15.9'
+    distBaseUrl = 'https://nodejs.org/dist'
+    download = true
+    workDir = file("${project.buildDir}/nodejs")
+    npmWorkDir = file("${project.buildDir}/npm")
+    nodeModulesDir = file("${project.projectDir}")
+}
+
+task clean {
+    delete buildDir
+}
+
+
+npm_nstall.dependsOn npm_cache_clean
+
+task compile(dependsOn: npm_install) {
+
+}
+
+task assemble(type: NpmTask, dependsOn: compile) {
+    args = ['run', 'build:prod']
+}
+
+task test(type: NpmTask, dependsOn: compile) {
+    args = ['run', 'test']
+}
+
+task check(type: NpmTask, dependsOn: [test, "integTest"]) {
+    args = ['run', 'lint']
+}
+
+task build(dependsOn: [assemble, check]) {
+
+}
+
+task integTestCompile(type: NpmTask, dependsOn: test) {
+    args = ['run', 'e2e:build']
+}
+
+task integTest(type: NpmTask, dependsOn: integTestCompile) {
+    println System.env.TRAVIS
+    if (System.env.TRAVIS == "true") {
+        args = ['run', 'e2e:travis']
+    } else {
+        args = ['run', 'e2e']
+    }
+}
+
+task deployGhPages(type: NpmTask) {
+    args = ['run', 'github-deploy:prod']
+}

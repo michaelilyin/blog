@@ -1,0 +1,72 @@
+module.exports = function (config) {
+    const testWebpackConfig = require('./webpack.test.js')({env: 'test'});
+
+    const configuration = {
+        basePath: '',
+
+        frameworks: ['jasmine'],
+        exclude: [],
+        client: {
+            captureConsole: false
+        },
+
+        files: [
+            {pattern: './config/spec-bundle.js', watched: false},
+            {pattern: './src/assets/**/*', watched: false, included: false, served: true, nocache: false}
+        ],
+
+        proxies: {
+            "/assets/": "/base/src/assets/"
+        },
+
+        preprocessors: {'./config/spec-bundle.js': ['coverage', 'webpack', 'sourcemap']},
+
+        webpack: testWebpackConfig,
+
+        coverageReporter: {
+            type: 'in-memory'
+        },
+
+        remapCoverageReporter: {
+            'text-summary': null,
+            json: './build/coverage/coverage.json',
+            html: './build/coverage/html',
+            cobertura: './build/coverage/cobertura.xml'
+        },
+
+        webpackMiddleware: {
+            noInfo: true,
+            stats: {
+                chunks: false
+            }
+        },
+
+        reporters: ['mocha', 'coverage', 'remap-coverage'],
+
+        port: 9876,
+        colors: true,
+        logLevel: config.LOG_WARN,
+        autoWatch: false,
+
+        browsers: [
+            'Chrome'
+        ],
+
+        customLaunchers: {
+            ChromeTravisCi: {
+                base: 'Chrome',
+                flags: ['--no-sandbox']
+            }
+        },
+
+        singleRun: true
+    };
+
+    if (process.env.TRAVIS) {
+        configuration.browsers = [
+            'ChromeTravisCi'
+        ];
+    }
+
+    config.set(configuration);
+};
