@@ -18,4 +18,4 @@ script:
 
 after_success:
   - bash <(curl -s https://codecov.io/bash)
-  - [ "$TRAVIS_BRANCH" = "master" ] && ./gradlew :client:deploy-gh
+  - if [ "$TRAVIS_BRANCH" = "master" ]; then && ./gradlew :client:deploy-gh; fi
