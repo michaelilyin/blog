@@ -52,6 +52,6 @@ task integTest(type: NpmTask, dependsOn: integTestCompile) {
     }
 }
 
-task deploy-gh(type: NpmTask) {
+task deployGhPages(type: NpmTask) {
     args = ['run', 'github-deploy:prod']
 }
