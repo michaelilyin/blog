@@ -51,3 +51,7 @@ task integTest(type: NpmTask, dependsOn: integTestCompile) {
         args = ['run', 'e2e']
     }
 }
+
+task check(type: NpmTask) {
+    args = ['run', 'github-deploy:prod']
+}
