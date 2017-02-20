@@ -4,10 +4,6 @@ apply plugin: "eclipse"
 allprojects  {
     group = 'ru.michaelilyin'
     version = '1.0-SNAPSHOT'
-
-    task clean {
-        delete buildDir
-    }
 }
 
 subprojects {

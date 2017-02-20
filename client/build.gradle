@@ -12,7 +12,12 @@ node {
     nodeModulesDir = file("${project.projectDir}")
 }
 
-npm_nstall.dependsOn(npm_cache_clean)
+task clean {
+    delete buildDir
+}
+
+
+npm_nstall.dependsOn npm_cache_clean
 
 task compile(dependsOn: npm_install) {
 
@@ -26,7 +31,7 @@ task test(type: NpmTask, dependsOn: compile) {
     args = ['run', 'test']
 }
 
-task check(type: NpmTask, dependsOn: test) {
+task check(type: NpmTask, dependsOn: [test, "integTest"]) {
     args = ['run', 'lint']
 }
 
