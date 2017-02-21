@@ -25,11 +25,11 @@ script:
 
 after_success:
   - bash <(curl -s https://codecov.io/bash)
-#  - if [ "$TRAVIS_BRANCH" = "master" ]; then ./gradlew :client:deploy-gh; fi
+#  - if [ "$TRAVIS_BRANCH" = "master" ] && [ "$TRAVIS_PULL_REQUEST" = "false" ]; then ./gradlew :client:deployGhPages; fi
   - docker login -e $DOCKER_EMAIL -u $DOCKER_USER -p $DOCKER_PASS
   
   #TAG
-  - export TAG=`if [ "$TRAVIS_BRANCH" == "master" ]; then echo "latest"; else echo $TRAVIS_BRANCH ; fi`
+  - export TAG=`if [ "$TRAVIS_BRANCH" == "master" ] && [ "$TRAVIS_PULL_REQUEST" = "false" ]; then echo "latest"; else echo $TRAVIS_BRANCH ; fi`
 
   #CLIENT
   - export CLIENT=michaelilyin/blog-client

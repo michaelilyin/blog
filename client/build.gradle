@@ -39,7 +39,7 @@ task build(dependsOn: [assemble, check]) {
 
 }
 
-task integTestCompile(type: NpmTask, dependsOn: assemble) {
+task integTestCompile(type: NpmTask, dependsOn: test) {
     args = ['run', 'e2e:build']
 }
 
@@ -50,4 +50,8 @@ task integTest(type: NpmTask, dependsOn: integTestCompile) {
     } else {
         args = ['run', 'e2e']
     }
+}
+
+task deployGhPages(type: NpmTask) {
+    args = ['run', 'github-deploy:prod']
 }
