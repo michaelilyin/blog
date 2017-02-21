@@ -4,6 +4,13 @@ language: java
 jdk:
   - oraclejdk8
 
+services:
+  - docker
+
+env:
+  global:
+    - COMMIT=${TRAVIS_COMMIT::7}
+
 before_install:
   - export CHROME_BIN=/usr/bin/google-chrome
   - export DISPLAY=:99.0
@@ -18,4 +25,14 @@ script:
 
 after_success:
   - bash <(curl -s https://codecov.io/bash)
-  - if [ "$TRAVIS_BRANCH" = "master" ]; then ./gradlew :client:deploy-gh; fi
+#  - if [ "$TRAVIS_BRANCH" = "master" ]; then ./gradlew :client:deploy-gh; fi
+  - docker login -e $DOCKER_EMAIL -u $DOCKER_USER -p $DOCKER_PASS
+  
+  #TAG
+  - export TAG=`if [ "$TRAVIS_BRANCH" == "master" ]; then echo "latest"; else echo $TRAVIS_BRANCH ; fi`
+
+  #CLIENT
+  - export CLIENT=michaelilyin/blog-client
+  - docker build -t $CLIENT:$COMMIT ./client
+  - docker tag $CLIENT:$COMMIT $CLIENT:$TAG
+  - docker push $CLIENT
