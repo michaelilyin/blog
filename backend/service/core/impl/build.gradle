@@ -1,0 +1,15 @@
+apply plugin: 'kotlin'
+
+jar {
+	baseName = 'core-impl'
+	version = "$version"
+}
+
+dependencies {
+    compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlinVersion"
+    compile 'org.springframework:spring-context:4.3.7.RELEASE'
+    compile 'org.springframework:spring-jdbc:4.3.7.RELEASE'
+    compile 'org.postgresql:postgresql:9.4-1206-jdbc42'
+    compile project(":backend:service:core:api")
+    compile project(":backend:service:utils")
+}
