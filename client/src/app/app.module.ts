@@ -5,12 +5,14 @@ import {MaterialModule} from '@angular/material';
 import {AppComponent}  from './app.component';
 import {AppRoutingModule} from './app.routing.module';
 import {ENV_PROVIDERS} from './environment';
+import {CommonModule} from "./common/common.module";
 
 @NgModule({
     imports: [
         AppRoutingModule,
         BrowserModule,
-        MaterialModule.forRoot()
+        MaterialModule,
+        CommonModule
     ],
     declarations: [
         AppComponent,

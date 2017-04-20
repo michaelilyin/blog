@@ -18,3 +18,9 @@ trim_trailing_whitespace = false
 #[lib/**.js]
 #[{package.json,.travis.yml}]
 #[**/**.js]
+
+[*.yml]
+indent_size = 2
+
+[*.yaml]
+indent_size = 2

@@ -1,5 +1,7 @@
 import '@angular/material/core/theming/prebuilt/deeppurple-amber.css';
 import {Component} from '@angular/core';
+import {ConfigurationService} from "./common/service/configuration.service";
+import {Router} from "@angular/router";
 
 @Component({
     selector: 'blog-application',
@@ -9,8 +11,22 @@ import {Component} from '@angular/core';
             padding-left: 16px;
             padding-right: 16px;
         }
+        .header {
+            cursor: pointer;
+        }
     `]
 })
 export class AppComponent {
-    public readonly applicationName = 'Personal blog';
+    private name: string;
+
+    constructor(configurationService: ConfigurationService,
+                private router: Router) {
+        configurationService.configuration.subscribe(config => {
+            this.name = config.name;
+        });
+    }
+
+    onTitleClick() {
+        this.router.navigate(['home']);
+    }
 }

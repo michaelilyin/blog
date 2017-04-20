@@ -1,12 +1,3 @@
 rootProject.name = 'blog'
 
-include 'backend'
-include 'backend:service'
-include 'backend:service:utils'
-include 'backend:service:core'
-include 'backend:service:core:api'
-include 'backend:service:core:impl'
-
-include 'backend:api-gateway'
-
 include 'client'
