@@ -4,7 +4,8 @@ import {Http} from "@angular/http";
 import {ReplaySubject, Subject} from "rxjs";
 
 export class Configuration {
-    name: string
+    name: string;
+    timezone: string;
 }
 
 export abstract class ConfigurationService {
