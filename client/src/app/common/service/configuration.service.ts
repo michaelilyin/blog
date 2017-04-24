@@ -1,7 +1,7 @@
-import {Injectable} from "@angular/core";
-import * as jsyaml from "js-yaml";
-import {Http} from "@angular/http";
-import {ReplaySubject, Subject} from "rxjs";
+import {Injectable} from '@angular/core';
+import * as jsyaml from 'js-yaml';
+import {Http} from '@angular/http';
+import {ReplaySubject} from 'rxjs';
 
 export class Configuration {
     name: string;
@@ -9,7 +9,7 @@ export class Configuration {
 }
 
 export abstract class ConfigurationService {
-    readonly configuration = new ReplaySubject(1);
+    readonly configuration = new ReplaySubject<Configuration>(1);
 }
 
 @Injectable()

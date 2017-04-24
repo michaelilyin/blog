@@ -1,7 +1,7 @@
-import {Injectable} from "@angular/core";
-import {Http} from "@angular/http";
-import {Observable, ReplaySubject} from "rxjs";
-import * as jsyaml from "js-yaml";
+import {Injectable} from '@angular/core';
+import {Http} from '@angular/http';
+import {Observable, ReplaySubject} from 'rxjs';
+import * as jsyaml from 'js-yaml';
 
 export class Technologies {
     groups: Group[];

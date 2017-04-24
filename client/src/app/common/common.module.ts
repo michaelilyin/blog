@@ -1,5 +1,5 @@
-import {NgModule} from "@angular/core";
-import {ConfigurationService, ConfigurationServiceImpl} from "./service/configuration.service";
+import {NgModule} from '@angular/core';
+import {ConfigurationService, ConfigurationServiceImpl} from './service/configuration.service';
 
 @NgModule({
     imports: [

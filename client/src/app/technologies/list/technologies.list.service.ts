@@ -1,6 +1,6 @@
-import {Injectable} from "@angular/core";
-import {TechnologiesDataService} from "../common/technologies.data.service";
-import {ReplaySubject} from "rxjs/ReplaySubject";
+import {Injectable} from '@angular/core';
+import {TechnologiesDataService} from '../common/technologies.data.service';
+import {ReplaySubject} from 'rxjs/ReplaySubject';
 
 export class ListTechnology {
     name: string;

@@ -1,7 +1,7 @@
-import {Component} from "@angular/core";
+import {Component} from '@angular/core';
 
 @Component({
-    templateUrl: "list.component.html"
+    templateUrl: 'list.component.html'
 })
 export class ListComponent {
 

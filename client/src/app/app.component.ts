@@ -1,7 +1,7 @@
-import '@angular/material/core/theming/prebuilt/deeppurple-amber.css';
+import '@angular/material/prebuilt-themes/deeppurple-amber.css';
 import {Component} from '@angular/core';
-import {ConfigurationService} from "./common/service/configuration.service";
-import {Router} from "@angular/router";
+import {ConfigurationService} from './common/service/configuration.service';
+import {Router} from '@angular/router';
 
 @Component({
     selector: 'blog-application',

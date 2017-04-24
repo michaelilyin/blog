@@ -65,7 +65,8 @@ module.exports = function (options) {
                         }, {
                             loader: 'awesome-typescript-loader',
                             options: {
-                                configFileName: 'tsconfig.webpack.json'
+                                configFileName: 'tsconfig.webpack.json',
+                                experimentalDecorators: true
                             }
                         }, {
                             loader: 'angular2-template-loader'

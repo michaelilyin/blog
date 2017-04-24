@@ -1,8 +1,8 @@
-import {NgModule} from "@angular/core";
-import {RouterModule, Routes} from "@angular/router";
-import {TechnologiesComponent} from "./technologies.component";
-import {ListComponent} from "./list/list.component";
-import {TimelineComponent} from "./timeline/timeline.component";
+import {NgModule} from '@angular/core';
+import {RouterModule, Routes} from '@angular/router';
+import {TechnologiesComponent} from './technologies.component';
+import {ListComponent} from './list/list.component';
+import {TimelineComponent} from './timeline/timeline.component';
 
 const routes: Routes = [
     {path: '', component: TechnologiesComponent, children: [
