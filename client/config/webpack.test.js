@@ -38,10 +38,11 @@ module.exports = function (options) {
                                 compilerOptions: {
                                     // Remove TypeScript helpers to be injected
                                     // below by DefinePlugin
-                                    removeComments: true
-
+                                    removeComments: true,
+                                    configFileName: 'tsconfig.webpack.json',
+                                    experimentalDecorators: true
                                 }
-                            },
+                            }
                         },
                         'angular2-template-loader'
                     ],

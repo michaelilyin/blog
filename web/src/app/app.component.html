@@ -1,0 +1,17 @@
+<div>
+  <md-toolbar>
+    <span class="header" (click)="onTitleClick()">{{name}}</span>
+    <nav>
+      <a md-button routerLink="blog">Blog</a>
+      <a md-button routerLink="technologies">Technologies</a>
+      <a md-button>Projects</a>
+    </nav>
+    <div>
+      <!--<button md-button color="primary">Log in</button>-->
+      <!--<button md-button color="warn">Log out</button>-->
+    </div>
+  </md-toolbar>
+  <!--<md-card>-->
+  <router-outlet></router-outlet>
+  <!--</md-card>-->
+</div>

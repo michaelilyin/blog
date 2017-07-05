@@ -1,26 +1,14 @@
-import '@angular/material/prebuilt-themes/deeppurple-amber.css';
-import {Component} from '@angular/core';
+import { Component } from '@angular/core';
 import {ConfigurationService} from './common/service/configuration.service';
 import {Router} from '@angular/router';
 
 @Component({
-    selector: 'blog-application',
+    selector: 'app-root',
     templateUrl: 'app.component.html',
-    styles: [`
-        nav {
-            padding-left: 16px;
-            padding-right: 16px;
-        }
-        .header {
-            cursor: pointer;
-        }
-        md-toolbar {
-            margin-bottom: 8px;
-        }
-    `]
+    styleUrls: ['app.component.css']
 })
 export class AppComponent {
-    private name: string;
+    name: string;
 
     constructor(configurationService: ConfigurationService,
                 private router: Router) {
