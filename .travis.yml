@@ -1,11 +1,7 @@
-sudo: required
 dist: trusty
-language: java
-jdk:
-  - oraclejdk8
-
-services:
-  - docker
+language: node_js
+node_js:
+  - '6.9'
 
 env:
   global:
@@ -20,19 +16,17 @@ before_install:
   - wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
   - sudo dpkg -i google-chrome*.deb
 
+before_script:
+  - npm install -g firebase-tools
+  - npm install -g @angular/cli
+
 script:
-  - ./gradlew clean build integTest
+  - ng test --code-coverage
+  - ng e2e
+  - ng build --prod
 
 after_success:
   - bash <(curl -s https://codecov.io/bash)
-#  - if [ "$TRAVIS_BRANCH" = "master" ] && [ "$TRAVIS_PULL_REQUEST" = "false" ]; then ./gradlew :client:deployGhPages; fi
-  - docker login -e $DOCKER_EMAIL -u $DOCKER_USER -p $DOCKER_PASS
-  
-  #TAG
-  - export TAG=`if [ "$TRAVIS_BRANCH" == "master" ] && [ "$TRAVIS_PULL_REQUEST" = "false" ]; then echo "latest"; else echo $TRAVIS_BRANCH ; fi`
-
-  #CLIENT
-  - export CLIENT=michaelilyin/blog-client
-  - docker build -t $CLIENT:$COMMIT ./client
-  - docker tag $CLIENT:$COMMIT $CLIENT:$TAG
-  - docker push $CLIENT
+  - FIREBASE_PROJECT=default
+  - if [ "$TRAVIS_BRANCH" = "master" ]; then FIREBASE_PROJECT=production; fi
+  - if [ "$TRAVIS_PULL_REQUEST" = "false" ]; then firebase use $FIREBASE_PROJECT && firebase deploy --token $FIREBASE_TOKEN; fi
