@@ -1,0 +1,10 @@
+nav {
+  padding-left: 16px;
+  padding-right: 16px;
+}
+.header {
+  cursor: pointer;
+}
+md-toolbar {
+  margin-bottom: 8px;
+}
