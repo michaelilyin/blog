@@ -4,7 +4,7 @@ import {MdButtonModule, MdToolbarModule} from '@angular/material';
 import { AppComponent } from './app.component';
 import {RouterModule} from '@angular/router';
 import {APP_BASE_HREF} from '@angular/common';
-import {Configuration, ConfigurationService} from "app/common/service/configuration.service";
+import {Configuration, ConfigurationService} from 'app/common/service/configuration.service';
 
 describe('AppComponent', () => {
     beforeEach(async(() => {
@@ -43,7 +43,7 @@ class ConfigurationServiceMock extends ConfigurationService {
     constructor() {
         super();
         const config = new Configuration();
-        config.name = "Test Name";
+        config.name = 'Test Name';
         this.configuration.next(config);
     }
 }
