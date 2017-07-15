@@ -45,9 +45,9 @@ export class AppComponent implements OnInit {
                 return Observable.throw(caught);
             })
             .subscribe(config => {
-            this.name = config.name;
-            this.ready = true;
-        });
+                this.name = config.name;
+                this.ready = true;
+            });
         this.configurationService.loadConfig();
     }
 
