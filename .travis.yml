@@ -26,7 +26,8 @@ before_script:
   - npm install -g @angular/cli
 
 script:
-  - ng lint && ng test --single-run --code-coverage && ng e2e && ng build --prod
+  - if [ "$TRAVIS_BRANCH" = "master" ]; then ng lint && ng test --single-run --code-coverage && ng e2e && ng build --prod; fi
+  - if [ "$TRAVIS_BRANCH" != "master" ]; then ng lint && ng test --single-run --code-coverage && ng e2e && ng build --aot=true --environment=ci --output-hashing=all --sourcemaps=false --extract-css=true; fi
 
 after_success:
   - bash <(curl -s https://codecov.io/bash)

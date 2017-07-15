@@ -1,11 +1,12 @@
-import { browser, by, element } from 'protractor';
+import {browser, by, element, ElementFinder, ExpectedConditions} from 'protractor';
 
 export class WebPage {
-  navigateTo() {
-    return browser.get('/');
-  }
+    navigateTo() {
+        return browser.get('/');
+    }
 
-  getTitleText() {
-    return element(by.css('md-toolbar span.header')).getText();
-  }
+    getTitleText() {
+        browser.wait(ExpectedConditions.presenceOf(element(by.css('md-toolbar span.header'))), 2000);
+        return element(by.css('md-toolbar span.header')).getText();
+    }
 }

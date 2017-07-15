@@ -1,6 +1,10 @@
 {
-  "rules": {
-    ".read": "auth != null",
-    ".write": "auth != null"
-  }
+    "rules": {
+        ".write": "auth != null",
+        "application": {
+            "config": {
+                ".read": true
+            }
+        }
+    }
 }

@@ -5,6 +5,8 @@ import { AppComponent } from './app.component';
 import {RouterModule} from '@angular/router';
 import {APP_BASE_HREF} from '@angular/common';
 import {Configuration, ConfigurationService} from 'app/common/service/configuration.service';
+import {SlimLoadingBarModule} from 'ng2-slim-loading-bar';
+import {ToastModule} from 'ng2-toastr';
 
 describe('AppComponent', () => {
     beforeEach(async(() => {
@@ -19,7 +21,9 @@ describe('AppComponent', () => {
             imports: [
                 MdButtonModule,
                 MdToolbarModule,
-                RouterModule.forRoot([{path: '', loadChildren: 'app/home/home.module#HomeModule'}])
+                RouterModule.forRoot([{path: '', loadChildren: 'app/home/home.module#HomeModule'}]),
+                SlimLoadingBarModule.forRoot(),
+                ToastModule.forRoot()
             ]
         }).compileComponents();
     }));
@@ -40,10 +44,12 @@ describe('AppComponent', () => {
 });
 
 class ConfigurationServiceMock extends ConfigurationService {
-    constructor() {
-        super();
+    loadConfig() {
         const config = new Configuration();
         config.name = 'Test Name';
         this.configuration.next(config);
+    }
+    constructor() {
+        super();
     }
 }
