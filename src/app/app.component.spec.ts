@@ -40,10 +40,12 @@ describe('AppComponent', () => {
 });
 
 class ConfigurationServiceMock extends ConfigurationService {
-    constructor() {
-        super();
+    loadConfig() {
         const config = new Configuration();
         config.name = 'Test Name';
         this.configuration.next(config);
+    }
+    constructor() {
+        super();
     }
 }

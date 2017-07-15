@@ -1,17 +1,34 @@
-<div>
-  <md-toolbar>
-    <span class="header" (click)="onTitleClick()">{{name}}</span>
-    <nav>
-      <a md-button routerLink="blog">Blog</a>
-      <a md-button routerLink="technologies">Technologies</a>
-      <a md-button>Projects</a>
-    </nav>
-    <div>
-      <!--<button md-button color="primary">Log in</button>-->
-      <!--<button md-button color="warn">Log out</button>-->
+<ng2-slim-loading-bar></ng2-slim-loading-bar>
+<div [ngSwitch]="ready" style="height: 100%; margin: 8px;">
+    <div *ngSwitchCase="true">
+        <div [ngSwitch]="broken">
+            <div *ngSwitchCase="false">
+                <md-toolbar>
+                    <span class="header" (click)="onTitleClick()">{{name}}</span>
+                    <nav>
+                        <a md-button routerLink="blog">Blog</a>
+                        <a md-button routerLink="technologies">Technologies</a>
+                        <a md-button>Projects</a>
+                    </nav>
+                    <div>
+                        <button md-button color="primary">Log in</button>
+                        <button md-button color="warn">Log out</button>
+                    </div>
+                </md-toolbar>
+                <!--<md-card>-->
+                <router-outlet></router-outlet>
+                <!--</md-card>-->
+            </div>
+            <div *ngSwitchCase="true">
+                <h1>Fatal error!</h1>
+                <h2>Application can't work</h2>
+            </div>
+        </div>
     </div>
-  </md-toolbar>
-  <!--<md-card>-->
-  <router-outlet></router-outlet>
-  <!--</md-card>-->
+    <div
+        *ngSwitchCase="false"
+        style="display: flex; width: 100%; height: 100%; align-items: center; justify-content: center;"
+    >
+        <md-spinner></md-spinner>
+    </div>
 </div>
