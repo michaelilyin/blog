@@ -13,7 +13,6 @@ import {AngularFireModule} from 'angularfire2';
 import {AngularFireDatabaseModule} from 'angularfire2/database';
 import {AngularFireAuthModule} from 'angularfire2/auth';
 import {SlimLoadingBarModule} from 'ng2-slim-loading-bar';
-import {ToastModule} from 'ng2-toastr';
 
 @NgModule({
     declarations: [
@@ -33,8 +32,7 @@ import {ToastModule} from 'ng2-toastr';
         MdButtonModule,
         MdToolbarModule,
         MdProgressSpinnerModule,
-        SlimLoadingBarModule.forRoot(),
-        ToastModule.forRoot()
+        SlimLoadingBarModule.forRoot()
     ],
     providers: [],
     bootstrap: [AppComponent]
