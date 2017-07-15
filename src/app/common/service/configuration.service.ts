@@ -34,7 +34,7 @@ export class ConfigurationServiceImpl extends ConfigurationService {
 
     private setDefaults(config: Configuration): Configuration {
         if (this.isEmpty(config.name)) {
-            config.name = "Blog application";
+            config.name = 'Blog application';
         }
         return config;
     }

@@ -13,8 +13,8 @@ import {Observable} from 'rxjs/Observable';
 })
 export class AppComponent implements OnInit {
     name: string;
-    ready: boolean = false;
-    broken: boolean = false;
+    ready = false;
+    broken = false;
 
     constructor(private configurationService: ConfigurationService,
                 private router: Router,
