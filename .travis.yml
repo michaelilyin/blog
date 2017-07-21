@@ -15,8 +15,7 @@ env:
 cache:
   directories:
   - node_modules
-  - $(npm config get prefix)/bin/firebase-tools
-  - $(npm config get prefix)/bin/@angular/cli
+  - $(npm config get prefix)
 
 before_install:
   - export CHROME_BIN=/usr/bin/google-chrome
@@ -24,8 +23,8 @@ before_install:
   - sh -e /etc/init.d/xvfb start
 
 before_script:
-  - npm list -g firebase-tools || npm install -g firebase-tools
-  - npm list -g @angular/cli || npm install -g @angular/cli
+  - npm list -g firebase-tools --depth=0 || npm install -g firebase-tools
+  - npm list -g @angular/cli --depth=0 || npm install -g @angular/cli
 
 script:
   - if [ "$TRAVIS_BRANCH" = "master" ]; then ng lint && ng test --single-run --code-coverage && ng e2e && ng build --prod; fi
