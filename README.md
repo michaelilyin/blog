@@ -7,6 +7,7 @@
 [![Build Status](https://travis-ci.org/michaelilyin/blog.svg?branch=master)](https://travis-ci.org/michaelilyin/blog/branches)
 [![Coverage](https://codecov.io/gh/michaelilyin/blog/branch/master/graph/badge.svg)](https://codecov.io/gh/michaelilyin/blog/branch/master)
 [![dependencies Status](https://david-dm.org/michaelilyin/blog/master/status.svg)](https://david-dm.org/michaelilyin/blog/master)
+[![Known Vulnerabilities](https://snyk.io/test/github/michaelilyin/blog/badge.svg)](https://snyk.io/test/github/michaelilyin/blog)
 
 #### Dev branch
 
