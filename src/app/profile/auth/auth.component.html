@@ -1,0 +1,16 @@
+<div>
+    <div *ngIf="logged">
+        <!--<span>{{ user?.providerData[0]?.displayName }}</span>-->
+        <button md-icon-button [mdMenuTriggerFor]="menu">
+            <img class="menu-image" [src]="user?.providerData[0]?.photoURL + '?size=40'">
+        </button>
+        <md-menu #menu="mdMenu">
+            <button md-menu-item (click)="logout()">
+                <span>Log out</span>
+            </button>
+        </md-menu>
+    </div>
+    <div *ngIf="!logged">
+        <button md-button color="primary" (click)="login()">Log in</button>
+    </div>
+</div>

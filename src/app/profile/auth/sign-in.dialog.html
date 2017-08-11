@@ -1,0 +1,27 @@
+<h2 md-dialog-title>Sign in</h2>
+<md-dialog-content>
+    <div [ngSwitch]="inProgress">
+        <div *ngSwitchCase="false" style="display: flex; justify-content: space-around; align-items: stretch; flex-direction: column;">
+            <div style="display: flex;">
+                <button md-button (click)="signInWithGoogle()">Sign in with Google</button>
+                <!--<button md-button>Sign in with GitHub</button>-->
+            </div>
+
+            <div style="display: flex; flex-direction: column;">
+                <!-- <md-input-container>
+                     <input mdInput placeholder="Login">
+                 </md-input-container>
+                 <md-input-container>
+                     <input mdInput placeholder="Password" type="password">
+                 </md-input-container>
+                 <div style="display: flex; flex-direction: row; justify-content: center">
+                     <button md-button>Log in</button>
+                     <button md-button>Sign up</button>
+                 </div>-->
+            </div>
+        </div>
+        <div *ngSwitchCase="true">
+            <md-spinner mode="indeterminate"></md-spinner>
+        </div>
+    </div>
+</md-dialog-content>

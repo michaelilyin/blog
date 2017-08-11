@@ -6,17 +6,24 @@ import {CommonModule} from './common/common.module';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {
     MdCoreModule, MdCommonModule, MdMenuModule, MdButtonModule, MdToolbarModule,
-    MdProgressSpinnerModule
+    MdProgressSpinnerModule, MdDialogModule, MdInputModule, MdGridListModule
 } from '@angular/material'
 import {environment} from '../environments/environment';
 import {AngularFireModule} from 'angularfire2';
 import {AngularFireDatabaseModule} from 'angularfire2/database';
 import {AngularFireAuthModule} from 'angularfire2/auth';
 import {SlimLoadingBarModule} from 'ng2-slim-loading-bar';
+import {AuthComponent} from './profile/auth/auth.component';
+import {SignInDialog} from './profile/auth/sign-in.dialog';
 
 @NgModule({
     declarations: [
-        AppComponent
+        AppComponent,
+        AuthComponent,
+        SignInDialog
+    ],
+    entryComponents: [
+        SignInDialog
     ],
     imports: [
         BrowserModule,
@@ -32,6 +39,9 @@ import {SlimLoadingBarModule} from 'ng2-slim-loading-bar';
         MdButtonModule,
         MdToolbarModule,
         MdProgressSpinnerModule,
+        MdDialogModule,
+        MdInputModule,
+        MdGridListModule,
         SlimLoadingBarModule.forRoot()
     ],
     providers: [],

@@ -29,15 +29,11 @@ export class AppComponent implements OnInit {
 
     ngOnInit(): void {
         this.titleService.setTitle(this.name);
-        this.router.events.subscribe(event => {
-            if (event instanceof NavigationStart) {
-                this.loadingBarService.start();
-            } else if (event instanceof NavigationCancel
-                || event instanceof NavigationEnd
-                || event instanceof NavigationError) {
-                this.loadingBarService.complete();
-            }
-        });
+        this.initRouter();
+        this.initConfigurationService();
+    }
+
+    private initConfigurationService() {
         this.configurationService.configuration
             .catch((error, caught) => {
                 this.ready = true;
@@ -49,6 +45,18 @@ export class AppComponent implements OnInit {
                 this.ready = true;
             });
         this.configurationService.loadConfig();
+    }
+
+    private initRouter() {
+        this.router.events.subscribe(event => {
+            if (event instanceof NavigationStart) {
+                this.loadingBarService.start();
+            } else if (event instanceof NavigationCancel
+                || event instanceof NavigationEnd
+                || event instanceof NavigationError) {
+                this.loadingBarService.complete();
+            }
+        });
     }
 
     onTitleClick() {
