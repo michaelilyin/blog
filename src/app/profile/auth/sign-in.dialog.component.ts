@@ -6,14 +6,14 @@ import GoogleAuthProvider = firebase.auth.GoogleAuthProvider;
 import AuthProvider = firebase.auth.AuthProvider;
 
 @Component({
-    selector: 'sign-in-dialog',
-    templateUrl: 'sign-in.dialog.html',
+    selector: 'app-sign-in-dialog',
+    templateUrl: 'sign-in.dialog.component.html',
 })
-export class SignInDialog {
+export class SignInDialogComponent {
 
     inProgress = false;
 
-    constructor(public dialogRef: MdDialogRef<SignInDialog>,
+    constructor(public dialogRef: MdDialogRef<SignInDialogComponent>,
                 private auth: AngularFireAuth) {}
 
     signInWithGoogle() {

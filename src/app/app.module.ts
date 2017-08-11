@@ -14,16 +14,16 @@ import {AngularFireDatabaseModule} from 'angularfire2/database';
 import {AngularFireAuthModule} from 'angularfire2/auth';
 import {SlimLoadingBarModule} from 'ng2-slim-loading-bar';
 import {AuthComponent} from './profile/auth/auth.component';
-import {SignInDialog} from './profile/auth/sign-in.dialog';
+import {SignInDialogComponent} from './profile/auth/sign-in.dialog.component';
 
 @NgModule({
     declarations: [
         AppComponent,
         AuthComponent,
-        SignInDialog
+        SignInDialogComponent
     ],
     entryComponents: [
-        SignInDialog
+        SignInDialogComponent
     ],
     imports: [
         BrowserModule,

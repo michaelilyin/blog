@@ -7,10 +7,10 @@ import GoogleAuthProvider = firebase.auth.GoogleAuthProvider;
 import {Subscription} from 'rxjs/Subscription';
 import AuthCredential = firebase.auth.AuthCredential;
 import {MdDialog} from '@angular/material';
-import {SignInDialog} from './sign-in.dialog';
+import {SignInDialogComponent} from './sign-in.dialog.component';
 
 @Component({
-    selector: 'auth',
+    selector: 'app-auth',
     templateUrl: 'auth.component.html',
     styleUrls: ['auth.component.css']
 })
@@ -32,7 +32,7 @@ export class AuthComponent implements OnDestroy {
     }
 
     login() {
-        this.dialog.open(SignInDialog);
+        this.dialog.open(SignInDialogComponent);
     }
 
     logout() {
