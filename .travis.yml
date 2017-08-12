@@ -28,8 +28,8 @@ before_script:
 
 script:
   - npm run check
-  - if [ "$TRAVIS_BRANCH" = "master" ]; npm run build:prod; fi
-  - if [ "$TRAVIS_BRANCH" != "master" ]; npm run build:ci; fi
+  - [ "$TRAVIS_BRANCH" = "master" ] && npm run build:prod
+  - [ "$TRAVIS_BRANCH" != "master" ] && npm run build:ci
 
 after_success:
   - bash <(curl -s https://codecov.io/bash)
