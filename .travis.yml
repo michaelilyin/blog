@@ -11,7 +11,7 @@ node_js:
 env:
   global:
     - COMMIT=${TRAVIS_COMMIT::7}
-    
+
 cache:
   directories:
   - node_modules
@@ -27,8 +27,9 @@ before_script:
   - npm list -g @angular/cli --depth=0 || npm install -g @angular/cli
 
 script:
-  - if [ "$TRAVIS_BRANCH" = "master" ]; then ng lint && ng test --single-run --code-coverage && ng e2e && ng build --prod; fi
-  - if [ "$TRAVIS_BRANCH" != "master" ]; then ng lint && ng test --single-run --code-coverage && ng e2e && ng build --aot=true --environment=ci --output-hashing=all --sourcemaps=false --extract-css=true; fi
+  - npm run check
+  - if [ "$TRAVIS_BRANCH" = "master" ]; npm run build:prod; fi
+  - if [ "$TRAVIS_BRANCH" != "master" ]; npm run build:ci; fi
 
 after_success:
   - bash <(curl -s https://codecov.io/bash)

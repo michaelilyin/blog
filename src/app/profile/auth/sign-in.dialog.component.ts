@@ -1,9 +1,6 @@
 import {Component} from '@angular/core';
 import {MdDialogRef} from '@angular/material';
-import {AngularFireAuth} from 'angularfire2/auth';
-import * as firebase from 'firebase/app';
-import GoogleAuthProvider = firebase.auth.GoogleAuthProvider;
-import AuthProvider = firebase.auth.AuthProvider;
+import {AuthProviders, UserProfileService} from '../userprofile.service';
 
 @Component({
     selector: 'app-sign-in-dialog',
@@ -14,15 +11,15 @@ export class SignInDialogComponent {
     inProgress = false;
 
     constructor(public dialogRef: MdDialogRef<SignInDialogComponent>,
-                private auth: AngularFireAuth) {}
+                private userProfileService: UserProfileService) {}
 
     signInWithGoogle() {
-        this.signInWithProvider(new GoogleAuthProvider());
+        this.signInWithProvider(AuthProviders.GOOGLE);
     }
 
-    private signInWithProvider(authProvider: AuthProvider) {
+    private signInWithProvider(provider: AuthProviders) {
         this.inProgress = true;
-        this.auth.auth.signInWithPopup(authProvider).then(() => {
+        this.userProfileService.signInWithProvider(provider).then(() => {
             this.inProgress = false;
             this.dialogRef.close();
         }).catch(e => {

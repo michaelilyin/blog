@@ -15,6 +15,7 @@ import {AngularFireAuthModule} from 'angularfire2/auth';
 import {SlimLoadingBarModule} from 'ng2-slim-loading-bar';
 import {AuthComponent} from './profile/auth/auth.component';
 import {SignInDialogComponent} from './profile/auth/sign-in.dialog.component';
+import {UserProfileService, UserProfileServiceImpl} from './profile/userprofile.service';
 
 @NgModule({
     declarations: [
@@ -44,7 +45,9 @@ import {SignInDialogComponent} from './profile/auth/sign-in.dialog.component';
         MdGridListModule,
         SlimLoadingBarModule.forRoot()
     ],
-    providers: [],
+    providers: [
+        { provide: UserProfileService, useClass: UserProfileServiceImpl }
+    ],
     bootstrap: [AppComponent]
 })
 export class AppModule {

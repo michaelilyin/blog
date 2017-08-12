@@ -1,13 +1,8 @@
 import {Component, OnDestroy} from '@angular/core';
-import {AngularFireAuth} from 'angularfire2/auth';
-import {Observable} from 'rxjs/Observable';
-import {User} from 'firebase/app';
-import * as firebase from 'firebase/app';
-import GoogleAuthProvider = firebase.auth.GoogleAuthProvider;
 import {Subscription} from 'rxjs/Subscription';
-import AuthCredential = firebase.auth.AuthCredential;
 import {MdDialog} from '@angular/material';
 import {SignInDialogComponent} from './sign-in.dialog.component';
+import {UserProfile, UserProfileService} from '../userprofile.service';
 
 @Component({
     selector: 'app-auth',
@@ -16,13 +11,13 @@ import {SignInDialogComponent} from './sign-in.dialog.component';
 })
 export class AuthComponent implements OnDestroy {
 
-    user: User = null;
+    user: UserProfile = null;
 
     private authSubscription: Subscription;
 
-    public constructor(private auth: AngularFireAuth,
+    public constructor(private userProfileService: UserProfileService,
                        private dialog: MdDialog) {
-        this.authSubscription = this.auth.authState.subscribe(user => {
+        this.authSubscription = this.userProfileService.profile.subscribe(user => {
             this.user = user
         })
     }
@@ -36,7 +31,7 @@ export class AuthComponent implements OnDestroy {
     }
 
     logout() {
-        this.auth.auth.signOut();
+        this.userProfileService.signOut();
     }
 
     get logged(): boolean {

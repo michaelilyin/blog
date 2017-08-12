@@ -1,9 +1,6 @@
 import {Injectable} from '@angular/core';
-import * as jsyaml from 'js-yaml';
-import {Http} from '@angular/http';
 import {ReplaySubject} from 'rxjs/ReplaySubject';
 import {AngularFireDatabase} from 'angularfire2/database';
-import {Observable} from 'rxjs/Observable';
 import 'rxjs/add/observable/empty'
 import {ToastsManager} from 'ng2-toastr';
 
