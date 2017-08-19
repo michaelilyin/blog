@@ -1,0 +1,11 @@
+{
+    "MENU": {
+        "BLOG": "Blog",
+        "SKILLS": "Skills",
+        "PROJECTS": "Projects",
+        "PROFILE": {
+            "SIGN-IN": "Sign in",
+            "SIGN-OUT": "Sign out"
+        }
+    }
+}

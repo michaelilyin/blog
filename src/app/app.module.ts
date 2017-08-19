@@ -5,17 +5,31 @@ import {AppRoutingModule} from './app.routing.module';
 import {CommonModule} from './common/common.module';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {
-    MdCoreModule, MdCommonModule, MdMenuModule, MdButtonModule, MdToolbarModule,
-    MdProgressSpinnerModule, MdDialogModule, MdInputModule, MdGridListModule
+    MdButtonModule,
+    MdCommonModule,
+    MdCoreModule,
+    MdDialogModule,
+    MdGridListModule,
+    MdInputModule,
+    MdMenuModule,
+    MdProgressSpinnerModule,
+    MdToolbarModule
 } from '@angular/material'
 import {environment} from '../environments/environment';
 import {AngularFireModule} from 'angularfire2';
 import {AngularFireDatabaseModule} from 'angularfire2/database';
 import {AngularFireAuthModule} from 'angularfire2/auth';
-import {SlimLoadingBarModule} from 'ng2-slim-loading-bar';
 import {AuthComponent} from './profile/auth/auth.component';
 import {SignInDialogComponent} from './profile/auth/sign-in.dialog.component';
 import {UserProfileService, UserProfileServiceImpl} from './profile/userprofile.service';
+import {NgProgressModule} from 'ngx-progressbar';
+import {HttpClient, HttpClientModule} from '@angular/common/http';
+import {TranslateHttpLoader} from '@ngx-translate/http-loader';
+import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
+
+export function createTranslateLoader(http: HttpClient) {
+    return new TranslateHttpLoader(http, './assets/i18n/', '.json');
+}
 
 @NgModule({
     declarations: [
@@ -43,7 +57,14 @@ import {UserProfileService, UserProfileServiceImpl} from './profile/userprofile.
         MdDialogModule,
         MdInputModule,
         MdGridListModule,
-        SlimLoadingBarModule.forRoot()
+        NgProgressModule,
+        TranslateModule.forRoot({
+            loader: {
+                provide: TranslateLoader,
+                useFactory: (createTranslateLoader),
+                deps: [HttpClient]
+            }
+        })
     ],
     providers: [
         { provide: UserProfileService, useClass: UserProfileServiceImpl }

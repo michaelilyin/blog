@@ -1,4 +1,4 @@
-<ng2-slim-loading-bar></ng2-slim-loading-bar>
+<ng-progress thick="true" [showSpinner]="false"></ng-progress>
 <div [ngSwitch]="ready" style="height: 100%; margin: 8px;">
     <div *ngSwitchCase="true">
         <div [ngSwitch]="broken">
@@ -6,9 +6,15 @@
                 <md-toolbar>
                     <span class="header" (click)="onTitleClick()">{{name}}</span>
                     <nav>
-                        <a md-button routerLink="blog">Blog</a>
-                        <a md-button routerLink="technologies">Technologies</a>
-                        <a md-button routerLink="projects">Projects</a>
+                        <a md-button routerLink="blog">
+                            <span translate>MENU.BLOG</span>
+                        </a>
+                        <a md-button routerLink="skills">
+                            <span translate>MENU.SKILLS</span>
+                        </a>
+                        <a md-button routerLink="projects">
+                            <span translate>MENU.PROJECTS</span>
+                        </a>
                     </nav>
                     <span class="h-spacer"></span>
                     <app-auth></app-auth>

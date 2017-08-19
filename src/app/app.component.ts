@@ -2,9 +2,12 @@ import {Component, OnInit, ViewContainerRef} from '@angular/core';
 import {ConfigurationService} from './common/service/configuration.service';
 import {NavigationCancel, NavigationEnd, NavigationError, NavigationStart, Router} from '@angular/router';
 import {Title} from '@angular/platform-browser';
-import {SlimLoadingBarService} from 'ng2-slim-loading-bar';
 import {ToastsManager} from 'ng2-toastr';
 import {Observable} from 'rxjs/Observable';
+import {NgProgressService} from 'ngx-progressbar';
+import {TranslateService} from '@ngx-translate/core';
+import {LanguageService} from './common/service/language.service';
+import {lang} from 'moment';
 
 @Component({
     selector: 'app-root',
@@ -19,11 +22,13 @@ export class AppComponent implements OnInit {
     constructor(private configurationService: ConfigurationService,
                 private router: Router,
                 private titleService: Title,
-                private loadingBarService: SlimLoadingBarService,
+                private progressService: NgProgressService,
                 private vcr: ViewContainerRef,
-                private toastService: ToastsManager) {
+                private toastService: ToastsManager,
+                private translateService: TranslateService,
+                private langugeService: LanguageService) {
         this.toastService.setRootViewContainerRef(vcr);
-        this.loadingBarService.interval = 50;
+        this.langugeService.initStaticTranslator(this.translateService);
     }
 
 
@@ -50,11 +55,11 @@ export class AppComponent implements OnInit {
     private initRouter() {
         this.router.events.subscribe(event => {
             if (event instanceof NavigationStart) {
-                this.loadingBarService.start();
+                this.progressService.start();
             } else if (event instanceof NavigationCancel
                 || event instanceof NavigationEnd
                 || event instanceof NavigationError) {
-                this.loadingBarService.complete();
+                this.progressService.done();
             }
         });
     }

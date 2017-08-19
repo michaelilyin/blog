@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {TechnologiesDataService} from '../common/technologies.data.service';
+import {SkillsDataService} from '../common/skills.data.service';
 import {ReplaySubject} from 'rxjs/ReplaySubject';
 
 export class ListTechnology {
@@ -20,7 +20,7 @@ export abstract class TechnologiesListService {
 @Injectable()
 export class TechnologiesListServiceImpl extends TechnologiesListService {
 
-    constructor(technologiesDataService: TechnologiesDataService) {
+    constructor(technologiesDataService: SkillsDataService) {
         super();
         technologiesDataService.technologies.subscribe(technologies => {
             technologies.groups.forEach(group => {

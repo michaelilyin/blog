@@ -50,12 +50,12 @@ export class Technology {
     description: string;
 }
 
-export abstract class TechnologiesDataService {
+export abstract class SkillsDataService {
     public readonly technologies = new ReplaySubject<Technologies>(1);
 }
 
 @Injectable()
-export class TechnologiesDataServiceImpl extends TechnologiesDataService {
+export class SkillsDataServiceImpl extends SkillsDataService {
     constructor(http: Http) {
         super();
         http.get('technologies/index.yml').subscribe(response => {

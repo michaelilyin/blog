@@ -1,0 +1,11 @@
+{
+    "MENU": {
+        "BLOG": "Блог",
+        "SKILLS": "Навыки",
+        "PROJECTS": "Проекты",
+        "PROFILE": {
+            "SIGN-IN": "Войти",
+            "SIGN-OUT": "Выйти"
+        }
+    }
+}
