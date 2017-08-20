@@ -3,14 +3,14 @@ import {getTranslation, TranslatedModel} from '../translated-model';
 import {LanguageService} from '../../service/language.service';
 
 @Component({
-    selector: 'translated-text',
+    selector: 'app-translated-text',
     templateUrl: 'translated-text.component.html'
 })
 export class TranslatedTextComponent implements OnInit {
     @Input()
     public model: TranslatedModel;
 
-    public translatedValue: string = "";
+    public translatedValue = '';
 
     constructor(private languageService: LanguageService) {
 

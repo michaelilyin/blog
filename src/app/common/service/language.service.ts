@@ -2,9 +2,9 @@ import {Injectable} from '@angular/core';
 import {TranslateService} from '@ngx-translate/core';
 
 export abstract class LanguageService {
-    abstract initStaticTranslator(translateService: TranslateService);
-
     abstract lang: string;
+
+    abstract initStaticTranslator(translateService: TranslateService);
 }
 
 @Injectable()

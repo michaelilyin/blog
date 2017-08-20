@@ -32,7 +32,6 @@ export class ConfigurationServiceImpl extends ConfigurationService {
 
     private setDefaults(config: Configuration): Configuration {
         if (this.isEmpty(config.name)) {
-            console.debug('use default application name');
             config.name = new TranslatedModelImpl('Blog application');
         }
         return config;

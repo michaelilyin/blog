@@ -5,7 +5,7 @@
             <div *ngSwitchCase="false">
                 <md-toolbar>
                     <div class="header" (click)="onTitleClick()">
-                        <translated-text [model]="name"></translated-text>
+                        <app-translated-text [model]="name"></app-translated-text>
                     </div>
                     <nav>
                         <a md-button routerLink="blog">
