@@ -7,7 +7,7 @@ import {Observable} from 'rxjs/Observable';
 import {NgProgressService} from 'ngx-progressbar';
 import {TranslateService} from '@ngx-translate/core';
 import {LanguageService} from './common/service/language.service';
-import {lang} from 'moment';
+import {TranslatedModel} from './common/translated/translated-model';
 
 @Component({
     selector: 'app-root',
@@ -15,7 +15,7 @@ import {lang} from 'moment';
     styleUrls: ['app.component.css']
 })
 export class AppComponent implements OnInit {
-    name: string;
+    name: TranslatedModel;
     ready = false;
     broken = false;
 
@@ -33,7 +33,6 @@ export class AppComponent implements OnInit {
 
 
     ngOnInit(): void {
-        this.titleService.setTitle(this.name);
         this.initRouter();
         this.initConfigurationService();
     }

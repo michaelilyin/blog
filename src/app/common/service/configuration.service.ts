@@ -3,9 +3,10 @@ import {ReplaySubject} from 'rxjs/ReplaySubject';
 import {AngularFireDatabase} from 'angularfire2/database';
 import 'rxjs/add/observable/empty'
 import {ToastsManager} from 'ng2-toastr';
+import {TranslatedModel, TranslatedModelImpl} from '../translated/translated-model';
 
 export class Configuration {
-    name: string;
+    name: TranslatedModel;
     timezone: string;
 }
 
@@ -31,7 +32,8 @@ export class ConfigurationServiceImpl extends ConfigurationService {
 
     private setDefaults(config: Configuration): Configuration {
         if (this.isEmpty(config.name)) {
-            config.name = 'Blog application';
+            console.debug('use default application name');
+            config.name = new TranslatedModelImpl('Blog application');
         }
         return config;
     }

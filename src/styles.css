@@ -1,6 +1,5 @@
 @import "~@angular/material/prebuilt-themes/deeppurple-amber.css";
 @import url("https://fonts.googleapis.com/icon?family=Material+Icons");
-@import "~ng2-slim-loading-bar/style.css";
 
 html, body {
     height: 100%;

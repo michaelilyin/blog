@@ -4,7 +4,9 @@
         <div [ngSwitch]="broken">
             <div *ngSwitchCase="false">
                 <md-toolbar>
-                    <span class="header" (click)="onTitleClick()">{{name}}</span>
+                    <div class="header" (click)="onTitleClick()">
+                        <translated-text [model]="name"></translated-text>
+                    </div>
                     <nav>
                         <a md-button routerLink="blog">
                             <span translate>MENU.BLOG</span>

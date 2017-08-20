@@ -5,7 +5,6 @@ import { AppComponent } from './app.component';
 import {RouterModule} from '@angular/router';
 import {APP_BASE_HREF} from '@angular/common';
 import {Configuration, ConfigurationService} from 'app/common/service/configuration.service';
-import {SlimLoadingBarModule} from 'ng2-slim-loading-bar';
 import {ToastModule} from 'ng2-toastr';
 import {AuthComponent} from './profile/auth/auth.component';
 import {AngularFireAuth} from 'angularfire2/auth';
@@ -14,11 +13,13 @@ import {AuthProviders, UserProfileService} from './profile/userprofile.service';
 import {TranslateModule, TranslateService} from '@ngx-translate/core';
 import {NgProgressModule} from 'ngx-progressbar';
 import {LanguageService} from './common/service/language.service';
+import {CommonModule} from './common/common.module';
+import {TranslatedModelImpl} from './common/translated/translated-model';
 
 class ConfigurationServiceMock extends ConfigurationService {
     loadConfig() {
         const config = new Configuration();
-        config.name = 'Test Name';
+        config.name = new TranslatedModelImpl('Test Name');
         this.configuration.next(config);
     }
 }
@@ -32,6 +33,8 @@ class UserProfileServiceMock extends UserProfileService {
 }
 
 class LanguageServiceMock extends LanguageService {
+    lang = 'en';
+
     initStaticTranslator(translateService: TranslateService) {    }
 }
 
@@ -53,6 +56,7 @@ describe('AppComponent', () => {
                 MdToolbarModule,
                 MdMenuModule,
                 MdDialogModule,
+                CommonModule,
                 RouterModule.forRoot([{path: '', loadChildren: 'app/home/home.module#HomeModule'}]),
                 NgProgressModule,
                 TranslateModule.forRoot(),
@@ -71,7 +75,7 @@ describe('AppComponent', () => {
         const fixture = TestBed.createComponent(AppComponent);
         fixture.detectChanges();
         const compiled = fixture.debugElement.nativeElement;
-        expect(compiled.querySelector('md-toolbar span.header').textContent).toContain('Test Name');
+        expect(compiled.querySelector('md-toolbar div.header span').textContent).toContain('Test Name');
     }));
 
 });
