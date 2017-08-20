@@ -1,5 +1,6 @@
 import {Injectable} from '@angular/core';
 import {TranslateService} from '@ngx-translate/core';
+import {environment} from '../../../environments/environment';
 
 export abstract class LanguageService {
     abstract lang: string;
@@ -15,7 +16,8 @@ export class LanguageServiceImpl extends LanguageService {
     }
 
     initStaticTranslator(translateService: TranslateService) {
-        translateService.setDefaultLang('en');
+        translateService.setDefaultLang(environment.defaultLang);
+        translateService.use(translateService.getBrowserLang());
         // translateService.use('ru');
     }
 
