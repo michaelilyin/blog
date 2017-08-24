@@ -7,7 +7,8 @@ import GoogleAuthProvider = firebase.auth.GoogleAuthProvider;
 
 export class UserProfile {
 
-    constructor(readonly displayName: string,
+    constructor(readonly uid: string,
+                readonly displayName: string,
                 readonly avatarUrl: string = '') {
     }
 }
@@ -30,8 +31,12 @@ export class UserProfileServiceImpl extends UserProfileService {
     constructor(private auth: AngularFireAuth) {
         super();
         this.auth.authState.subscribe(user => {
-           const profile = this.convertUserToProfile(user);
-           this.profile.next(profile);
+            if (user == null) {
+                this.profile.next(null);
+                return;
+            }
+            const profile = this.convertUserToProfile(user);
+            this.profile.next(profile);
         });
     }
 
@@ -60,7 +65,8 @@ export class UserProfileServiceImpl extends UserProfileService {
             return null;
         }
         const profile = new UserProfile(
-            user.displayName,
+            user.uid,
+            user.providerData[0].displayName,
             user.providerData[0].photoURL + '?size=40'
         );
         return profile;

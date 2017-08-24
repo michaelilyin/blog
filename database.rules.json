@@ -1,9 +1,26 @@
 {
     "rules": {
-        ".write": "auth != null",
         "application": {
             "config": {
-                ".read": true
+                ".read": true,
+                ".write": "root.child('/user-perms/' + auth.uid + 'edit-config').exists()"
+            }
+        },
+        "users": {
+            "$uid": {
+                ".write": "auth != null && $uid == auth.uid",
+                "public": {
+                    ".read": true
+                },
+                "private": {
+                    ".read": "auth != null && $uid == auth.uid"
+                }
+            }
+        },
+        "user-perms": {
+            "$uid": {
+                ".write": "root.child('/user-perms/' + auth.uid + 'edit-perms').exists()",
+                ".read": "auth != null && $uid == auth.uid || root.child('/user-perms/' + auth.uid + 'view-perms').exists()"
             }
         }
     }

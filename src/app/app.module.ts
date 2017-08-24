@@ -23,9 +23,10 @@ import {AuthComponent} from './profile/auth/auth.component';
 import {SignInDialogComponent} from './profile/auth/sign-in.dialog.component';
 import {UserProfileService, UserProfileServiceImpl} from './profile/userprofile.service';
 import {NgProgressModule} from 'ngx-progressbar';
-import {HttpClient, HttpClientModule} from '@angular/common/http';
+import {HttpClient} from '@angular/common/http';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
+import {PermissionService, PermissionServiceImpl} from './profile/permission.service';
 
 export function createTranslateLoader(http: HttpClient) {
     return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -67,7 +68,8 @@ export function createTranslateLoader(http: HttpClient) {
         })
     ],
     providers: [
-        { provide: UserProfileService, useClass: UserProfileServiceImpl }
+        { provide: UserProfileService, useClass: UserProfileServiceImpl },
+        { provide: PermissionService, useClass: PermissionServiceImpl }
     ],
     bootstrap: [AppComponent]
 })
