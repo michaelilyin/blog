@@ -17,12 +17,17 @@ import {CommonModule} from './common/common.module';
 import {TranslatedModelImpl} from './common/translated/translated-model';
 import {TranslatedTextComponent} from './common/translated/text/translated-text.component';
 import {PermissionService} from './common/profile/permission.service';
+import {LogModule} from 'ngx-log';
 
 class ConfigurationServiceMock extends ConfigurationService {
     loadConfig() {
         const config = new Configuration();
         config.name = new TranslatedModelImpl('Test Name');
         this.configuration.next(config);
+    }
+
+    updateConfig(config: Configuration): Promise<any> {
+        return null;
     }
 }
 
@@ -66,6 +71,7 @@ describe('AppComponent', () => {
                 MdToolbarModule,
                 MdMenuModule,
                 MdDialogModule,
+                LogModule.forRoot(false),
                 RouterModule.forRoot([{path: '', loadChildren: 'app/home/home.module#HomeModule'}]),
                 NgProgressModule,
                 TranslateModule.forRoot(),

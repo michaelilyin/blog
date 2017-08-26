@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, Input, OnChanges, OnInit, SimpleChanges} from '@angular/core';
 import {getTranslation, TranslatedModel} from '../translated-model';
 import {LanguageService} from '../../service/language.service';
 
@@ -6,7 +6,7 @@ import {LanguageService} from '../../service/language.service';
     selector: 'app-translated-text',
     templateUrl: 'translated-text.component.html'
 })
-export class TranslatedTextComponent implements OnInit {
+export class TranslatedTextComponent implements OnInit, OnChanges {
     @Input()
     public model: TranslatedModel;
 
@@ -18,5 +18,12 @@ export class TranslatedTextComponent implements OnInit {
 
     ngOnInit() {
         this.translatedValue = getTranslation(this.model, this.languageService.lang);
+    }
+
+
+    ngOnChanges(changes: SimpleChanges): void {
+        if (changes['model']) {
+            this.translatedValue = getTranslation(changes['model'].currentValue, this.languageService.lang)
+        }
     }
 }

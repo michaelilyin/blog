@@ -9,6 +9,7 @@ import {TranslateService} from '@ngx-translate/core';
 import {LanguageService} from './common/service/language.service';
 import {TranslatedModel} from './common/translated/translated-model';
 import {PermissionService} from './common/profile/permission.service';
+import {LogService} from 'ngx-log';
 
 @Component({
     selector: 'app-root',
@@ -28,7 +29,8 @@ export class AppComponent implements OnInit {
                 private toastService: ToastsManager,
                 private translateService: TranslateService,
                 private langugeService: LanguageService,
-                private permissionService: PermissionService) {
+                private permissionService: PermissionService,
+                private logger: LogService) {
         this.toastService.setRootViewContainerRef(vcr);
         this.langugeService.initStaticTranslator(this.translateService);
     }

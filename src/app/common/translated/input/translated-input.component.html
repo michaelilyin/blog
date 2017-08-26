@@ -1,0 +1,6 @@
+<md-input-container class="example-full-width">
+    <input [type]="type" mdInput [placeholder]="placeholder" [(ngModel)]="translatedValue">
+    <md-select mdSuffix [(ngModel)]="selectedLang">
+        <md-option *ngFor="let lang of ['ru', 'en']" [value]="lang">{{lang}}</md-option>
+    </md-select>
+</md-input-container>

@@ -7,21 +7,3 @@ export abstract class LanguageService {
 
     abstract initStaticTranslator(translateService: TranslateService);
 }
-
-@Injectable()
-export class LanguageServiceImpl extends LanguageService {
-
-    constructor(private rootTranslateService: TranslateService) {
-        super();
-    }
-
-    initStaticTranslator(translateService: TranslateService) {
-        translateService.setDefaultLang(environment.defaultLang);
-        translateService.use(translateService.getBrowserLang());
-        // translateService.use('ru');
-    }
-
-    get lang(): string {
-        return this.rootTranslateService.currentLang;
-    }
-}

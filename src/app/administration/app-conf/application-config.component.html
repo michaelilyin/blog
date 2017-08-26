@@ -1,1 +1,4 @@
-<p>app config</p>
+<div *ngIf="access('edit-config')">
+    <app-translated-input placeholder="Test" type="text" [model]="configuration.name"></app-translated-input>
+    <button md-button (click)="update()">Save</button>
+</div>

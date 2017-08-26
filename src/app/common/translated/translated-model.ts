@@ -6,7 +6,7 @@ export abstract class TranslatedModel {
 
 export class TranslatedModelImpl extends TranslatedModel {
 
-    constructor(val: string) {
+    constructor(val: string = '') {
         super();
         this[environment.defaultLang] = val;
     }
