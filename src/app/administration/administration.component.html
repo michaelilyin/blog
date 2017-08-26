@@ -1,0 +1,12 @@
+<md-sidenav-container class="full-height">
+    <md-sidenav mode="side" opened="true" class="full-height">
+        <md-nav-list dense>
+            <a md-list-item *ngIf="access('edit-config')" routerLink="application">Application config</a>
+            <a md-list-item *ngIf="access('view-users')" routerLink="users">Users</a>
+            <a md-list-item *ngIf="access('edit-roles')" routerLink="roles">Roles</a>
+        </md-nav-list>
+    </md-sidenav>
+    <div class="app-content">
+        <router-outlet></router-outlet>
+    </div>
+</md-sidenav-container>

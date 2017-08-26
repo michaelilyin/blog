@@ -3,7 +3,7 @@
         "application": {
             "config": {
                 ".read": true,
-                ".write": "root.child('/user-perms/' + auth.uid + 'edit-config').exists()"
+                ".write": "auth != null && root.child('/user-perms/' + auth.uid + '/edit-config').exists()"
             }
         },
         "users": {
@@ -19,8 +19,13 @@
         },
         "user-perms": {
             "$uid": {
-                ".write": "root.child('/user-perms/' + auth.uid + 'edit-perms').exists()",
-                ".read": "auth != null && $uid == auth.uid || root.child('/user-perms/' + auth.uid + 'view-perms').exists()"
+                ".write": "auth != null && root.child('/user-perms/' + auth.uid + '/edit-user-perms').exists()",
+                ".read": "auth != null && ($uid == auth.uid || root.child('/user-perms/' + auth.uid + '/view-user-perms').exists())"
+            }
+        },
+        "perms": {
+            "$name": {
+                ".read": "auth != null && (root.child('/user-perms/' + auth.uid + '/' + $name).exists() || root.child('/user-perms/' + auth.uid + '/view-perms').exists())"
             }
         }
     }

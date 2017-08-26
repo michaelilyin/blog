@@ -13,3 +13,29 @@ body {
 .h-spacer {
     flex: 1 1 auto;
 }
+
+.app-content {
+    margin: 8px;
+}
+
+
+.full-height {
+    height: 100%;
+}
+
+.mat-sidenav-opened {
+    box-shadow: 3px 0 6px rgba(0,0,0,.24);
+}
+
+.mat-sidenav-container {
+    background-color: inherit !important;
+}
+
+.mat-sidenav {
+    background-color: inherit !important;
+}
+
+.main-toolbar {
+    box-shadow: 0 3px 5px -1px rgba(0,0,0,.2), 0 6px 10px 0 rgba(0,0,0,.14), 0 1px 18px 0 rgba(0,0,0,.12);
+    z-index: 10;
+}

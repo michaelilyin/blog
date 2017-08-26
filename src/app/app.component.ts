@@ -8,6 +8,7 @@ import {NgProgressService} from 'ngx-progressbar';
 import {TranslateService} from '@ngx-translate/core';
 import {LanguageService} from './common/service/language.service';
 import {TranslatedModel} from './common/translated/translated-model';
+import {PermissionService} from './common/profile/permission.service';
 
 @Component({
     selector: 'app-root',
@@ -26,7 +27,8 @@ export class AppComponent implements OnInit {
                 private vcr: ViewContainerRef,
                 private toastService: ToastsManager,
                 private translateService: TranslateService,
-                private langugeService: LanguageService) {
+                private langugeService: LanguageService,
+                private permissionService: PermissionService) {
         this.toastService.setRootViewContainerRef(vcr);
         this.langugeService.initStaticTranslator(this.translateService);
     }
@@ -65,5 +67,9 @@ export class AppComponent implements OnInit {
 
     onTitleClick() {
         this.router.navigate(['home']);
+    }
+
+    access(priv: string) {
+        return this.permissionService.has(priv);
     }
 }

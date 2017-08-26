@@ -3,6 +3,7 @@
         "BLOG": "Блог",
         "SKILLS": "Навыки",
         "PROJECTS": "Проекты",
+        "ADMIN": "Администрирование",
         "PROFILE": {
             "SIGN-IN": "Войти",
             "SIGN-OUT": "Выйти"

@@ -1,9 +1,9 @@
 <ng-progress thick="true" [showSpinner]="false"></ng-progress>
-<div [ngSwitch]="ready" style="height: 100%; margin: 8px;">
-    <div *ngSwitchCase="true">
-        <div [ngSwitch]="broken">
-            <div *ngSwitchCase="false">
-                <md-toolbar>
+<div [ngSwitch]="ready" style="height: 100%;">
+    <div *ngSwitchCase="true" style="height: 100%;">
+        <div [ngSwitch]="broken" style="height: 100%;">
+            <div *ngSwitchCase="false" style="height: 100%;">
+                <md-toolbar class="main-toolbar">
                     <div class="header" (click)="onTitleClick()">
                         <app-translated-text [model]="name"></app-translated-text>
                     </div>
@@ -17,12 +17,17 @@
                         <a md-button routerLink="projects">
                             <span translate>MENU.PROJECTS</span>
                         </a>
+                        <a md-button routerLink="admin" *ngIf="access('view-admin')">
+                            <span translate>MENU.ADMIN</span>
+                        </a>
                     </nav>
                     <span class="h-spacer"></span>
                     <app-auth></app-auth>
                 </md-toolbar>
                 <!--<md-card>-->
-                <router-outlet></router-outlet>
+                <div class="full-height">
+                    <router-outlet></router-outlet>
+                </div>
                 <!--</md-card>-->
             </div>
             <div *ngSwitchCase="true">
