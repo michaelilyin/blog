@@ -11,6 +11,7 @@ import {
 } from '@angular/material';
 import {TranslatedInputComponent} from './translated/input/translated-input.component';
 import {FormsModule} from '@angular/forms';
+import {LangSelectorComponent} from './translated/lang-selector/lang-selector.component';
 
 @NgModule({
     imports: [
@@ -31,6 +32,7 @@ import {FormsModule} from '@angular/forms';
     ],
     providers: [],
     declarations: [
+        LangSelectorComponent,
         TranslatedTextComponent,
         TranslatedInputComponent,
         SignInDialogComponent
@@ -43,6 +45,8 @@ import {FormsModule} from '@angular/forms';
         HttpClientModule,
         ToastModule,
         NgCommonModule,
+
+        LangSelectorComponent,
         TranslatedTextComponent,
         TranslatedInputComponent,
         SignInDialogComponent

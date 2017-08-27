@@ -1,5 +1,16 @@
 {
     "ADMIN": {
-        "UNDER-DEV": "Administration page is under development"
+        "UNDER-DEV": "Administration page is under development",
+        "MENU": {
+            "APP": "Application config",
+            "USERS": "Users",
+            "ROLES": "Roles"
+        },
+        "APP": {
+            "TITLE": "Main application config",
+            "APP-NAME-LBL": "Website name",
+            "UPDATE-BTN": "Update",
+            "RESET-BTN": "Reset"
+        }
     }
 }

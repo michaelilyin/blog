@@ -9,19 +9,32 @@ import {Subscription} from 'rxjs/Subscription';
 })
 export class ApplicationConfigComponent {
 
-    public configuration: Configuration;
+    public appName: TranslatedModel;
 
     private configSubscription: Subscription;
 
     constructor(private permissionService: PermissionService,
                 private configurationService: ConfigurationService) {
-        this.configSubscription = this.configurationService.configuration.subscribe(config => {
-           this.configuration = config;
+        this.loadData();
+    }
+
+    private loadData() {
+        if (this.configSubscription) {
+            this.configSubscription.unsubscribe();
+        }
+        this.configSubscription = this.configurationService.configuration.first().subscribe(config => {
+            this.appName = new TranslatedModelImpl(config.name);
         });
     }
 
     update() {
-        this.configurationService.updateConfig(this.configuration);
+        this.configurationService.updateConfig({
+            name: this.appName
+        });
+    }
+
+    reset() {
+        this.loadData();
     }
 
     access(priv: string) {

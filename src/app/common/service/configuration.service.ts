@@ -3,8 +3,13 @@ import 'rxjs/add/observable/empty'
 import {TranslatedModel} from '../translated/translated-model';
 
 export class Configuration {
-    name: TranslatedModel;
-    timezone: string;
+    readonly name: TranslatedModel;
+    readonly timezone: string;
+}
+
+export interface ConfigData {
+    name?: TranslatedModel
+    timezone?: TranslatedModel
 }
 
 export abstract class ConfigurationService {
@@ -12,5 +17,5 @@ export abstract class ConfigurationService {
 
     abstract loadConfig();
 
-    abstract updateConfig(config: Configuration): Promise<any>;
+    abstract updateConfig(config: ConfigData): Promise<any>;
 }

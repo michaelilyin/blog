@@ -1,8 +1,8 @@
 import {Injectable} from '@angular/core';
-import {Configuration, ConfigurationService} from '../common/service/configuration.service';
+import {ConfigData, Configuration, ConfigurationService} from '../common/service/configuration.service';
 import {AngularFireDatabase} from 'angularfire2/database';
 import {ToastsManager} from 'ng2-toastr';
-import {TranslatedModelImpl} from '../common/translated/translated-model';
+import {translated, TranslatedModelImpl} from '../common/translated/translated-model';
 import {LogService} from 'ngx-log';
 
 @Injectable()
@@ -24,14 +24,14 @@ export class ConfigurationServiceImpl extends ConfigurationService {
             .subscribe(this.configuration);
     }
 
-    updateConfig(config: Configuration): Promise<any> {
+    updateConfig(config: ConfigData): Promise<any> {
         this.logger.info('Save config', config);
         return this.db.object('/application/config').update(config) as Promise<any>;
     }
 
     private setDefaults(config: Configuration): Configuration {
         if (this.isEmpty(config.name)) {
-            config.name = new TranslatedModelImpl('Blog application');
+            (config as any).name = translated('Blog application');
         }
         return config;
     }

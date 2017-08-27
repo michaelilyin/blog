@@ -1,4 +1,4 @@
-import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges} from '@angular/core';
 import {getTranslation, TranslatedModel, TranslatedModelImpl} from '../translated-model';
 import {LanguageService} from '../../service/language.service';
 
@@ -6,7 +6,7 @@ import {LanguageService} from '../../service/language.service';
     selector: 'app-translated-input',
     templateUrl: 'translated-input.component.html'
 })
-export class TranslatedInputComponent implements OnInit {
+export class TranslatedInputComponent implements OnInit, OnChanges {
     @Input()
     public model = new TranslatedModelImpl();
 
@@ -16,6 +16,9 @@ export class TranslatedInputComponent implements OnInit {
     @Input()
     public type: string;
 
+    @Input()
+    public lang: string;
+
     public selectedLang = '';
 
     constructor(private languageService: LanguageService) {
@@ -23,7 +26,17 @@ export class TranslatedInputComponent implements OnInit {
     }
 
     ngOnInit() {
-        this.selectedLang = this.languageService.lang;
+        if (this.lang) {
+            this.selectedLang = this.lang;
+        } else {
+            this.selectedLang = this.languageService.lang;
+        }
+    }
+
+    ngOnChanges(changes: SimpleChanges): void {
+        if (changes.lang) {
+            this.selectedLang = changes.lang.currentValue;
+        }
     }
 
     get translatedValue(): string {

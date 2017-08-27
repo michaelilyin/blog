@@ -1,4 +1,27 @@
 <div *ngIf="access('edit-config')">
-    <app-translated-input placeholder="Test" type="text" [model]="configuration.name"></app-translated-input>
-    <button md-button (click)="update()">Save</button>
+
+    <md-card>
+
+        <h2>
+            <span translate>ADMIN.APP.TITLE</span>
+            <app-lang-selector #langSelector></app-lang-selector>
+        </h2>
+
+        <section>
+            <app-translated-input placeholder="{{'ADMIN.APP.APP-NAME-LBL' | translate}}"
+                                  type="text"
+                                  [model]="appName"
+                                  [lang]="langSelector.selectedLang"
+            ></app-translated-input>
+        </section>
+
+        <section>
+            <button md-button color="primary" (click)="update()">
+                <span translate>ADMIN.APP.UPDATE-BTN</span>
+            </button>
+            <button md-button color="warn" (click)="reset()">
+                <span translate>ADMIN.APP.RESET-BTN</span>
+            </button>
+        </section>
+    </md-card>
 </div>

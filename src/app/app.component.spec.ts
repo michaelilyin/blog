@@ -4,7 +4,7 @@ import {MdButtonModule, MdDialogModule, MdMenuModule, MdToolbarModule} from '@an
 import { AppComponent } from './app.component';
 import {RouterModule} from '@angular/router';
 import {APP_BASE_HREF} from '@angular/common';
-import {Configuration, ConfigurationService} from 'app/common/service/configuration.service';
+import {ConfigData, Configuration, ConfigurationService} from 'app/common/service/configuration.service';
 import {ToastModule} from 'ng2-toastr';
 import {AuthComponent} from './common/profile/auth/auth.component';
 import {AngularFireAuth} from 'angularfire2/auth';
@@ -14,19 +14,21 @@ import {TranslateModule, TranslateService} from '@ngx-translate/core';
 import {NgProgressModule} from 'ngx-progressbar';
 import {LanguageService} from './common/service/language.service';
 import {CommonModule} from './common/common.module';
-import {TranslatedModelImpl} from './common/translated/translated-model';
+import {translated, TranslatedModelImpl} from './common/translated/translated-model';
 import {TranslatedTextComponent} from './common/translated/text/translated-text.component';
 import {PermissionService} from './common/profile/permission.service';
 import {LogModule} from 'ngx-log';
 
 class ConfigurationServiceMock extends ConfigurationService {
     loadConfig() {
-        const config = new Configuration();
-        config.name = new TranslatedModelImpl('Test Name');
-        this.configuration.next(config);
+        const config = {
+            name: translated('Test Name'),
+            timezone: ""
+        };
+        this.configuration.next(config as Configuration);
     }
 
-    updateConfig(config: Configuration): Promise<any> {
+    updateConfig(config: ConfigData): Promise<any> {
         return null;
     }
 }
