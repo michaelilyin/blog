@@ -23,7 +23,7 @@ class ConfigurationServiceMock extends ConfigurationService {
     loadConfig() {
         const config = {
             name: translated('Test Name'),
-            timezone: ""
+            timezone: ''
         };
         this.configuration.next(config as Configuration);
     }
