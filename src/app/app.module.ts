@@ -13,7 +13,7 @@ import {
     MdInputModule,
     MdMenuModule,
     MdProgressSpinnerModule,
-    MdToolbarModule
+    MdToolbarModule, OverlayModule
 } from '@angular/material'
 import {environment} from '../environments/environment';
 import {AngularFireModule} from 'angularfire2';
@@ -61,6 +61,7 @@ export function createTranslateLoader(http: HttpClient) {
         MdInputModule,
         MdGridListModule,
         NgProgressModule,
+        OverlayModule,
         LogModule.forRoot(environment.production),
         TranslateModule.forRoot({
             loader: {

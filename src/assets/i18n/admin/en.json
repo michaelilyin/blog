@@ -12,5 +12,12 @@
             "UPDATE-BTN": "Update",
             "RESET-BTN": "Reset"
         }
+    },
+    "COMMON": {
+        "TRANSLATED": {
+            "SELECTOR": {
+                "PLACEHOLDER": "Lang"
+            }
+        }
     }
 }

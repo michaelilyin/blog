@@ -1,5 +1,8 @@
 import {NgModule} from '@angular/core';
-import {MdButtonModule, MdCardModule, MdInputModule, MdListModule, MdSidenavModule} from '@angular/material';
+import {
+    MdButtonModule, MdCardModule, MdInputModule, MdListModule, MdSidenavModule,
+    OverlayModule
+} from '@angular/material';
 import {AdministrationComponent} from './administration.component';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 import {HttpClient} from '@angular/common/http';
@@ -26,6 +29,7 @@ export function createTranslateLoader(http: HttpClient) {
         MdSidenavModule,
         MdInputModule,
         CommonModule,
+        OverlayModule,
         TranslateModule.forChild({
             loader: {
                 provide: TranslateLoader,

@@ -3,8 +3,10 @@
         "BLOG": "Blog",
         "SKILLS": "Skills",
         "PROJECTS": "Projects",
-        "ADMIN": "Administration",
-        "PROFILE": {
+        "ADMIN": "Administration"
+    },
+    "COMMON": {
+        "AUTH": {
             "SIGN-IN": "Sign in",
             "SIGN-OUT": "Sign out"
         }

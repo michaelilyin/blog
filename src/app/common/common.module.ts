@@ -6,12 +6,20 @@ import {TranslatedTextComponent} from './translated/text/translated-text.compone
 import {SignInDialogComponent} from './profile/auth/sign-in.dialog.component';
 import {CommonModule as NgCommonModule} from '@angular/common';
 import {
-    MdButtonModule, MdDialogModule, MdIconModule, MdInputModule, MdMenuModule, MdOptionModule,
-    MdProgressSpinnerModule, MdSelectionModule, MdSelectModule
+    MdButtonModule,
+    MdDialogModule,
+    MdIconModule,
+    MdInputModule,
+    MdMenuModule,
+    MdOptionModule,
+    MdProgressSpinnerModule,
+    MdSelectionModule,
+    MdSelectModule
 } from '@angular/material';
 import {TranslatedInputComponent} from './translated/input/translated-input.component';
 import {FormsModule} from '@angular/forms';
 import {LangSelectorComponent} from './translated/lang-selector/lang-selector.component';
+import {TranslateModule} from '@ngx-translate/core';
 
 @NgModule({
     imports: [
@@ -28,9 +36,12 @@ import {LangSelectorComponent} from './translated/lang-selector/lang-selector.co
         MdSelectModule,
         MdSelectionModule,
         MdOptionModule,
-        ToastModule.forRoot()
+        ToastModule.forRoot(),
+        TranslateModule
     ],
-    providers: [],
+    providers: [
+
+    ],
     declarations: [
         LangSelectorComponent,
         TranslatedTextComponent,

@@ -6,13 +6,13 @@
         </button>
         <md-menu #menu="mdMenu">
             <button md-menu-item (click)="logout()">
-                <span translate>MENU.PROFILE.SIGN-OUT</span>
+                <span translate>COMMON.AUTH.SIGN-OUT</span>
             </button>
         </md-menu>
     </div>
     <div *ngIf="!logged">
         <button md-button color="primary" (click)="login()">
-            <span translate>MENU.PROFILE.SIGN-IN</span>
+            <span translate>COMMON.AUTH.SIGN-IN</span>
         </button>
     </div>
 </div>

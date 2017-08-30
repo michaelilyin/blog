@@ -3,6 +3,8 @@ import {Subscription} from 'rxjs/Subscription';
 import {MdDialog} from '@angular/material';
 import {SignInDialogComponent} from './sign-in.dialog.component';
 import {UserProfile, UserProfileService} from '../userprofile.service';
+import {TranslateService} from '@ngx-translate/core';
+import {LanguageService} from '../../service/language.service';
 
 @Component({
     selector: 'app-auth',
@@ -16,7 +18,8 @@ export class AuthComponent implements OnDestroy {
     private authSubscription: Subscription;
 
     public constructor(private userProfileService: UserProfileService,
-                       private dialog: MdDialog) {
+                       private dialog: MdDialog,
+                       private translateService: TranslateService) {
         this.authSubscription = this.userProfileService.profile.subscribe(user => {
             this.user = user
         })

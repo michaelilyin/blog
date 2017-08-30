@@ -1,4 +1,4 @@
-import {Routes, RouterModule} from '@angular/router';
+import {RouterModule, Routes} from '@angular/router';
 import {NgModule} from '@angular/core';
 import {AdministrationComponent} from './administration.component';
 import {ApplicationConfigComponent} from './app-conf/application-config.component';

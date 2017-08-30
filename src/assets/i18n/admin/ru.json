@@ -12,5 +12,12 @@
             "UPDATE-BTN": "Обновить",
             "RESET-BTN": "Сбросить"
         }
+    },
+    "COMMON": {
+        "TRANSLATED": {
+            "SELECTOR": {
+                "PLACEHOLDER": "Язык"
+            }
+        }
     }
 }

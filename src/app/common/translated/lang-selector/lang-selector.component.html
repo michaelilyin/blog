@@ -1,3 +1,6 @@
-<md-select placeholder="Text language" [(ngModel)]="selectedLang">
+<md-select
+    placeholder="{{'COMMON.TRANSLATED.SELECTOR.PLACEHOLDER' | translate}}"
+    [(ngModel)]="selectedLang"
+>
     <md-option *ngFor="let lang of ['ru', 'en']" [value]="lang">{{lang}}</md-option>
 </md-select>
