@@ -13,7 +13,6 @@ import {
     MdMenuModule,
     MdOptionModule,
     MdProgressSpinnerModule,
-    MdSelectionModule,
     MdSelectModule
 } from '@angular/material';
 import {TranslatedInputComponent} from './translated/input/translated-input.component';
@@ -34,7 +33,6 @@ import {TranslateModule} from '@ngx-translate/core';
         MdIconModule,
         MdMenuModule,
         MdSelectModule,
-        MdSelectionModule,
         MdOptionModule,
         ToastModule.forRoot(),
         TranslateModule

@@ -1,6 +1,9 @@
 import {Component, OnInit, ViewContainerRef} from '@angular/core';
 import {ConfigurationService} from './common/service/configuration.service';
-import {NavigationCancel, NavigationEnd, NavigationError, NavigationStart, Router} from '@angular/router';
+import {
+    GuardsCheckEnd, NavigationCancel, NavigationEnd, NavigationError, NavigationStart,
+    Router
+} from '@angular/router';
 import {Title} from '@angular/platform-browser';
 import {ToastsManager} from 'ng2-toastr';
 import {Observable} from 'rxjs/Observable';
@@ -10,6 +13,7 @@ import {LanguageService} from './common/service/language.service';
 import {TranslatedModel} from './common/translated/translated-model';
 import {PermissionService} from './common/profile/permission.service';
 import {LogService} from 'ngx-log';
+import 'rxjs/add/operator/catch';
 
 @Component({
     selector: 'app-root',

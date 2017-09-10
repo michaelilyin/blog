@@ -1,5 +1,5 @@
-<md-sidenav-container class="full-height">
-    <md-sidenav mode="side" opened="true" class="full-height">
+<md-drawer-container class="full-height">
+    <md-drawer mode="side" opened="true" class="full-height">
         <md-nav-list dense>
             <a md-list-item *ngIf="access('edit-config')" routerLink="application">
                 <span translate>ADMIN.MENU.APP</span>
@@ -11,8 +11,8 @@
                 <span translate>ADMIN.MENU.ROLES</span>
             </a>
         </md-nav-list>
-    </md-sidenav>
+    </md-drawer>
     <div class="app-content">
         <router-outlet></router-outlet>
     </div>
-</md-sidenav-container>
+</md-drawer-container>

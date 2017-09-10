@@ -13,7 +13,7 @@ import {
     MdInputModule,
     MdMenuModule,
     MdProgressSpinnerModule,
-    MdToolbarModule, OverlayModule
+    MdToolbarModule
 } from '@angular/material'
 import {environment} from '../environments/environment';
 import {AngularFireModule} from 'angularfire2';
@@ -33,6 +33,7 @@ import {LanguageService} from './common/service/language.service';
 import {LogModule} from 'ngx-log';
 import {UserProfileServiceImpl} from './service/userprofile.service';
 import {PermissionServiceImpl} from './service/permission.service';
+import {OverlayModule} from '@angular/cdk/overlay';
 
 export function createTranslateLoader(http: HttpClient) {
     return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -51,7 +52,6 @@ export function createTranslateLoader(http: HttpClient) {
         AppRoutingModule,
         CommonModule,
         BrowserAnimationsModule,
-        MdCoreModule,
         MdCommonModule,
         MdMenuModule,
         MdButtonModule,

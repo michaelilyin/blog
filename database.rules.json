@@ -24,9 +24,10 @@
             }
         },
         "perms": {
-            "$name": {
-                ".read": "auth != null && (root.child('/user-perms/' + auth.uid + '/' + $name).exists() || root.child('/user-perms/' + auth.uid + '/view-perms').exists())"
-            }
+            ".read": "auth != null && root.child('/user-perms/' + auth.uid + '/view-perms').exists()"
+        },
+        "roles": {
+            ".read": "auth != null && root.child('/user-perms/' + auth.uid + '/view-roles').exists()"
         }
     }
 }

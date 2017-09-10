@@ -3,6 +3,8 @@ import {PermissionService} from '../common/profile/permission.service';
 import {Subscription} from 'rxjs/Subscription';
 import {UserProfileService} from '../common/profile/userprofile.service';
 import {AngularFireDatabase} from 'angularfire2/database';
+import {Router} from '@angular/router';
+import {LogService} from 'ngx-log';
 
 @Injectable()
 export class PermissionServiceImpl extends PermissionService {

@@ -1,7 +1,7 @@
 import {NgModule} from '@angular/core';
 import {
-    MdButtonModule, MdCardModule, MdInputModule, MdListModule, MdSidenavModule,
-    OverlayModule
+    MdButtonModule, MdCardModule, MdDrawerContainer, MdInputModule, MdListModule, MdPaginatorModule, MdSidenavModule,
+    MdTableModule
 } from '@angular/material';
 import {AdministrationComponent} from './administration.component';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
@@ -14,6 +14,8 @@ import {ApplicationConfigComponent} from './app-conf/application-config.componen
 import {UsersComponent} from './users/users.component';
 import {DefaultComponent} from './default/default.component';
 import {RolesComponent} from './roles/roles.component';
+import {OverlayModule} from '@angular/cdk/overlay';
+import {AngularFireDatabaseModule} from 'angularfire2/database';
 
 export function createTranslateLoader(http: HttpClient) {
     return new TranslateHttpLoader(http, './assets/i18n/admin/', '.json');
@@ -28,8 +30,12 @@ export function createTranslateLoader(http: HttpClient) {
         MdListModule,
         MdSidenavModule,
         MdInputModule,
+        MdSidenavModule,
+        MdTableModule,
+        MdPaginatorModule,
         CommonModule,
         OverlayModule,
+        AngularFireDatabaseModule,
         TranslateModule.forChild({
             loader: {
                 provide: TranslateLoader,
