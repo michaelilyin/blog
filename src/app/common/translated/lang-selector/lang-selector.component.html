@@ -1,6 +1,8 @@
-<md-select
-    placeholder="{{'COMMON.TRANSLATED.SELECTOR.PLACEHOLDER' | translate}}"
-    [(ngModel)]="selectedLang"
->
-    <md-option *ngFor="let lang of ['ru', 'en']" [value]="lang">{{lang}}</md-option>
-</md-select>
+<button md-icon-button [mdMenuTriggerFor]="menu">
+    <span>{{selectedLang}}</span>
+</button>
+<md-menu #menu="mdMenu">
+    <button md-menu-item *ngFor="let lang of ['ru', 'en']" (click)="selectedLang = lang">
+        <span>{{lang}}</span>
+    </button>
+</md-menu>
