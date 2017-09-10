@@ -1,4 +1,4 @@
-import {Component, ViewChild} from '@angular/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
 import {PermissionService} from '../../common/profile/permission.service';
 import {RoleRecord, RolesTableService, RolesTableServiceImpl} from './roles.table.service';
 import {Observable} from 'rxjs/Observable';
@@ -38,7 +38,7 @@ export class RolesDataSource extends DataSource<RoleRecord> {
         { provide: RolesTableService, useClass: RolesTableServiceImpl }
     ]
 })
-export class RolesComponent {
+export class RolesComponent implements OnInit {
 
     public displayedColumns = ['name', 'description'];
 
