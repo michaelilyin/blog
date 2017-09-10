@@ -29,9 +29,9 @@ export class PaginatorTranslator implements MdPaginatorIntl {
             const from = page * size;
             const to = from + size;
             return this.translateService.instant('COMMON.PAGINATOR.RANGE', {
-                from: from === from + 1,
-                to: to,
-                size: length > to ? length : to
+                from: from + 1,
+                to: to < length ? to : length,
+                size: length
             });
         };
         this.changes.next()
