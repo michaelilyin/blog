@@ -1,6 +1,8 @@
 import {NgModule} from '@angular/core';
 import {
-    MdButtonModule, MdCardModule, MdDrawerContainer, MdInputModule, MdListModule, MdPaginatorModule, MdSidenavModule,
+    MdButtonModule, MdCardModule, MdDrawerContainer, MdIconModule, MdInputModule, MdListModule, MdPaginatorIntl,
+    MdPaginatorModule,
+    MdSidenavModule,
     MdTableModule
 } from '@angular/material';
 import {AdministrationComponent} from './administration.component';
@@ -16,6 +18,7 @@ import {DefaultComponent} from './default/default.component';
 import {RolesComponent} from './roles/roles.component';
 import {OverlayModule} from '@angular/cdk/overlay';
 import {AngularFireDatabaseModule} from 'angularfire2/database';
+import {PaginatorTranslator} from '../common/translated/paginator.translator';
 
 export function createTranslateLoader(http: HttpClient) {
     return new TranslateHttpLoader(http, './assets/i18n/admin/', '.json');
@@ -33,6 +36,7 @@ export function createTranslateLoader(http: HttpClient) {
         MdSidenavModule,
         MdTableModule,
         MdPaginatorModule,
+        MdIconModule,
         CommonModule,
         OverlayModule,
         AngularFireDatabaseModule,
@@ -51,6 +55,9 @@ export function createTranslateLoader(http: HttpClient) {
         ApplicationConfigComponent,
         UsersComponent,
         RolesComponent
+    ],
+    providers: [
+        { provide: MdPaginatorIntl, useClass: PaginatorTranslator }
     ]
 })
 export class AdministrationModule {

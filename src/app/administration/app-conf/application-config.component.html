@@ -1,27 +1,31 @@
 <div *ngIf="access('edit-config')">
 
     <md-card>
+        <md-card-header>
+            <md-card-title-group>
+                <md-card-title class="h1">
+                    <span translate>ADMIN.APP.TITLE</span>
+                </md-card-title>
+            </md-card-title-group>
+            <app-lang-selector #langSelector class="md-title-icon-suffix"></app-lang-selector>
+        </md-card-header>
 
-        <h2>
-            <span translate>ADMIN.APP.TITLE</span>
-            <app-lang-selector #langSelector></app-lang-selector>
-        </h2>
-
-        <section>
+        <md-card-content>
             <app-translated-input placeholder="{{'ADMIN.APP.APP-NAME-LBL' | translate}}"
                                   type="text"
                                   [model]="appName"
                                   [lang]="langSelector.selectedLang"
             ></app-translated-input>
-        </section>
+        </md-card-content>
 
-        <section>
+        <md-card-actions>
             <button md-button color="primary" (click)="update()">
                 <span translate>ADMIN.APP.UPDATE-BTN</span>
             </button>
             <button md-button color="warn" (click)="reset()">
                 <span translate>ADMIN.APP.RESET-BTN</span>
             </button>
-        </section>
+        </md-card-actions>
     </md-card>
+
 </div>

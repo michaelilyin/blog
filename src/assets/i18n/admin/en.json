@@ -11,6 +11,15 @@
             "APP-NAME-LBL": "Website name",
             "UPDATE-BTN": "Update",
             "RESET-BTN": "Reset"
+        },
+        "ROLES": {
+            "TITLE": "User roles",
+            "TABLE": {
+                "COL": {
+                    "NAME": "Role name",
+                    "DESCRIPTION": "Description"
+                }
+            }
         }
     },
     "COMMON": {
@@ -18,6 +27,12 @@
             "SELECTOR": {
                 "PLACEHOLDER": "Lang"
             }
+        },
+        "PAGINATOR": {
+            "ITEMS-PER-PAGE": "Items per page",
+            "NEXT": "Next",
+            "PREV": "Previous",
+            "RANGE": "Records from {{from}} to {{to}} of {{size}}"
         }
     }
 }

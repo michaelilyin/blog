@@ -11,7 +11,7 @@ import {
     MdDialogModule,
     MdGridListModule,
     MdInputModule,
-    MdMenuModule,
+    MdMenuModule, MdPaginatorIntl,
     MdProgressSpinnerModule,
     MdToolbarModule
 } from '@angular/material'
@@ -34,6 +34,7 @@ import {LogModule} from 'ngx-log';
 import {UserProfileServiceImpl} from './service/userprofile.service';
 import {PermissionServiceImpl} from './service/permission.service';
 import {OverlayModule} from '@angular/cdk/overlay';
+import {PaginatorTranslator} from './common/translated/paginator.translator';
 
 export function createTranslateLoader(http: HttpClient) {
     return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -77,7 +78,9 @@ export function createTranslateLoader(http: HttpClient) {
         { provide: ConfigurationService, useClass: ConfigurationServiceImpl },
         { provide: LanguageService, useClass: LanguageServiceImpl },
 
-        { provide: ViewAdminActivator, useClass: ViewAdminActivator }
+        { provide: ViewAdminActivator, useClass: ViewAdminActivator },
+
+        { provide: MdPaginatorIntl, useClass: PaginatorTranslator }
     ],
     bootstrap: [AppComponent]
 })

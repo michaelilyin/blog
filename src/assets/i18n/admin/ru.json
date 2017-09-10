@@ -11,6 +11,15 @@
             "APP-NAME-LBL": "Название вебсайта",
             "UPDATE-BTN": "Обновить",
             "RESET-BTN": "Сбросить"
+        },
+        "ROLES": {
+            "TITLE": "Роли пользователей",
+            "TABLE": {
+                "COL": {
+                    "NAME": "Название роли",
+                    "DESCRIPTION": "Описание"
+                }
+            }
         }
     },
     "COMMON": {
@@ -18,6 +27,12 @@
             "SELECTOR": {
                 "PLACEHOLDER": "Язык"
             }
+        },
+        "PAGINATOR": {
+            "ITEMS-PER-PAGE": "Количество записей на странице",
+            "NEXT": "Следующая",
+            "PREV": "Предыдущая",
+            "RANGE": "Записи с {{from}} по {{to}} из {{size}}"
         }
     }
 }
