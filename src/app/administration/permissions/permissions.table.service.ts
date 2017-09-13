@@ -4,17 +4,17 @@ import {Injectable} from '@angular/core';
 import {Subject} from 'rxjs/Subject';
 import {PageEmulationService} from '../../common/service/table/page.emulation.service';
 
-export class RoleRecord {
+export class PermissionRecord {
     name: TranslatedModel;
     description: TranslatedModel;
 }
 
-export abstract class RolesTableService extends PageEmulationService<RoleRecord> {
+export abstract class PermissionsTableService extends PageEmulationService<PermissionRecord> {
 
 }
 
 @Injectable()
-export class RolesTableServiceImpl extends RolesTableService {
+export class PermissionsTableServiceImpl extends PermissionsTableService {
 
     private start = new Subject<number>();
     private end = new Subject<number>();
@@ -28,6 +28,6 @@ export class RolesTableServiceImpl extends RolesTableService {
 
 
     protected get source(): string {
-        return '/roles';
+        return '/perms';
     }
 }

@@ -19,6 +19,7 @@ import {RolesComponent} from './roles/roles.component';
 import {OverlayModule} from '@angular/cdk/overlay';
 import {AngularFireDatabaseModule} from 'angularfire2/database';
 import {PaginatorTranslator} from '../common/translated/paginator.translator';
+import {PermissionsComponent} from './permissions/permissions.component';
 
 export function createTranslateLoader(http: HttpClient) {
     return new TranslateHttpLoader(http, './assets/i18n/admin/', '.json');
@@ -54,7 +55,8 @@ export function createTranslateLoader(http: HttpClient) {
         DefaultComponent,
         ApplicationConfigComponent,
         UsersComponent,
-        RolesComponent
+        RolesComponent,
+        PermissionsComponent
     ],
     providers: [
         { provide: MdPaginatorIntl, useClass: PaginatorTranslator }

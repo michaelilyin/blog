@@ -5,6 +5,7 @@ import {ApplicationConfigComponent} from './app-conf/application-config.componen
 import {UsersComponent} from './users/users.component';
 import {DefaultComponent} from './default/default.component';
 import {RolesComponent} from './roles/roles.component';
+import {PermissionsComponent} from './permissions/permissions.component';
 
 const routes: Routes = [
     {
@@ -19,7 +20,8 @@ const routes: Routes = [
             {path: 'default', component: DefaultComponent},
             {path: 'application', component: ApplicationConfigComponent},
             {path: 'users', component: UsersComponent},
-            {path: 'roles', component: RolesComponent}
+            {path: 'roles', component: RolesComponent},
+            {path: 'permissions', component: PermissionsComponent}
         ],
     }
 ];

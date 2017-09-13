@@ -7,7 +7,10 @@
             <a md-list-item *ngIf="access('view-users')" routerLink="users">
                 <span translate>ADMIN.MENU.USERS</span>
             </a>
-            <a md-list-item *ngIf="access('edit-roles')" routerLink="roles">
+            <a md-list-item *ngIf="access('view-perms')" routerLink="permissions">
+                <span translate>ADMIN.MENU.PERMISSIONS</span>
+            </a>
+            <a md-list-item *ngIf="access('view-roles')" routerLink="roles">
                 <span translate>ADMIN.MENU.ROLES</span>
             </a>
         </md-nav-list>

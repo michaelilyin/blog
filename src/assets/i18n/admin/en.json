@@ -4,7 +4,8 @@
         "MENU": {
             "APP": "Application config",
             "USERS": "Users",
-            "ROLES": "Roles"
+            "ROLES": "Roles",
+            "PERMISSIONS": "Permissions"
         },
         "APP": {
             "TITLE": "Main application config",
@@ -17,6 +18,15 @@
             "TABLE": {
                 "COL": {
                     "NAME": "Role name",
+                    "DESCRIPTION": "Description"
+                }
+            }
+        },
+        "PERMISSIONS": {
+            "TITLE": "System permissions",
+            "TABLE": {
+                "COL": {
+                    "NAME": "Permission name",
                     "DESCRIPTION": "Description"
                 }
             }
