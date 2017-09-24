@@ -3,10 +3,10 @@ import {getTranslation, TranslatedModel, TranslatedModelImpl} from '../translate
 import {LanguageService} from '../../service/language.service';
 
 @Component({
-    selector: 'app-translated-input',
-    templateUrl: 'translated-input.component.html'
+    selector: 'app-translated-textarea',
+    templateUrl: 'translated-textarea.component.html'
 })
-export class TranslatedInputComponent implements OnInit, OnChanges {
+export class TranslatedTextareaComponent implements OnInit, OnChanges {
     @Input()
     public model = new TranslatedModelImpl();
 
@@ -21,6 +21,12 @@ export class TranslatedInputComponent implements OnInit, OnChanges {
 
     @Input()
     public containerClass: string;
+
+    @Input()
+    public rows: number;
+
+    @Input()
+    public cols: number;
 
     public selectedLang = '';
 

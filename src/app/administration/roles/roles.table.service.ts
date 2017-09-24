@@ -5,6 +5,7 @@ import {Subject} from 'rxjs/Subject';
 import {PageEmulationService} from '../../common/service/table/page.emulation.service';
 
 export class RoleRecord {
+    $key: string;
     name: TranslatedModel;
     description: TranslatedModel;
 }

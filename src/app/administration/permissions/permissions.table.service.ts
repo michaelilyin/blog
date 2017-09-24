@@ -16,11 +16,6 @@ export abstract class PermissionsTableService extends PageEmulationService<Permi
 @Injectable()
 export class PermissionsTableServiceImpl extends PermissionsTableService {
 
-    private start = new Subject<number>();
-    private end = new Subject<number>();
-
-    private nextKey: string;
-
     constructor(db: AngularFireDatabase) {
         super(db);
         super.run();

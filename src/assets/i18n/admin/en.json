@@ -18,7 +18,12 @@
             "TABLE": {
                 "COL": {
                     "NAME": "Role name",
-                    "DESCRIPTION": "Description"
+                    "DESCRIPTION": "Description",
+                    "ACTIONS": "Actions"
+                },
+                "ROW": {
+                    "EDIT": "Edit",
+                    "REMOVE": "Remove"
                 }
             }
         },

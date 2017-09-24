@@ -53,6 +53,6 @@ export abstract class PageEmulationService<T> {
     }
 
     refresh(request: PageRequest) {
-        this.navigationStream.next(request);
+        setTimeout(() => this.navigationStream.next(request), 0);
     }
 }

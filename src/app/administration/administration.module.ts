@@ -1,7 +1,12 @@
 import {NgModule} from '@angular/core';
 import {
-    MdButtonModule, MdCardModule, MdDrawerContainer, MdIconModule, MdInputModule, MdListModule, MdPaginatorIntl,
-    MdPaginatorModule,
+    MdAutocompleteModule,
+    MdButtonModule, MdCardModule, MdDialogModule, MdDrawerContainer, MdFormFieldModule, MdGridListModule, MdIconModule,
+    MdInputModule,
+    MdListModule,
+    MdMenuModule, MdOptionModule,
+    MdPaginatorIntl,
+    MdPaginatorModule, MdSelectModule,
     MdSidenavModule,
     MdTableModule
 } from '@angular/material';
@@ -20,6 +25,7 @@ import {OverlayModule} from '@angular/cdk/overlay';
 import {AngularFireDatabaseModule} from 'angularfire2/database';
 import {PaginatorTranslator} from '../common/translated/paginator.translator';
 import {PermissionsComponent} from './permissions/permissions.component';
+import {EditRoleDialogComponent} from './roles/edit-dialog/edit-role.dialog.component';
 
 export function createTranslateLoader(http: HttpClient) {
     return new TranslateHttpLoader(http, './assets/i18n/admin/', '.json');
@@ -38,6 +44,13 @@ export function createTranslateLoader(http: HttpClient) {
         MdTableModule,
         MdPaginatorModule,
         MdIconModule,
+        MdMenuModule,
+        MdDialogModule,
+        MdAutocompleteModule,
+        MdListModule,
+        MdOptionModule,
+        MdFormFieldModule,
+        MdSelectModule,
         CommonModule,
         OverlayModule,
         AngularFireDatabaseModule,
@@ -56,10 +69,14 @@ export function createTranslateLoader(http: HttpClient) {
         ApplicationConfigComponent,
         UsersComponent,
         RolesComponent,
-        PermissionsComponent
+        PermissionsComponent,
+        EditRoleDialogComponent
     ],
     providers: [
         { provide: MdPaginatorIntl, useClass: PaginatorTranslator }
+    ],
+    entryComponents: [
+        EditRoleDialogComponent
     ]
 })
 export class AdministrationModule {

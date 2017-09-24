@@ -1,17 +1,23 @@
 @import "~@angular/material/prebuilt-themes/deeppurple-amber.css";
 @import url("https://fonts.googleapis.com/icon?family=Material+Icons");
 
-html, body {
-    height: 100%;
+html {
+    height: calc(100% - 64px);
     font-family: Roboto,"Helvetica Neue",sans-serif;
 }
 
 body {
+    height: 100%;
     margin: 0;
 }
 
 .h-spacer {
     flex: 1 1 auto;
+}
+
+.flex-end {
+    display: flex;
+    justify-content: flex-end;
 }
 
 .app-content {
@@ -28,12 +34,25 @@ body {
     margin-top: -12px;
 }
 
+.md-dialog-title-icon-suffix {
+    margin-left: -8px;
+    margin-top: -24px;
+}
+
 .h1 {
     font-size: 24px !important;
 }
 
+.h2 {
+    font-size: 18px !important;
+}
+
 .full-height {
     height: 100%;
+}
+
+.full-width {
+    width: 100%;
 }
 
 .mat-drawer-container {
@@ -49,4 +68,12 @@ body {
 .main-toolbar {
     box-shadow: 0 3px 5px -1px rgba(0,0,0,.2), 0 6px 10px 0 rgba(0,0,0,.14), 0 1px 18px 0 rgba(0,0,0,.12);
     z-index: 10;
+}
+
+md-card, md-table {
+    background-color: inherit !important;
+}
+
+.table-actions {
+    max-width: 75px;
 }

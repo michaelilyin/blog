@@ -19,6 +19,7 @@ import {TranslatedInputComponent} from './translated/input/translated-input.comp
 import {FormsModule} from '@angular/forms';
 import {LangSelectorComponent} from './translated/lang-selector/lang-selector.component';
 import {TranslateModule} from '@ngx-translate/core';
+import {TranslatedTextareaComponent} from './translated/textarea/translated-textarea.component';
 
 @NgModule({
     imports: [
@@ -43,6 +44,7 @@ import {TranslateModule} from '@ngx-translate/core';
     declarations: [
         LangSelectorComponent,
         TranslatedTextComponent,
+        TranslatedTextareaComponent,
         TranslatedInputComponent,
         SignInDialogComponent
     ],
@@ -57,6 +59,7 @@ import {TranslateModule} from '@ngx-translate/core';
 
         LangSelectorComponent,
         TranslatedTextComponent,
+        TranslatedTextareaComponent,
         TranslatedInputComponent,
         SignInDialogComponent
     ]

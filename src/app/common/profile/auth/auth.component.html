@@ -4,7 +4,7 @@
         <button md-icon-button [mdMenuTriggerFor]="menu">
             <img class="menu-image" [src]="user.avatarUrl">
         </button>
-        <md-menu #menu="mdMenu">
+        <md-menu #menu="mdMenu" xPosition="before">
             <button md-menu-item (click)="logout()">
                 <span translate>COMMON.AUTH.SIGN-OUT</span>
             </button>

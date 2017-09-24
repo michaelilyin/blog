@@ -3,32 +3,37 @@ import {PermissionService} from '../../common/profile/permission.service';
 import {RoleRecord, RolesTableService, RolesTableServiceImpl} from './roles.table.service';
 import {Observable} from 'rxjs/Observable';
 import {CollectionViewer, DataSource} from '@angular/cdk/collections';
-import {MdPaginator, PageEvent} from '@angular/material';
+import {MdDialog, MdPaginator, PageEvent} from '@angular/material';
 import {Subscription} from 'rxjs/Subscription';
 import {PageRequest} from '../../common/service/table/page.emulation.service';
+import {EditRoleDialogComponent} from './edit-dialog/edit-role.dialog.component';
 
 export class RolesDataSource extends DataSource<RoleRecord> {
 
-    private pageSubscription: Subscription;
+    public length = 0;
+    public event = new PageRequest(0, 10);
 
-    constructor(private rolesTableService: RolesTableService, private paginator: MdPaginator) {
+    constructor(private rolesTableService: RolesTableService) {
         super();
     }
 
     connect(collectionViewer: CollectionViewer): Observable<RoleRecord[]> {
-        this.pageSubscription = this.paginator.page.subscribe((event: PageEvent) => {
-            this.rolesTableService.refresh(new PageRequest(event.pageIndex, event.pageSize));
-        });
-        this.rolesTableService.refresh(new PageRequest(0, this.paginator.pageSize));
         return this.rolesTableService.values
             .map(page => {
-               this.paginator.length = page.total;
+               this.length = page.total;
                return page.values
             });
     }
 
     disconnect(collectionViewer: CollectionViewer): void {
-        this.pageSubscription.unsubscribe();
+
+    }
+
+    refresh(event?: PageEvent) {
+        if (event) {
+            this.event = new PageRequest(event.pageIndex, event.pageSize);
+        }
+        this.rolesTableService.refresh(this.event);
     }
 }
 
@@ -40,24 +45,40 @@ export class RolesDataSource extends DataSource<RoleRecord> {
 })
 export class RolesComponent implements OnInit {
 
-    public displayedColumns = ['name', 'description'];
+    public displayedColumns = ['name', 'description', 'actions'];
 
     public source: RolesDataSource;
 
-    @ViewChild(MdPaginator)
-    paginator: MdPaginator;
-
     constructor(private permissionService: PermissionService,
-                private rolesTableService: RolesTableService) {
-
+                private rolesTableService: RolesTableService,
+                private dialogService: MdDialog) {
+        if (this.access('view-roles')) {
+            this.source = new RolesDataSource(this.rolesTableService);
+            this.source.refresh();
+        }
     }
 
     ngOnInit() {
-        this.source = new RolesDataSource(this.rolesTableService, this.paginator);
+
     }
 
     access(priv: string) {
         return this.permissionService.has(priv);
+    }
+
+    edit(record: RoleRecord) {
+        this.dialogService.open(EditRoleDialogComponent, {
+            data: record.$key,
+            disableClose: true
+        }).afterClosed().subscribe(res => {
+            if (res) {
+                this.source.refresh();
+            }
+        });
+    }
+
+    remove(record: RoleRecord) {
+
     }
 
 }
