@@ -28,6 +28,9 @@ export class TranslatedTextareaComponent implements OnInit, OnChanges {
     @Input()
     public cols: number;
 
+    @Input()
+    public disabled: boolean;
+
     public selectedLang = '';
 
     constructor(private languageService: LanguageService) {

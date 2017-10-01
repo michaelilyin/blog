@@ -13,13 +13,14 @@ import {
     MdMenuModule,
     MdOptionModule,
     MdProgressSpinnerModule,
-    MdSelectModule
+    MdSelectModule, MdTooltipModule
 } from '@angular/material';
 import {TranslatedInputComponent} from './translated/input/translated-input.component';
 import {FormsModule} from '@angular/forms';
 import {LangSelectorComponent} from './translated/lang-selector/lang-selector.component';
 import {TranslateModule} from '@ngx-translate/core';
 import {TranslatedTextareaComponent} from './translated/textarea/translated-textarea.component';
+import {RowMenuComponent} from './row-menu/row-menu.component';
 
 @NgModule({
     imports: [
@@ -35,6 +36,7 @@ import {TranslatedTextareaComponent} from './translated/textarea/translated-text
         MdMenuModule,
         MdSelectModule,
         MdOptionModule,
+        MdTooltipModule,
         ToastModule.forRoot(),
         TranslateModule
     ],
@@ -46,7 +48,8 @@ import {TranslatedTextareaComponent} from './translated/textarea/translated-text
         TranslatedTextComponent,
         TranslatedTextareaComponent,
         TranslatedInputComponent,
-        SignInDialogComponent
+        SignInDialogComponent,
+        RowMenuComponent
     ],
     entryComponents: [
         SignInDialogComponent
@@ -61,7 +64,8 @@ import {TranslatedTextareaComponent} from './translated/textarea/translated-text
         TranslatedTextComponent,
         TranslatedTextareaComponent,
         TranslatedInputComponent,
-        SignInDialogComponent
+        SignInDialogComponent,
+        RowMenuComponent
     ]
 })
 export class CommonModule {

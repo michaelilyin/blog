@@ -2,36 +2,62 @@
 import {Component, Inject} from '@angular/core';
 import {RoleRecord} from '../roles.table.service';
 import {MD_DIALOG_DATA, MdDialogRef} from '@angular/material';
-import {Role, RoleDataService, RoleDataServiceImpl} from './role.data.service';
+import {Role, RoleEditService, RoleEditServiceImpl} from './role.data.service';
 import {Subscription} from 'rxjs/Subscription';
-import {TranslatedModel, TranslatedModelImpl} from '../../../common/translated/translated-model';
+import {getTranslation, TranslatedModel, TranslatedModelImpl} from '../../../common/translated/translated-model';
+import {PermissionService} from '../../../common/profile/permission.service';
+import {TranslateService} from '@ngx-translate/core';
+
+export class EditRoleDialogData {
+    public readonly key: string;
+    public readonly readonly?: boolean;
+}
+
+export class PermissionOption {
+    constructor(public readonly $key: string, public readonly label: string) {}
+}
 
 @Component({
     selector: 'app-edit-role-dialog',
     templateUrl: 'edit-role.dialog.component.html',
     providers: [
-        { provide: RoleDataService, useClass: RoleDataServiceImpl }
+        { provide: RoleEditService, useClass: RoleEditServiceImpl }
     ]
 })
 export class EditRoleDialogComponent {
 
-    public options = ['one', 'two', 'three'];
-
     public roleName: TranslatedModel;
     public roleDescription: TranslatedModel;
+    public rolePermissions: any;
 
     private role: Role;
     private roleSubscription: Subscription;
+    private permissionsSubscription: Subscription;
 
-    constructor(@Inject(MD_DIALOG_DATA) private key: string,
-                private roleDataService: RoleDataService,
-                private dialogRef: MdDialogRef<EditRoleDialogComponent>) {
+    public permissionOptions: PermissionOption[];
+
+    constructor(@Inject(MD_DIALOG_DATA) public data: EditRoleDialogData,
+                private roleDataService: RoleEditService,
+                private dialogRef: MdDialogRef<EditRoleDialogComponent>,
+                private permissionService: PermissionService,
+                private translateService: TranslateService) {
         this.roleSubscription = this.roleDataService.value.subscribe(role => {
             this.role = role;
             this.roleName = new TranslatedModelImpl(role.name);
             this.roleDescription = new TranslatedModelImpl(role.description);
+            this.rolePermissions = Object.keys(role.permissions);
         });
-        this.roleDataService.load(key);
+        this.roleDataService.load(data.key);
+        this.permissionsSubscription = this.roleDataService.loadPermissions().subscribe(perms => {
+            this.permissionOptions = [];
+            perms.forEach(perm => {
+                this.permissionOptions.push(new PermissionOption(perm.$key, getTranslation(perm.name, this.translateService.currentLang)))
+            })
+        });
+    }
+
+    addPermission(event) {
+
     }
 
     save() {
@@ -40,5 +66,9 @@ export class EditRoleDialogComponent {
 
     cancel() {
         this.dialogRef.close(false);
+    }
+
+    access(priv: string) {
+        return this.permissionService.has(priv);
     }
 }

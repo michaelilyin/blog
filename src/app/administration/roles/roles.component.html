@@ -29,22 +29,7 @@
                         <span translate>ADMIN.ROLES.TABLE.COL.ACTIONS</span>
                     </md-header-cell>
                     <md-cell *mdCellDef="let element" class="table-actions flex-end">
-                        <button md-icon-button (click)="edit(element)">
-                            <md-icon>edit</md-icon>
-                        </button>
-                        <button md-icon-button [mdMenuTriggerFor]="menu">
-                            <md-icon>more_vert</md-icon>
-                        </button>
-                        <md-menu #menu="mdMenu">
-                            <button md-menu-item (click)="edit(element)">
-                                <md-icon>edit</md-icon>
-                                <span translate>ADMIN.ROLES.TABLE.ROW.EDIT</span>
-                            </button>
-                            <button md-menu-item (click)="remove(element)">
-                                <md-icon>delete</md-icon>
-                                <span translate>ADMIN.ROLES.TABLE.ROW.REMOVE</span>
-                            </button>
-                        </md-menu>
+                        <app-row-menu [elements]="rowMenu" [row]="element"></app-row-menu>
                     </md-cell>
                 </ng-container>
 

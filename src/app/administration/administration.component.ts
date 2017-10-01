@@ -9,7 +9,7 @@ import {PermissionService} from '../common/profile/permission.service';
 export class AdministrationComponent {
     constructor(private translateService: TranslateService,
                 private languageService: LanguageService,
-                private permissionService: PermissionService) {
+                private permissionService: PermissionService    ) {
         this.languageService.initStaticTranslator(this.translateService);
     }
 

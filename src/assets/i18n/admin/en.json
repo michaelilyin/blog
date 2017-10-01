@@ -23,6 +23,7 @@
                 },
                 "ROW": {
                     "EDIT": "Edit",
+                    "VIEW": "View",
                     "REMOVE": "Remove"
                 }
             }

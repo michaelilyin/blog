@@ -22,6 +22,9 @@ export class TranslatedInputComponent implements OnInit, OnChanges {
     @Input()
     public containerClass: string;
 
+    @Input()
+    public disabled: boolean;
+
     public selectedLang = '';
 
     constructor(private languageService: LanguageService) {
