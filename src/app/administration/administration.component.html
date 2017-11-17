@@ -1,7 +1,7 @@
 <md-drawer-container class="full-height">
     <md-drawer mode="side" opened="true" class="full-height">
         <md-nav-list dense>
-            <a md-list-item *ngIf="access('edit-config')" routerLink="application">
+            <a md-list-item *ngIf="access('view-config')" routerLink="application">
                 <span translate>ADMIN.MENU.APP</span>
             </a>
             <a md-list-item *ngIf="access('view-users')" routerLink="users">

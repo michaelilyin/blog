@@ -19,7 +19,7 @@
         </md-card-content>
 
         <md-card-actions>
-            <button md-button color="primary" (click)="update()">
+            <button md-button *ngIf="access('edit-config')" color="primary" (click)="update()">
                 <span translate>ADMIN.APP.UPDATE-BTN</span>
             </button>
             <button md-button color="warn" (click)="reset()">

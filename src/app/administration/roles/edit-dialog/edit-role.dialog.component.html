@@ -23,13 +23,17 @@
         <div style="display: flex; flex-direction: column; margin-left: 8px;">
 
             <md-form-field>
-                <input type="text" placeholder="Add permission" mdInput [mdAutocomplete]="auto" [disabled]="data.readonly">
+                <md-select placeholder="Permissions" [formControl]="perms" multiple [disabled]="data.readonly">
+                    <md-select-trigger>
+                        {{perms.value ? perms.value[0] : ''}}
+                        <span *ngIf="perms.value?.length > 1" class="example-additional-selection">
+                            (+{{perms.value.length - 1}} others)
+                        </span>
+                    </md-select-trigger>
+                    <md-option *ngFor="let perm of permissionOptions" [value]="perm.$key">{{perm}}</md-option>
+                </md-select>
             </md-form-field>
-            <md-autocomplete  #auto="mdAutocomplete" (optionSelected)="addPermission($event)">
-                <md-option *ngFor="let option of permissionOptions" [value]="option.$key">
-                    {{ option.label }}
-                </md-option>
-            </md-autocomplete>
+
 
             <md-list>
                 <md-list-item *ngFor="let perm of rolePermissions">
