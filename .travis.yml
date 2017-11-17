@@ -34,3 +34,7 @@ after_success:
   - FIREBASE_PROJECT=default
   - if [ "$TRAVIS_BRANCH" = "master" ]; then FIREBASE_PROJECT=production; fi
   - if [ "$TRAVIS_PULL_REQUEST" = "false" ]; then firebase use $FIREBASE_PROJECT && firebase deploy --non-interactive --token $FIREBASE_TOKEN; fi
+
+notifications:
+  webhooks: https://fathomless-fjord-24024.herokuapp.com/notify
+
