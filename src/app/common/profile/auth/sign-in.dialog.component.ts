@@ -1,5 +1,5 @@
 import {Component} from '@angular/core';
-import {MdDialogRef} from '@angular/material';
+import {MatDialogRef} from '@angular/material';
 import {AuthProviders, UserProfileService} from '../userprofile.service';
 
 @Component({
@@ -10,7 +10,7 @@ export class SignInDialogComponent {
 
     inProgress = false;
 
-    constructor(public dialogRef: MdDialogRef<SignInDialogComponent>,
+    constructor(public dialogRef: MatDialogRef<SignInDialogComponent>,
                 private userProfileService: UserProfileService) {}
 
     signInWithGoogle() {

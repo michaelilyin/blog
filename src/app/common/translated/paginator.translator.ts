@@ -1,11 +1,11 @@
-import {MdPaginatorIntl} from '@angular/material';
+import {MatPaginatorIntl} from '@angular/material';
 import {Subject} from 'rxjs/Subject';
 import {Injectable} from '@angular/core';
 import {TranslateService} from '@ngx-translate/core';
 import {LogService} from 'ngx-log';
 
 @Injectable()
-export class PaginatorTranslator implements MdPaginatorIntl {
+export class PaginatorTranslator implements MatPaginatorIntl {
 
     changes: Subject<void> = new Subject<any>();
     itemsPerPageLabel: string;

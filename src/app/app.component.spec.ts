@@ -1,5 +1,5 @@
 import { TestBed, async } from '@angular/core/testing';
-import {MdButtonModule, MdDialogModule, MdMenuModule, MdToolbarModule} from '@angular/material';
+import {MatButtonModule, MatDialogModule, MatMenuModule, MatToolbarModule} from '@angular/material';
 
 import { AppComponent } from './app.component';
 import {RouterModule} from '@angular/router';
@@ -69,10 +69,10 @@ describe('AppComponent', () => {
                 { provide: PermissionService, useClass: PermissionServiceMock }
             ],
             imports: [
-                MdButtonModule,
-                MdToolbarModule,
-                MdMenuModule,
-                MdDialogModule,
+                MatButtonModule,
+                MatToolbarModule,
+                MatMenuModule,
+                MatDialogModule,
                 LogModule.forRoot(false),
                 RouterModule.forRoot([{path: '', loadChildren: 'app/home/home.module#HomeModule'}]),
                 NgProgressModule,
@@ -92,7 +92,7 @@ describe('AppComponent', () => {
         const fixture = TestBed.createComponent(AppComponent);
         fixture.detectChanges();
         const compiled = fixture.debugElement.nativeElement;
-        expect(compiled.querySelector('md-toolbar div.header span').textContent).toContain('Test Name');
+        expect(compiled.querySelector('mat-toolbar div.header span').textContent).toContain('Test Name');
     }));
 
 });

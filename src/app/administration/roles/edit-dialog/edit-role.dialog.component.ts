@@ -1,12 +1,13 @@
 
 import {Component, Inject} from '@angular/core';
 import {RoleRecord} from '../roles.table.service';
-import {MD_DIALOG_DATA, MdDialogRef} from '@angular/material';
+import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material';
 import {Role, RoleEditService, RoleEditServiceImpl} from './role.data.service';
 import {Subscription} from 'rxjs/Subscription';
 import {getTranslation, TranslatedModel, TranslatedModelImpl} from '../../../common/translated/translated-model';
 import {PermissionService} from '../../../common/profile/permission.service';
 import {TranslateService} from '@ngx-translate/core';
+import {FormControl} from "@angular/forms";
 
 export class EditRoleDialogData {
     public readonly key: string;
@@ -34,11 +35,13 @@ export class EditRoleDialogComponent {
     private roleSubscription: Subscription;
     private permissionsSubscription: Subscription;
 
+    public perms = new FormControl();
+
     public permissionOptions: PermissionOption[];
 
-    constructor(@Inject(MD_DIALOG_DATA) public data: EditRoleDialogData,
+    constructor(@Inject(MAT_DIALOG_DATA) public data: EditRoleDialogData,
                 private roleDataService: RoleEditService,
-                private dialogRef: MdDialogRef<EditRoleDialogComponent>,
+                private dialogRef: MatDialogRef<EditRoleDialogComponent>,
                 private permissionService: PermissionService,
                 private translateService: TranslateService) {
         this.roleSubscription = this.roleDataService.value.subscribe(role => {

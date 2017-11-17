@@ -6,14 +6,14 @@ import {TranslatedTextComponent} from './translated/text/translated-text.compone
 import {SignInDialogComponent} from './profile/auth/sign-in.dialog.component';
 import {CommonModule as NgCommonModule} from '@angular/common';
 import {
-    MdButtonModule,
-    MdDialogModule,
-    MdIconModule,
-    MdInputModule,
-    MdMenuModule,
-    MdOptionModule,
-    MdProgressSpinnerModule,
-    MdSelectModule, MdTooltipModule
+    MatButtonModule,
+    MatDialogModule,
+    MatIconModule,
+    MatInputModule,
+    MatMenuModule,
+    MatOptionModule,
+    MatProgressSpinnerModule,
+    MatSelectModule, MatTooltipModule
 } from '@angular/material';
 import {TranslatedInputComponent} from './translated/input/translated-input.component';
 import {FormsModule} from '@angular/forms';
@@ -28,15 +28,15 @@ import {RowMenuComponent} from './row-menu/row-menu.component';
         HttpModule,
         HttpClientModule,
         NgCommonModule,
-        MdProgressSpinnerModule,
-        MdInputModule,
-        MdButtonModule,
-        MdDialogModule,
-        MdIconModule,
-        MdMenuModule,
-        MdSelectModule,
-        MdOptionModule,
-        MdTooltipModule,
+        MatProgressSpinnerModule,
+        MatInputModule,
+        MatButtonModule,
+        MatDialogModule,
+        MatIconModule,
+        MatMenuModule,
+        MatSelectModule,
+        MatOptionModule,
+        MatTooltipModule,
         ToastModule.forRoot(),
         TranslateModule
     ],

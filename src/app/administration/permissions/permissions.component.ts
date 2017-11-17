@@ -2,7 +2,7 @@ import {Component, EventEmitter, OnInit, ViewChild} from '@angular/core';
 import {PermissionService} from '../../common/profile/permission.service';
 import {Observable} from 'rxjs/Observable';
 import {CollectionViewer, DataSource} from '@angular/cdk/collections';
-import {MdPaginator, PageEvent} from '@angular/material';
+import {MatPaginator, PageEvent} from '@angular/material';
 import {Subscription} from 'rxjs/Subscription';
 import {PageRequest} from '../../common/service/table/page.emulation.service';
 import {PermissionRecord, PermissionsTableService, PermissionsTableServiceImpl} from './permissions.table.service';

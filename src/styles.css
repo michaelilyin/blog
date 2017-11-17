@@ -24,17 +24,17 @@ body {
     margin: 8px;
 }
 
-.md-content-full-width {
+.mat-content-full-width {
     margin-left: -24px;
     margin-right: -24px;
 }
 
-.md-title-icon-suffix {
+.mat-title-icon-suffix {
     margin-left: 8px;
     margin-top: -12px;
 }
 
-.md-dialog-title-icon-suffix {
+.mat-dialog-title-icon-suffix {
     margin-left: -8px;
     margin-top: -24px;
 }
@@ -70,7 +70,7 @@ body {
     z-index: 10;
 }
 
-md-card, md-table {
+mat-card, mat-table {
     background-color: inherit !important;
 }
 

@@ -1,21 +1,21 @@
 <ng-template ngFor [ngForOf]="elements" [ngForTemplate]="main"></ng-template>
-<button md-icon-button [mdMenuTriggerFor]="menu">
-    <md-icon>more_vert</md-icon>
+<button mat-icon-button [matMenuTriggerFor]="menu">
+    <mat-icon>more_vert</mat-icon>
 </button>
-<md-menu #menu="mdMenu">
+<mat-menu #menu="matMenu">
     <ng-template ngFor [ngForOf]="elements" [ngForTemplate]="data"></ng-template>
-</md-menu>
+</mat-menu>
 
 <ng-template #data let-item="$implicit">
-    <button *ngIf="item.render()" md-menu-item (click)="item.callback(row)">
-        <md-icon>{{item.icon}}</md-icon>
+    <button *ngIf="item.render()" mat-menu-item (click)="item.callback(row)">
+        <mat-icon>{{item.icon}}</mat-icon>
         <span>{{item.label}}</span>
     </button>
 </ng-template>
 
 <ng-template #main let-item="$implicit">
-    <button *ngIf="item.render() && item.primary" md-icon-button mdTooltip="{{item.label}}" (click)="item.callback(row)">
-        <md-icon>{{item.icon}}</md-icon>
+    <button *ngIf="item.render() && item.primary" mat-icon-button matTooltip="{{item.label}}" (click)="item.callback(row)">
+        <mat-icon>{{item.icon}}</mat-icon>
     </button>
 </ng-template>
 

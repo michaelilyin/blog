@@ -4,7 +4,7 @@ import {SkillsComponent} from './skills.component';
 import {ListComponent} from './list/list.component';
 import {TimelineComponent} from './timeline/timeline.component';
 import {SkillsDataService, SkillsDataServiceImpl} from './common/skills.data.service';
-import {MdTabsModule} from '@angular/material';
+import {MatTabsModule} from '@angular/material';
 import {HttpClient} from '@angular/common/http';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
@@ -17,7 +17,7 @@ export function createTranslateLoader(http: HttpClient) {
 @NgModule({
     imports: [
         SkillsRoutingModule,
-        MdTabsModule,
+        MatTabsModule,
         CommonModule,
         TranslateModule.forChild({
             loader: {

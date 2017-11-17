@@ -3,7 +3,7 @@ import {PermissionService} from '../../common/profile/permission.service';
 import {RoleRecord, RolesTableService, RolesTableServiceImpl} from './roles.table.service';
 import {Observable} from 'rxjs/Observable';
 import {CollectionViewer, DataSource} from '@angular/cdk/collections';
-import {MdDialog, MdPaginator, PageEvent} from '@angular/material';
+import {MatDialog, MatPaginator, PageEvent} from '@angular/material';
 import {Subscription} from 'rxjs/Subscription';
 import {PageRequest} from '../../common/service/table/page.emulation.service';
 import {EditRoleDialogComponent} from './edit-dialog/edit-role.dialog.component';
@@ -55,7 +55,7 @@ export class RolesComponent implements OnInit {
 
     constructor(private permissionService: PermissionService,
                 private rolesTableService: RolesTableService,
-                private dialogService: MdDialog,
+                private dialogService: MatDialog,
                 private translateService: TranslateService) {
         if (this.access('view-roles')) {
             this.source = new RolesDataSource(this.rolesTableService);

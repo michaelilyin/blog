@@ -1,5 +1,5 @@
 import {NgModule} from '@angular/core';
-import {MdButtonModule, MdCardModule} from '@angular/material';
+import {MatButtonModule, MatCardModule} from '@angular/material';
 import {BlogComponent} from './blog.component';
 import {BlogRoutingModule} from './blog.routing.module';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
@@ -14,8 +14,8 @@ export function createTranslateLoader(http: HttpClient) {
 @NgModule({
     imports: [
         BlogRoutingModule,
-        MdButtonModule,
-        MdCardModule,
+        MatButtonModule,
+        MatCardModule,
         CommonModule,
         TranslateModule.forChild({
             loader: {

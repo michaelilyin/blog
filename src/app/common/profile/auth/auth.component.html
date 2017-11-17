@@ -1,17 +1,17 @@
 <div>
     <div *ngIf="logged">
         <!--<span>{{ user?.providerData[0]?.displayName }}</span>-->
-        <button md-icon-button [mdMenuTriggerFor]="menu">
+        <button mat-icon-button [matMenuTriggerFor]="menu">
             <img class="menu-image" [src]="user.avatarUrl">
         </button>
-        <md-menu #menu="mdMenu" xPosition="before">
-            <button md-menu-item (click)="logout()">
+        <mat-menu #menu="matMenu" xPosition="before">
+            <button mat-menu-item (click)="logout()">
                 <span translate>COMMON.AUTH.SIGN-OUT</span>
             </button>
-        </md-menu>
+        </mat-menu>
     </div>
     <div *ngIf="!logged">
-        <button md-button color="primary" (click)="login()">
+        <button mat-button color="primary" (click)="login()">
             <span translate>COMMON.AUTH.SIGN-IN</span>
         </button>
     </div>

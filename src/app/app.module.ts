@@ -5,15 +5,14 @@ import {AppRoutingModule, ViewAdminActivator} from './app.routing.module';
 import {CommonModule} from './common/common.module';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {
-    MdButtonModule,
-    MdCommonModule,
-    MdCoreModule,
-    MdDialogModule,
-    MdGridListModule,
-    MdInputModule,
-    MdMenuModule, MdPaginatorIntl,
-    MdProgressSpinnerModule,
-    MdToolbarModule
+    MatButtonModule,
+    MatCommonModule,
+    MatDialogModule,
+    MatGridListModule,
+    MatInputModule,
+    MatMenuModule, MatPaginatorIntl,
+    MatProgressSpinnerModule,
+    MatToolbarModule
 } from '@angular/material'
 import {environment} from '../environments/environment';
 import {AngularFireModule} from 'angularfire2';
@@ -54,15 +53,14 @@ export function createTranslateLoader(http: HttpClient) {
         AppRoutingModule,
         CommonModule,
         BrowserAnimationsModule,
-        FormsModule,
-        MdCommonModule,
-        MdMenuModule,
-        MdButtonModule,
-        MdToolbarModule,
-        MdProgressSpinnerModule,
-        MdDialogModule,
-        MdInputModule,
-        MdGridListModule,
+        MatCommonModule,
+        MatMenuModule,
+        MatButtonModule,
+        MatToolbarModule,
+        MatProgressSpinnerModule,
+        MatDialogModule,
+        MatInputModule,
+        MatGridListModule,
         NgProgressModule,
         OverlayModule,
         LogModule.forRoot(environment.production),
@@ -82,7 +80,7 @@ export function createTranslateLoader(http: HttpClient) {
 
         { provide: ViewAdminActivator, useClass: ViewAdminActivator },
 
-        { provide: MdPaginatorIntl, useClass: PaginatorTranslator }
+        { provide: MatPaginatorIntl, useClass: PaginatorTranslator }
     ],
     bootstrap: [AppComponent]
 })

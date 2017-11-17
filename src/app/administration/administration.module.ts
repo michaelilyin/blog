@@ -1,14 +1,14 @@
 import {NgModule} from '@angular/core';
 import {
-    MdAutocompleteModule,
-    MdButtonModule, MdCardModule, MdDialogModule, MdDrawerContainer, MdFormFieldModule, MdGridListModule, MdIconModule,
-    MdInputModule,
-    MdListModule,
-    MdMenuModule, MdOptionModule,
-    MdPaginatorIntl,
-    MdPaginatorModule, MdSelectModule,
-    MdSidenavModule,
-    MdTableModule
+    MatAutocompleteModule,
+    MatButtonModule, MatCardModule, MatDialogModule, MatDrawerContainer, MatFormFieldModule, MatGridListModule, MatIconModule,
+    MatInputModule,
+    MatListModule,
+    MatMenuModule, MatOptionModule,
+    MatPaginatorIntl,
+    MatPaginatorModule, MatSelectModule,
+    MatSidenavModule,
+    MatTableModule
 } from '@angular/material';
 import {AdministrationComponent} from './administration.component';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
@@ -26,6 +26,7 @@ import {AngularFireDatabaseModule} from 'angularfire2/database';
 import {PaginatorTranslator} from '../common/translated/paginator.translator';
 import {PermissionsComponent} from './permissions/permissions.component';
 import {EditRoleDialogComponent} from './roles/edit-dialog/edit-role.dialog.component';
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 
 export function createTranslateLoader(http: HttpClient) {
     return new TranslateHttpLoader(http, './assets/i18n/admin/', '.json');
@@ -35,22 +36,23 @@ export function createTranslateLoader(http: HttpClient) {
     imports: [
         NgCommonModule,
         AdministrationRoutingModule,
-        MdButtonModule,
-        MdCardModule,
-        MdListModule,
-        MdSidenavModule,
-        MdInputModule,
-        MdSidenavModule,
-        MdTableModule,
-        MdPaginatorModule,
-        MdIconModule,
-        MdMenuModule,
-        MdDialogModule,
-        MdAutocompleteModule,
-        MdListModule,
-        MdOptionModule,
-        MdFormFieldModule,
-        MdSelectModule,
+        MatButtonModule,
+        MatCardModule,
+        MatListModule,
+        MatSidenavModule,
+        MatInputModule,
+        MatSidenavModule,
+        MatTableModule,
+        MatPaginatorModule,
+        MatIconModule,
+        MatMenuModule,
+        MatDialogModule,
+        MatAutocompleteModule,
+        MatListModule,
+        MatOptionModule,
+        MatFormFieldModule,
+        MatSelectModule,
+        ReactiveFormsModule,
         CommonModule,
         OverlayModule,
         AngularFireDatabaseModule,
@@ -73,7 +75,7 @@ export function createTranslateLoader(http: HttpClient) {
         EditRoleDialogComponent
     ],
     providers: [
-        { provide: MdPaginatorIntl, useClass: PaginatorTranslator }
+        { provide: MatPaginatorIntl, useClass: PaginatorTranslator }
     ],
     entryComponents: [
         EditRoleDialogComponent
