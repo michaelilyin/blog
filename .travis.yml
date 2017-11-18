@@ -27,7 +27,7 @@ before_script:
   - npm list -g @angular/cli --depth=0 || npm install -g @angular/cli
 
 script:
-  - 'npm run check && (([ "$TRAVIS_BRANCH" = "master" ] && npm run build:prod) || ([ "$TRAVIS_BRANCH" != "master" ] && npm run build:ci))'
+  - 'npm run lint && (([ "$TRAVIS_BRANCH" = "master" ] && npm run build:prod) || ([ "$TRAVIS_BRANCH" != "master" ] && npm run build:ci))'
 
 after_success:
   - bash <(curl -s https://codecov.io/bash)
