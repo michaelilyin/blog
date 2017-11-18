@@ -17,14 +17,8 @@ export abstract class RolesTableService extends PageEmulationService<RoleRecord>
 @Injectable()
 export class RolesTableServiceImpl extends RolesTableService {
 
-    private start = new Subject<number>();
-    private end = new Subject<number>();
-
-    private nextKey: string;
-
     constructor(db: AngularFireDatabase) {
         super(db);
-        super.run();
     }
 
 

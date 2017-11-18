@@ -4,6 +4,7 @@ import {AngularFireDatabase} from 'angularfire2/database';
 import {Observable} from 'rxjs/Observable';
 import {Subscription} from 'rxjs/Subscription';
 import 'rxjs/add/observable/combineLatest';
+import {StatefullProviderService} from '../statefull.provider.service';
 
 export class PageData<T> {
     constructor(public readonly values: T[],
@@ -19,7 +20,7 @@ export class PageRequest {
     }
 }
 
-export abstract class PageEmulationService<T> {
+export abstract class PageEmulationService<T> implements StatefullProviderService {
     public readonly values = new ReplaySubject<PageData<T>>(1);
 
     private readonly navigationStream = new Subject<PageRequest>();
@@ -33,7 +34,7 @@ export abstract class PageEmulationService<T> {
 
     protected abstract get source(): string;
 
-    protected run() {
+    public start() {
         this.serverStream = this.db.list(this.source)
             .map(list => {
                 return list as T[]
@@ -50,6 +51,10 @@ export abstract class PageEmulationService<T> {
             const page = serverData.slice(start, end);
             return new PageData(page, serverData.length);
         }).subscribe(this.values);
+    }
+
+    public stop() {
+        this.subscription.unsubscribe();
     }
 
     refresh(request: PageRequest) {

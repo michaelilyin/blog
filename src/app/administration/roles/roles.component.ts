@@ -1,4 +1,4 @@
-import {Component, OnInit, ViewChild} from '@angular/core';
+import {Component, OnDestroy, OnInit, ViewChild, ViewContainerRef} from '@angular/core';
 import {PermissionService} from '../../common/profile/permission.service';
 import {RoleRecord, RolesTableService, RolesTableServiceImpl} from './roles.table.service';
 import {Observable} from 'rxjs/Observable';
@@ -9,6 +9,7 @@ import {PageRequest} from '../../common/service/table/page.emulation.service';
 import {EditRoleDialogComponent} from './edit-dialog/edit-role.dialog.component';
 import {RowMenuElement} from '../../common/row-menu/row-menu.component';
 import {TranslateService} from '@ngx-translate/core';
+import {PermissionsDictionary, PermissionsDictionaryImpl} from './permissions.dictionary';
 
 export class RolesDataSource extends DataSource<RoleRecord> {
 
@@ -42,10 +43,11 @@ export class RolesDataSource extends DataSource<RoleRecord> {
 @Component({
     templateUrl: 'roles.component.html',
     providers: [
-        {provide: RolesTableService, useClass: RolesTableServiceImpl}
+        {provide: RolesTableService, useClass: RolesTableServiceImpl},
+        {provide: PermissionsDictionary, useClass: PermissionsDictionaryImpl}
     ]
 })
-export class RolesComponent implements OnInit {
+export class RolesComponent implements OnInit, OnDestroy {
 
     public displayedColumns = ['name', 'description', 'actions'];
 
@@ -56,7 +58,9 @@ export class RolesComponent implements OnInit {
     constructor(private permissionService: PermissionService,
                 private rolesTableService: RolesTableService,
                 private dialogService: MatDialog,
-                private translateService: TranslateService) {
+                private translateService: TranslateService,
+                private permissionsDictionary: PermissionsDictionary,
+                private viewContainerRef: ViewContainerRef) {
         if (this.access('view-roles')) {
             this.source = new RolesDataSource(this.rolesTableService);
             this.source.refresh();
@@ -86,7 +90,14 @@ export class RolesComponent implements OnInit {
     }
 
     ngOnInit() {
+        this.rolesTableService.start();
+        this.permissionsDictionary.start();
+    }
 
+
+    ngOnDestroy(): void {
+        this.rolesTableService.stop();
+        this.permissionsDictionary.stop();
     }
 
     access(priv: string) {
@@ -95,6 +106,7 @@ export class RolesComponent implements OnInit {
 
     edit(record: RoleRecord, readonly?: boolean) {
         this.dialogService.open(EditRoleDialogComponent, {
+            viewContainerRef: this.viewContainerRef,
             data: { key: record.$key, readonly: readonly },
             disableClose: true
         }).afterClosed().subscribe(res => {

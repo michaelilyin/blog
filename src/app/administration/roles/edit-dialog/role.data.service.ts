@@ -13,17 +13,10 @@ export class Role {
     permissions: { [p: string]: boolean };
 }
 
-export class Permission {
-    $key: string;
-    name: TranslatedModel;
-}
-
 export abstract class RoleEditService {
     value = new Subject<Role>();
 
     abstract load(key: string);
-
-    abstract loadPermissions(): Observable<Permission[]>;
 }
 
 @Injectable()
@@ -49,11 +42,4 @@ export class RoleEditServiceImpl extends RoleEditService {
             }).subscribe(this.value);
     }
 
-
-    loadPermissions(): Observable<Permission[]> {
-        return this.db.list('/perms').map(perms => {
-            this.logger.info('Loaded perms', perms);
-            return perms as Permission[];
-        });
-    }
 }

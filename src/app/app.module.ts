@@ -34,7 +34,7 @@ import {UserProfileServiceImpl} from './service/userprofile.service';
 import {PermissionServiceImpl} from './service/permission.service';
 import {OverlayModule} from '@angular/cdk/overlay';
 import {PaginatorTranslator} from './common/translated/paginator.translator';
-import {FormsModule} from "@angular/forms";
+import {FormsModule} from '@angular/forms';
 
 export function createTranslateLoader(http: HttpClient) {
     return new TranslateHttpLoader(http, './assets/i18n/', '.json');

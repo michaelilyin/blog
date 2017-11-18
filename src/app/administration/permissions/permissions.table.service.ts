@@ -18,7 +18,7 @@ export class PermissionsTableServiceImpl extends PermissionsTableService {
 
     constructor(db: AngularFireDatabase) {
         super(db);
-        super.run();
+        super.start();
     }
 
 

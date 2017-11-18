@@ -7,7 +7,7 @@ import {Subscription} from 'rxjs/Subscription';
 import {getTranslation, TranslatedModel, TranslatedModelImpl} from '../../../common/translated/translated-model';
 import {PermissionService} from '../../../common/profile/permission.service';
 import {TranslateService} from '@ngx-translate/core';
-import {FormControl} from "@angular/forms";
+import {FormControl} from '@angular/forms';
 
 export class EditRoleDialogData {
     public readonly key: string;

@@ -26,7 +26,7 @@ import {AngularFireDatabaseModule} from 'angularfire2/database';
 import {PaginatorTranslator} from '../common/translated/paginator.translator';
 import {PermissionsComponent} from './permissions/permissions.component';
 import {EditRoleDialogComponent} from './roles/edit-dialog/edit-role.dialog.component';
-import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 export function createTranslateLoader(http: HttpClient) {
     return new TranslateHttpLoader(http, './assets/i18n/admin/', '.json');
