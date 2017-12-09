@@ -26,14 +26,12 @@ export class PermissionServiceImpl extends PermissionService {
             }
             this.subscription = this.database.object(`/user-perms/${profile.uid}`)
                 .valueChanges()
-                .subscribe((permMap: { [p: string]: boolean }) => {
+                .subscribe((permMap: { [p: string]: any }) => {
                     const permissions = new Set();
                     if (permMap) {
-                        for (const perm in permMap) {
-                            if (permMap.hasOwnProperty(perm)) {
-                                permissions.add(perm);
-                            }
-                        }
+                        Object.keys(permMap).forEach(perm => {
+                            permissions.add(perm);
+                        });
                     }
                     this.permissions = permissions;
                 });

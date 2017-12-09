@@ -26,6 +26,19 @@
                     "VIEW": "Просмотреть",
                     "REMOVE": "Удалить"
                 }
+            },
+            "DIALOG": {
+                "TITLE-EDIT": "Редактирвание роли",
+                "TITLE-VIEW": "Просмотр роли",
+                "FIELDS": {
+                    "NAME": "Название",
+                    "DESCRIPTION": "Описание",
+                    "PRIVILEGES": "Привилегии"
+                },
+                "ACTIONS": {
+                    "SAVE": "Сохранить",
+                    "CANCEL": "Отмена"
+                }
             }
         },
         "PERMISSIONS": {

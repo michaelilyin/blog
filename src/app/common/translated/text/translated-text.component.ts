@@ -10,6 +10,9 @@ export class TranslatedTextComponent implements OnInit, OnChanges {
     @Input()
     public model: TranslatedModel;
 
+    @Input()
+    public truncate = false;
+
     public translatedValue = '';
 
     constructor(private languageService: LanguageService) {

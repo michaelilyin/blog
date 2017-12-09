@@ -45,7 +45,8 @@ export class EditRoleDialogComponent implements OnInit {
     public permissionOptions: PermissionOption[] = [];
     public filteredOptions: PermissionOption[];
 
-    @ViewChild('matAutocompleteTrigger') autocomplete: MatAutocompleteTrigger;
+    @ViewChild('matAutocompleteTrigger') autocompleteTrigger: MatAutocompleteTrigger;
+    @ViewChild('matAutocomplete') autocomplete: MatAutocomplete;
 
     constructor(@Inject(MAT_DIALOG_DATA) public data: EditRoleDialogData,
                 private roleDataService: RoleEditService,
@@ -78,7 +79,7 @@ export class EditRoleDialogComponent implements OnInit {
             .debounceTime(300)
             .distinctUntilChanged()
             .map(data => data && typeof data === 'object' ? data.value : data)
-            .map(name => name ? this.filter(name) : this.permissionOptions.slice())
+            .map(name => name ? this.filter(name.trim()) : this.permissionOptions.slice())
             .subscribe((opts) => {
                 this.filteredOptions = opts;
             });
@@ -133,7 +134,9 @@ export class EditRoleDialogComponent implements OnInit {
     }
 
     open() {
-        this.autocomplete.openPanel();
+        if (!this.autocomplete.isOpen && typeof this.autocompleteTrigger.openPanel === 'function') {
+            this.autocompleteTrigger.openPanel();
+        }
     }
 
     access(priv: string) {

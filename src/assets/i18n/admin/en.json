@@ -26,6 +26,19 @@
                     "VIEW": "View",
                     "REMOVE": "Remove"
                 }
+            },
+            "DIALOG": {
+                "TITLE-EDIT": "Edit role",
+                "TITLE-VIEW": "View role",
+                "FIELDS": {
+                    "NAME": "Name",
+                    "DESCRIPTION": "Description",
+                    "PRIVILEGES": "Privileges"
+                },
+                "ACTIONS": {
+                    "SAVE": "Save",
+                    "CANCEL": "Cancel"
+                }
             }
         },
         "PERMISSIONS": {

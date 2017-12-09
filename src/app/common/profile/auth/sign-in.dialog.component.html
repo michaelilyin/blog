@@ -3,7 +3,9 @@
     <div [ngSwitch]="inProgress">
         <div *ngSwitchCase="false" style="display: flex; justify-content: space-around; align-items: stretch; flex-direction: column;">
             <div style="display: flex;">
-                <button mat-button (click)="signInWithGoogle()">Sign in with Google</button>
+                <button mat-button (click)="signInWithGoogle()">
+                    <span class="google">Sign in with Google</span>
+                </button>
                 <!--<button mat-button>Sign in with GitHub</button>-->
             </div>
 

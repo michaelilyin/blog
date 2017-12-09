@@ -20,7 +20,7 @@
                         <span translate>ADMIN.ROLES.TABLE.COL.DESCRIPTION</span>
                     </mat-header-cell>
                     <mat-cell *matCellDef="let element">
-                        <app-translated-text [model]="element.val.description"></app-translated-text>
+                        <app-translated-text [model]="element.val.description" [truncate]="true"></app-translated-text>
                     </mat-cell>
                 </ng-container>
 

@@ -5,6 +5,13 @@ import {AuthProviders, UserProfileService} from '../userprofile.service';
 @Component({
     selector: 'app-sign-in-dialog',
     templateUrl: 'sign-in.dialog.component.html',
+    styles: [`
+        .google {
+            background: url('/assets/icons/google-logo.svg') no-repeat;
+            background-size: 18px 18px;
+            background-position: left -15px center;
+        }
+    `]
 })
 export class SignInDialogComponent {
 
