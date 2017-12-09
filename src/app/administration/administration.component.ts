@@ -9,7 +9,7 @@ import 'rxjs/add/operator/first';
 })
 export class AdministrationComponent {
 
-    private ready = false;
+    public ready = false;
 
     constructor(private translateService: TranslateService,
                 private languageService: LanguageService,
