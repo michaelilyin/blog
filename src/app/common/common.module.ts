@@ -6,17 +6,18 @@ import {TranslatedTextComponent} from './translated/text/translated-text.compone
 import {SignInDialogComponent} from './profile/auth/sign-in.dialog.component';
 import {CommonModule as NgCommonModule} from '@angular/common';
 import {
-    MatButtonModule,
-    MatDialogModule,
+    MatAutocompleteModule,
+    MatButtonModule, MatChipsModule,
+    MatDialogModule, MatFormFieldModule,
     MatIconModule,
-    MatInputModule,
+    MatInputModule, MatListModule,
     MatMenuModule,
     MatOptionModule,
     MatProgressSpinnerModule,
     MatSelectModule, MatTooltipModule
 } from '@angular/material';
 import {TranslatedInputComponent} from './translated/input/translated-input.component';
-import {FormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {LangSelectorComponent} from './translated/lang-selector/lang-selector.component';
 import {TranslateModule} from '@ngx-translate/core';
 import {TranslatedTextareaComponent} from './translated/textarea/translated-textarea.component';
@@ -27,6 +28,7 @@ import { MulticompleteComponent } from './multicomplete/multicomplete.component'
 @NgModule({
     imports: [
         FormsModule,
+        ReactiveFormsModule,
         HttpModule,
         HttpClientModule,
         NgCommonModule,
@@ -39,6 +41,10 @@ import { MulticompleteComponent } from './multicomplete/multicomplete.component'
         MatSelectModule,
         MatOptionModule,
         MatTooltipModule,
+        MatAutocompleteModule,
+        MatListModule,
+        MatFormFieldModule,
+        MatChipsModule,
         ToastModule.forRoot(),
         TranslateModule
     ],
@@ -71,7 +77,8 @@ import { MulticompleteComponent } from './multicomplete/multicomplete.component'
         SignInDialogComponent,
         RowMenuComponent,
 
-        AppModuleWrapperComponent
+        AppModuleWrapperComponent,
+        MulticompleteComponent
     ]
 })
 export class CommonModule {

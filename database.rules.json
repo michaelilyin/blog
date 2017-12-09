@@ -9,12 +9,7 @@
         "users": {
             "$uid": {
                 ".write": "auth != null && $uid == auth.uid",
-                "public": {
-                    ".read": true
-                },
-                "private": {
-                    ".read": "auth != null && $uid == auth.uid"
-                }
+                ".read": "auth != null && $uid == auth.uid"
             }
         },
         "user-perms": {

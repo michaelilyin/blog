@@ -1,4 +1,4 @@
-import {Component, EventEmitter, Input, OnInit, Output, ViewChild} from '@angular/core';
+import {Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges, ViewChild} from '@angular/core';
 import {FormControl} from '@angular/forms';
 import {MatAutocomplete, MatAutocompleteSelectedEvent, MatAutocompleteTrigger} from '@angular/material';
 import 'rxjs/add/operator/startWith';
@@ -18,13 +18,16 @@ export class Option {
     templateUrl: './multicomplete.component.html',
     styleUrls: ['./multicomplete.component.css']
 })
-export class MulticompleteComponent implements OnInit {
+export class MulticompleteComponent implements OnInit, OnChanges {
 
     @Input()
-    public value: Option[];
+    public placeholder: string = "";
 
     @Input()
-    public options: Option[];
+    public value: Option[] = [];
+
+    @Input()
+    public options: Option[] = [];
 
     @Output()
     public valueChange = new EventEmitter<Option[]>();
@@ -42,17 +45,36 @@ export class MulticompleteComponent implements OnInit {
     }
 
     ngOnInit() {
-        this._options = this.options.filter(option => this.value.indexOf(option) === -1);
-        this._value = this.value.slice();
+        this._value = this.value ? this.value.slice() : [];
+        const set = new Set(this._value.map(v => v.key));
+        this._options = this.options ? this.options.filter(option => !set.has(option.key)) : [];
+        this.filtered = this._options.slice();
 
         this.input.valueChanges
             .debounceTime(300)
             .distinctUntilChanged()
             .map(data => data && typeof data === 'object' ? data.value : data)
-            .map(name => name ? this.filter(name.trim()) : this.options.slice())
+            .map(name => name ? this.filter(name.trim()) : this._options.slice())
             .subscribe((opts) => {
                 this.filtered = opts;
             });
+    }
+
+    ngOnChanges(changes: SimpleChanges): void {
+        if (changes['value']) {
+            const val = changes['value'].currentValue;
+            this.log.log('Updated value', val);
+            this._value = val ? val.slice() : [];
+            const set = new Set(this._value.map(v => v.key));
+            this._options = this.options ? this.options.filter(option => !set.has(option.key)) : [];
+        }
+        if (changes['options']) {
+            const opts = changes['options'].currentValue;
+            this.log.log('Updated options', opts);
+            const set = new Set(this._value.map(v => v.key));
+            this._options = opts ? opts.filter(option => !set.has(option.key)) : [];
+            this.filtered = this._options.slice();
+        }
     }
 
     filter(name: string): Option[] {
@@ -64,17 +86,17 @@ export class MulticompleteComponent implements OnInit {
         this.log.log('Selected', event);
         const element = event.option.value;
         this._options = this._options.filter(p => p.key !== element.key);
-        this.value = this.value.concat(element);
+        this._value = this._value.concat(element);
         this.filtered = this._options.slice();
         this.input.setValue('', {emitEvent: false});
-        this.valueChange.next(this._options);
+        this.valueChange.next(this._value);
     }
 
     remove(perm) {
         this._value = this._value.filter(p => p.key !== perm.key);
         this._options = this._options.concat(perm);
-        this._options = this._options.slice();
-        this.valueChange.next(this._options);
+        this.filtered = this._options.slice();
+        this.valueChange.next(this._value);
     }
 
     open() {

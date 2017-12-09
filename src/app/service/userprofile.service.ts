@@ -4,19 +4,31 @@ import {AngularFireAuth} from 'angularfire2/auth';
 import * as firebase from 'firebase/app';
 import GoogleAuthProvider = firebase.auth.GoogleAuthProvider;
 import AuthProvider = firebase.auth.AuthProvider;
+import {AngularFireDatabase} from 'angularfire2/database';
+import {Subscription} from 'rxjs/Subscription';
+import 'rxjs/add/operator/take'
+import {LogService} from 'ngx-log';
 
 @Injectable()
 export class UserProfileServiceImpl extends UserProfileService {
 
-    constructor(private auth: AngularFireAuth) {
+    private profileSub: Subscription;
+
+    constructor(private auth: AngularFireAuth,
+                private db: AngularFireDatabase,
+                private log: LogService) {
         super();
         this.auth.authState.subscribe(user => {
             if (user == null) {
                 this.profile.next(null);
                 return;
             }
-            const profile = this.convertUserToProfile(user);
-            this.profile.next(profile);
+            this.processAuth(user);
+
+            if (this.profileSub) {
+                this.profileSub.unsubscribe();
+            }
+            this.profileSub = db.object(`/users/${user.uid}`).valueChanges().subscribe(this.profile);
         });
     }
 
@@ -40,15 +52,21 @@ export class UserProfileServiceImpl extends UserProfileService {
         this.auth.auth.signOut();
     }
 
-    private convertUserToProfile(user: firebase.User) {
+    private processAuth(user: firebase.User) {
         if (!user) {
-            return null;
+            return;
         }
-        const profile = new UserProfile(
-            user.uid,
-            user.providerData[0].displayName,
-            user.providerData[0].photoURL + '?size=40'
-        );
-        return profile;
+        this.db.object(`/users/${user.uid}`).valueChanges().take(1).subscribe(existingProfile => {
+            this.log.log('Loaded profile', existingProfile);
+            if (existingProfile) {
+                return;
+            }
+            const profile = new UserProfile(
+                user.uid,
+                user.providerData[0].displayName,
+                user.providerData[0].photoURL + '?size=40'
+            );
+            this.db.object(`/users/${user.uid}`).set(profile);
+        });
     }
 }

@@ -1,6 +1,10 @@
-<mat-form-field>
-    <input matInput #matAutocompleteTrigger [placeholder]="placeholder"
-           [formControl]="input" [matAutocomplete]="auto" (click)="open()" />
+<mat-form-field style="width: 100%">
+    <input matInput #matAutocompleteTrigger
+           style="width: 100%"
+           [placeholder]="placeholder"
+           [formControl]="input"
+           [matAutocomplete]="auto"
+           (click)="open()" />
     <mat-autocomplete #matAutocomplete #auto="matAutocomplete" (optionSelected)="add($event)" >
         <mat-option *ngFor="let element of filtered" [value]="element">
             {{ element.label }}
@@ -8,7 +12,7 @@
     </mat-autocomplete>
 </mat-form-field>
 <mat-chip-list #chipList>
-    <mat-chip *ngFor="let element of value" [selectable]="false"
+    <mat-chip *ngFor="let element of _value" [selectable]="false"
               (remove)="remove(element)"
               style="margin-bottom: 5px;"
     >
