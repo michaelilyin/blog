@@ -21,7 +21,7 @@ export class Option {
 export class MulticompleteComponent implements OnInit, OnChanges {
 
     @Input()
-    public placeholder: string = "";
+    public placeholder = '';
 
     @Input()
     public value: Option[] = [];
