@@ -7,6 +7,6 @@ export class Keyable<T> {
     }
 }
 
-export function mapToKeyable<T>(){
+export function mapToKeyable<T>() {
     return changes => changes.map(c => new Keyable<T>(c.payload.key, c.payload.val()));
 }

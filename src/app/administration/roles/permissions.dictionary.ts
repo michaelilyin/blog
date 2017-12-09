@@ -8,14 +8,14 @@ import {LogService} from 'ngx-log';
 import {Observable} from 'rxjs/Observable';
 import {ReplaySubject} from 'rxjs/ReplaySubject';
 import {mapToKeyable} from '../../common/keyable';
+import {Option} from '../../common/multicomplete/multicomplete.component';
 
 export class Permission {
     name: TranslatedModel;
 }
 
-export class PermissionOption {
-    constructor(public readonly key: string, public readonly label: string) {
-    }
+export class PermissionOption extends Option {
+
 }
 
 export abstract class PermissionsDictionary implements StatefullProviderService {

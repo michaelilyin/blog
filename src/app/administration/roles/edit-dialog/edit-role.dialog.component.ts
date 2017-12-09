@@ -13,10 +13,6 @@ import {FormControl} from '@angular/forms';
 import {LogService} from 'ngx-log';
 import {Observable} from 'rxjs/Observable';
 import {PermissionOption, PermissionsDictionary} from '../permissions.dictionary';
-import 'rxjs/add/operator/startWith';
-import 'rxjs/add/operator/debounce';
-import 'rxjs/add/operator/debounceTime';
-import 'rxjs/add/operator/timeoutWith';
 
 export class EditRoleDialogData {
     public readonly key: string;
@@ -40,13 +36,7 @@ export class EditRoleDialogComponent implements OnInit {
     private roleSubscription: Subscription;
     private permissionsSubscription: Subscription;
 
-    public perms = new FormControl();
-
     public permissionOptions: PermissionOption[] = [];
-    public filteredOptions: PermissionOption[];
-
-    @ViewChild('matAutocompleteTrigger') autocompleteTrigger: MatAutocompleteTrigger;
-    @ViewChild('matAutocomplete') autocomplete: MatAutocomplete;
 
     constructor(@Inject(MAT_DIALOG_DATA) public data: EditRoleDialogData,
                 private roleDataService: RoleEditService,
@@ -66,43 +56,14 @@ export class EditRoleDialogComponent implements OnInit {
             }
 
             this.permissionsSubscription = this.permissionDict.all.subscribe(perms => {
-                this.permissionOptions = perms.filter(option =>
-                    this.role.permissions ? !this.role.permissions.hasOwnProperty(option.key) : true);
-                this.filteredOptions = this.permissionOptions.slice();
+                this.permissionOptions = perms.slice();
             });
         });
         this.roleDataService.load(data.key);
     }
 
     ngOnInit(): void {
-        this.perms.valueChanges
-            .debounceTime(300)
-            .distinctUntilChanged()
-            .map(data => data && typeof data === 'object' ? data.value : data)
-            .map(name => name ? this.filter(name.trim()) : this.permissionOptions.slice())
-            .subscribe((opts) => {
-                this.filteredOptions = opts;
-            });
-    }
 
-    filter(name: string): PermissionOption[] {
-        return this.permissionOptions.filter(option =>
-            option.label.toLowerCase().indexOf(name.toLowerCase()) !== -1);
-    }
-
-    addPerm(event: MatAutocompleteSelectedEvent) {
-        this.log.log("Permission selected", event);
-        const perm = event.option.value;
-        this.permissionOptions = this.permissionOptions.filter(p => p.key != perm.key);
-        this.rolePermissions = this.rolePermissions.concat(perm);
-        this.filteredOptions = this.permissionOptions.slice();
-        this.perms.setValue("", {emitEvent: false});
-    }
-
-    removePerm(perm) {
-        this.rolePermissions = this.rolePermissions.filter(p => p.key != perm.key);
-        this.permissionOptions = this.permissionOptions.concat(perm);
-        this.filteredOptions = this.permissionOptions.slice();
     }
 
     save() {
@@ -131,12 +92,6 @@ export class EditRoleDialogComponent implements OnInit {
         this.roleName = null;
         this.roleDescription = null;
         this.dialogRef.close(false);
-    }
-
-    open() {
-        if (!this.autocomplete.isOpen && typeof this.autocompleteTrigger.openPanel === 'function') {
-            this.autocompleteTrigger.openPanel();
-        }
     }
 
     access(priv: string) {

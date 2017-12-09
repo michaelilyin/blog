@@ -22,6 +22,7 @@ import {TranslateModule} from '@ngx-translate/core';
 import {TranslatedTextareaComponent} from './translated/textarea/translated-textarea.component';
 import {RowMenuComponent} from './row-menu/row-menu.component';
 import {AppModuleWrapperComponent} from './module-wrapper/app-module-wrapper.component';
+import { MulticompleteComponent } from './multicomplete/multicomplete.component';
 
 @NgModule({
     imports: [
@@ -51,7 +52,8 @@ import {AppModuleWrapperComponent} from './module-wrapper/app-module-wrapper.com
         TranslatedInputComponent,
         SignInDialogComponent,
         RowMenuComponent,
-        AppModuleWrapperComponent
+        AppModuleWrapperComponent,
+        MulticompleteComponent
     ],
     entryComponents: [
         SignInDialogComponent

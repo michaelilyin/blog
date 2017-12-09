@@ -19,25 +19,11 @@
         </div>
 
         <div style="display: flex; flex-direction: column; margin-left: 8px; width: 50%">
-
-            <mat-form-field>
-                <input matInput #matAutocompleteTrigger placeholder="{{'ADMIN.ROLES.DIALOG.FIELDS.PRIVILEGES' | translate}}"
-                       [formControl]="perms" [matAutocomplete]="auto" (click)="open()" />
-                <mat-autocomplete #matAutocomplete #auto="matAutocomplete" (optionSelected)="addPerm($event)" >
-                    <mat-option *ngFor="let perm of filteredOptions" [value]="perm">
-                        {{ perm.label }}
-                    </mat-option>
-                </mat-autocomplete>
-            </mat-form-field>
-            <mat-chip-list #chipList>
-                <mat-chip *ngFor="let perm of rolePermissions" [selectable]="false"
-                          (remove)="removePerm(perm)"
-                          style="margin-bottom: 5px;"
-                >
-                    {{perm?.label}}
-                    <mat-icon matChipRemove>cancel</mat-icon>
-                </mat-chip>
-            </mat-chip-list>
+            <app-multicomplete placeholder="{{'ADMIN.ROLES.DIALOG.FIELDS.PRIVILEGES' | translate}}"
+                               [options]="permissionOptions"
+                               [(value)]="rolePermissions"
+            >
+            </app-multicomplete>
         </div>
     </div>
 </mat-dialog-content>
