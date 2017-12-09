@@ -16,6 +16,7 @@ cache:
   directories:
   - node_modules
   - $(npm config get prefix)
+  - functions/node_modules
 
 before_install:
   - export CHROME_BIN=/usr/bin/google-chrome
@@ -35,6 +36,7 @@ after_success:
   - bash <(curl -s https://codecov.io/bash)
   - FIREBASE_PROJECT=default
   - if [ "$TRAVIS_BRANCH" = "master" ]; then FIREBASE_PROJECT=production; fi
+  - if [ "$TRAVIS_PULL_REQUEST" = "false" ]; then cd functions && npm install; cd ..; fi
   - if [ "$TRAVIS_PULL_REQUEST" = "false" ]; then firebase use $FIREBASE_PROJECT && firebase deploy --non-interactive --token $FIREBASE_TOKEN; fi
 
 notifications:
