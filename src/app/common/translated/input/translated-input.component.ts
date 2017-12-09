@@ -46,10 +46,16 @@ export class TranslatedInputComponent implements OnInit, OnChanges {
     }
 
     get translatedValue(): string {
+        if (!this.model) {
+            return "";
+        }
         return this.model[this.selectedLang];
     }
 
     set translatedValue(value: string) {
+        if (!this.model) {
+            return;
+        }
         this.model[this.selectedLang] = value;
     }
 }

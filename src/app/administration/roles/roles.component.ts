@@ -10,8 +10,9 @@ import {EditRoleDialogComponent} from './edit-dialog/edit-role.dialog.component'
 import {RowMenuElement} from '../../common/row-menu/row-menu.component';
 import {TranslateService} from '@ngx-translate/core';
 import {PermissionsDictionary, PermissionsDictionaryImpl} from './permissions.dictionary';
+import {Keyable} from '../../common/keyable';
 
-export class RolesDataSource extends DataSource<RoleRecord> {
+export class RolesDataSource extends DataSource<Keyable<RoleRecord>> {
 
     public length = 0;
     public event = new PageRequest(0, 10);
@@ -20,7 +21,7 @@ export class RolesDataSource extends DataSource<RoleRecord> {
         super();
     }
 
-    connect(collectionViewer: CollectionViewer): Observable<RoleRecord[]> {
+    connect(collectionViewer: CollectionViewer): Observable<Keyable<RoleRecord>[]> {
         return this.rolesTableService.values
             .map(page => {
                 this.length = page.total;
@@ -104,11 +105,12 @@ export class RolesComponent implements OnInit, OnDestroy {
         return this.permissionService.has(priv);
     }
 
-    edit(record: RoleRecord, readonly?: boolean) {
+    edit(record: Keyable<RoleRecord>, readonly?: boolean) {
         this.dialogService.open(EditRoleDialogComponent, {
             viewContainerRef: this.viewContainerRef,
-            data: { key: record.$key, readonly: readonly },
-            disableClose: true
+            data: { key: record.key, readonly: readonly },
+            disableClose: true,
+            width: '100%'
         }).afterClosed().subscribe(res => {
             if (res) {
                 this.source.refresh();

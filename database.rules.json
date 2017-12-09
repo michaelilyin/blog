@@ -27,7 +27,8 @@
             ".read": "auth != null && root.child('/user-perms/' + auth.uid + '/view-perms').exists()"
         },
         "roles": {
-            ".read": "auth != null && root.child('/user-perms/' + auth.uid + '/view-roles').exists()"
+            ".read": "auth != null && root.child('/user-perms/' + auth.uid + '/view-roles').exists()",
+            ".write": "auth != null && root.child('/user-perms/' + auth.uid + '/edit-roles').exists()"
         }
     }
 }

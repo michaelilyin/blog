@@ -15,6 +15,7 @@ export class LanguageServiceImpl extends LanguageService {
         translateService.setDefaultLang(environment.defaultLang);
         translateService.use(translateService.getBrowserLang());
         // translateService.use('ru');
+        return translateService.getTranslation(translateService.currentLang);
     }
 
     get lang(): string {

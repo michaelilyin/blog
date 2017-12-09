@@ -1,13 +1,15 @@
-<nav mat-tab-nav-bar>
-    <a mat-tab-link routerLink="list"
-       routerLinkActive #listRla="routerLinkActive"
-       [active]="listRla.isActive"
-        translate>SKILLS.TABS.LIST</a>
-    <a mat-tab-link routerLink="timeline"
-       routerLinkActive #timelineRla="routerLinkActive"
-       [active]="timelineRla.isActive"
-        translate>SKILLS.TABS.TIMELINE</a>
-</nav>
-<div class="app-content">
-    <router-outlet></router-outlet>
-</div>
+<app-module-wrapper [ready]="ready">
+    <nav mat-tab-nav-bar>
+        <a mat-tab-link routerLink="list"
+           routerLinkActive #listRla="routerLinkActive"
+           [active]="listRla.isActive"
+           translate>SKILLS.TABS.LIST</a>
+        <a mat-tab-link routerLink="timeline"
+           routerLinkActive #timelineRla="routerLinkActive"
+           [active]="timelineRla.isActive"
+           translate>SKILLS.TABS.TIMELINE</a>
+    </nav>
+    <div class="app-content">
+        <router-outlet></router-outlet>
+    </div>
+</app-module-wrapper>

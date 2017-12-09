@@ -7,8 +7,9 @@ import {Subscription} from 'rxjs/Subscription';
 import {PageRequest} from '../../common/service/table/page.emulation.service';
 import {PermissionRecord, PermissionsTableService, PermissionsTableServiceImpl} from './permissions.table.service';
 import {LogService} from 'ngx-log';
+import {Keyable} from '../../common/keyable';
 
-export class PermissionsDataSource extends DataSource<PermissionRecord> {
+export class PermissionsDataSource extends DataSource<Keyable<PermissionRecord>> {
 
     public length: number;
 
@@ -18,7 +19,7 @@ export class PermissionsDataSource extends DataSource<PermissionRecord> {
         this.logger.log('Created permissions data source');
     }
 
-    connect(collectionViewer: CollectionViewer): Observable<PermissionRecord[]> {
+    connect(collectionViewer: CollectionViewer): Observable<Keyable<PermissionRecord>[]> {
         this.logger.log('Connect permissions data source');
         return this.permissionsTableService.values
             .map(page => {

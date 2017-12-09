@@ -11,7 +11,7 @@
                     <mat-header-cell *matHeaderCellDef><span translate>ADMIN.PERMISSIONS.TABLE.COL.NAME</span>
                     </mat-header-cell>
                     <mat-cell *matCellDef="let element">
-                        <app-translated-text [model]="element.name"></app-translated-text>
+                        <app-translated-text [model]="element.val.name"></app-translated-text>
                     </mat-cell>
                 </ng-container>
 
@@ -19,7 +19,7 @@
                     <mat-header-cell *matHeaderCellDef><span translate>ADMIN.PERMISSIONS.TABLE.COL.DESCRIPTION</span>
                     </mat-header-cell>
                     <mat-cell *matCellDef="let element">
-                        <app-translated-text [model]="element.description"></app-translated-text>
+                        <app-translated-text [model]="element.val.description"></app-translated-text>
                     </mat-cell>
                 </ng-container>
 

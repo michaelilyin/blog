@@ -20,7 +20,10 @@ export class TranslatedModelImpl extends TranslatedModel {
 }
 
 export function getTranslation(model: TranslatedModel, lang: string): string {
-    return model[lang] ? model[lang] : model[environment.defaultLang];
+    if (model) {
+        return model[lang] ? model[lang] : model[environment.defaultLang];
+    }
+    return null;
 }
 
 export function translated(val: string): TranslatedModel {

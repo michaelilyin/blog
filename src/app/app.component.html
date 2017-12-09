@@ -1,45 +1,30 @@
 <ng-progress thick="true" [showSpinner]="false"></ng-progress>
-<div *ngIf="ready else loading" style="height: 100%;">
-    <div *ngIf="!broken else fatal" style="height: 100%;">
+<app-module-wrapper [ready]="ready" [broken]="broken">
 
-        <mat-toolbar class="main-toolbar">
-            <div class="header" (click)="onTitleClick()">
-                <app-translated-text [model]="name"></app-translated-text>
-            </div>
-            <nav>
-                <a mat-button routerLink="blog">
-                    <span translate>MENU.BLOG</span>
-                </a>
-                <a mat-button routerLink="skills">
-                    <span translate>MENU.SKILLS</span>
-                </a>
-                <a mat-button routerLink="projects">
-                    <span translate>MENU.PROJECTS</span>
-                </a>
-                <a mat-button routerLink="admin" *ngIf="access('view-admin')">
-                    <span translate>MENU.ADMIN</span>
-                </a>
-            </nav>
-            <span class="h-spacer"></span>
-            <app-auth></app-auth>
-        </mat-toolbar>
-
-        <div class="full-height">
-            <router-outlet></router-outlet>
+    <mat-toolbar class="main-toolbar">
+        <div class="header" (click)="onTitleClick()">
+            <app-translated-text [model]="name"></app-translated-text>
         </div>
+        <nav>
+            <a mat-button routerLink="blog">
+                <span translate>MENU.BLOG</span>
+            </a>
+            <a mat-button routerLink="skills">
+                <span translate>MENU.SKILLS</span>
+            </a>
+            <a mat-button routerLink="projects">
+                <span translate>MENU.PROJECTS</span>
+            </a>
+            <a mat-button routerLink="admin" *ngIf="access('view-admin')">
+                <span translate>MENU.ADMIN</span>
+            </a>
+        </nav>
+        <span class="h-spacer"></span>
+        <app-auth></app-auth>
+    </mat-toolbar>
 
+    <div class="full-height">
+        <router-outlet></router-outlet>
     </div>
-</div>
 
-<ng-template #loading>
-    <div style="display: flex; width: 100%; height: 100%; align-items: center; justify-content: center;">
-        <mat-spinner></mat-spinner>
-    </div>
-</ng-template>
-
-<ng-template #fatal>
-    <div>
-        <h1>Fatal error!</h1>
-        <h2>Application can't work</h2>
-    </div>
-</ng-template>
+</app-module-wrapper>

@@ -1,7 +1,8 @@
 import {NgModule} from '@angular/core';
 import {
     MatAutocompleteModule,
-    MatButtonModule, MatCardModule, MatDialogModule, MatDrawerContainer, MatFormFieldModule, MatGridListModule, MatIconModule,
+    MatButtonModule, MatCardModule, MatChipsModule, MatDialogModule, MatDrawerContainer, MatFormFieldModule,
+    MatGridListModule, MatIconModule,
     MatInputModule,
     MatListModule,
     MatMenuModule, MatOptionModule,
@@ -52,6 +53,7 @@ export function createTranslateLoader(http: HttpClient) {
         MatOptionModule,
         MatFormFieldModule,
         MatSelectModule,
+        MatChipsModule,
         ReactiveFormsModule,
         CommonModule,
         OverlayModule,

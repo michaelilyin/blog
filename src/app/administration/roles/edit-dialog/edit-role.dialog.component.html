@@ -4,8 +4,8 @@
     <app-lang-selector #langSelector class="mat-dialog-title-icon-suffix"></app-lang-selector>
 </div>
 <mat-dialog-content>
-    <div style="display: flex; flex-direction: row;">
-        <div style="display: flex; flex-direction: column;">
+    <div style="display: flex; flex-direction: row; width: 100%">
+        <div style="display: flex; flex-direction: column; width: 50%">
             <app-translated-input placeholder="Name"
                                   [disabled]="data.readonly"
                                   [lang]="langSelector.selectedLang"
@@ -20,28 +20,25 @@
             </app-translated-textarea>
         </div>
 
-        <div style="display: flex; flex-direction: column; margin-left: 8px;">
+        <div style="display: flex; flex-direction: column; margin-left: 8px; width: 50%">
 
             <mat-form-field>
-                <mat-select placeholder="Permissions" [formControl]="perms" multiple [disabled]="data.readonly">
-                    <mat-select-trigger>
-                        <div *ngFor="let perm of perms.value">
-                            {{perm}} <button mat-button>1</button>
-                        </div>
-                    </mat-select-trigger>
-                    <mat-option *ngFor="let perm of permissionOptions" [value]="perm.$key">{{perm.label}}</mat-option>
-                </mat-select>
+                <input matInput #matAutocompleteTrigger placeholder="Permissions" [formControl]="perms" [matAutocomplete]="auto" (click)="open()" />
+                <mat-autocomplete #auto="matAutocomplete" (optionSelected)="addPerm($event)">
+                    <mat-option *ngFor="let perm of filteredOptions" [value]="perm">
+                        {{ perm.label }}
+                    </mat-option>
+                </mat-autocomplete>
             </mat-form-field>
-
-
-            <mat-list>
-                <mat-list-item *ngFor="let perm of rolePermissions">
-                    <p matLine>{{perm}}</p>
-                    <button mat-icon-button>
-                        <mat-icon>remove</mat-icon>
-                    </button>
-                </mat-list-item>
-            </mat-list>
+            <mat-chip-list #chipList>
+                <mat-chip *ngFor="let perm of rolePermissions" [selectable]="false"
+                          (remove)="removePerm(perm)"
+                          style="margin-bottom: 5px;"
+                >
+                    {{perm?.label}}
+                    <mat-icon matChipRemove *ngIf="access('edit-roles')">cancel</mat-icon>
+                </mat-chip>
+            </mat-chip-list>
         </div>
     </div>
 </mat-dialog-content>

@@ -18,6 +18,7 @@ import {translated, TranslatedModelImpl} from './common/translated/translated-mo
 import {TranslatedTextComponent} from './common/translated/text/translated-text.component';
 import {PermissionService} from './common/profile/permission.service';
 import {LogModule} from 'ngx-log';
+import {Observable} from 'rxjs/Observable';
 
 class ConfigurationServiceMock extends ConfigurationService {
     loadConfig() {
@@ -50,7 +51,7 @@ class PermissionServiceMock extends PermissionService {
 class LanguageServiceMock extends LanguageService {
     lang = 'en';
 
-    initStaticTranslator(translateService: TranslateService) {    }
+    initStaticTranslator(translateService: TranslateService) {  return Observable.of(true)  }
 }
 
 describe('AppComponent', () => {

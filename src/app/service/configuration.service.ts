@@ -15,11 +15,7 @@ export class ConfigurationServiceImpl extends ConfigurationService {
     }
 
     loadConfig() {
-        this.db.object('/application/config')
-            .map(object => {
-                this.logger.log('Loaded config', object);
-                return object as Configuration
-            })
+        this.db.object<Configuration>('/application/config').valueChanges()
             .map(config => this.setDefaults(config))
             .subscribe(this.configuration);
     }

@@ -25,6 +25,7 @@ export class PermissionServiceImpl extends PermissionService {
                 return;
             }
             this.subscription = this.database.object(`/user-perms/${profile.uid}`)
+                .valueChanges()
                 .subscribe((permMap: { [p: string]: boolean }) => {
                     const permissions = new Set();
                     if (permMap) {

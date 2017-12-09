@@ -5,6 +5,7 @@ import {Observable} from 'rxjs/Observable';
 import {Subscription} from 'rxjs/Subscription';
 import 'rxjs/add/observable/combineLatest';
 import {StatefullProviderService} from '../statefull.provider.service';
+import {Keyable, mapToKeyable} from '../../keyable';
 
 export class PageData<T> {
     constructor(public readonly values: T[],
@@ -21,10 +22,10 @@ export class PageRequest {
 }
 
 export abstract class PageEmulationService<T> implements StatefullProviderService {
-    public readonly values = new ReplaySubject<PageData<T>>(1);
+    public readonly values = new ReplaySubject<PageData<Keyable<T>>>(1);
 
     private readonly navigationStream = new Subject<PageRequest>();
-    private serverStream: Observable<T[]>;
+    private serverStream: Observable<Keyable<T>[]>;
 
     private subscription: Subscription;
 
@@ -35,16 +36,15 @@ export abstract class PageEmulationService<T> implements StatefullProviderServic
     protected abstract get source(): string;
 
     public start() {
-        this.serverStream = this.db.list(this.source)
-            .map(list => {
-                return list as T[]
-            });
+        this.serverStream = this.db.list<T>(this.source)
+            .snapshotChanges()
+            .map(mapToKeyable<T>());
 
         this.subscription = Observable.combineLatest(
             this.serverStream,
             this.navigationStream
         ).map((data) => {
-            const serverData = data[0] as T[];
+            const serverData = data[0] as Keyable<T>[];
             const pageRequest = data[1] as PageRequest;
             const start = pageRequest.page * pageRequest.size;
             const end = start + pageRequest.size;

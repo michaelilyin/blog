@@ -6,8 +6,13 @@ import {TranslateService} from '@ngx-translate/core';
     templateUrl: 'projects.component.html'
 })
 export class ProjectsComponent {
+
+    public ready = false;
+
     constructor(private translateService: TranslateService,
                 private languageService: LanguageService) {
-        this.languageService.initStaticTranslator(this.translateService)
+        this.languageService.initStaticTranslator(this.translateService).first().subscribe(() => {
+            this.ready = true;
+        });
     }
 }

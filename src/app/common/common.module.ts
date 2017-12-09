@@ -21,6 +21,7 @@ import {LangSelectorComponent} from './translated/lang-selector/lang-selector.co
 import {TranslateModule} from '@ngx-translate/core';
 import {TranslatedTextareaComponent} from './translated/textarea/translated-textarea.component';
 import {RowMenuComponent} from './row-menu/row-menu.component';
+import {AppModuleWrapperComponent} from './module-wrapper/app-module-wrapper.component';
 
 @NgModule({
     imports: [
@@ -49,7 +50,8 @@ import {RowMenuComponent} from './row-menu/row-menu.component';
         TranslatedTextareaComponent,
         TranslatedInputComponent,
         SignInDialogComponent,
-        RowMenuComponent
+        RowMenuComponent,
+        AppModuleWrapperComponent
     ],
     entryComponents: [
         SignInDialogComponent
@@ -65,7 +67,9 @@ import {RowMenuComponent} from './row-menu/row-menu.component';
         TranslatedTextareaComponent,
         TranslatedInputComponent,
         SignInDialogComponent,
-        RowMenuComponent
+        RowMenuComponent,
+
+        AppModuleWrapperComponent
     ]
 })
 export class CommonModule {
