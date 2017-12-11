@@ -56,17 +56,22 @@ export class UserProfileServiceImpl extends UserProfileService {
         if (!user) {
             return;
         }
-        this.db.object(`/users/${user.uid}`).valueChanges().take(1).subscribe(existingProfile => {
-            this.log.log('Loaded profile', existingProfile);
-            if (existingProfile) {
-                return;
-            }
-            const profile = new UserProfile(
-                user.uid,
-                user.providerData[0].displayName,
-                user.providerData[0].photoURL + '?size=40'
-            );
-            this.db.object(`/users/${user.uid}`).set(profile);
-        });
+        this.db.object<UserProfile>(`/users/${user.uid}`).valueChanges().take(1)
+            .subscribe((existingProfile: UserProfile) => {
+                this.log.log('Loaded profile', existingProfile);
+                if (existingProfile.accepted) {
+                    return;
+                }
+                const profile = new UserProfile(
+                    user.uid,
+                    user.providerData[0].displayName,
+                    user.providerData[0].email,
+                    {
+                        avatarUrl: user.providerData[0].photoURL + '?size=40'
+                    }
+                );
+                this.db.object(`/user-list/${user.uid}`).set(profile);
+                this.db.object(`/users/${user.uid}`).set(profile);
+            });
     }
 }

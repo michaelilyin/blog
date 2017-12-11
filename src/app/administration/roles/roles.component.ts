@@ -1,43 +1,17 @@
-import {Component, OnDestroy, OnInit, ViewChild, ViewContainerRef} from '@angular/core';
+import {Component, OnDestroy, OnInit, ViewContainerRef} from '@angular/core';
 import {PermissionService} from '../../common/profile/permission.service';
 import {RoleRecord, RolesTableService, RolesTableServiceImpl} from './roles.table.service';
-import {Observable} from 'rxjs/Observable';
-import {CollectionViewer, DataSource} from '@angular/cdk/collections';
-import {MatDialog, MatPaginator, PageEvent} from '@angular/material';
-import {Subscription} from 'rxjs/Subscription';
-import {PageRequest} from '../../common/service/table/page.emulation.service';
+import {MatDialog} from '@angular/material';
 import {EditRoleDialogComponent} from './edit-dialog/edit-role.dialog.component';
 import {RowMenuElement} from '../../common/row-menu/row-menu.component';
 import {TranslateService} from '@ngx-translate/core';
 import {PermissionsDictionary, PermissionsDictionaryImpl} from './permissions.dictionary';
 import {Keyable} from '../../common/keyable';
+import {PageSupportDataSource} from '../../common/service/table/page.support';
 
-export class RolesDataSource extends DataSource<Keyable<RoleRecord>> {
-
-    public length = 0;
-    public event = new PageRequest(0, 10);
-
-    constructor(private rolesTableService: RolesTableService) {
-        super();
-    }
-
-    connect(collectionViewer: CollectionViewer): Observable<Keyable<RoleRecord>[]> {
-        return this.rolesTableService.values
-            .map(page => {
-                this.length = page.total;
-                return page.values
-            });
-    }
-
-    disconnect(collectionViewer: CollectionViewer): void {
-
-    }
-
-    refresh(event?: PageEvent) {
-        if (event) {
-            this.event = new PageRequest(event.pageIndex, event.pageSize);
-        }
-        this.rolesTableService.refresh(this.event);
+export class RolesDataSource extends PageSupportDataSource<RoleRecord> {
+    constructor(rolesTableService: RolesTableService) {
+        super(rolesTableService);
     }
 }
 

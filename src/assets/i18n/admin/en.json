@@ -41,6 +41,22 @@
                 }
             }
         },
+        "USERS": {
+            "TITLE": "Users",
+            "TABLE": {
+                "COL": {
+                    "NAME": "Display name",
+                    "EMAIL": "Email",
+                    "ACCEPTED": "Accepted",
+                    "ACTIONS": "Actions"
+                },
+                "ROW": {
+                    "VIEW": "View",
+                    "ROLES": "Roles",
+                    "BLOCK": "Block"
+                }
+            }
+        },
         "PERMISSIONS": {
             "TITLE": "System permissions",
             "TABLE": {

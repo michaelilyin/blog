@@ -7,9 +7,22 @@ import GoogleAuthProvider = firebase.auth.GoogleAuthProvider;
 
 export class UserProfile {
 
+    accepted = false;
+    avatarUrl = '';
+
     constructor(readonly uid: string,
                 readonly displayName: string,
-                readonly avatarUrl: string = '') {
+                readonly email: string,
+                optional: {
+                    readonly accepted?: boolean,
+                    readonly avatarUrl?: string | undefined
+                }) {
+        if (optional.accepted !== undefined) {
+            this.accepted = optional.accepted;
+        }
+        if (optional.avatarUrl !== undefined) {
+            this.avatarUrl = optional.avatarUrl;
+        }
     }
 }
 

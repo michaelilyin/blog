@@ -5,7 +5,7 @@ export class RowMenuElement {
     public readonly icon: string;
     public readonly primary?: boolean;
     public readonly label: string;
-    public readonly callback: (any) => void;
+    public readonly callback?: (any) => void;
     public readonly render: () => boolean;
 }
 

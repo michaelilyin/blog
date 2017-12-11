@@ -75,7 +75,7 @@ mat-card, mat-table {
 }
 
 .table-actions {
-    max-width: 100px;
+    max-width: 150px;
 }
 
 .truncate {

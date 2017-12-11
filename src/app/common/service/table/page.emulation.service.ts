@@ -6,22 +6,9 @@ import {Subscription} from 'rxjs/Subscription';
 import 'rxjs/add/observable/combineLatest';
 import {StatefullProviderService} from '../statefull.provider.service';
 import {Keyable, mapToKeyable} from '../../keyable';
+import {PageData, PageRequest, PageSupportService} from './page.support';
 
-export class PageData<T> {
-    constructor(public readonly values: T[],
-                public readonly total: number) {
-
-    }
-}
-
-export class PageRequest {
-    constructor(public readonly page: number = 0,
-                public readonly size: number = 10) {
-
-    }
-}
-
-export abstract class PageEmulationService<T> implements StatefullProviderService {
+export abstract class PageEmulationService<T> extends PageSupportService<T> implements StatefullProviderService {
     public readonly values = new ReplaySubject<PageData<Keyable<T>>>(1);
 
     private readonly navigationStream = new Subject<PageRequest>();
@@ -30,7 +17,7 @@ export abstract class PageEmulationService<T> implements StatefullProviderServic
     private subscription: Subscription;
 
     public constructor(private readonly db: AngularFireDatabase) {
-
+        super();
     }
 
     protected abstract get source(): string;
