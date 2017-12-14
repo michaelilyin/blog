@@ -1,0 +1,22 @@
+<mat-card>
+
+    <mat-card-header>
+        <mat-card-title class="h1"><span>User NAME</span></mat-card-title>
+    </mat-card-header>
+
+    <mat-card-content>
+        <nav mat-tab-nav-bar class="mat-content-full-width">
+            <a mat-tab-link routerLink="info"
+               routerLinkActive #listRla="routerLinkActive"
+               [active]="listRla.isActive"
+            >User info</a>
+            <a mat-tab-link routerLink="roles"
+               routerLinkActive #timelineRla="routerLinkActive"
+               [active]="timelineRla.isActive"
+            >Roles</a>
+        </nav>
+        <div class="app-content">
+            <router-outlet></router-outlet>
+        </div>
+    </mat-card-content>
+</mat-card>

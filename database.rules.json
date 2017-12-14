@@ -12,10 +12,15 @@
                 ".read": "auth != null && $uid == auth.uid"
             }
         },
+        "user-list": {
+            ".read": "auth != null && root.child('/user-perms/' + auth.uid + '/view-users').exists()",
+            "$uid": {
+                ".write": "auth != null && $uid == auth.uid"
+            }
+        },
         "user-perms": {
             "$uid": {
-                ".write": "auth != null && root.child('/user-perms/' + auth.uid + '/edit-user-perms').exists()",
-                ".read": "auth != null && ($uid == auth.uid || root.child('/user-perms/' + auth.uid + '/view-user-perms').exists())"
+                ".read": "auth != null && $uid == auth.uid"
             }
         },
         "perms": {
@@ -24,6 +29,10 @@
         "roles": {
             ".read": "auth != null && root.child('/user-perms/' + auth.uid + '/view-roles').exists()",
             ".write": "auth != null && root.child('/user-perms/' + auth.uid + '/edit-roles').exists()"
+        },
+        "user-roles": {
+            ".read": "auth != null && root.child('/user-perms/' + auth.uid + '/view-user-roles').exists()",
+            ".write": "auth != null && root.child('/user-perms/' + auth.uid + '/edit-user-roles').exists()"
         }
     }
 }

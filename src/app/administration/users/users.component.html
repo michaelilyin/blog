@@ -29,7 +29,7 @@
                         <span translate>ADMIN.USERS.TABLE.COL.ACCEPTED</span>
                     </mat-header-cell>
                     <mat-cell *matCellDef="let element">
-                        <mat-checkbox [(ngModel)]="element.val.accepted" [disabled]="true"></mat-checkbox>
+                        <mat-icon color="primary">{{element.val.accepted ? 'check_box' : 'check_box_outline_blank'}}</mat-icon>
                     </mat-cell>
                 </ng-container>
 

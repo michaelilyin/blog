@@ -10,7 +10,7 @@ import {
     MatPaginatorIntl,
     MatPaginatorModule, MatSelectModule,
     MatSidenavModule,
-    MatTableModule
+    MatTableModule, MatTabsModule
 } from '@angular/material';
 import {AdministrationComponent} from './administration.component';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
@@ -29,6 +29,9 @@ import {PaginatorTranslator} from '../common/translated/paginator.translator';
 import {PermissionsComponent} from './permissions/permissions.component';
 import {EditRoleDialogComponent} from './roles/edit-dialog/edit-role.dialog.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { UserComponent } from './users/user/user.component';
+import { UserInfoComponent } from './users/user/user-info/user-info.component';
+import { UserRolesComponent } from './users/user/user-roles/user-roles.component';
 
 export function createTranslateLoader(http: HttpClient) {
     return new TranslateHttpLoader(http, './assets/i18n/admin/', '.json');
@@ -45,6 +48,7 @@ export function createTranslateLoader(http: HttpClient) {
         MatInputModule,
         MatSidenavModule,
         MatTableModule,
+        MatTabsModule,
         MatPaginatorModule,
         MatIconModule,
         MatMenuModule,
@@ -77,7 +81,10 @@ export function createTranslateLoader(http: HttpClient) {
         UsersComponent,
         RolesComponent,
         PermissionsComponent,
-        EditRoleDialogComponent
+        EditRoleDialogComponent,
+        UserComponent,
+        UserInfoComponent,
+        UserRolesComponent
     ],
     providers: [
         { provide: MatPaginatorIntl, useClass: PaginatorTranslator }

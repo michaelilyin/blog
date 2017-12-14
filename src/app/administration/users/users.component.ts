@@ -4,6 +4,7 @@ import {UserRecord, UsersTableService, UsersTableServiceImpl} from './users.tabl
 import {PageSupportDataSource} from '../../common/service/table/page.support';
 import {RowMenuElement} from '../../common/row-menu/row-menu.component';
 import {TranslateService} from '@ngx-translate/core';
+import {ActivatedRoute, Router} from '@angular/router';
 
 export class UsersDataSource extends PageSupportDataSource<UserRecord> {
     constructor(usersTableService: UsersTableService) {
@@ -27,7 +28,9 @@ export class UsersComponent implements OnInit, OnDestroy {
 
     constructor(private permissionService: PermissionService,
                 private usersTableService: UsersTableService,
-                private translateService: TranslateService) {
+                private translateService: TranslateService,
+                private router: Router,
+                private route: ActivatedRoute) {
         if (this.access('view-users')) {
             this.source = new UsersDataSource(this.usersTableService);
             this.source.refresh();
@@ -36,17 +39,20 @@ export class UsersComponent implements OnInit, OnDestroy {
                     icon: 'pageview',
                     primary: true,
                     label: this.translateService.instant('ADMIN.USERS.TABLE.ROW.VIEW'),
+                    callback: (row) => this.view(row),
                     render: () => this.access('view-users')
                 },
                 {
-                    icon: 'edit',
+                    icon: 'group',
                     primary: true,
                     label: this.translateService.instant('ADMIN.USERS.TABLE.ROW.ROLES'),
+                    callback: (row) => this.viewRoles(row),
                     render: () => this.access('view-user-roles')
                 },
                 {
-                    icon: 'delete',
+                    icon: 'block',
                     label: this.translateService.instant('ADMIN.USERS.TABLE.ROW.BLOCK'),
+                    callback: (row) => this.block(row),
                     render: () => this.access('block-users')
                 }
             ];
@@ -64,5 +70,17 @@ export class UsersComponent implements OnInit, OnDestroy {
 
     access(priv: string) {
         return this.permissionService.has(priv);
+    }
+
+    private view(row) {
+        this.router.navigate( ['profile', row.key, 'info'], { relativeTo: this.route.parent });
+    }
+
+    private viewRoles(row) {
+        this.router.navigate(['profile', row.key, 'roles'], { relativeTo: this.route.parent });
+    }
+
+    private block(row) {
+
     }
 }
