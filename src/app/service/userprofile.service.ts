@@ -8,6 +8,7 @@ import {AngularFireDatabase} from 'angularfire2/database';
 import {Subscription} from 'rxjs/Subscription';
 import 'rxjs/add/operator/take'
 import {LogService} from 'ngx-log';
+import {DelayRouteActivator} from '../common/service/permissions/activator';
 
 @Injectable()
 export class UserProfileServiceImpl extends UserProfileService {
@@ -16,6 +17,7 @@ export class UserProfileServiceImpl extends UserProfileService {
 
     constructor(private auth: AngularFireAuth,
                 private db: AngularFireDatabase,
+                private delayRouteActivator: DelayRouteActivator,
                 private log: LogService) {
         super();
         this.auth.authState.subscribe(user => {
@@ -33,6 +35,7 @@ export class UserProfileServiceImpl extends UserProfileService {
     }
 
     signInWithProvider(provider: AuthProviders): Promise<any> {
+        this.delayRouteActivator.reset();
         let providerInstance = null;
         switch (provider) {
             case AuthProviders.GOOGLE:

@@ -1,14 +1,15 @@
 import {Routes, RouterModule, CanActivate, Router} from '@angular/router';
 import {Injectable, NgModule} from '@angular/core';
 import {PermissionService} from './common/profile/permission.service';
-import {PermissionBasedActivator} from './common/service/permissions/activator';
+import {DelayRouteActivator, PermissionBasedActivator} from './common/service/permissions/activator';
 
-@Injectable()
+// @Injectable()
 export class ViewAdminActivator extends PermissionBasedActivator {
-    constructor(permissionService: PermissionService,
-                router: Router) {
-        super(permissionService, router);
-    }
+    // constructor(permissionService: PermissionService,
+    //             router: Router,
+    //             delayActivator: DelayRouteActivator) {
+    //     super(permissionService, delayActivator, router);
+    // }
     permission(): string { return 'view-admin'; }
 }
 

@@ -3,8 +3,9 @@ import {PermissionService} from '../common/profile/permission.service';
 import {Subscription} from 'rxjs/Subscription';
 import {UserProfileService} from '../common/profile/userprofile.service';
 import {AngularFireDatabase} from 'angularfire2/database';
-import {Router} from '@angular/router';
+import {GuardsCheckEnd, Router} from '@angular/router';
 import {LogService} from 'ngx-log';
+import {DelayRouteActivator} from '../common/service/permissions/activator';
 
 @Injectable()
 export class PermissionServiceImpl extends PermissionService {
@@ -13,7 +14,10 @@ export class PermissionServiceImpl extends PermissionService {
     private subscription: Subscription = null;
 
     constructor(private userProfileService: UserProfileService,
-                private database: AngularFireDatabase) {
+                private database: AngularFireDatabase,
+                private delayedRouteActivator: DelayRouteActivator,
+                private router: Router,
+                private log: LogService) {
         super();
         userProfileService.profile.subscribe(profile => {
             if (this.subscription) {
@@ -34,7 +38,17 @@ export class PermissionServiceImpl extends PermissionService {
                         });
                     }
                     this.permissions = permissions;
+
+                    this.delayedRouteActivator.navigate();
                 });
+        });
+        this.router.events.subscribe(event => {
+            if (event instanceof GuardsCheckEnd) {
+                const checked = event as GuardsCheckEnd;
+                if (!checked.shouldActivate && this.permissions.size == 0) {
+                    this.delayedRouteActivator.register(checked.url);
+                }
+            }
         });
     }
 

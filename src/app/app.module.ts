@@ -35,6 +35,7 @@ import {PermissionServiceImpl} from './service/permission.service';
 import {OverlayModule} from '@angular/cdk/overlay';
 import {PaginatorTranslator} from './common/translated/paginator.translator';
 import {FormsModule} from '@angular/forms';
+import {DelayRouteActivator} from './common/service/permissions/activator';
 
 export function createTranslateLoader(http: HttpClient) {
     return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -80,7 +81,9 @@ export function createTranslateLoader(http: HttpClient) {
 
         { provide: ViewAdminActivator, useClass: ViewAdminActivator },
 
-        { provide: MatPaginatorIntl, useClass: PaginatorTranslator }
+        { provide: MatPaginatorIntl, useClass: PaginatorTranslator },
+
+        { provide: DelayRouteActivator, useClass: DelayRouteActivator }
     ],
     bootstrap: [AppComponent]
 })
