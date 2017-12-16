@@ -1,7 +1,9 @@
-<mat-card>
+<mat-card *ngIf="user else loading">
 
     <mat-card-header>
-        <mat-card-title class="h1"><span>User NAME</span></mat-card-title>
+        <div mat-card-avatar [style.background-image]="'url(' + user.avatarUrl + ')'"></div>
+        <mat-card-title><span>{{user.displayName}}</span></mat-card-title>
+        <mat-card-subtitle>{{user.email}}</mat-card-subtitle>
     </mat-card-header>
 
     <mat-card-content>
@@ -9,14 +11,20 @@
             <a mat-tab-link routerLink="info"
                routerLinkActive #listRla="routerLinkActive"
                [active]="listRla.isActive"
-            >User info</a>
+            >Profile info</a>
             <a mat-tab-link routerLink="roles"
                routerLinkActive #timelineRla="routerLinkActive"
                [active]="timelineRla.isActive"
             >Roles</a>
         </nav>
-        <div class="app-content">
+        <div class="app-content" style="margin-top: 20px;">
             <router-outlet></router-outlet>
         </div>
     </mat-card-content>
 </mat-card>
+
+<ng-template #loading>
+    <div style="display: flex; width: 100%; height: 100%; align-items: center; justify-content: center;">
+        <mat-spinner></mat-spinner>
+    </div>
+</ng-template>

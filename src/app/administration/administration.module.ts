@@ -8,7 +8,7 @@ import {
     MatListModule,
     MatMenuModule, MatOptionModule,
     MatPaginatorIntl,
-    MatPaginatorModule, MatSelectModule,
+    MatPaginatorModule, MatProgressSpinnerModule, MatSelectModule,
     MatSidenavModule,
     MatTableModule, MatTabsModule
 } from '@angular/material';
@@ -60,6 +60,7 @@ export function createTranslateLoader(http: HttpClient) {
         MatSelectModule,
         MatChipsModule,
         MatCheckboxModule,
+        MatProgressSpinnerModule,
         FormsModule,
         ReactiveFormsModule,
         CommonModule,
