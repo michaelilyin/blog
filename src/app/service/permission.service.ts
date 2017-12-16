@@ -45,7 +45,7 @@ export class PermissionServiceImpl extends PermissionService {
         this.router.events.subscribe(event => {
             if (event instanceof GuardsCheckEnd) {
                 const checked = event as GuardsCheckEnd;
-                if (!checked.shouldActivate && this.permissions.size == 0) {
+                if (!checked.shouldActivate && this.permissions.size === 0) {
                     this.delayedRouteActivator.register(checked.url);
                 }
             }
