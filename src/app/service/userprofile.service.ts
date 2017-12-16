@@ -21,7 +21,12 @@ export class UserProfileServiceImpl extends UserProfileService {
                 private log: LogService) {
         super();
         this.auth.authState.subscribe(user => {
+            log.info('loaded user data', user);
             if (user == null) {
+                if (this.profileSub) {
+                    this.profileSub.unsubscribe();
+                    this.profileSub = null;
+                }
                 this.profile.next(null);
                 return;
             }
@@ -29,6 +34,7 @@ export class UserProfileServiceImpl extends UserProfileService {
 
             if (this.profileSub) {
                 this.profileSub.unsubscribe();
+                this.profileSub = null;
             }
             this.profileSub = db.object(`/users/${user.uid}`).valueChanges().subscribe(this.profile);
         });

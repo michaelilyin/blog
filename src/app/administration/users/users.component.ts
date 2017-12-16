@@ -21,11 +21,11 @@ export class UsersDataSource extends PageSupportDataSource<UserRecord> {
         .avatar-image {
             border-radius: 50%;
         }
-        
+
         .col-avatar {
             max-width: 60px;
         }
-        
+
         .col-tick {
             max-width: 80px;
         }
