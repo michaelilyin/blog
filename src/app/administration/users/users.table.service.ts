@@ -5,8 +5,10 @@ import {Subject} from 'rxjs/Subject';
 import {PageEmulationService} from '../../common/service/table/page.emulation.service';
 
 export class UserRecord {
-    name: string;
+    displayName: string;
     email: string;
+    accepted: boolean;
+    avatarUrl: string;
 }
 
 export abstract class UsersTableService extends PageEmulationService<UserRecord> {

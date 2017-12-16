@@ -5,7 +5,7 @@
                 <a mat-list-item *ngIf="access('view-config')" routerLink="application">
                     <span translate>ADMIN.MENU.APP</span>
                 </a>
-                <a mat-list-item *ngIf="access('view-users')" routerLink="users">
+                <a mat-list-item *ngIf="access('view-users') || access('view-users-self')" routerLink="users">
                     <span translate>ADMIN.MENU.USERS</span>
                 </a>
                 <a mat-list-item *ngIf="access('view-perms')" routerLink="permissions">

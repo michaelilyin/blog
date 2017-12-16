@@ -1,4 +1,4 @@
-<div *ngIf="access('view-users')">
+<div *ngIf="access('view-users') || access('view-users-self')">
     <mat-card>
 
         <mat-card-header>
