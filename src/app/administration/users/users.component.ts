@@ -16,11 +16,24 @@ export class UsersDataSource extends PageSupportDataSource<UserRecord> {
     templateUrl: 'users.component.html',
     providers: [
         {provide: UsersTableService, useClass: UsersTableServiceImpl}
-    ]
+    ],
+    styles: [`
+        .avatar-image {
+            border-radius: 50%;
+        }
+        
+        .col-avatar {
+            max-width: 60px;
+        }
+        
+        .col-tick {
+            max-width: 80px;
+        }
+    `]
 })
 export class UsersComponent implements OnInit, OnDestroy {
 
-    public displayedColumns = ['name', 'email', 'accepted', 'actions'];
+    public displayedColumns = ['avatar', 'name', 'email', 'accepted', 'actions'];
 
     public rowMenu: RowMenuElement[];
 
