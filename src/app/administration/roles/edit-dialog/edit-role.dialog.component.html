@@ -4,7 +4,7 @@
     <app-lang-selector #langSelector class="mat-dialog-title-icon-suffix"></app-lang-selector>
 </div>
 <mat-dialog-content>
-    <div style="display: flex; flex-direction: row; width: 100%">
+    <app-loading-content [ready]="!loading" [request]="request" style="display: flex; flex-direction: row; width: 100%">
         <div style="display: flex; flex-direction: column; width: 50%">
             <app-translated-input placeholder="{{'ADMIN.ROLES.DIALOG.FIELDS.NAME' | translate}}"
                                   [lang]="langSelector.selectedLang"
@@ -25,10 +25,10 @@
             >
             </app-multicomplete>
         </div>
-    </div>
+    </app-loading-content>
 </mat-dialog-content>
 <mat-dialog-actions class="flex-end">
-    <button mat-button color="primary" *ngIf="!data.readonly && access('edit-roles')" (click)="save()">
+    <button mat-button color="primary" [disabled]="loading" *ngIf="!data.readonly && access('edit-roles')" (click)="save()">
         <span translate>ADMIN.ROLES.DIALOG.ACTIONS.SAVE</span>
     </button>
     <button mat-button color="warn" (click)="cancel()">

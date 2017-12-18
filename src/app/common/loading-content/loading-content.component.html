@@ -1,0 +1,8 @@
+<ng-content *ngIf="(_ready && !_request) else loading"></ng-content>
+
+<ng-template #loading>
+    <div style="display: flex; width: 100%; height: 100%; align-items: center; justify-content: center; overflow: hidden;">
+        <mat-spinner [color]="_request ? 'warn' : 'primary'"></mat-spinner>
+    </div>
+</ng-template>
+

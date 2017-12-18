@@ -24,6 +24,7 @@ import {TranslatedTextareaComponent} from './translated/textarea/translated-text
 import {RowMenuComponent} from './row-menu/row-menu.component';
 import {AppModuleWrapperComponent} from './module-wrapper/app-module-wrapper.component';
 import { MulticompleteComponent } from './multicomplete/multicomplete.component';
+import { LoadingContentComponent } from './loading-content/loading-content.component';
 
 @NgModule({
     imports: [
@@ -59,7 +60,8 @@ import { MulticompleteComponent } from './multicomplete/multicomplete.component'
         SignInDialogComponent,
         RowMenuComponent,
         AppModuleWrapperComponent,
-        MulticompleteComponent
+        MulticompleteComponent,
+        LoadingContentComponent
     ],
     entryComponents: [
         SignInDialogComponent
@@ -78,7 +80,8 @@ import { MulticompleteComponent } from './multicomplete/multicomplete.component'
         RowMenuComponent,
 
         AppModuleWrapperComponent,
-        MulticompleteComponent
+        MulticompleteComponent,
+        LoadingContentComponent
     ]
 })
 export class CommonModule {

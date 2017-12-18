@@ -37,7 +37,11 @@ export abstract class PageEmulationService<T> extends PageSupportService<T> impl
             const end = start + pageRequest.size;
             const page = serverData.slice(start, end);
             return new PageData(page, serverData.length);
-        }).subscribe(this.values);
+        }).subscribe((data) => {
+            setTimeout(() => {
+                this.values.next(data);
+            });
+        });
     }
 
     public stop() {

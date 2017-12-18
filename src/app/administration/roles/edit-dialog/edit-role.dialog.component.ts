@@ -1,15 +1,10 @@
-import {Component, ElementRef, Inject, OnInit, ViewChild} from '@angular/core';
-import {RoleRecord} from '../roles.table.service';
-import {
-    MAT_DIALOG_DATA, MatAutocomplete, MatAutocompleteSelectedEvent, MatAutocompleteTrigger,
-    MatDialogRef
-} from '@angular/material';
+import {Component, Inject, OnInit} from '@angular/core';
+import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material';
 import {Role, RoleEditService, RoleEditServiceImpl} from './role.data.service';
 import {Subscription} from 'rxjs/Subscription';
-import {getTranslation, TranslatedModel, TranslatedModelImpl} from '../../../common/translated/translated-model';
+import {TranslatedModel, TranslatedModelImpl} from '../../../common/translated/translated-model';
 import {PermissionService} from '../../../common/profile/permission.service';
 import {TranslateService} from '@ngx-translate/core';
-import {FormControl} from '@angular/forms';
 import {LogService} from 'ngx-log';
 import {Observable} from 'rxjs/Observable';
 import {PermissionOption, PermissionsDictionary} from '../permissions.dictionary';
@@ -36,6 +31,8 @@ export class EditRoleDialogComponent implements OnInit {
     private roleSubscription: Subscription;
     private permissionsSubscription: Subscription;
 
+    private _request = false;
+
     public permissionOptions: PermissionOption[] = [];
 
     constructor(@Inject(MAT_DIALOG_DATA) public data: EditRoleDialogData,
@@ -54,10 +51,9 @@ export class EditRoleDialogComponent implements OnInit {
             } else {
                 this.rolePermissions = [];
             }
-
-            this.permissionsSubscription = this.permissionDict.all.subscribe(perms => {
-                this.permissionOptions = perms.slice();
-            });
+        });
+        this.permissionsSubscription = this.permissionDict.all.subscribe(perms => {
+            this.permissionOptions = perms.slice();
         });
         this.roleDataService.load(data.key);
     }
@@ -68,6 +64,7 @@ export class EditRoleDialogComponent implements OnInit {
 
     save() {
         if (!this.data.readonly) {
+            this._request = true;
             this.saveRole().subscribe(() => {
                 if (this.roleSubscription) {
                     this.roleSubscription.unsubscribe();
@@ -77,6 +74,7 @@ export class EditRoleDialogComponent implements OnInit {
                 this.rolePermissions = null;
                 this.roleName = null;
                 this.roleDescription = null;
+                this._request = false;
                 this.dialogRef.close(true);
             });
         }
@@ -107,5 +105,13 @@ export class EditRoleDialogComponent implements OnInit {
             role.permissions[perm.key] = true;
         });
         return this.roleDataService.save(this.data.key, role);
+    }
+
+    public get loading() {
+        return this.role === null || this.role === undefined || this.request;
+    }
+
+    public get request() {
+        return this._request;
     }
 }

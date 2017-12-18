@@ -24,6 +24,7 @@ export abstract class PageSupportService<T> {
 }
 
 export abstract class PageSupportDataSource<T> {
+    public ready = false;
     public length = 0;
     public event = new PageRequest(0, 10);
 
@@ -33,6 +34,7 @@ export abstract class PageSupportDataSource<T> {
     connect(collectionViewer: CollectionViewer): Observable<Keyable<T>[]> {
         return this.tableService.values
             .map(page => {
+                this.ready = true;
                 this.length = page.total;
                 return page.values
             });
@@ -44,6 +46,7 @@ export abstract class PageSupportDataSource<T> {
 
     refresh(event?: PageEvent) {
         if (event) {
+            this.ready = false;
             this.event = new PageRequest(event.pageIndex, event.pageSize);
         }
         this.tableService.refresh(this.event);

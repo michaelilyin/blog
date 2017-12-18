@@ -40,7 +40,11 @@ export class RoleEditServiceImpl extends RoleEditService {
             .map(role => {
                 this.logger.info('Loaded role', role);
                 return role;
-            }).subscribe(this.value);
+            }).subscribe(data => {
+                setTimeout(() => {
+                    this.value.next(data);
+                });
+            });
     }
 
     save(key: string, role: Role): Observable<any> {

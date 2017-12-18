@@ -2,6 +2,7 @@ import {Component, OnDestroy, OnInit} from '@angular/core';
 import {UserInfo, UserInfoService, UserInfoServiceImpl} from './user-info.service';
 import {ActivatedRoute} from '@angular/router';
 import {Subscription} from 'rxjs/Subscription';
+import {PermissionService} from '../../../common/profile/permission.service';
 
 @Component({
     selector: 'app-user',
@@ -19,7 +20,8 @@ export class UserComponent implements OnInit, OnDestroy {
     private userSub: Subscription;
 
     constructor(private route: ActivatedRoute,
-                private userInfoService: UserInfoService) {
+                private userInfoService: UserInfoService,
+                private permissionService: PermissionService) {
         route.params.take(1).subscribe(params => {
             this.uid = params['id'];
             this.userSub = this.userInfoService.value.subscribe(info => {
@@ -38,5 +40,9 @@ export class UserComponent implements OnInit, OnDestroy {
         if (this.userSub) {
             this.userSub.unsubscribe();
         }
+    }
+
+    access(permission: string): boolean {
+        return this.permissionService.has(permission);
     }
 }
