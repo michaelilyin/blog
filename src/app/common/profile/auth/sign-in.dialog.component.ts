@@ -7,9 +7,12 @@ import {AuthProviders, UserProfileService} from '../userprofile.service';
     templateUrl: 'sign-in.dialog.component.html',
     styles: [`
         .google {
-            background: url('/assets/icons/google-logo.svg') no-repeat;
-            background-size: 18px 18px;
-            background-position: left -15px center;
+            background: url(/assets/icons/google-logo.svg) no-repeat;
+            background-size: 25px 25px;
+            height: 37px;
+            width: 25px;
+            background-position: center;
+            margin-right: 5px;
         }
     `]
 })

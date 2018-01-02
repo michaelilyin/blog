@@ -8,7 +8,11 @@
     "COMMON": {
         "AUTH": {
             "SIGN-IN": "Sign in",
-            "SIGN-OUT": "Sign out"
+            "SIGN-OUT": "Sign out",
+            "DIALOG": {
+                "TITLE": "Sign in",
+                "GOOGLE": "Sign in with Google"
+            }
         }
     }
 }

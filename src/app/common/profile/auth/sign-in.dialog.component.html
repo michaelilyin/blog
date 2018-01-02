@@ -1,10 +1,13 @@
-<h2 mat-dialog-title>Sign in</h2>
+<h2 mat-dialog-title>
+    <span translate>COMMON.AUTH.DIALOG.TITLE</span>
+</h2>
 <mat-dialog-content>
     <div [ngSwitch]="inProgress">
         <div *ngSwitchCase="false" style="display: flex; justify-content: space-around; align-items: stretch; flex-direction: column;">
-            <div style="display: flex;">
+            <div style="display: flex; flex-direction: row;">
+                <div class="google"></div>
                 <button mat-button (click)="signInWithGoogle()">
-                    <span class="google">Sign in with Google</span>
+                    <span translate>COMMON.AUTH.DIALOG.GOOGLE</span>
                 </button>
                 <!--<button mat-button>Sign in with GitHub</button>-->
             </div>
@@ -22,7 +25,7 @@
                  </div>-->
             </div>
         </div>
-        <div *ngSwitchCase="true">
+        <div *ngSwitchCase="true" style="overflow: hidden;">
             <mat-spinner mode="indeterminate"></mat-spinner>
         </div>
     </div>
