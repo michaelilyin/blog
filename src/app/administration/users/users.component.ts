@@ -96,6 +96,12 @@ export class UsersComponent implements OnInit, OnDestroy {
                     render: () => this.access('view-user-roles')
                 },
                 {
+                    icon: 'group',
+                    label: this.translateService.instant('ADMIN.USERS.TABLE.ROW.EFFECTIVE-PERMS'),
+                    callback: (row) => this.viewPerms(row),
+                    render: () => this.access('view-user-perms')
+                },
+                {
                     icon: 'block',
                     label: this.translateService.instant('ADMIN.USERS.TABLE.ROW.BLOCK'),
                     callback: (row) => this.block(row),
@@ -124,6 +130,10 @@ export class UsersComponent implements OnInit, OnDestroy {
 
     private viewRoles(row) {
         this.router.navigate(['profile', row.key, 'roles'], { relativeTo: this.route.parent });
+    }
+
+    private viewPerms(row) {
+        this.router.navigate(['profile', row.key, 'permissions'], { relativeTo: this.route.parent });
     }
 
     private block(row) {

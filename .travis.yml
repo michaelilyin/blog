@@ -26,8 +26,8 @@ before_install:
 before_script:
   - npm list -g firebase-tools --depth=0 || npm install -g firebase-tools
   - npm list -g @angular/cli --depth=0 || npm install -g @angular/cli
-  - npm list -g tslint --depth=0 || npm install -g tslint
   - npm list -g tsc --depth=0 || npm install -g tsc
+  - npm list -g tslint --depth=0 || npm install -g tslint
 
 script:
   - 'npm run lint && (([ "$TRAVIS_BRANCH" = "master" ] && npm run build:prod) || ([ "$TRAVIS_BRANCH" != "master" ] && npm run build:ci))'

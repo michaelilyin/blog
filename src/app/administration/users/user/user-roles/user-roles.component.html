@@ -1,6 +1,6 @@
 <mat-card-content>
     <app-loading-content *ngIf="access('view-user-roles')" [ready]="ready" [request]="request">
-        <app-multicomplete placeholder="User roles"
+        <app-multicomplete placeholder="{{'ADMIN.USER.CONTENT.ROLES.FIELDS.USER-ROLES' | translate}}"
                            [options]="rolesOptions"
                            [(value)]="userRoles"
         >
@@ -9,9 +9,9 @@
 </mat-card-content>
 <mat-card-actions style="margin-bottom: 0px;">
     <button mat-button *ngIf="access('edit-user-roles')" color="primary" (click)="update()">
-        <span>Save</span>
+        <span translate>ADMIN.USER.CONTENT.ROLES.ACTIONS.SAVE</span>
     </button>
     <button mat-button color="warn" (click)="reset()">
-        <span>Reset</span>
+        <span translate>ADMIN.USER.CONTENT.ROLES.ACTIONS.RESET</span>
     </button>
 </mat-card-actions>

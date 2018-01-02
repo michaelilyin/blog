@@ -75,7 +75,14 @@ export class UserRolesComponent implements OnInit, OnDestroy {
     }
 
     update() {
-
+        const roles = new UserRoles();
+        this.userRoles.forEach(opt => {
+           roles[opt.key] = true;
+        });
+        this.request = true;
+        this.userRolesService.save(this.uid, roles).subscribe(() => {
+            this.request = false;
+        });
     }
 
     reset() {

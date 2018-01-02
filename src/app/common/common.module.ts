@@ -25,6 +25,7 @@ import {RowMenuComponent} from './row-menu/row-menu.component';
 import {AppModuleWrapperComponent} from './module-wrapper/app-module-wrapper.component';
 import { MulticompleteComponent } from './multicomplete/multicomplete.component';
 import { LoadingContentComponent } from './loading-content/loading-content.component';
+import { DevStubComponent } from './dev-stub/dev-stub.component';
 
 @NgModule({
     imports: [
@@ -61,7 +62,8 @@ import { LoadingContentComponent } from './loading-content/loading-content.compo
         RowMenuComponent,
         AppModuleWrapperComponent,
         MulticompleteComponent,
-        LoadingContentComponent
+        LoadingContentComponent,
+        DevStubComponent
     ],
     entryComponents: [
         SignInDialogComponent
@@ -81,7 +83,8 @@ import { LoadingContentComponent } from './loading-content/loading-content.compo
 
         AppModuleWrapperComponent,
         MulticompleteComponent,
-        LoadingContentComponent
+        LoadingContentComponent,
+        DevStubComponent
     ]
 })
 export class CommonModule {

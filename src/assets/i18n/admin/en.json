@@ -5,7 +5,10 @@
             "APP": "Application config",
             "USERS": "Users",
             "ROLES": "Roles",
-            "PERMISSIONS": "Permissions"
+            "PERMISSIONS": "Permissions",
+            "STATISTIC": "Statistic",
+            "MODULES": "Modules",
+            "DEMO-REQUESTS": "Demo requests"
         },
         "APP": {
             "TITLE": "Main application config",
@@ -53,6 +56,7 @@
                 "ROW": {
                     "VIEW": "View",
                     "ROLES": "Roles",
+                    "EFFECTIVE-PERMS": "Effective permissions",
                     "BLOCK": "Block"
                 }
             }
@@ -63,6 +67,31 @@
                 "COL": {
                     "NAME": "Permission name",
                     "DESCRIPTION": "Description"
+                }
+            }
+        },
+        "USER": {
+            "TABS": {
+                "PROFILE-INFO": "Profile info",
+                "ROLES": "Roles",
+                "PERMS": "Effective permissions"
+            },
+            "CONTENT": {
+                "PROFILE-INFO": {
+                    "FIELDS": {
+                        "DISPLAY-NAME": "Display name",
+                        "EMAIL": "Email",
+                        "ACCEPTED": "Accepted"
+                    }
+                },
+                "ROLES": {
+                    "FIELDS": {
+                        "USER-ROLES": "User roles"
+                    },
+                    "ACTIONS": {
+                        "SAVE": "Save",
+                        "RESET": "Reset"
+                    }
                 }
             }
         }
@@ -78,6 +107,9 @@
             "NEXT": "Next",
             "PREV": "Previous",
             "RANGE": "Records from {{from}} to {{to}} of {{size}}"
+        },
+        "DEV": {
+            "IN-DEV": "Component is under development"
         }
     }
 }

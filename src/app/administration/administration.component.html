@@ -2,6 +2,12 @@
     <mat-drawer-container class="full-height">
         <mat-drawer mode="side" [opened]="ready" class="full-height">
             <mat-nav-list dense>
+                <a mat-list-item *ngIf="access('view-stats')" routerLink="statistic">
+                    <span translate>ADMIN.MENU.STATISTIC</span>
+                </a>
+                <a mat-list-item *ngIf="access('view-modules')" routerLink="modules">
+                    <span translate>ADMIN.MENU.MODULES</span>
+                </a>
                 <a mat-list-item *ngIf="access('view-config')" routerLink="application">
                     <span translate>ADMIN.MENU.APP</span>
                 </a>
@@ -13,6 +19,9 @@
                 </a>
                 <a mat-list-item *ngIf="access('view-roles')" routerLink="roles">
                     <span translate>ADMIN.MENU.ROLES</span>
+                </a>
+                <a mat-list-item *ngIf="access('edit-user-roles')" routerLink="demo-requests">
+                    <span translate>ADMIN.MENU.DEMO-REQUESTS</span>
                 </a>
             </mat-nav-list>
         </mat-drawer>

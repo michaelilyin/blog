@@ -20,7 +20,7 @@
         },
         "user-perms": {
             "$uid": {
-                ".read": "auth != null && $uid == auth.uid"
+                ".read": "auth != null && ($uid == auth.uid || root.child('/user-perms/' + auth.uid + '/view-user-perms').exists())"
             }
         },
         "perms": {

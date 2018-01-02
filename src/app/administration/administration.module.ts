@@ -85,7 +85,7 @@ export function createTranslateLoader(http: HttpClient) {
         EditRoleDialogComponent,
         UserComponent,
         UserInfoComponent,
-        UserRolesComponent
+        UserRolesComponent,
     ],
     providers: [
         { provide: MatPaginatorIntl, useClass: PaginatorTranslator }

@@ -11,11 +11,17 @@
             <a mat-tab-link routerLink="info"
                routerLinkActive #listRla="routerLinkActive"
                [active]="listRla.isActive"
-            >Profile info</a>
+            >
+                <span translate>ADMIN.USER.TABS.PROFILE-INFO</span>
+            </a>
             <a mat-tab-link routerLink="roles" *ngIf="access('view-user-roles')"
                routerLinkActive #timelineRla="routerLinkActive"
                [active]="timelineRla.isActive"
-            >Roles</a>
+            ><span translate>ADMIN.USER.TABS.ROLES</span></a>
+            <a mat-tab-link routerLink="permissions" *ngIf="access('view-user-perms')"
+               routerLinkActive #timelineRla="routerLinkActive"
+               [active]="timelineRla.isActive"
+            ><span translate>ADMIN.USER.TABS.PERMS</span></a>
         </nav>
         <router-outlet></router-outlet>
     </mat-card>

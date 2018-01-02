@@ -10,6 +10,7 @@ import {UserInfo} from 'firebase/app';
 import {UserInfoComponent} from './users/user/user-info/user-info.component';
 import {UserRolesComponent} from './users/user/user-roles/user-roles.component';
 import {UserComponent} from './users/user/user.component';
+import {DevStubComponent} from '../common/dev-stub/dev-stub.component';
 
 const routes: Routes = [
     {
@@ -32,8 +33,12 @@ const routes: Routes = [
                 children: [
                     {path: 'info', component: UserInfoComponent},
                     {path: 'roles', component: UserRolesComponent},
+                    {path: 'permissions', component: DevStubComponent},
                 ]
-            }
+            },
+            {path: 'modules', component: DevStubComponent},
+            {path: 'statistic', component: DevStubComponent},
+            {path: 'demo-requests', component: DevStubComponent},
         ],
     }
 ];
