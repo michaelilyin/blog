@@ -45,7 +45,9 @@ export abstract class PageEmulationService<T> extends PageSupportService<T> impl
     }
 
     public stop() {
-        this.subscription.unsubscribe();
+        if (this.subscription) {
+            this.subscription.unsubscribe();
+        }
     }
 
     refresh(request: PageRequest) {

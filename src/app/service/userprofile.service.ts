@@ -9,6 +9,8 @@ import {Subscription} from 'rxjs/Subscription';
 import 'rxjs/add/operator/take'
 import {LogService} from 'ngx-log';
 import {DelayRouteActivator} from '../common/service/permissions/activator';
+import {MatDialog} from '@angular/material';
+import {ProfileConfirmationComponent} from '../common/profile/profile-confirmation/profile-confirmation.component';
 
 @Injectable()
 export class UserProfileServiceImpl extends UserProfileService {
@@ -18,7 +20,8 @@ export class UserProfileServiceImpl extends UserProfileService {
     constructor(private auth: AngularFireAuth,
                 private db: AngularFireDatabase,
                 private delayRouteActivator: DelayRouteActivator,
-                private log: LogService) {
+                private log: LogService,
+                private dialog: MatDialog) {
         super();
         this.auth.authState.subscribe(user => {
             log.info('loaded user data', user);
@@ -36,7 +39,12 @@ export class UserProfileServiceImpl extends UserProfileService {
                 this.profileSub.unsubscribe();
                 this.profileSub = null;
             }
-            this.profileSub = db.object(`/users/${user.uid}`).valueChanges().subscribe(this.profile);
+            this.profileSub = db.object<UserProfile>(`/users/${user.uid}`).valueChanges()
+                .subscribe(profile => {
+                    if (profile && profile.accepted) {
+                        this.profile.next(profile);
+                    }
+                });
         });
     }
 
@@ -68,19 +76,27 @@ export class UserProfileServiceImpl extends UserProfileService {
         this.db.object<UserProfile>(`/users/${user.uid}`).valueChanges().take(1)
             .subscribe((existingProfile: UserProfile) => {
                 this.log.log('Loaded profile', existingProfile);
-                if (existingProfile.accepted) {
+                if (existingProfile && existingProfile.accepted) {
                     return;
                 }
                 const profile = new UserProfile(
                     user.uid,
-                    user.providerData[0].displayName,
-                    user.providerData[0].email,
+                    existingProfile ? existingProfile.displayName : user.providerData[0].displayName,
+                    existingProfile ? existingProfile.email : user.providerData[0].email,
                     {
-                        avatarUrl: user.providerData[0].photoURL + '?size=40'
+                        avatarUrl: existingProfile ? existingProfile.avatarUrl : user.providerData[0].photoURL + '?size=40',
+                        fullAvatarUrl: existingProfile ? existingProfile.fullAvatarUrl : user.providerData[0].photoURL + '?size=512'
                     }
                 );
-                this.db.object(`/user-list/${user.uid}`).set(profile);
-                this.db.object(`/users/${user.uid}`).set(profile);
+                if (!profile.accepted) {
+                    this.dialog.open(ProfileConfirmationComponent, {
+                        data: { profile: profile },
+                        disableClose: true
+                    }).afterClosed().take(1).subscribe((profile: UserProfile) => {
+                        this.db.object(`/user-list/${user.uid}`).set(profile);
+                        this.db.object(`/users/${user.uid}`).set(profile);
+                    });
+                }
             });
     }
 }

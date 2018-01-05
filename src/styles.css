@@ -83,3 +83,17 @@ mat-card, mat-table {
     overflow: hidden;
     text-overflow: ellipsis;
 }
+
+.row {
+    display: flex;
+    flex-direction: row;
+}
+
+.col {
+    display: flex;
+    flex-direction: column;
+}
+
+.divider-10px {
+    padding: 5px;
+}

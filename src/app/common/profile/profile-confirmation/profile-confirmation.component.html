@@ -1,0 +1,27 @@
+<h2 mat-dialog-title>
+    <span translate>Confirm profile</span>
+</h2>
+<mat-dialog-content>
+
+    <div class="row">
+        <div *ngIf="avatarUrl" class="avatar"
+             [ngStyle]="{ 'background-image': 'url(' + avatarUrl + ')' }"
+        ></div>
+
+        <div class="divider-10px"></div>
+
+        <div class="col" style="width: 25rem">
+            <mat-form-field>
+                <input matInput placeholder="Email" [ngModel]="email" required [disabled]="true">
+            </mat-form-field>
+
+            <mat-form-field>
+                <input matInput placeholder="Display name" [(ngModel)]="displayName" required>
+            </mat-form-field>
+        </div>
+    </div>
+
+</mat-dialog-content>
+<mat-dialog-actions class="flex-end">
+    <button mat-button color="primary" (click)="confirm()">Confirm</button>
+</mat-dialog-actions>

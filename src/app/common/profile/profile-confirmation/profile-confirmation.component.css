@@ -1,0 +1,7 @@
+.avatar {
+    overflow: hidden;
+    background-size: cover;
+    background-position: center;
+    width: 15rem;
+    height: 15rem;
+}

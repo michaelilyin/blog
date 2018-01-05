@@ -26,6 +26,7 @@ import {AppModuleWrapperComponent} from './module-wrapper/app-module-wrapper.com
 import { MulticompleteComponent } from './multicomplete/multicomplete.component';
 import { LoadingContentComponent } from './loading-content/loading-content.component';
 import { DevStubComponent } from './dev-stub/dev-stub.component';
+import { ProfileConfirmationComponent } from './profile/profile-confirmation/profile-confirmation.component';
 
 @NgModule({
     imports: [
@@ -63,10 +64,12 @@ import { DevStubComponent } from './dev-stub/dev-stub.component';
         AppModuleWrapperComponent,
         MulticompleteComponent,
         LoadingContentComponent,
-        DevStubComponent
+        DevStubComponent,
+        ProfileConfirmationComponent
     ],
     entryComponents: [
-        SignInDialogComponent
+        SignInDialogComponent,
+        ProfileConfirmationComponent
     ],
     exports: [
         HttpModule,
@@ -84,7 +87,8 @@ import { DevStubComponent } from './dev-stub/dev-stub.component';
         AppModuleWrapperComponent,
         MulticompleteComponent,
         LoadingContentComponent,
-        DevStubComponent
+        DevStubComponent,
+        ProfileConfirmationComponent
     ]
 })
 export class CommonModule {

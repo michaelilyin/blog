@@ -10,8 +10,13 @@ import {Keyable} from '../../common/keyable';
 import {Observable} from 'rxjs/Observable';
 import {PageEvent} from '@angular/material';
 import {UserProfileService} from '../../common/profile/userprofile.service';
+import {Subject} from 'rxjs/Subject';
+import {Subscription} from 'rxjs/Subscription';
 
 export class UsersDataSource extends PageSupportDataSource<UserRecord> {
+
+    private sub: Subscription;
+
     constructor(usersTableService: UsersTableService,
                 private permissionService: PermissionService,
                 private userProfileService: UserProfileService) {
@@ -23,15 +28,22 @@ export class UsersDataSource extends PageSupportDataSource<UserRecord> {
         if (this.permissionService.has('view-users')) {
             return super.connect(collectionViewer);
         } else if (this.permissionService.has('view-users-self')) {
-            return this.userProfileService.profile.map((profile) => {
-                this.length = 1;
-                const rec = new UserRecord();
-                rec.displayName = profile.displayName;
-                rec.email = profile.email;
-                rec.accepted = profile.accepted;
-                rec.avatarUrl = profile.avatarUrl;
-                return [new Keyable(profile.uid, rec)];
+            const subj = new Subject<Keyable<UserRecord>[]>();
+            if (this.sub) {
+                this.sub.unsubscribe();
+            }
+            this.sub = this.userProfileService.profile.subscribe((profile) => {
+                setTimeout(() => {
+                    this.length = 1;
+                    const rec = new UserRecord();
+                    rec.displayName = profile.displayName;
+                    rec.email = profile.email;
+                    rec.accepted = profile.accepted;
+                    rec.avatarUrl = profile.avatarUrl;
+                    subj.next([new Keyable(profile.uid, rec)]);
+                });
             });
+            return subj;
         } else {
             return Observable.empty();
         }
@@ -112,7 +124,9 @@ export class UsersComponent implements OnInit, OnDestroy {
     }
 
     ngOnInit() {
-        this.usersTableService.start();
+        if (this.access('view-users')) {
+            this.usersTableService.start();
+        }
     }
 
 
