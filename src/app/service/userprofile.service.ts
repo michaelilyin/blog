@@ -92,9 +92,9 @@ export class UserProfileServiceImpl extends UserProfileService {
                     this.dialog.open(ProfileConfirmationComponent, {
                         data: { profile: profile },
                         disableClose: true
-                    }).afterClosed().take(1).subscribe((profile: UserProfile) => {
-                        this.db.object(`/user-list/${user.uid}`).set(profile);
-                        this.db.object(`/users/${user.uid}`).set(profile);
+                    }).afterClosed().take(1).subscribe((updatedProfile: UserProfile) => {
+                        this.db.object(`/user-list/${user.uid}`).set(updatedProfile);
+                        this.db.object(`/users/${user.uid}`).set(updatedProfile);
                     });
                 }
             });

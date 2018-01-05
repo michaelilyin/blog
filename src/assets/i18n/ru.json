@@ -12,6 +12,9 @@
             "DIALOG": {
                 "TITLE": "Вход",
                 "GOOGLE": "Войти через Google"
+            },
+            "MENU": {
+                "DEMO-REQUEST": "Запрос демо-доступа"
             }
         },
         "TITLE": {

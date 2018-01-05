@@ -27,6 +27,8 @@ import { MulticompleteComponent } from './multicomplete/multicomplete.component'
 import { LoadingContentComponent } from './loading-content/loading-content.component';
 import { DevStubComponent } from './dev-stub/dev-stub.component';
 import { ProfileConfirmationComponent } from './profile/profile-confirmation/profile-confirmation.component';
+import { DemoAccessRequestComponent } from './profile/demo-acess-request/demo-acess-request.component';
+
 
 @NgModule({
     imports: [
@@ -65,11 +67,13 @@ import { ProfileConfirmationComponent } from './profile/profile-confirmation/pro
         MulticompleteComponent,
         LoadingContentComponent,
         DevStubComponent,
-        ProfileConfirmationComponent
+        ProfileConfirmationComponent,
+        DemoAccessRequestComponent
     ],
     entryComponents: [
         SignInDialogComponent,
-        ProfileConfirmationComponent
+        ProfileConfirmationComponent,
+        DemoAccessRequestComponent
     ],
     exports: [
         HttpModule,
@@ -88,7 +92,8 @@ import { ProfileConfirmationComponent } from './profile/profile-confirmation/pro
         MulticompleteComponent,
         LoadingContentComponent,
         DevStubComponent,
-        ProfileConfirmationComponent
+        ProfileConfirmationComponent,
+        DemoAccessRequestComponent
     ]
 })
 export class CommonModule {

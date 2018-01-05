@@ -5,6 +5,8 @@ import {SignInDialogComponent} from './sign-in.dialog.component';
 import {UserProfile, UserProfileService} from '../userprofile.service';
 import {TranslateService} from '@ngx-translate/core';
 import {LanguageService} from '../../service/language.service';
+import {PermissionService} from '../permission.service';
+import {DemoAccessRequestComponent} from '../demo-acess-request/demo-acess-request.component';
 
 @Component({
     selector: 'app-auth',
@@ -19,7 +21,8 @@ export class AuthComponent implements OnDestroy {
 
     public constructor(private userProfileService: UserProfileService,
                        private dialog: MatDialog,
-                       private translateService: TranslateService) {
+                       private translateService: TranslateService,
+                       private permissionService: PermissionService) {
         this.authSubscription = this.userProfileService.profile.subscribe(user => {
             this.user = user
         })
@@ -37,7 +40,15 @@ export class AuthComponent implements OnDestroy {
         this.userProfileService.signOut();
     }
 
+    demoRequest() {
+        this.dialog.open(DemoAccessRequestComponent);
+    }
+
     get logged(): boolean {
         return this.user != null;
+    }
+
+    public access(perm: string): boolean {
+        return this.permissionService.has(perm);
     }
 }

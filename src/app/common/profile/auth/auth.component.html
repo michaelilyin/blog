@@ -5,6 +5,9 @@
             <img class="menu-image" [src]="user.avatarUrl">
         </button>
         <mat-menu #menu="matMenu" xPosition="before">
+            <button mat-menu-item (click)="demoRequest()" *ngIf="!access('view-admin')">
+                <span translate>COMMON.AUTH.MENU.DEMO-REQUEST</span>
+            </button>
             <button mat-menu-item (click)="logout()">
                 <span translate>COMMON.AUTH.SIGN-OUT</span>
             </button>

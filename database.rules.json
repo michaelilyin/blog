@@ -33,6 +33,26 @@
         "user-roles": {
             ".read": "auth != null && root.child('/user-perms/' + auth.uid + '/view-user-roles').exists()",
             ".write": "auth != null && root.child('/user-perms/' + auth.uid + '/edit-user-roles').exists()"
+        },
+        "demo-access": {
+            "requests": {
+                "$uid": {
+                    ".read": "auth != null && $uid == auth.uid",
+                    ".write": "auth != null && $uid == auth.uid"
+                }
+            },
+            "request-list": {
+                ".read": "auth != null && root.child('/user-perms/' + auth.uid + '/edit-user-roles').exists()",
+                "$uid": {
+                    ".write": "auth != null && $uid == auth.uid"
+                }
+            },
+            "statuses": {
+                ".write": "auth != null && root.child('/user-perms/' + auth.uid + '/edit-user-roles').exists()",
+                "$uid": {
+                    ".read": "auth != null && $uid == auth.uid"
+                }
+            }
         }
     }
 }

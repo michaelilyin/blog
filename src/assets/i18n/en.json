@@ -12,6 +12,9 @@
             "DIALOG": {
                 "TITLE": "Sign in",
                 "GOOGLE": "Sign in with Google"
+            },
+            "MENU": {
+                "DEMO-REQUEST": "Demo request"
             }
         },
         "TITLE": {
