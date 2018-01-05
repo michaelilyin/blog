@@ -13,6 +13,14 @@
                 "TITLE": "Sign in",
                 "GOOGLE": "Sign in with Google"
             }
+        },
+        "TITLE": {
+            "HOME": "Home",
+            "BLOG": "Blog",
+            "SKILLS": "Skills",
+            "PROJECTS": "Projects",
+            "ADMIN": "Administrative",
+            "ADMIN-DEFAULT": "Administrative"
         }
     }
 }

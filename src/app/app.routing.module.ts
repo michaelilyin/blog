@@ -10,19 +10,22 @@ export class ViewAdminActivator extends PermissionBasedActivator {
     //             delayActivator: DelayRouteActivator) {
     //     super(permissionService, delayActivator, router);
     // }
-    permission(): string { return 'view-admin'; }
+    permission(): string {
+        return 'view-admin';
+    }
 }
 
 const routes: Routes = [
     {path: '', redirectTo: '/home', pathMatch: 'full'},
-    {path: 'home', loadChildren: 'app/home/home.module#HomeModule'},
-    {path: 'blog', loadChildren: 'app/blog/blog.module#BlogModule'},
-    {path: 'skills', loadChildren: 'app/skills/skills.module#SkillsModule'},
-    {path: 'projects', loadChildren: 'app/projects/projects.module#ProjectsModule'},
+    {path: 'home', loadChildren: 'app/home/home.module#HomeModule', data: {title: 'HOME'}},
+    {path: 'blog', loadChildren: 'app/blog/blog.module#BlogModule', data: {title: 'BLOG'}},
+    {path: 'skills', loadChildren: 'app/skills/skills.module#SkillsModule', data: {title: 'SKILLS'}},
+    {path: 'projects', loadChildren: 'app/projects/projects.module#ProjectsModule', data: {title: 'PROJECTS'}},
     {
         path: 'admin',
         loadChildren: 'app/administration/administration.module#AdministrationModule',
-        canActivate: [ViewAdminActivator]
+        canActivate: [ViewAdminActivator],
+        data: {title: 'ADMIN'}
     },
 ];
 

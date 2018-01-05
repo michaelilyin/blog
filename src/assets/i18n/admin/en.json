@@ -110,6 +110,18 @@
         },
         "DEV": {
             "IN-DEV": "Component is under development"
+        },
+        "TITLE": {
+            "ADMIN-DEFAULT": "Administrative",
+            "APPCONFIG": "Application config",
+            "USERS": "Users",
+            "ROLES": "Roles",
+            "PERMS": "Permissions",
+            "USER": {
+                "INFO": "User profile info",
+                "ROLES": "User roles",
+                "PERMS": "User permissions"
+            }
         }
     }
 }

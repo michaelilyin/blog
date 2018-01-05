@@ -17,23 +17,24 @@ const routes: Routes = [
         path: '',
         redirectTo: 'menu/default',
         pathMatch: 'full',
+        data: {title: 'ADMIN-DEFAULT'}
     },
     {
         path: 'menu',
         component: AdministrationComponent,
         children: [
-            {path: 'default', component: DefaultComponent},
-            {path: 'application', component: ApplicationConfigComponent},
-            {path: 'users', component: UsersComponent},
-            {path: 'roles', component: RolesComponent},
-            {path: 'permissions', component: PermissionsComponent},
+            {path: 'default', component: DefaultComponent, data: {title: 'ADMIN-DEFAULT'}},
+            {path: 'application', component: ApplicationConfigComponent, data: {title: 'APPCONFIG'}},
+            {path: 'users', component: UsersComponent, data: {title: 'USERS'}},
+            {path: 'roles', component: RolesComponent, data: {title: 'ROLES'}},
+            {path: 'permissions', component: PermissionsComponent, data: {title: 'PERMS'}},
             {
                 path: 'profile/:id',
                 component: UserComponent,
                 children: [
-                    {path: 'info', component: UserInfoComponent},
-                    {path: 'roles', component: UserRolesComponent},
-                    {path: 'permissions', component: DevStubComponent},
+                    {path: 'info', component: UserInfoComponent, data: {title: 'USER.INFO'}},
+                    {path: 'roles', component: UserRolesComponent, data: {title: 'USER.ROLES'}},
+                    {path: 'permissions', component: DevStubComponent, data: {title: 'USER.PERMS'}},
                 ]
             },
             {path: 'modules', component: DevStubComponent},

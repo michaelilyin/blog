@@ -1,7 +1,7 @@
-import {Component, OnInit, ViewContainerRef} from '@angular/core';
+import {Component, OnDestroy, OnInit, ViewContainerRef} from '@angular/core';
 import {ConfigurationService} from './common/service/configuration.service';
 import {
-    GuardsCheckEnd, NavigationCancel, NavigationEnd, NavigationError, NavigationStart,
+    GuardsCheckEnd, NavigationCancel, NavigationEnd, NavigationError, NavigationStart, ResolveEnd,
     Router
 } from '@angular/router';
 import {Title} from '@angular/platform-browser';
@@ -14,13 +14,15 @@ import {TranslatedModel} from './common/translated/translated-model';
 import {PermissionService} from './common/profile/permission.service';
 import {LogService} from 'ngx-log';
 import 'rxjs/add/operator/catch';
+import {TitleProcessingService} from './common/service/title.processing.service';
 
 @Component({
     selector: 'app-root',
     templateUrl: 'app.component.html',
-    styleUrls: ['app.component.css']
+    styleUrls: ['app.component.css'],
+    providers: [{provide: TitleProcessingService, useClass: TitleProcessingService}]
 })
-export class AppComponent implements OnInit {
+export class AppComponent implements OnInit, OnDestroy {
     name: TranslatedModel;
     ready = false;
     broken = false;
@@ -34,7 +36,8 @@ export class AppComponent implements OnInit {
                 private translateService: TranslateService,
                 private langugeService: LanguageService,
                 private permissionService: PermissionService,
-                private logger: LogService) {
+                private logger: LogService,
+                private titleProcessingService: TitleProcessingService) {
         this.toastService.setRootViewContainerRef(vcr);
         this.langugeService.initStaticTranslator(this.translateService);
     }
@@ -43,6 +46,11 @@ export class AppComponent implements OnInit {
     ngOnInit(): void {
         this.initRouter();
         this.initConfigurationService();
+        this.titleProcessingService.start();
+    }
+
+    ngOnDestroy(): void {
+        this.titleProcessingService.stop();
     }
 
     private initConfigurationService() {
