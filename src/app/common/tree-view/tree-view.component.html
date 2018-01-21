@@ -1,0 +1,26 @@
+<ul class="treenodes"
+    [class.root]="root"
+>
+    <li *ngFor="let node of nodes" class="treenode">
+        <div class="nodeinfo"
+             [class.leaf]="node.isLeaf">
+            <div class="nodebutton" (click)="onExpand(node)">
+                {{node.isLeaf ? '&nbsp;' : (node.isExpanded ? '-' : '+')}}
+            </div>
+            <div class="nodetext"
+                 [class.selected]="node === selectedNode"
+                 (click)="onSelectNode(node)">
+                <span>{{node.name}}</span>
+                <div style="flex: 1"></div>
+                <div class="arrow">-></div>
+            </div>
+        </div>
+        <app-tree-view class="nested" [nodes]="node.children"
+                       [root]="false"
+                       [selectedNode]="selectedNode"
+                       (onSelectedChanged)="onSelectNode($event)"
+                       (onRequestNodes)="onRequestLocal($event)"
+                       *ngIf="node.isExpanded">
+        </app-tree-view>
+    </li>
+</ul>

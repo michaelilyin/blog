@@ -28,6 +28,7 @@ import { LoadingContentComponent } from './loading-content/loading-content.compo
 import { DevStubComponent } from './dev-stub/dev-stub.component';
 import { ProfileConfirmationComponent } from './profile/profile-confirmation/profile-confirmation.component';
 import { DemoAccessRequestComponent } from './profile/demo-acess-request/demo-acess-request.component';
+import { TreeViewComponent } from './tree-view/tree-view.component';
 
 
 @NgModule({
@@ -68,7 +69,8 @@ import { DemoAccessRequestComponent } from './profile/demo-acess-request/demo-ac
         LoadingContentComponent,
         DevStubComponent,
         ProfileConfirmationComponent,
-        DemoAccessRequestComponent
+        DemoAccessRequestComponent,
+        TreeViewComponent
     ],
     entryComponents: [
         SignInDialogComponent,
@@ -93,7 +95,8 @@ import { DemoAccessRequestComponent } from './profile/demo-acess-request/demo-ac
         LoadingContentComponent,
         DevStubComponent,
         ProfileConfirmationComponent,
-        DemoAccessRequestComponent
+        DemoAccessRequestComponent,
+        TreeViewComponent
     ]
 })
 export class CommonModule {

@@ -1,0 +1,74 @@
+.nested ul {
+    margin-left: 14px;
+    font-size: 1rem;
+}
+
+.filler {
+    width: 100%;
+}
+
+ul.treenodes {
+    list-style-type: none;
+    padding-left: 0;
+    display: block;
+}
+
+ul.treenodes.root {
+    font-size: 1.2rem;
+}
+
+ul.treenodes.root > li.treenode {
+    border: 0 solid #bbbbbb;
+    border-top-width: 1px;
+}
+
+ul.treenodes.root > li.treenode:last-child {
+    border-bottom-width: 1px;
+}
+
+ul.treenodes li.treenode div.nodeinfo {
+    display: flex;
+    flex-direction: row;
+}
+
+ul.treenodes li.treenode div.nodeinfo div.nodetext {
+    padding: 7px;
+}
+
+ul.treenodes li.treenode div.nodeinfo div.nodebutton {
+    padding: 7px;
+}
+
+ul.treenodes li.treenode div.nodeinfo:not(.leaf) div.nodebutton {
+    cursor: pointer;
+}
+
+ul.treenodes li.treenode div.nodeinfo div.nodetext {
+    width: 100%;
+}
+
+ul.treenodes li.treenode div.nodeinfo div.nodetext:not(.selected) {
+    cursor: pointer;
+}
+
+ul.treenodes li.treenode div.nodeinfo div.nodetext:hover {
+    background-color: #bbbbbb;
+}
+
+ul.treenodes li.treenode div.nodeinfo div.nodetext {
+    display: flex;
+    flex-direction: row;
+}
+
+ul.treenodes li.treenode div.nodeinfo div.nodetext:not(:hover) .arrow {
+    display: none;
+}
+
+ul.treenodes li.treenode div.nodeinfo div.nodetext:hover .arrow {
+    display: flex;
+}
+
+ul.treenodes li.treenode div.nodeinfo div.nodetext.selected {
+    background-color: aquamarine;
+}
+

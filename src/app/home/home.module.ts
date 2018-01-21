@@ -5,6 +5,7 @@ import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 import {HttpClient} from '@angular/common/http';
 import {CommonModule} from '../common/common.module';
+import {TreeNode} from '../common/tree-view/tree-view.component';
 
 export function createTranslateLoader(http: HttpClient) {
     return new TranslateHttpLoader(http, './assets/i18n/home/', '.json');
@@ -28,5 +29,4 @@ export function createTranslateLoader(http: HttpClient) {
     ]
 })
 export class HomeModule {
-
 }
