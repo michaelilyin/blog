@@ -1,0 +1,127 @@
+{
+    "ADMIN": {
+        "UNDER-DEV": "Administration page is under development",
+        "MENU": {
+            "APP": "Application config",
+            "USERS": "Users",
+            "ROLES": "Roles",
+            "PERMISSIONS": "Permissions",
+            "STATISTIC": "Statistic",
+            "MODULES": "Modules",
+            "DEMO-REQUESTS": "Demo requests"
+        },
+        "APP": {
+            "TITLE": "Main application config",
+            "APP-NAME-LBL": "Website name",
+            "UPDATE-BTN": "Update",
+            "RESET-BTN": "Reset"
+        },
+        "ROLES": {
+            "TITLE": "User roles",
+            "TABLE": {
+                "COL": {
+                    "NAME": "Role name",
+                    "DESCRIPTION": "Description",
+                    "ACTIONS": "Actions"
+                },
+                "ROW": {
+                    "EDIT": "Edit",
+                    "VIEW": "View",
+                    "REMOVE": "Remove"
+                }
+            },
+            "DIALOG": {
+                "TITLE-EDIT": "Edit role",
+                "TITLE-VIEW": "View role",
+                "FIELDS": {
+                    "NAME": "Name",
+                    "DESCRIPTION": "Description",
+                    "PRIVILEGES": "Privileges"
+                },
+                "ACTIONS": {
+                    "SAVE": "Save",
+                    "CANCEL": "Cancel"
+                }
+            }
+        },
+        "USERS": {
+            "TITLE": "Users",
+            "TABLE": {
+                "COL": {
+                    "NAME": "Display name",
+                    "EMAIL": "Email",
+                    "ACCEPTED": "Accepted",
+                    "ACTIONS": "Actions"
+                },
+                "ROW": {
+                    "VIEW": "View",
+                    "ROLES": "Roles",
+                    "EFFECTIVE-PERMS": "Effective permissions",
+                    "BLOCK": "Block"
+                }
+            }
+        },
+        "PERMISSIONS": {
+            "TITLE": "System permissions",
+            "TABLE": {
+                "COL": {
+                    "NAME": "Permission name",
+                    "DESCRIPTION": "Description"
+                }
+            }
+        },
+        "USER": {
+            "TABS": {
+                "PROFILE-INFO": "Profile info",
+                "ROLES": "Roles",
+                "PERMS": "Effective permissions"
+            },
+            "CONTENT": {
+                "PROFILE-INFO": {
+                    "FIELDS": {
+                        "DISPLAY-NAME": "Display name",
+                        "EMAIL": "Email",
+                        "ACCEPTED": "Accepted"
+                    }
+                },
+                "ROLES": {
+                    "FIELDS": {
+                        "USER-ROLES": "User roles"
+                    },
+                    "ACTIONS": {
+                        "SAVE": "Save",
+                        "RESET": "Reset"
+                    }
+                }
+            }
+        }
+    },
+    "COMMON": {
+        "TRANSLATED": {
+            "SELECTOR": {
+                "PLACEHOLDER": "Lang"
+            }
+        },
+        "PAGINATOR": {
+            "ITEMS-PER-PAGE": "Items per page",
+            "NEXT": "Next",
+            "PREV": "Previous",
+            "RANGE": "Records from {{from}} to {{to}} of {{size}}"
+        },
+        "DEV": {
+            "IN-DEV": "Component is under development"
+        },
+        "TITLE": {
+            "ADMIN-DEFAULT": "Administrative",
+            "APPCONFIG": "Application config",
+            "USERS": "Users",
+            "ROLES": "Roles",
+            "PERMS": "Permissions",
+            "USER": {
+                "INFO": "User profile info",
+                "ROLES": "User roles",
+                "PERMS": "User permissions"
+            }
+        }
+    }
+}

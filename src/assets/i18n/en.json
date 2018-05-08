@@ -1,0 +1,29 @@
+{
+    "MENU": {
+        "BLOG": "Blog",
+        "SKILLS": "Skills",
+        "PROJECTS": "Projects",
+        "ADMIN": "Administration"
+    },
+    "COMMON": {
+        "AUTH": {
+            "SIGN-IN": "Sign in",
+            "SIGN-OUT": "Sign out",
+            "DIALOG": {
+                "TITLE": "Sign in",
+                "GOOGLE": "Sign in with Google"
+            },
+            "MENU": {
+                "DEMO-REQUEST": "Demo request"
+            }
+        },
+        "TITLE": {
+            "HOME": "Home",
+            "BLOG": "Blog",
+            "SKILLS": "Skills",
+            "PROJECTS": "Projects",
+            "ADMIN": "Administrative",
+            "ADMIN-DEFAULT": "Administrative"
+        }
+    }
+}
