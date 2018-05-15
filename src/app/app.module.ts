@@ -13,6 +13,8 @@ import {Apollo, ApolloModule} from 'apollo-angular';
 import {HttpLink, HttpLinkModule} from 'apollo-angular-link-http';
 import {InMemoryCache} from 'apollo-cache-inmemory';
 import {environment} from '../environments/environment';
+import {LoggerModule as NGXLoggerModule, NGXLogger, NgxLoggerLevel} from 'ngx-logger';
+import {NGXLoggerHttpServiceProvider} from './logging/remote-logger.service';
 
 @NgModule({
   declarations: [
@@ -29,11 +31,18 @@ import {environment} from '../environments/environment';
     MatButtonModule,
     ApolloModule,
     HttpLinkModule,
-    TranslateModule.forRoot(createTranslationConfig(true))
+    TranslateModule.forRoot(createTranslationConfig(true)),
+    NGXLoggerModule.forRoot({
+      level: NgxLoggerLevel.TRACE,
+      serverLogLevel: NgxLoggerLevel.WARN,
+      serverLoggingUrl: 'graphql'
+    })
   ],
   providers: [
     {provide: TRANSLATION_LOCATION, useValue: ''},
-    ...(environment.providers)
+    ...(environment.providers),
+    NGXLogger,
+    NGXLoggerHttpServiceProvider
   ],
   bootstrap: [AppComponent]
 })

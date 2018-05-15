@@ -3,6 +3,7 @@ import {NavigationCancel, NavigationEnd, NavigationError, NavigationStart, Route
 import {NgProgress} from 'ngx-progressbar';
 import {ConfigurationService} from './shared/configuration/configuration.service';
 import {Subscription} from 'rxjs/Subscription';
+import {NGXLogger} from 'ngx-logger';
 
 @Component({
   selector: 'app-root',
@@ -17,16 +18,18 @@ export class AppComponent implements OnInit, OnDestroy {
 
   constructor(private router: Router,
               private progressService: NgProgress,
-              private configurationService: ConfigurationService) {
-
+              private configurationService: ConfigurationService,
+              private logger: NGXLogger) {
   }
 
   ngOnInit(): void {
+    this.logger.info('Main component initialization');
     this.initRouter();
 
     this.configurationService.config.subscribe(config => {
       this.appName = config.name;
     });
+    this.logger.info('Main component initialized');
   }
 
   ngOnDestroy(): void {
@@ -34,6 +37,7 @@ export class AppComponent implements OnInit, OnDestroy {
   }
 
   private initRouter() {
+    this.logger.debug('Router initialization');
     this.router.events.subscribe(event => {
       if (event instanceof NavigationStart) {
         this.progressService.start();
@@ -43,6 +47,7 @@ export class AppComponent implements OnInit, OnDestroy {
         this.progressService.done();
       }
     });
+    this.logger.debug('Router initialized');
   }
 
   onTitleClick() {

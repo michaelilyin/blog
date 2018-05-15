@@ -16,20 +16,27 @@ import {CONFIGURATION_MOCK, CONFIGURATION_SCHEMA} from './configuration.mock';
 import casual from 'casual-browserify/src/casual_browserify.js';
 import {BUILD_MOCK, BUILD_SCHEMA} from './build.mock';
 import {USERS_MOCK, USERS_SCHEMA} from './users.mock';
+import {LOG_MOCK, LOG_SCHEMA} from './log.mock';
 
 const schema = `
   scalar DateTime
   
   type Query {
-    health: String
+    health: String!
+  }
+  
+  type Mutation {
+    health(req: String!): String!
   }
   
   ${CONFIGURATION_SCHEMA}
   ${BUILD_SCHEMA}
   ${USERS_SCHEMA}
+  ${LOG_SCHEMA}
   
   schema {
     query: Query
+    mutation: Mutation
   }
 `;
 
@@ -37,6 +44,7 @@ const server = mockServer(schema, {
   ...CONFIGURATION_MOCK,
   ...BUILD_MOCK,
   ...USERS_MOCK,
+  ...LOG_MOCK,
 
   DateTime: () => casual.moment.toISOString(),
 
@@ -53,7 +61,7 @@ export class FakeBackendInterceptor implements HttpInterceptor {
 
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     if (request.url.endsWith('graphql')) {
-      const result = server.query(request.body.query);
+      const result = server.query(request.body.query, request.body.variables);
       return from(result)
         .pipe(
           tap(res => {

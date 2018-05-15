@@ -4,6 +4,7 @@ import {MatIconModule, MatProgressSpinnerModule} from '@angular/material';
 import {CommonModule} from '@angular/common';
 import {HttpClientModule} from '@angular/common/http';
 import {ConfigurationServiceProvider} from './configuration/configuration.service';
+import {GQLServiceProvider} from './api/gql.service';
 
 @NgModule({
   imports: [
@@ -20,6 +21,7 @@ export class SharedModule {
     return {
       ngModule: SharedModule,
       providers: [
+        GQLServiceProvider,
         ConfigurationServiceProvider
       ]
     };

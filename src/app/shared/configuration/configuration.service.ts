@@ -1,12 +1,12 @@
 import {Observable} from 'rxjs/Observable';
 import {ReplaySubject} from 'rxjs/ReplaySubject';
 import {Injectable, Provider} from '@angular/core';
-import {Apollo} from 'apollo-angular';
-import gql from 'graphql-tag';
-import {map} from 'rxjs/operators';
+import {map, tap} from 'rxjs/operators';
+import {GQLServive} from '../api/gql.service';
+import {Configuration} from '../api/model/configuration.model';
 
-export interface Configuration {
-  name: string;
+export interface ConfigurationQuery {
+  configuration: Configuration;
 }
 
 export abstract class ConfigurationService {
@@ -15,20 +15,18 @@ export abstract class ConfigurationService {
 
 @Injectable()
 export class ConfigurationServiceImpl extends ConfigurationService {
-  private _config = new ReplaySubject<Configuration>();
+  private _config = new ReplaySubject<Configuration>(1);
 
-  constructor(apollo: Apollo) {
+  constructor(private gql: GQLServive) {
     super();
-    apollo.query<any>({
-      query: gql`
-        query {
+    this.gql.query<ConfigurationQuery>(`
+        query loadConfiguration {
           configuration {
             name
           }
         }
-      `
-    })
-      .pipe(map(res => res.data.configuration))
+      `)
+      .pipe(map(res => res.configuration))
       .subscribe(this._config);
   }
 
