@@ -1,0 +1,6 @@
+{
+  "projects": {
+    "default": "blog-dev-44b3f",
+    "production": "blog-9173d"
+  }
+}

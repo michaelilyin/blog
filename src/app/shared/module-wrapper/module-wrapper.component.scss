@@ -1,3 +1,19 @@
-.content:not(.root) {
-  padding: calc(64px + 8px) 8px 8px;
+@import "~sass/size";
+
+.content {
+  height: 100%;
+
+  &.root {
+    overflow: hidden;
+  }
+
+  &:not(.root) {
+    overflow-y: auto;
+  }
+}
+
+:host {
+  display: block;
+  overflow: hidden;
+  height: 100%;
 }

@@ -2,29 +2,41 @@
 <app-module-wrapper [root]="true">
 
   <mat-toolbar class="main-toolbar">
-    <div class="header" (click)="onTitleClick()">
-      TODO
-    </div>
-    <nav>
-      <!--<a mat-button routerLink="blog">-->
-      <!--<span translate>MENU.BLOG</span>-->
-      <!--</a>-->
-      <!--<a mat-button routerLink="skills">-->
-      <!--<span translate>MENU.SKILLS</span>-->
-      <!--</a>-->
-      <!--<a mat-button routerLink="projects">-->
-      <!--<span translate>MENU.PROJECTS</span>-->
-      <!--</a>-->
-      <!--<a mat-button routerLink="admin" *ngIf="access('view-admin')">-->
-      <!--<span translate>MENU.ADMIN</span>-->
-      <!--</a>-->
-    </nav>
-    <span class="h-spacer"></span>
-    <!--<app-auth></app-auth>-->
+    <mat-toolbar-row>
+      <div class="header" (click)="onTitleClick()">
+        {{appName}}
+      </div>
+      <nav class="nav-menu">
+        <!--<a mat-button routerLink="blog">-->
+        <!--<span translate>MENU.BLOG</span>-->
+        <!--</a>-->
+        <a mat-button routerLink="skills">
+          <span translate>MENU.SKILLS</span>
+        </a>
+        <!--<a mat-button routerLink="projects">-->
+        <!--<span translate>MENU.PROJECTS</span>-->
+        <!--</a>-->
+        <!--<a mat-button routerLink="admin" *ngIf="access('view-admin')">-->
+        <!--<span translate>MENU.ADMIN</span>-->
+        <!--</a>-->
+      </nav>
+      <span class="spacer"></span>
+      <mat-icon>home</mat-icon>
+      <!--<app-auth></app-auth>-->
+    </mat-toolbar-row>
+    <mat-toolbar-row class="submenu">
+      <a mat-button routerLink="skills">
+        <span translate>MENU.SKILLS</span>
+      </a>
+    </mat-toolbar-row>
   </mat-toolbar>
 
-  <div style="height: 100%;">
+  <div class="app-content">
     <router-outlet></router-outlet>
   </div>
 
 </app-module-wrapper>
+
+<ng-template #menu>
+
+</ng-template>

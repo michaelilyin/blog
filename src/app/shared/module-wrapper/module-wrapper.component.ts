@@ -1,8 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {TranslateService} from '@ngx-translate/core';
 import {environment} from '../../../environments/environment';
-import 'rxjs/add/operator/first';
-import 'rxjs/add/operator/catch';
 import {first} from 'rxjs/operators';
 
 @Component({

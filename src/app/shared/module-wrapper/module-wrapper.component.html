@@ -1,8 +1,8 @@
-<div *ngIf="ready else loading" style="height: 100%;">
-    <div *ngIf="!broken else fatal" style="height: 100%;" class="content" [class.root]="root">
+<ng-container *ngIf="ready else loading">
+    <div *ngIf="!broken else fatal" class="content" [class.root]="root">
         <ng-content></ng-content>
     </div>
-</div>
+</ng-container>
 
 <ng-template #loading>
     <div style="display: flex; width: 100%; height: 100%; align-items: center; justify-content: center;">

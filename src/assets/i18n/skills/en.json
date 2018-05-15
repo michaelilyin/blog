@@ -1,14 +1,15 @@
 {
-    "SKILLS": {
-        "TABS": {
-            "TIMELINE": "Timeline",
-            "LIST": "List"
-        },
-        "TIMELINE": {
-            "UNDER-DEV": "Skills timeline is under development"
-        },
-        "LIST": {
-            "UNDER-DEV": "Skills list page is under development"
-        }
+  "SKILLS": {
+    "UNDER-DEV": "Skills is under development",
+    "TABS": {
+      "TIMELINE": "Timeline",
+      "LIST": "List"
+    },
+    "TIMELINE": {
+      "UNDER-DEV": "Skills timeline is under development"
+    },
+    "LIST": {
+      "UNDER-DEV": "Skills list page is under development"
     }
+  }
 }

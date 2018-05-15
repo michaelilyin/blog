@@ -1,0 +1,11 @@
+{
+  "hosting": {
+    "public": "dist/profile",
+    "rewrites": [
+      {
+        "source": "**",
+        "destination": "/index.html"
+      }
+    ]
+  }
+}

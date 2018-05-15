@@ -1,18 +1,27 @@
-import {NgModule} from '@angular/core';
+import {ModuleWithProviders, NgModule} from '@angular/core';
 import {ModuleWrapperComponent} from './module-wrapper/module-wrapper.component';
-import {MatProgressSpinnerModule} from '@angular/material';
+import {MatIconModule, MatProgressSpinnerModule} from '@angular/material';
 import {CommonModule} from '@angular/common';
 import {HttpClientModule} from '@angular/common/http';
+import {ConfigurationServiceProvider} from './configuration/configuration.service';
 
 @NgModule({
   imports: [
     CommonModule,
     HttpClientModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    MatIconModule,
   ],
   declarations: [ModuleWrapperComponent],
-  exports: [ModuleWrapperComponent]
+  exports: [ModuleWrapperComponent, MatIconModule]
 })
 export class SharedModule {
-
+  static forRoot(): ModuleWithProviders {
+    return {
+      ngModule: SharedModule,
+      providers: [
+        ConfigurationServiceProvider
+      ]
+    };
+  }
 }
