@@ -1,13 +1,13 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { AdminRoutingModule } from './admin-routing.module';
-import { AdminComponent } from './admin.component';
+import { AdminRoutingModule } from '@app-admin/admin-routing.module';
+import { AdminComponent } from '@app-admin/admin.component';
 import {TranslateModule} from '@ngx-translate/core';
-import {createTranslationConfig, TRANSLATION_LOCATION} from '../shared/translation/translation.factory';
-import {SharedModule} from '../shared/shared.module';
-import { DashboardComponent } from './dashboard/dashboard.component';
-import {AuthModule} from './auth/auth.module';
+import {createTranslationConfig, TRANSLATION_LOCATION} from '@app-shared/translation/translation.factory';
+import {SharedModule} from '@app-shared/shared.module';
+import { DashboardComponent } from '@app-admin/dashboard/dashboard.component';
+import {AuthModule} from '@app-auth/auth.module';
 
 @NgModule({
   imports: [

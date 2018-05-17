@@ -1,4 +1,4 @@
-import {FakeBackendProvider} from '../app/dev/graphql.fake-backend';
+import {FakeBackendProvider} from '@app/dev/graphql.fake-backend';
 
 export const environment = {
   production: false,

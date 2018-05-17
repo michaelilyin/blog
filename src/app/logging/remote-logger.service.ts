@@ -2,8 +2,8 @@ import {HttpMetaDataInterface, NGXLoggerHttpService} from 'ngx-logger';
 import {HttpClient} from '@angular/common/http';
 import {Injectable, Provider} from '@angular/core';
 import {Observable} from 'rxjs/Observable';
-import {GQLServive} from '../shared/api/gql.service';
-import {ClientLogRecord, ClientLogRecordCreate} from '../shared/api/model/log.model';
+import {GQLServive} from '@app-shared/api/gql.service';
+import {ClientLogRecord, ClientLogRecordCreate} from '@app-shared/api/model/log.model';
 
 @Injectable()
 export class RemoteLoggerService extends NGXLoggerHttpService {

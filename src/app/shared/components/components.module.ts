@@ -1,8 +1,8 @@
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
-import {ModuleWrapperComponent} from './module-wrapper/module-wrapper.component';
+import {ModuleWrapperComponent} from '@app-components/module-wrapper/module-wrapper.component';
 import {MatProgressSpinnerModule, MatSidenavModule} from '@angular/material';
-import {SideMenuComponent} from './side-menu/side-menu.component';
+import {SideMenuComponent} from '@app-components/side-menu/side-menu.component';
 
 @NgModule({
   imports: [

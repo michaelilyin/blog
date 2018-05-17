@@ -17,6 +17,32 @@
       "es2017",
       "dom",
       "esnext"
-    ]
+    ],
+    "paths": {
+      "@app-shared/*": [
+        "app/shared/*"
+      ],
+      "@app-components/*": [
+        "app/shared/components/*"
+      ],
+      "@app-auth/*": [
+        "app/admin/auth/*"
+      ],
+      "@app-admin/*": [
+        "app/admin/*"
+      ],
+      "@app-home/*": [
+        "app/home/*"
+      ],
+      "@app-skills/*": [
+        "app/skills/*"
+      ],
+      "@app-environment/*": [
+        "environments/*"
+      ],
+      "@app/*": [
+        "app/*"
+      ]
+    }
   }
 }

@@ -1,10 +1,10 @@
 import {NgModule} from '@angular/core';
-import {HomeComponent} from './home.component';
-import {HomeRoutingModule} from './home.routing.module';
+import {HomeComponent} from '@app-home/home.component';
+import {HomeRoutingModule} from '@app-home/home.routing.module';
 import {TranslateModule} from '@ngx-translate/core';
 import {CommonModule} from '@angular/common';
-import {createTranslationConfig, TRANSLATION_LOCATION} from '../shared/translation/translation.factory';
-import {SharedModule} from '../shared/shared.module';
+import {createTranslationConfig, TRANSLATION_LOCATION} from '@app-shared/translation/translation.factory';
+import {SharedModule} from '@app-shared/shared.module';
 
 @NgModule({
   imports: [

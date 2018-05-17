@@ -1,7 +1,7 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import {NavigationCancel, NavigationEnd, NavigationError, NavigationStart, Router} from '@angular/router';
 import {NgProgress} from 'ngx-progressbar';
-import {ConfigurationService} from './shared/configuration/configuration.service';
+import {ConfigurationService} from '@app-shared/configuration/configuration.service';
 import {Subscription} from 'rxjs/Subscription';
 import {NGXLogger} from 'ngx-logger';
 

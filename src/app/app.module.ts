@@ -1,21 +1,21 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
-import { AppComponent } from './app.component';
-import {createTranslationConfig, TRANSLATION_LOCATION} from './shared/translation/translation.factory';
+import { AppComponent } from '@app/app.component';
+import {createTranslationConfig, TRANSLATION_LOCATION} from '@app-shared/translation/translation.factory';
 import {TranslateModule} from '@ngx-translate/core';
-import {AppRoutingModule} from './app.routing.module';
+import {AppRoutingModule} from '@app/app.routing.module';
 import {NgProgressModule} from 'ngx-progressbar';
-import {SharedModule} from './shared/shared.module';
+import {SharedModule} from '@app-shared/shared.module';
 import {MatButtonModule, MatProgressSpinnerModule, MatToolbarModule} from '@angular/material';
 import {HttpClientModule} from '@angular/common/http';
 import {Apollo, ApolloModule} from 'apollo-angular';
 import {HttpLink, HttpLinkModule} from 'apollo-angular-link-http';
 import {InMemoryCache} from 'apollo-cache-inmemory';
-import {environment} from '../environments/environment';
 import {LoggerModule as NGXLoggerModule, NGXLogger, NgxLoggerLevel} from 'ngx-logger';
-import {NGXLoggerHttpServiceProvider} from './logging/remote-logger.service';
+import {NGXLoggerHttpServiceProvider} from '@app/logging/remote-logger.service';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {environment} from '@app-environment/environment';
 
 @NgModule({
   declarations: [

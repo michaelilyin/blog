@@ -1,20 +1,18 @@
-import {AfterViewInit, Component, Input, OnInit, ViewChild} from '@angular/core';
-import {MatSidenav} from '@angular/material';
-import {SideMenuItem} from './side-menu-item';
+import {Component, Input, OnInit} from '@angular/core';
+import {SideMenuItem} from '@app-components/side-menu/side-menu-item';
 
 @Component({
   selector: 'app-side-menu',
   templateUrl: './side-menu.component.html',
   styleUrls: ['./side-menu.component.scss']
 })
-export class SideMenuComponent {
+export class SideMenuComponent implements OnInit {
 
   @Input()
   public items: SideMenuItem[];
-
-  @ViewChild('sidenav')
-  public sidenav: MatSidenav;
-
   constructor() { }
+
+  ngOnInit(): void {
+  }
 
 }

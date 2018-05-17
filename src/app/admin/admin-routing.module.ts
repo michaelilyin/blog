@@ -1,8 +1,8 @@
 import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
-import {AdminComponent} from './admin.component';
-import {DashboardComponent} from './dashboard/dashboard.component';
-import {UsersComponent} from './auth/users/users.component';
+import {AdminComponent} from '@app-admin/admin.component';
+import {DashboardComponent} from '@app-admin/dashboard/dashboard.component';
+import {UsersComponent} from '@app-auth/users/users.component';
 
 const routes: Routes = [
   {

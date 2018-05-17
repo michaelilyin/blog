@@ -3,11 +3,12 @@
   height: 100%;
 }
 
-mat-sidenav,mat-sidenav-container {
+mat-sidenav,mat-sidenav-container,
+mat-drawer,mat-drawer-container{
   height: 100%;
   background-color: initial;
 }
 
-mat-sidenav {
+mat-sidenav,mat-drawer {
   box-shadow: 3px 0 5px -1px rgba(0,0,0,.2), 0 6px 10px 0 rgba(0,0,0,.14), 0 1px 18px 0 rgba(0,0,0,.12);
 }

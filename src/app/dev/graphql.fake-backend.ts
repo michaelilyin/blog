@@ -12,11 +12,11 @@ import {MockList, mockServer} from 'graphql-tools';
 import {delay, dematerialize, map, materialize, tap} from 'rxjs/operators';
 import {from} from 'rxjs';
 import {ExecutionResult} from 'graphql';
-import {CONFIGURATION_MOCK, CONFIGURATION_SCHEMA} from './configuration.mock';
+import {CONFIGURATION_MOCK, CONFIGURATION_SCHEMA} from '@app/dev/configuration.mock';
 import casual from 'casual-browserify/src/casual_browserify.js';
-import {BUILD_MOCK, BUILD_SCHEMA} from './build.mock';
-import {USERS_MOCK, USERS_SCHEMA} from './users.mock';
-import {LOG_MOCK, LOG_SCHEMA} from './log.mock';
+import {BUILD_MOCK, BUILD_SCHEMA} from '@app/dev/build.mock';
+import {USERS_MOCK, USERS_SCHEMA} from '@app/dev/users.mock';
+import {LOG_MOCK, LOG_SCHEMA} from '@app/dev/log.mock';
 
 const schema = `
   scalar DateTime
