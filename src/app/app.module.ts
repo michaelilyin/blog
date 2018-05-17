@@ -15,6 +15,7 @@ import {InMemoryCache} from 'apollo-cache-inmemory';
 import {environment} from '../environments/environment';
 import {LoggerModule as NGXLoggerModule, NGXLogger, NgxLoggerLevel} from 'ngx-logger';
 import {NGXLoggerHttpServiceProvider} from './logging/remote-logger.service';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import {NGXLoggerHttpServiceProvider} from './logging/remote-logger.service';
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     AppRoutingModule,
     HttpClientModule,
     NgProgressModule,
