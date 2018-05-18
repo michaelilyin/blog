@@ -4,11 +4,33 @@
 }
 
 mat-sidenav,mat-sidenav-container,
-mat-drawer,mat-drawer-container{
+mat-drawer,mat-drawer-container {
   height: 100%;
   background-color: initial;
 }
 
 mat-sidenav,mat-drawer {
   box-shadow: 3px 0 5px -1px rgba(0,0,0,.2), 0 6px 10px 0 rgba(0,0,0,.14), 0 1px 18px 0 rgba(0,0,0,.12);
+}
+
+mat-expansion-panel,
+mat-expansion-panel-header {
+  background-color: initial;
+
+}
+
+.side-menu-items {
+  flex-direction: column;
+
+  .side-menu-item {
+    width: calc(100% - 30px);
+    text-align: left;
+    margin-left: 30px;
+  }
+}
+
+::ng-deep {
+  .mat-expansion-panel-body {
+    padding: 0 !important;
+  }
 }

@@ -1,5 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {SideMenuItem} from '@app-components/side-menu/side-menu-item';
+import {SideMenuGroup, SideMenuItem} from '@app-components/side-menu/side-menu-item';
+import {NGXLogger} from 'ngx-logger';
 
 @Component({
   selector: 'app-side-menu',
@@ -9,10 +10,13 @@ import {SideMenuItem} from '@app-components/side-menu/side-menu-item';
 export class SideMenuComponent implements OnInit {
 
   @Input()
-  public items: SideMenuItem[];
-  constructor() { }
+  public items: SideMenuGroup[];
+
+  constructor(private logger: NGXLogger) {
+  }
 
   ngOnInit(): void {
+    this.logger.debug('Side menu initialization');
   }
 
 }

@@ -1,6 +1,13 @@
 <mat-drawer-container>
   <mat-drawer [opened]="true" mode="side">
-    sss
+      <ng-container *ngFor="let group of items">
+        <mat-expansion-panel [expanded]="true" [hideToggle]="true">
+          <mat-expansion-panel-header>{{group.title}}</mat-expansion-panel-header>
+          <div *ngFor="let item of group.items" class="side-menu-items">
+            <a mat-button class="side-menu-item">{{item.title}}</a>
+          </div>
+        </mat-expansion-panel>
+      </ng-container>
   </mat-drawer>
   <mat-drawer-content>
     <ng-content></ng-content>

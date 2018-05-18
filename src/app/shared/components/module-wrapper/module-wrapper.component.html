@@ -1,8 +1,8 @@
-<ng-container *ngIf="ready else loading">
-  <ng-container *ngIf="!broken else fatal">
-    <div #container class="content" [class.root]="root">
-      <ng-content></ng-content>
-    </div>
+<ng-container *ngIf="ready; else loading">
+  <ng-container *ngIf="!broken; else fatal">
+      <ng-container *ngIf="root || !sideMenu; else menu">
+        <div class="content" *ngTemplateOutlet="content" [class.root]="root"></div>
+      </ng-container>
   </ng-container>
 </ng-container>
 
@@ -17,4 +17,14 @@
     <h1>Fatal error!</h1>
     <h2>Will not work</h2>
   </div>
+</ng-template>
+
+<ng-template #menu>
+  <app-side-menu [items]="sideMenu">
+    <div class="content" *ngTemplateOutlet="content"></div>
+  </app-side-menu>
+</ng-template>
+
+<ng-template #content>
+  <ng-content></ng-content>
 </ng-template>

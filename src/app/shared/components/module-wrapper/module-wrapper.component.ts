@@ -1,6 +1,6 @@
 import {
   ChangeDetectorRef,
-  Component,
+  Component, Inject,
   Input,
   OnInit,
   TemplateRef,
@@ -10,8 +10,11 @@ import {
 } from '@angular/core';
 import {TranslateService} from '@ngx-translate/core';
 import {environment} from '@app-environment/environment';
-import {catchError, first} from 'rxjs/operators';
+import {catchError, filter, first} from 'rxjs/operators';
 import {NGXLogger} from 'ngx-logger';
+import {defined} from '@app-shared/utils/rxjs';
+import {TRANSLATION_LOCATION} from '@app-shared/translation/translation.factory';
+import {SideMenuGroup} from '@app-components/side-menu/side-menu-item';
 
 @Component({
   selector: 'app-module-wrapper',
@@ -27,7 +30,11 @@ export class ModuleWrapperComponent implements OnInit {
 
   public broken = false;
 
+  @Input('menu')
+  public sideMenu: SideMenuGroup[];
+
   constructor(private translateService: TranslateService,
+              @Inject(TRANSLATION_LOCATION) private translationLocation: string,
               private logger: NGXLogger) {
   }
 
@@ -40,23 +47,11 @@ export class ModuleWrapperComponent implements OnInit {
         catchError(e => {
           this.broken = true;
           return undefined;
-        }))
+        }),
+        filter(defined))
       .subscribe(res => {
-        if (res) {
-          this.ready = true;
-        }
+        this.ready = true;
+        this.logger.debug('Wrapper loaded dependencies', this.translationLocation);
       });
   }
-
-  @ViewChild('container', {read: ViewContainerRef}) set container(container: ViewContainerRef) {
-    if (container) {
-      this.logger.debug('container', container);
-      for (let i = 0; i < container.length; i++) {
-        let viewRef = container.get(i);
-        this.logger.debug('viewRef', viewRef);
-        viewRef.detectChanges();
-      }
-    }
-  }
-
 }
