@@ -1,15 +1,25 @@
 <mat-drawer-container>
-  <mat-drawer [opened]="true" mode="side">
-      <ng-container *ngFor="let group of items">
-        <mat-expansion-panel [expanded]="true" [hideToggle]="true">
-          <mat-expansion-panel-header>{{group.title}}</mat-expansion-panel-header>
-          <div *ngFor="let item of group.items" class="side-menu-items">
-            <a mat-button class="side-menu-item">{{item.title}}</a>
-          </div>
-        </mat-expansion-panel>
+  <mat-drawer #menu [(opened)]="opened" [mode]="mode">
+    <mat-nav-list class="side-menu-container" dense>
+      <ng-container *ngFor="let group of viewItems">
+        <h3 mat-subheader class="side-menu-header">
+          <span translate>{{group.title}}</span>
+        </h3>
+        <mat-list-item *ngFor="let item of group.items" class="side-menu-items">
+          <a [routerLink]="item.routerLink" class="side-menu-item" (click)="linkClick()">
+            <span translate>{{item.title}}</span>
+          </a>
+        </mat-list-item>
+        <mat-divider></mat-divider>
       </ng-container>
+    </mat-nav-list>
   </mat-drawer>
   <mat-drawer-content>
-    <ng-content></ng-content>
+    <div class="page-body">
+      <ng-content></ng-content>
+    </div>
+    <button mat-mini-fab class="side-menu-button" (click)="this.opened = !this.opened">
+      <mat-icon>menu</mat-icon>
+    </button>
   </mat-drawer-content>
 </mat-drawer-container>

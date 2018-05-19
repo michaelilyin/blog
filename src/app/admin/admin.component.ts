@@ -15,28 +15,28 @@ export class AdminComponent implements OnInit {
   ngOnInit() {
     this.menu = [
       {
-        title: 'Авторизация',
+        title: 'ADMIN.MENU.AUTH.TITLE',
         items: [
           {
-            title: 'Пользователи',
+            title: 'ADMIN.MENU.AUTH.USERS',
             commands: ['auth', 'users']
           }, {
-            title: 'Роли',
-            commands: ['auth', 'users']
+            title: 'ADMIN.MENU.AUTH.ROLES',
+            commands: ['auth', 'roles']
           }
         ]
       }, {
-        title: 'Аудит',
+        title: 'ADMIN.MENU.AUDIT.TITLE',
         items: [
           {
-            title: 'Аудит',
-            commands: ['auth', 'users']
+            title: 'ADMIN.MENU.AUDIT.AUDIT',
+            commands: ['audit', 'audit']
           }, {
-            title: 'Клиентский лог',
-            commands: ['auth', 'users']
+            title: 'ADMIN.MENU.AUDIT.CLIENT-LOG',
+            commands: ['audit', 'log', 'client']
           }, {
-            title: 'Серверный лог',
-            commands: ['auth', 'users']
+            title: 'ADMIN.MENU.AUDIT.SERVER-LOG',
+            commands: ['audit', 'log', 'server']
           }
         ]
       }

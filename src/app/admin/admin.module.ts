@@ -8,6 +8,7 @@ import {createTranslationConfig, TRANSLATION_LOCATION} from '@app-shared/transla
 import {SharedModule} from '@app-shared/shared.module';
 import { DashboardComponent } from '@app-admin/dashboard/dashboard.component';
 import {AuthModule} from '@app-auth/auth.module';
+import {RouterDataProcessorServiceProvider} from '@app-shared/router-data-processor.service';
 
 @NgModule({
   imports: [
@@ -22,7 +23,8 @@ import {AuthModule} from '@app-auth/auth.module';
     DashboardComponent
   ],
   providers: [
-    {provide: TRANSLATION_LOCATION, useValue: 'admin'}
+    {provide: TRANSLATION_LOCATION, useValue: 'admin'},
+    RouterDataProcessorServiceProvider
   ]
 })
 export class AdminModule { }

@@ -54,4 +54,5 @@ export class ModuleWrapperComponent implements OnInit {
         this.logger.debug('Wrapper loaded dependencies', this.translationLocation);
       });
   }
+
 }
