@@ -1,10 +1,9 @@
 import {Observable} from 'rxjs/Observable';
 import {ReplaySubject} from 'rxjs/ReplaySubject';
 import {Injectable, Provider} from '@angular/core';
-import {map, tap} from 'rxjs/operators';
+import {map} from 'rxjs/operators';
 import {GQLServive} from '../api/gql.service';
 import {Configuration} from '../api/model/configuration.model';
-import {defined} from '@app-shared/utils/rxjs';
 
 export interface ConfigurationQuery {
   configuration: Configuration;

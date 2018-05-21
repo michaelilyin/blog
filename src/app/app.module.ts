@@ -16,6 +16,7 @@ import {LoggerModule as NGXLoggerModule, NGXLogger, NgxLoggerLevel} from 'ngx-lo
 import {NGXLoggerHttpServiceProvider} from '@app/logging/remote-logger.service';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {environment} from '@app-environment/environment';
+import {TitleService} from '@app-shared/services/title.service';
 
 @NgModule({
   declarations: [
@@ -49,7 +50,8 @@ import {environment} from '@app-environment/environment';
   bootstrap: [AppComponent]
 })
 export class AppModule {
-  constructor(apollo: Apollo, httpLink: HttpLink) {
+  constructor(apollo: Apollo,
+              httpLink: HttpLink) {
     apollo.create({
       link: httpLink.create({uri: 'graphql'}),
       cache: new InMemoryCache()

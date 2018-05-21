@@ -5,6 +5,7 @@ import {HttpClientModule} from '@angular/common/http';
 import {ConfigurationServiceProvider} from '@app-shared/configuration/configuration.service';
 import {GQLServiceProvider} from '@app-shared/api/gql.service';
 import {ComponentsModule} from '@app-components/components.module';
+import {TitleServiceProvider} from '@app-shared/services/title.service';
 
 @NgModule({
   imports: [
@@ -24,7 +25,8 @@ export class SharedModule {
       ngModule: SharedModule,
       providers: [
         GQLServiceProvider,
-        ConfigurationServiceProvider
+        ConfigurationServiceProvider,
+        TitleServiceProvider
       ]
     };
   }

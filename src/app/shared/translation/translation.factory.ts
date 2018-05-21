@@ -19,7 +19,6 @@ export function createTranslationConfig(root?: boolean): TranslateModuleConfig {
       provide: TranslateLoader,
       useFactory: translationLoaderFactory,
       deps: [HttpClient, TRANSLATION_LOCATION]
-    },
-    isolate: !root
+    }
   }
 }

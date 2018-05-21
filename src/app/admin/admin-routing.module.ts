@@ -4,6 +4,7 @@ import {AdminComponent} from '@app-admin/admin.component';
 import {DashboardComponent} from '@app-admin/dashboard/dashboard.component';
 import {UsersComponent} from '@app-auth/users/users.component';
 import {RolesComponent} from '@app-auth/roles/roles.component';
+import {TitleParams} from '@app-shared/services/title.service';
 
 const routes: Routes = [
   {
@@ -17,18 +18,27 @@ const routes: Routes = [
     children: [
       {
         path: 'dashboard',
-        component: DashboardComponent
+        component: DashboardComponent,
+        data: {
+          title: new TitleParams('ADMIN.TITLE.DASHBOARD')
+        }
       },
       {
         path: 'auth',
         children: [
           {
             path: 'users',
-            component: UsersComponent
+            component: UsersComponent,
+            data: {
+              title: new TitleParams('ADMIN.TITLE.USERS')
+            }
           },
           {
             path: 'roles',
-            component: RolesComponent
+            component: RolesComponent,
+            data: {
+              title: new TitleParams('ADMIN.TITLE.ROLES')
+            }
           }
         ],
       }

@@ -34,10 +34,19 @@ mat-sidenav,mat-drawer {
   .side-menu-items {
     flex-direction: column;
 
+    ::ng-deep .mat-list-item-content {
+      padding: 0;
+    }
+
     .side-menu-item {
       width: calc(100% - 20px);
+      height: 100%;
       text-align: left;
-      margin-left: 20px;
+      padding-left: 20px;
+      padding-right: 10px;
+      flex-direction: column;
+      justify-content: center;
+      display: flex;
     }
   }
 }

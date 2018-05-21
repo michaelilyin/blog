@@ -4,6 +4,7 @@ import {NgProgress} from 'ngx-progressbar';
 import {ConfigurationService} from '@app-shared/configuration/configuration.service';
 import {Subscription} from 'rxjs/Subscription';
 import {NGXLogger} from 'ngx-logger';
+import {TitleService} from '@app-shared/services/title.service';
 
 @Component({
   selector: 'app-root',
@@ -19,7 +20,8 @@ export class AppComponent implements OnInit, OnDestroy {
   constructor(private router: Router,
               private progressService: NgProgress,
               private configurationService: ConfigurationService,
-              private logger: NGXLogger) {
+              private logger: NGXLogger,
+              private titleService: TitleService) {
   }
 
   ngOnInit(): void {

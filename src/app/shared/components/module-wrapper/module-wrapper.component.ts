@@ -1,27 +1,19 @@
-import {
-  ChangeDetectorRef,
-  Component, Inject,
-  Input,
-  OnInit,
-  TemplateRef,
-  ViewChild,
-  ViewContainerRef,
-  ViewRef
-} from '@angular/core';
+import {Component, Inject, Input, OnDestroy, OnInit} from '@angular/core';
 import {TranslateService} from '@ngx-translate/core';
 import {environment} from '@app-environment/environment';
 import {catchError, filter, first} from 'rxjs/operators';
 import {NGXLogger} from 'ngx-logger';
-import {defined} from '@app-shared/utils/rxjs';
+import {defined, unsubscribe} from '@app-shared/utils/rxjs';
 import {TRANSLATION_LOCATION} from '@app-shared/translation/translation.factory';
 import {SideMenuGroup} from '@app-components/side-menu/side-menu-item';
+import {Subscription} from 'rxjs/Subscription';
 
 @Component({
   selector: 'app-module-wrapper',
   templateUrl: './module-wrapper.component.html',
   styleUrls: ['./module-wrapper.component.scss']
 })
-export class ModuleWrapperComponent implements OnInit {
+export class ModuleWrapperComponent implements OnInit, OnDestroy {
 
   @Input()
   public root: boolean;
@@ -29,6 +21,8 @@ export class ModuleWrapperComponent implements OnInit {
   public ready = false;
 
   public broken = false;
+
+  private titleSub: Subscription;
 
   @Input('menu')
   public sideMenu: SideMenuGroup[];
@@ -53,6 +47,10 @@ export class ModuleWrapperComponent implements OnInit {
         this.ready = true;
         this.logger.debug('Wrapper loaded dependencies', this.translationLocation);
       });
+  }
+
+  ngOnDestroy(): void {
+    unsubscribe(this.titleSub);
   }
 
 }
