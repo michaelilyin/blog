@@ -8,11 +8,13 @@ import {MatDrawer} from '@angular/material';
 
 class SideMenuGroupView {
   title: string;
+  icon?: string;
   items: SideMenuItemView[];
 }
 
 class SideMenuItemView {
   title: string;
+  icon?: string;
   routerLink: string;
 }
 
@@ -41,8 +43,10 @@ export class SideMenuComponent implements OnInit, OnDestroy {
     this.logger.debug('Side menu initialization');
     this.viewItems = this.items.map(group => ({
       title: group.title,
+      icon: group.icon,
       items: group.items.map(item => ({
         title: item.title,
+        icon: item.icon,
         routerLink: item.commands.join('/')
       }))
     }));

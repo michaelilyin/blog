@@ -4,11 +4,14 @@ import {Injectable, Provider} from '@angular/core';
 import {Observable} from 'rxjs/Observable';
 import {GQLServive} from '@app-shared/api/gql.service';
 import {ClientLogRecord, ClientLogRecordCreate} from '@app-shared/api/model/log.model';
+import {Apollo} from 'apollo-angular';
+import gql from 'graphql-tag';
 
 @Injectable()
 export class RemoteLoggerService extends NGXLoggerHttpService {
 
-  constructor(http: HttpClient, private gql: GQLServive) {
+  constructor(http: HttpClient,
+              private apollo: Apollo) {
     super(http);
   }
 
@@ -16,15 +19,18 @@ export class RemoteLoggerService extends NGXLoggerHttpService {
     const record: ClientLogRecordCreate = {
       message: message
     };
-
-    return this.gql.mutate<ClientLogRecord>(`
+    const query = gql`
       mutation createClientLog($log: ClientLogRecordCreate!) {
         createClientLogRecord(log: $log) {
           id
         }
       }
-    `, {
-      log: record
+    `;
+    return this.apollo.mutate<object>({
+      mutation: query,
+      variables: {
+        log: record
+      }
     });
   }
 }

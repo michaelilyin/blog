@@ -4,7 +4,7 @@
   "license": "MIT",
   "scripts": {
     "ng": "node_modules/.bin/ng",
-    "start": "node_modules/.bin/ng serve",
+    "start": "node_modules/.bin/ng serve --port 4201",
     "build": "node_modules/.bin/ng build",
     "build:prod": "node_modules/.bin/ng build --prod",
     "test": "node_modules/.bin/ng test",

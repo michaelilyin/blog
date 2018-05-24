@@ -1,0 +1,23 @@
+@import "~sass/size";
+
+.test {
+  @include xs {
+    background-color: greenyellow;
+  }
+
+  @include gt-xs {
+    background-color: aquamarine;
+  }
+
+  @include gt-sm {
+    background-color: blue;
+  }
+
+  @include gt-md {
+    background-color: orange;
+  }
+
+  @include xl {
+    background-color: red;
+  }
+}

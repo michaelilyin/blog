@@ -1,0 +1,10 @@
+<ng-container [ngSwitch]="table">
+  <app-simple-grid-table *ngSwitchCase="true"
+                         [columns]="viewColumns"
+  >
+  </app-simple-grid-table>
+  <app-simple-grid-cards *ngSwitchCase="false"
+                         [columns]="viewColumns"
+  >
+  </app-simple-grid-cards>
+</ng-container>

@@ -19,9 +19,11 @@ export class AdminComponent implements OnInit {
         items: [
           {
             title: 'ADMIN.MENU.AUTH.USERS',
+            icon: 'person',
             commands: ['auth', 'users']
           }, {
             title: 'ADMIN.MENU.AUTH.ROLES',
+            icon: 'assignment_ind',
             commands: ['auth', 'roles']
           }
         ]
@@ -30,12 +32,15 @@ export class AdminComponent implements OnInit {
         items: [
           {
             title: 'ADMIN.MENU.AUDIT.AUDIT',
+            icon: 'security',
             commands: ['audit', 'audit']
           }, {
             title: 'ADMIN.MENU.AUDIT.CLIENT-LOG',
+            icon: 'description',
             commands: ['audit', 'log', 'client']
           }, {
             title: 'ADMIN.MENU.AUDIT.SERVER-LOG',
+            icon: 'description',
             commands: ['audit', 'log', 'server']
           }
         ]

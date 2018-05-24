@@ -1,29 +1,41 @@
 {
-    "MENU": {
-        "BLOG": "Блог",
-        "SKILLS": "Навыки",
-        "PROJECTS": "Проекты",
-        "ADMIN": "Управление"
+  "MENU": {
+    "BLOG": "Блог",
+    "SKILLS": "Навыки",
+    "PROJECTS": "Проекты",
+    "ADMIN": "Управление"
+  },
+  "COMMON": {
+    "AUTH": {
+      "SIGN-IN": "Войти",
+      "SIGN-OUT": "Выйти",
+      "DIALOG": {
+        "TITLE": "Вход",
+        "GOOGLE": "Войти через Google"
+      },
+      "MENU": {
+        "DEMO-REQUEST": "Запрос демо-доступа"
+      }
     },
-    "COMMON": {
-        "AUTH": {
-            "SIGN-IN": "Войти",
-            "SIGN-OUT": "Выйти",
-            "DIALOG": {
-                "TITLE": "Вход",
-                "GOOGLE": "Войти через Google"
-            },
-            "MENU": {
-                "DEMO-REQUEST": "Запрос демо-доступа"
-            }
-        },
-        "TITLE": {
-            "HOME": "Домашняя страница",
-            "BLOG": "Блог",
-            "SKILLS": "Навыки",
-            "PROJECTS": "Проекты",
-            "ADMIN": "Администрирование",
-            "ADMIN-DEFAULT": "Администрирование"
-        }
+    "TITLE": {
+      "HOME": "Домашняя страница",
+      "BLOG": "Блог",
+      "SKILLS": "Навыки",
+      "PROJECTS": "Проекты",
+      "ADMIN": "Администрирование",
+      "ADMIN-DEFAULT": "Администрирование"
     }
+  },
+  "MODEL": {
+    "USER": {
+      "NAME": "Пользователь",
+      "FIELDS": {
+        "ID": "ИД",
+        "USERNAME": "Логин",
+        "FIRST-NAME": "Имя",
+        "LAST-NAME": "Фамилия",
+        "EMAIL": "E-mail"
+      }
+    }
+  }
 }

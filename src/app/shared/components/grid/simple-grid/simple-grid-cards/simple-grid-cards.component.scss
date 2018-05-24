@@ -1,0 +1,19 @@
+:host {
+  display: flex;
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+mat-card {
+  margin-top: 3px;
+
+  .field {
+    display: flex;
+    flex-direction: row;
+
+    .field-name {
+      width: 25%;
+    }
+  }
+}

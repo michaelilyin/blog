@@ -2,9 +2,9 @@ import casual from 'casual-browserify/src/casual_browserify.js';
 
 export const USERS_SCHEMA = `
   type User {
-    login: String!
-    firstname: String!
-    lastname: String
+    username: String!
+    firstName: String!
+    lastName: String
     email: String!
   }
   
@@ -15,9 +15,9 @@ export const USERS_SCHEMA = `
 
 export const USERS_MOCK = {
   User: () => ({
-    login: () => casual.username,
-    firstname: () => casual.first_name,
-    lastname: () => casual.last_name,
+    username: () => casual.username,
+    firstName: () => casual.first_name,
+    lastName: () => casual.last_name,
     email: () => casual.email
   })
 };

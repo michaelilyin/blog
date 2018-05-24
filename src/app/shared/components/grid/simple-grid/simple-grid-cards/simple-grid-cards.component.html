@@ -1,0 +1,13 @@
+<mat-card *ngFor="let item of dataSource">
+  <mat-card-content>
+    <div *ngFor="let col of columnKeys" class="field">
+      <div class="field-name">
+        <span translate>{{columnMap.get(col).name}}</span>
+        <span>:</span>
+      </div>
+      <div class="field-data">
+        {{item[columnMap.get(col).key]}}
+      </div>
+    </div>
+  </mat-card-content>
+</mat-card>
