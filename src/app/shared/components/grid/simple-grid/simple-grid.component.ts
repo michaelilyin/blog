@@ -53,6 +53,10 @@ export class SimpleGridComponent implements OnInit, OnDestroy {
       });
     this.gridService.entity.next(this.entity);
     this.gridService.reload.next();
+    this.gridService.page.next({
+      index: 0,
+      size: 20
+    });
   }
 
   ngOnDestroy(): void {

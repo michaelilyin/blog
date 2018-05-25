@@ -3,7 +3,7 @@ import {CommonModule} from '@angular/common';
 import {ModuleWrapperComponent} from '@app-components/module-wrapper/module-wrapper.component';
 import {
   MatButtonModule, MatCardModule,
-  MatExpansionModule, MatIconModule, MatListModule,
+  MatExpansionModule, MatIconModule, MatListModule, MatPaginatorModule,
   MatProgressSpinnerModule,
   MatSidenavModule, MatTableModule,
   MatTreeModule
@@ -28,7 +28,8 @@ import { SimpleGridCardsComponent } from './grid/simple-grid/simple-grid-cards/s
     MatListModule,
     MatIconModule,
     MatTableModule,
-    MatCardModule
+    MatCardModule,
+    MatPaginatorModule
   ],
   declarations: [
     ModuleWrapperComponent,

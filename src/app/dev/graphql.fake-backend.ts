@@ -21,6 +21,15 @@ import {LOG_MOCK, LOG_SCHEMA} from '@app/dev/log.mock';
 const schema = `
   scalar DateTime
   
+  input PageRequest {
+    offset: Int!
+    limit: Int!
+  }
+  
+  interface Page {
+    total: Int!
+  }
+  
   type Query {
     health: String!
   }
@@ -49,8 +58,7 @@ const server = mockServer(schema, {
   DateTime: () => casual.moment.toISOString(),
 
   Query: () => ({
-    health: () => 'OK',
-    users: () => new MockList(20)
+    health: () => 'OK'
   })
 });
 
