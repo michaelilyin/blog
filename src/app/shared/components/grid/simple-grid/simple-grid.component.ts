@@ -26,6 +26,7 @@ export class SimpleGridComponent implements OnInit, OnDestroy {
   @Input() columns: GridColumn[];
   @Input() fields: Field[];
   @Input() entity: string;
+  @Input() header: string;
 
   public table: boolean;
   public viewColumns: GridColumnView[];
@@ -52,11 +53,6 @@ export class SimpleGridComponent implements OnInit, OnDestroy {
         this.table = !matches;
       });
     this.gridService.entity.next(this.entity);
-    this.gridService.reload.next();
-    this.gridService.page.next({
-      index: 0,
-      size: 20
-    });
   }
 
   ngOnDestroy(): void {

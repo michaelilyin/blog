@@ -1,6 +1,7 @@
 <ng-container [ngSwitch]="table">
   <app-simple-grid-table *ngSwitchCase="true"
                          [columns]="viewColumns"
+                         [header]="header"
   >
   </app-simple-grid-table>
   <app-simple-grid-cards *ngSwitchCase="false"

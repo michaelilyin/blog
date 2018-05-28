@@ -82,7 +82,7 @@ export class FakeBackendInterceptor implements HttpInterceptor {
             })
           }),
           materialize(),
-          delay(25),
+          delay(250),
           dematerialize()
         );
     }

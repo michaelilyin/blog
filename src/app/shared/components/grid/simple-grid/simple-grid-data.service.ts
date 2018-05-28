@@ -16,6 +16,7 @@ export class SimpleGridDataService implements OnDestroy {
   public page = new ReplaySubject<GridPage>(1);
 
   private _items = new ReplaySubject<GridData<object>>(1);
+  private _load = new ReplaySubject<boolean>(1);
 
   constructor(private logger: NGXLogger,
               private gql: GQLServive) {
@@ -38,12 +39,14 @@ export class SimpleGridDataService implements OnDestroy {
       const params = {
         req: req
       };
+      this._load.next(true);
       this.gql.query<object[]>(query, params).subscribe(res => {
         const data = res[entity];
         this._items.next({
           items: data.items,
           total: data.total
         });
+        this._load.next(false);
       });
     });
   }
@@ -64,6 +67,10 @@ export class SimpleGridDataService implements OnDestroy {
 
   public get items(): Observable<GridData<object>> {
     return this._items;
+  }
+
+  public get load(): Observable<boolean> {
+    return this._load;
   }
 }
 
