@@ -1,11 +1,12 @@
-import {Component, Input, OnDestroy, OnInit, ViewChild} from '@angular/core';
+import {Component, Input, OnDestroy, OnInit, Renderer2, ViewChild} from '@angular/core';
 import {NGXLogger} from 'ngx-logger';
 import {SimpleGrid} from '@app-components/grid/simple-grid/simple-grid.interface';
 import {GridColumnView} from '@app-components/grid/model/grid-column-view.model';
 import {SimpleGridDataService} from '@app-components/grid/simple-grid/simple-grid-data.service';
 import {Subscription} from 'rxjs/Subscription';
 import {unsubscribe} from '@app-shared/utils/rxjs';
-import {MatPaginator, PageEvent} from '@angular/material';
+import {MatPaginator, MatTable, PageEvent} from '@angular/material';
+import {Renderer3} from '@angular/core/src/render3/interfaces/renderer';
 
 @Component({
   selector: 'app-simple-grid-table',
@@ -20,10 +21,13 @@ export class SimpleGridTableComponent implements OnInit, OnDestroy, SimpleGrid {
   public items: object[] = [];
   public total: number;
 
+  public table: MatTable<any>;
+
   private dataSub: Subscription;
 
   constructor(private logger: NGXLogger,
-              private gridService: SimpleGridDataService) { }
+              private gridService: SimpleGridDataService,
+              private renderer: Renderer2) { }
 
   ngOnInit() {
     this.logger.debug('Init simple grid table');
@@ -35,6 +39,10 @@ export class SimpleGridTableComponent implements OnInit, OnDestroy, SimpleGrid {
       this.items = data.items;
       this.total = data.total;
     });
+
+    this.table._contentColumnDefs.changes.subscribe(cols => {
+      console.info(cols)
+    })
   }
 
   ngOnDestroy(): void {
@@ -48,4 +56,7 @@ export class SimpleGridTableComponent implements OnInit, OnDestroy, SimpleGrid {
     });
   }
 
+  public likeTh(th: HTMLTableHeaderCellElement): number {
+    return th.offsetWidth;
+  }
 }

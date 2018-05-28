@@ -3,8 +3,12 @@
     <table mat-table [dataSource]="items">
 
       <ng-container *ngFor="let col of columns" [matColumnDef]="col.key">
-        <th mat-header-cell *matHeaderCellDef>
-          <span translate>{{col.name}}</span>
+        <th mat-header-cell *matHeaderCellDef #th>
+          <div [style.width.px]="th.offsetWidth">
+            <div>
+              <div translate>{{col.name}}</div>
+            </div>
+          </div>
         </th>
         <td mat-cell *matCellDef="let element">
           {{element[col.key]}}
