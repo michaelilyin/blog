@@ -17,10 +17,7 @@
 
   <mat-divider></mat-divider>
 
-  <div class="loading-shade"
-       *ngIf="isLoadingResults">
-    <mat-spinner *ngIf="isLoadingResults"></mat-spinner>
-  </div>
+  <app-loading-shade [isLoad]="isLoadingResults"></app-loading-shade>
 
   <div class="table">
     <mat-table  [dataSource]="items">
@@ -37,15 +34,17 @@
       <mat-header-row *matHeaderRowDef="columnKeys"></mat-header-row>
       <mat-row *matRowDef="let row; columns: columnKeys;"></mat-row>
     </mat-table>
+
+    <div class="paginator">
+      <div style="flex: 1"></div>
+
+      <mat-paginator [pageSizeOptions]="[10, 20, 50]"
+                     showFirstLastButtons
+                     (page)="onPageEvent($event)"
+                     [pageSize]="20"
+                     [length]="total"
+      >
+      </mat-paginator>
+    </div>
   </div>
-
-  <div style="flex: 1"></div>
-
-  <mat-paginator [pageSizeOptions]="[10, 20, 50]"
-                 showFirstLastButtons
-                 (page)="onPageEvent($event)"
-                 [pageSize]="20"
-                 [length]="total"
-  >
-  </mat-paginator>
 </div>

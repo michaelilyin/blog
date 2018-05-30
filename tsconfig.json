@@ -25,6 +25,9 @@
       "@app-components/*": [
         "app/shared/components/*"
       ],
+      "@app-pipes/*": [
+        "app/shared/pipes/*"
+      ],
       "@app-auth/*": [
         "app/admin/auth/*"
       ],

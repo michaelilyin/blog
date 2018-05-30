@@ -15,6 +15,7 @@ import { SimpleGridComponent } from './grid/simple-grid/simple-grid.component';
 import { SimpleGridTableComponent } from './grid/simple-grid/simple-grid-table/simple-grid-table.component';
 import { SimpleGridCardsComponent } from './grid/simple-grid/simple-grid-cards/simple-grid-cards.component';
 import { DialogColumnEditorComponent } from './grid/dialog-column-editor/dialog-column-editor.component';
+import { LoadingShadeComponent } from './loading-shade/loading-shade.component';
 
 @NgModule({
   imports: [
@@ -43,12 +44,14 @@ import { DialogColumnEditorComponent } from './grid/dialog-column-editor/dialog-
     SimpleGridComponent,
     SimpleGridTableComponent,
     SimpleGridCardsComponent,
-    DialogColumnEditorComponent
+    DialogColumnEditorComponent,
+    LoadingShadeComponent
   ],
   exports: [
     ModuleWrapperComponent,
     SideMenuComponent,
-    SimpleGridComponent
+    SimpleGridComponent,
+    LoadingShadeComponent
   ],
   entryComponents: [
     DialogColumnEditorComponent

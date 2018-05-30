@@ -1,4 +1,9 @@
 .column-editor-content {
   display: flex;
   flex-direction: row;
+
+  mat-divider {
+    margin-left: 24px;
+    margin-right: 24px;
+  }
 }

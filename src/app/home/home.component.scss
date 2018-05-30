@@ -1,0 +1,43 @@
+@import "~sass/size";
+
+.home-content {
+  overflow-y: auto;
+  height: 100%;
+  display: flex;
+  padding: 10px;
+
+  @include lt-md {
+    flex-direction: column;
+  }
+  @include gt-sm {
+    flex-direction: row;
+  }
+
+  .main-pane {
+    display: flex;
+
+    @include gt-sm { flex: 0.6; }
+    @include lt-md { flex: 1; }
+  }
+
+  .secondary-pane {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+
+    @include gt-sm { flex: 0.4; }
+    @include lt-md { flex: 1; }
+
+    .card-small {
+      @include xl { flex: 0.5; }
+      @include lg { flex: 0.5; }
+      @include md { flex: 1; }
+      @include sm { flex: 0.5; }
+      @include xs { flex: 1; }
+    }
+
+    .card-wide {
+      width: 100%;
+    }
+  }
+}

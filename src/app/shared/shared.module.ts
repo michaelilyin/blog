@@ -6,18 +6,24 @@ import {ConfigurationServiceProvider} from '@app-shared/configuration/configurat
 import {GQLServiceProvider} from '@app-shared/api/gql.service';
 import {ComponentsModule} from '@app-components/components.module';
 import {TitleServiceProvider} from '@app-shared/services/title.service';
+import { DurationPipe } from './pipes/duration.pipe';
+import {PipesModule} from '@app-shared/pipes/pipes.module';
+import {NumeralsTranslateServiceProvider} from '@app-shared/services/numerals-translate.service';
 
 @NgModule({
   imports: [
     CommonModule,
     HttpClientModule,
     MatIconModule,
-    ComponentsModule
+    ComponentsModule,
+    PipesModule,
   ],
   exports: [
     MatIconModule,
-    ComponentsModule
-  ]
+    ComponentsModule,
+    PipesModule
+  ],
+  declarations: []
 })
 export class SharedModule {
   static forRoot(): ModuleWithProviders {
@@ -26,7 +32,8 @@ export class SharedModule {
       providers: [
         GQLServiceProvider,
         ConfigurationServiceProvider,
-        TitleServiceProvider
+        TitleServiceProvider,
+        NumeralsTranslateServiceProvider
       ]
     };
   }

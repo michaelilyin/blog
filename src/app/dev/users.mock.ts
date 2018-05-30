@@ -1,5 +1,5 @@
-import casual from 'casual-browserify/src/casual_browserify.js';
-import {MockList} from 'graphql-tools';
+import {list} from '@app/dev/mock.utils';
+import {casual} from '@app/dev/casual.util';
 
 export const USERS_SCHEMA = `
   type User {
@@ -26,14 +26,5 @@ export const USERS_MOCK = {
     lastName: () => casual.last_name,
     email: () => casual.email
   }),
-  UserPage: (_, vars) => {
-    const req = vars.req;
-    const total = req.offset + casual.integer(0, req.limit * 2);
-    const left = total - req.offset;
-    const current = left < req.limit ? left : req.limit;
-    return {
-      items: () => new MockList(current),
-      total: total
-    }
-  }
+  UserPage: list()
 };

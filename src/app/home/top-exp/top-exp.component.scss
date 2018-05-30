@@ -1,0 +1,20 @@
+mat-card {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+
+  mat-card-content {
+    min-height: 50px;
+
+    mat-list-item {
+      height: auto !important;
+      padding-top: 10px;
+      padding-bottom: 10px;
+
+      h4 {
+        text-overflow: ellipsis;
+        white-space: initial;
+      }
+    }
+  }
+}

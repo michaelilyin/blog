@@ -17,9 +17,13 @@ import casual from 'casual-browserify/src/casual_browserify.js';
 import {BUILD_MOCK, BUILD_SCHEMA} from '@app/dev/build.mock';
 import {USERS_MOCK, USERS_SCHEMA} from '@app/dev/users.mock';
 import {LOG_MOCK, LOG_SCHEMA} from '@app/dev/log.mock';
+import {TECH_MOCK, TECH_QUERY_EXT, TECH_SCHEMA} from '@app/dev/tech.mock';
 
 const schema = `
   scalar DateTime
+  scalar Date
+  scalar Color
+  scalar Object
   
   input PageRequest {
     offset: Int!
@@ -42,6 +46,7 @@ const schema = `
   ${BUILD_SCHEMA}
   ${USERS_SCHEMA}
   ${LOG_SCHEMA}
+  ${TECH_SCHEMA}
   
   schema {
     query: Query
@@ -54,11 +59,15 @@ const server = mockServer(schema, {
   ...BUILD_MOCK,
   ...USERS_MOCK,
   ...LOG_MOCK,
+  ...TECH_MOCK,
 
   DateTime: () => casual.moment.toISOString(),
+  Date: () => casual.moment.toISOString().substring(0, 10),
 
   Query: () => ({
-    health: () => 'OK'
+    health: () => 'OK',
+
+    ...TECH_QUERY_EXT
   })
 });
 

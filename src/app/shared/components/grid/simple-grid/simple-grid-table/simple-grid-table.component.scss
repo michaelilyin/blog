@@ -1,3 +1,5 @@
+@import "~sass/size";
+
 :host {
   display: flex;
   position: relative;
@@ -33,20 +35,50 @@
     height: calc(100% - 56px);
     overflow-y: auto;
     position: relative;
+    display: flex;
+    flex-direction: column;
 
     .mat-header-row {
-      position: sticky;
-      top: 0;
       background-color: white;
-      box-shadow: 0 3px 1px -2px rgba(0,0,0,.2), 0 2px 2px 0 rgba(0,0,0,.14), 0 1px 5px 0 rgba(0,0,0,.12);
       z-index: 1;
-    }
-  }
 
-  mat-paginator {
-    width: 100%;
-    align-self: flex-end;
-    box-shadow: 0 -3px 1px -2px rgba(0,0,0,.2), 0 -2px 2px 0 rgba(0,0,0,.14), 0 -1px 5px 0 rgba(0,0,0,.12);
-    z-index: 1;
+      @include md {
+        position: relative;
+      }
+      @include gt-md {
+        position: sticky;
+        top: 0;
+        box-shadow: 0 3px 1px -2px rgba(0,0,0,.2), 0 2px 2px 0 rgba(0,0,0,.14), 0 1px 5px 0 rgba(0,0,0,.12);
+      }
+    }
+
+    .paginator {
+      z-index: 1;
+      flex: 1;
+      display: flex;
+
+      @include md {
+        position: relative;
+      }
+      @include gt-md {
+        position: sticky;
+        bottom: 0;
+      }
+
+      mat-paginator {
+        width: 100%;
+        align-self: flex-end;
+
+        @include gt-md {
+          box-shadow: 0 -3px 1px -2px rgba(0,0,0,.2), 0 -2px 2px 0 rgba(0,0,0,.14), 0 -1px 5px 0 rgba(0,0,0,.12);
+        }
+
+        @include md {
+          border-top-width: 1px;
+          border-top-style: solid;
+          border-top-color: rgba(0,0,0,.12);
+        }
+      }
+    }
   }
 }
