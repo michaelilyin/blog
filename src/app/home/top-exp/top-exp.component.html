@@ -8,11 +8,15 @@
     <mat-list role="list">
       <mat-list-item *ngFor="let exp of exps" role="listitem">
         <h4 matLine>
-          <a [routerLink]="['skills', 'technologies', exp.spec.tech.id]">{{exp.spec.tech.title}}</a>
-          <mat-icon [matTooltip]="exp.days | duration">timelaps</mat-icon>
+          <a [routerLink]="['skills', 'technologies', exp.spec.tech.id]">
+            {{exp.spec.tech.title}}
+          </a>
         </h4>
         <p matLine>
-          <a [routerLink]="['skills', 'specifications', exp.spec.id]">{{exp.spec.title}}</a>
+          <a [routerLink]="['skills', 'specifications', exp.spec.id]"
+             [matTooltip]="exp.days | duration">
+            {{exp.spec.title}}
+          </a>
         </p>
       </mat-list-item>
     </mat-list>

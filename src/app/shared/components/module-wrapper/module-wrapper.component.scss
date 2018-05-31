@@ -13,7 +13,8 @@
 }
 
 :host {
-  display: block;
+  display: flex;
   overflow: hidden;
   height: 100%;
+  flex-direction: column;
 }
