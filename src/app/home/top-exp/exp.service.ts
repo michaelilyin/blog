@@ -27,7 +27,7 @@ export class ExpService {
       }
     `;
     const vars = {
-      count: 10
+      count: 5
     };
     this._topExp.next({
       loading: true

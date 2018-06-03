@@ -16,30 +16,30 @@
   .main-pane {
     display: flex;
 
-    @include gt-sm { flex: 0.6; }
+    @include gt-md { flex: 0.6; }
+    @include md { flex: 0.7; }
     @include lt-md { flex: 1; }
   }
 
   .secondary-pane {
     display: flex;
-    //flex-direction: row;
-    //flex-wrap: wrap;
+    flex-direction: row;
+    flex-wrap: wrap;
 
-    @include gt-sm { flex: 0.4; }
+    @include gt-md { flex: 0.4; }
+    @include md { flex: 0.3; }
     @include lt-md { flex: 1; }
 
     .card-small {
-      display: block;
-      float: left;
-      @include xl { width: 50% }
-      @include lg { width: 50% }
-      @include md { width: 100% }
-      @include sm { width: 50% }
-      @include xs { width: 100% }
+      @include xl { flex: 0.5; min-width: 48%; }
+      @include lg { flex: 0.5; min-width: 48%; }
+      @include md { flex: 1; min-width: 96% }
+      @include sm { flex: 0.5; min-width: 48%; }
+      @include xs { flex: 1; min-width: 96% }
     }
 
     .card-wide {
-      width: 100%;
+      flex: 1; min-width: 96%;
     }
   }
 }

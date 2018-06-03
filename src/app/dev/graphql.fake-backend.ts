@@ -8,7 +8,7 @@ import {
 } from '@angular/common/http';
 import {Observable} from 'rxjs/Observable';
 import {Injectable} from '@angular/core';
-import {MockList, mockServer} from 'graphql-tools';
+import {mockServer} from 'graphql-tools';
 import {delay, dematerialize, map, materialize, tap} from 'rxjs/operators';
 import {from} from 'rxjs';
 import {ExecutionResult} from 'graphql';
