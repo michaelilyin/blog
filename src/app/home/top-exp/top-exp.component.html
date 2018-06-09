@@ -1,24 +1,37 @@
-<mat-card>
-  <mat-card-header>
-    <mat-card-title>Топ 5 используемых технологий</mat-card-title>
-  </mat-card-header>
-  <mat-card-content>
-    <app-loading-shade [isLoad]="isLoad"></app-loading-shade>
+<app-list-chart-card
+  [listData]="exps"
+  [chartData]="chartData"
+  [isLoad]="isLoad"
+  [chartType]="'pie'"
+  (dataRequest)="load($event)"
+>
 
-    <mat-list role="list">
-      <mat-list-item *ngFor="let exp of exps" role="listitem">
-        <h4 matLine>
-          <a [routerLink]="['skills', 'technologies', exp.spec.tech.id]">
-            {{exp.spec.tech.title}}
-          </a>
-        </h4>
-        <p matLine>
-          <a [routerLink]="['skills', 'specifications', exp.spec.id]"
-             [matTooltip]="exp.days | duration">
-            {{exp.spec.title}}
-          </a>
-        </p>
-      </mat-list-item>
-    </mat-list>
-  </mat-card-content>
-</mat-card>
+  <ng-template #header let-count="count">
+    <span>Топ {{count}} используемых технологий</span>
+  </ng-template>
+
+  <ng-template #listItemHeader let-exp="item">
+    <span>
+      {{exp.spec.tech.title}}
+    </span>
+  </ng-template>
+
+  <ng-template #listItemText let-exp="item">
+    <a [routerLink]="['skills', 'specifications', exp.spec.id]"
+       [matTooltip]="exp.days | duration">
+      {{exp.spec.title}}
+    </a>
+  </ng-template>
+
+  <ng-template #chart let-data="data" let-size="size">
+    <ngx-charts-pie-chart [results]="data" [view]="size" [labels]="false" [doughnut]="false">
+      <ng-template #tooltipTemplate let-model="model">
+        <div class="chart-tooltip">
+          <span>{{model.name}}</span>
+          <span>{{model.value | duration}}</span>
+        </div>
+      </ng-template>
+    </ngx-charts-pie-chart>
+  </ng-template>
+
+</app-list-chart-card>

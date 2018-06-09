@@ -16,6 +16,7 @@ import { SimpleGridTableComponent } from './grid/simple-grid/simple-grid-table/s
 import { SimpleGridCardsComponent } from './grid/simple-grid/simple-grid-cards/simple-grid-cards.component';
 import { DialogColumnEditorComponent } from './grid/dialog-column-editor/dialog-column-editor.component';
 import { LoadingShadeComponent } from './loading-shade/loading-shade.component';
+import { ListChartCardComponent } from './list-chart-card/list-chart-card.component';
 
 @NgModule({
   imports: [
@@ -45,13 +46,15 @@ import { LoadingShadeComponent } from './loading-shade/loading-shade.component';
     SimpleGridTableComponent,
     SimpleGridCardsComponent,
     DialogColumnEditorComponent,
-    LoadingShadeComponent
+    LoadingShadeComponent,
+    ListChartCardComponent
   ],
   exports: [
     ModuleWrapperComponent,
     SideMenuComponent,
     SimpleGridComponent,
-    LoadingShadeComponent
+    LoadingShadeComponent,
+    ListChartCardComponent
   ],
   entryComponents: [
     DialogColumnEditorComponent

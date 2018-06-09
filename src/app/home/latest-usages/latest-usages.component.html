@@ -1,0 +1,24 @@
+<app-list-chart-card
+  [listData]="usage"
+  [isLoad]="isLoad"
+  [chartType]="'none'"
+  (dataRequest)="load($event)"
+>
+
+  <ng-template #header let-count="count">
+    <span>Последние {{count}} использованных технологий</span>
+  </ng-template>
+
+  <ng-template #listItemHeader let-us="item">
+    <span>
+      {{us.spec.tech.title}}
+    </span>
+  </ng-template>
+
+  <ng-template #listItemText let-us="item">
+    <a [routerLink]="['skills', 'specifications', us.spec.id]">
+      {{us.spec.title}}
+    </a>
+  </ng-template>
+
+</app-list-chart-card>

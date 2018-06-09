@@ -10,8 +10,6 @@ export const TECH_SCHEMA = `
     begin: DateTime!
     end: DateTime
     nda: Boolean!
-    
-    technologies: [TechUsage!]
   }
   
   type TechType {
@@ -33,6 +31,7 @@ export const TECH_SCHEMA = `
     title: String!
     description: String
     tech: Tech! 
+    notes: [UsageNote!]
   }
   
   type TechUsage {
@@ -72,6 +71,8 @@ export const TECH_SCHEMA = `
     topExperience(count: Int!): [Experience]!
     
     resentUsageNotes(count: Int!): [UsageNote]!
+    
+    lastUsage(count: Int!): [TechUsage]!
   }
 `;
 
@@ -81,6 +82,10 @@ export const TECH_MOCK = {
   TechSpec: () => ({
     title: () => casual.title,
     description: () => casual.populate_one_of([casual.description, null])
+  }),
+
+  TechUsage: () => ({
+
   }),
 
   Tech: () => ({
@@ -99,6 +104,10 @@ export const TECH_QUERY_EXT = {
     return new MockList([0, count]);
   },
   resentUsageNotes: (_, vars) => {
+    const count = vars.count;
+    return new MockList([0, count]);
+  },
+  lastUsage: (_, vars) => {
     const count = vars.count;
     return new MockList([0, count]);
   }

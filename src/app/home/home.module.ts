@@ -6,7 +6,17 @@ import {CommonModule} from '@angular/common';
 import {createTranslationConfig, TRANSLATION_LOCATION} from '@app-shared/translation/translation.factory';
 import {SharedModule} from '@app-shared/shared.module';
 import {TopExpComponent} from '@app-home/top-exp/top-exp.component';
-import {MatCardModule, MatGridListModule, MatIconModule, MatListModule, MatTooltipModule} from '@angular/material';
+import {
+  MatButtonModule,
+  MatCardModule,
+  MatGridListModule,
+  MatIconModule,
+  MatListModule,
+  MatTooltipModule
+} from '@angular/material';
+import {LatestUsagesComponent} from '@app-home/latest-usages/latest-usages.component';
+import {NgxChartsModule} from '@swimlane/ngx-charts';
+import {ScrollbarModule} from 'ngx-scrollbar';
 
 @NgModule({
   imports: [
@@ -18,11 +28,16 @@ import {MatCardModule, MatGridListModule, MatIconModule, MatListModule, MatToolt
     MatIconModule,
     MatGridListModule,
     MatListModule,
-    MatTooltipModule
+    MatTooltipModule,
+    MatButtonModule,
+
+    NgxChartsModule,
+    ScrollbarModule
   ],
   declarations: [
     HomeComponent,
-    TopExpComponent
+    TopExpComponent,
+    LatestUsagesComponent
   ],
   providers: [
     {provide: TRANSLATION_LOCATION, useValue: 'home'}

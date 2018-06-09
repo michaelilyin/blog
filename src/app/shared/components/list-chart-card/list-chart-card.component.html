@@ -1,0 +1,44 @@
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>
+      <ng-container [ngTemplateOutlet]="header" [ngTemplateOutletContext]="{'count': count}"></ng-container>
+    </mat-card-title>
+    <div class="spacer"></div>
+    <button mat-icon-button *ngIf="hasChart" (click)="switchMode()">
+      <mat-icon>{{icon}}</mat-icon>
+    </button>
+  </mat-card-header>
+  <mat-card-content>
+    <app-loading-shade [isLoad]="isLoad"></app-loading-shade>
+
+    <ng-container [ngSwitch]="mode">
+      <div *ngSwitchCase="'list'" class="list-parent">
+        <mat-list role="list">
+          <mat-list-item *ngFor="let item of listData" role="listitem">
+            <h4 mat-line>
+              <ng-container [ngTemplateOutlet]="listItemHeader"
+                            [ngTemplateOutletContext]="{'item': item}"></ng-container>
+            </h4>
+            <p mat-line>
+              <ng-container [ngTemplateOutlet]="listItemText"
+                            [ngTemplateOutletContext]="{'item': item}"></ng-container>
+            </p>
+          </mat-list-item>
+        </mat-list>
+      </div>
+
+      <div *ngSwitchCase="'chart'" class="chart-parent">
+        <ng-container [ngTemplateOutlet]="chart"
+                      [ngTemplateOutletContext]="{'data': chartData, 'size': [200, 200]}"></ng-container>
+      </div>
+    </ng-container>
+
+    <div class="spacer"></div>
+    <mat-card-actions class="mat-card-footer pad">
+      <button class="more-button" mat-button (click)="loadMore()">
+        <span translate>COMMON.LABELS.LOAD-MORE</span>
+      </button>
+    </mat-card-actions>
+  </mat-card-content>
+  <ng-content></ng-content>
+</mat-card>
