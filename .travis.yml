@@ -6,7 +6,7 @@ addons:
 
 language: node_js
 node_js:
-  - '6.9'
+  - '8.9.1'
 
 env:
   global:
@@ -30,7 +30,7 @@ before_script:
   - npm list -g @angular/cli --depth=0 || npm install -g @angular/cli
 
 script:
-  - 'npm run lint && (([ "$TRAVIS_BRANCH" = "master" ] && npm run build:prod) || ([ "$TRAVIS_BRANCH" != "master" ] && npm run build))'
+  - '(([ "$TRAVIS_BRANCH" = "master" ] && npm run build:prod) || ([ "$TRAVIS_BRANCH" != "master" ] && npm run build))'
 
 after_success:
 #  - bash <(curl -s https://codecov.io/bash)
