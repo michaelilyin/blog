@@ -17,6 +17,7 @@ import {
 import {LatestUsagesComponent} from '@app-home/latest-usages/latest-usages.component';
 import {NgxChartsModule} from '@swimlane/ngx-charts';
 import {ScrollbarModule} from 'ngx-scrollbar';
+import {ResentUsageNotesComponent} from '@app-home/resent-usage-notes/resent-usage-notes.component';
 
 @NgModule({
   imports: [
@@ -37,7 +38,8 @@ import {ScrollbarModule} from 'ngx-scrollbar';
   declarations: [
     HomeComponent,
     TopExpComponent,
-    LatestUsagesComponent
+    LatestUsagesComponent,
+    ResentUsageNotesComponent
   ],
   providers: [
     {provide: TRANSLATION_LOCATION, useValue: 'home'}

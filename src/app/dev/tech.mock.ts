@@ -44,8 +44,10 @@ export const TECH_SCHEMA = `
   
   type UsageNote {
     id: ID!
+    description: String!
     note: String!
-    tech: Tech!
+    format: String!
+    spec: TechSpec!
     date: DateTime!
   }
   
@@ -70,9 +72,9 @@ export const TECH_SCHEMA = `
     
     topExperience(count: Int!): [Experience]!
     
-    resentUsageNotes(count: Int!): [UsageNote]!
+    recentUsageNotes(count: Int!): [UsageNote]!
     
-    lastUsage(count: Int!): [TechUsage]!
+    lastUsages(count: Int!): [TechUsage]!
   }
 `;
 
@@ -95,6 +97,12 @@ export const TECH_MOCK = {
 
   Experience: () => ({
     days: () => casual.integer(10, 1000)
+  }),
+
+  UsageNote: () => ({
+    description: () => casual.text.substring(0, 256),
+    note: () => casual.text,
+    format: () => 'text'
   })
 };
 
@@ -103,11 +111,11 @@ export const TECH_QUERY_EXT = {
     const count = vars.count;
     return new MockList([0, count]);
   },
-  resentUsageNotes: (_, vars) => {
+  recentUsageNotes: (_, vars) => {
     const count = vars.count;
     return new MockList([0, count]);
   },
-  lastUsage: (_, vars) => {
+  lastUsages: (_, vars) => {
     const count = vars.count;
     return new MockList([0, count]);
   }

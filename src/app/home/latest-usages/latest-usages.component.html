@@ -6,7 +6,7 @@
 >
 
   <ng-template #header let-count="count">
-    <span>Последние {{count}} использованных технологий</span>
+    <span translate [translateParams]="{count: count}">HOME.WIDGETS.LAST-USAGES</span>
   </ng-template>
 
   <ng-template #listItemHeader let-us="item">

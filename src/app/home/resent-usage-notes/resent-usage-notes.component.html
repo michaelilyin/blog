@@ -1,0 +1,24 @@
+<app-list-chart-card
+  [listData]="notes"
+  [isLoad]="isLoad"
+  [chartType]="'none'"
+  (dataRequest)="load($event)"
+>
+
+  <ng-template #header let-count="count">
+    <span translate [translateParams]="{count: count}">HOME.WIDGETS.RECENT-NOTES</span>
+  </ng-template>
+
+  <ng-template #listItemHeader let-note="item">
+    <span>
+      {{note.spec.tech.title}}, {{note.date | date:'mediumDate'}}
+    </span>
+  </ng-template>
+
+  <ng-template #listItemText let-note="item">
+    <span>
+     {{note.description}}
+    </span>
+  </ng-template>
+
+</app-list-chart-card>

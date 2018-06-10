@@ -3,7 +3,7 @@ import {GQLServive} from '@app-shared/api/gql.service';
 import {Observable} from 'rxjs/Observable';
 import {ServiceData} from '@app-shared/models/service-data.model';
 import {ReplaySubject} from 'rxjs/ReplaySubject';
-import {LastUsageResponse, SpecUsage} from '@app-shared/api/model/tech.model';
+import {LastUsageResponse, RecentUsageNotesResponse, SpecUsage, UsageNote} from '@app-shared/api/model/tech.model';
 import {Subscription} from 'rxjs/Subscription';
 import {unsubscribe} from '@app-shared/utils/rxjs';
 
@@ -12,17 +12,18 @@ export class UsageService implements OnDestroy {
 
   public count = new ReplaySubject<number>(1);
 
-  private _latestUsage = new ReplaySubject<ServiceData<SpecUsage[]>>(1);
+  private _recentUsageNotes = new ReplaySubject<ServiceData<UsageNote[]>>(1);
 
   private paramsSub: Subscription;
 
   constructor(private gql: GQLServive) {
     this.paramsSub = this.count.subscribe(count => {
       const topExp = `
-      query lastUsageRequest($count: Int!) {
-        lastUsages(count: $count) {
-          begin
-          end
+      query recentUsageNotesRequest($count: Int!) {
+        recentUsageNotes(count: $count) {
+          id
+          description
+          date
           spec {
             id
             title
@@ -37,13 +38,13 @@ export class UsageService implements OnDestroy {
       const vars = {
         count: count
       };
-      this._latestUsage.next({
+      this._recentUsageNotes.next({
         loading: true
       });
-      gql.query<LastUsageResponse>(topExp, vars).subscribe(res => {
-        this._latestUsage.next({
+      gql.query<RecentUsageNotesResponse>(topExp, vars).subscribe(res => {
+        this._recentUsageNotes.next({
           loading: false,
-          data: res.lastUsages
+          data: res.recentUsageNotes
         })
       });
     });
@@ -54,11 +55,11 @@ export class UsageService implements OnDestroy {
     this.paramsSub = undefined;
   }
 
-  public get latestUsage(): Observable<ServiceData<SpecUsage[]>> { return this._latestUsage; }
+  public get recentUsageNotes(): Observable<ServiceData<UsageNote[]>> { return this._recentUsageNotes; }
 }
 
 export const UsageServiceProvider: Provider = {
-    provide: UsageService,
-    useClass: UsageService
+  provide: UsageService,
+  useClass: UsageService
 };
 

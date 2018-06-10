@@ -1,9 +1,9 @@
 import {BrowserModule} from '@angular/platform-browser';
-import {NgModule} from '@angular/core';
+import {LOCALE_ID, NgModule} from '@angular/core';
 
 import {AppComponent} from '@app/app.component';
 import {createTranslationConfig, TRANSLATION_LOCATION} from '@app-shared/translation/translation.factory';
-import {TranslateModule} from '@ngx-translate/core';
+import {TranslateModule, TranslateService} from '@ngx-translate/core';
 import {AppRoutingModule} from '@app/app.routing.module';
 import {NgProgressModule} from 'ngx-progressbar';
 import {SharedModule} from '@app-shared/shared.module';
@@ -17,6 +17,10 @@ import {LoggerModule as NGXLoggerModule, NGXLogger, NgxLoggerLevel} from 'ngx-lo
 import {NGXLoggerHttpServiceProvider} from '@app/logging/remote-logger.service';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {environment} from '@app-environment/environment';
+
+function localeFactory(translationService: TranslateService): string {
+  return translationService.getBrowserCultureLang();
+}
 
 @NgModule({
   declarations: [
@@ -45,7 +49,14 @@ import {environment} from '@app-environment/environment';
     {provide: TRANSLATION_LOCATION, useValue: ''},
     ...(environment.providers),
     NGXLogger,
-    NGXLoggerHttpServiceProvider
+    NGXLoggerHttpServiceProvider,
+    {
+      provide: LOCALE_ID,
+      useFactory: localeFactory,
+      deps: [
+        TranslateService
+      ]
+    }
   ],
   bootstrap: [AppComponent]
 })

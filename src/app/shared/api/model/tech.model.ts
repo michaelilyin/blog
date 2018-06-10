@@ -1,10 +1,10 @@
 export interface Project {
-  id: string
-  title: string
-  description: string
-  begin: Date
-  end: Date
-  nda: boolean
+  id: string;
+  title: string;
+  description: string;
+  begin: Date;
+  end: Date;
+  nda: boolean;
 }
 
 export interface Tech {
@@ -22,18 +22,20 @@ export interface TechSpec {
 }
 
 export interface UsageNote {
-  id: string
-  note: string
-  tech: Tech
-  date: Date
+  id: string;
+  description: string;
+  note: string;
+  format: string;
+  spec: TechSpec;
+  date: Date;
 }
 
 export interface SpecUsage {
-  spec: TechSpec
-  project: Project
-  begin: Date
-  end: Date
-  notes: UsageNote[]
+  spec: TechSpec;
+  project: Project;
+  begin: Date;
+  end: Date;
+  notes: UsageNote[];
 }
 
 export interface Experience {
@@ -46,5 +48,9 @@ export interface TopExperienceResponse {
 }
 
 export interface LastUsageResponse {
-  lastUsage: SpecUsage[];
+  lastUsages: SpecUsage[];
+}
+
+export interface RecentUsageNotesResponse {
+  recentUsageNotes: UsageNote[];
 }

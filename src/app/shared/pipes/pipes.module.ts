@@ -6,7 +6,11 @@ import {DurationPipe} from '@app-pipes/duration.pipe';
   imports: [
     CommonModule
   ],
-  declarations: [DurationPipe],
-  exports: [DurationPipe]
+  declarations: [
+    DurationPipe
+  ],
+  exports: [
+    DurationPipe
+  ]
 })
 export class PipesModule { }

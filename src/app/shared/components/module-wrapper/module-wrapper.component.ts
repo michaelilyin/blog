@@ -34,7 +34,7 @@ export class ModuleWrapperComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.translateService.setDefaultLang(environment.defaultLang);
-    this.translateService.use(this.translateService.getBrowserLang());
+    this.translateService.use(this.translateService.getBrowserCultureLang());
     this.translateService.getTranslation(this.translateService.currentLang)
       .pipe(
         first(),
