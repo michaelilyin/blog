@@ -21,9 +21,21 @@ export class ModuleTranslationLoader implements TranslateLoader {
     return zip(global, module)
       .pipe(
         map((val: any[]) => {
-          return Object.assign(val[0], val[1]);
+          return this.patchObject(val[0], val[1]);
         })
       );
+  }
+
+  private patchObject(target: object, patch: object) {
+    const res = Object.assign({}, target);
+    for (const key of Object.keys(patch)) {
+      if (res[key] !== undefined && typeof res[key] === 'object') {
+        res[key] = this.patchObject(res[key], patch[key]);
+      } else {
+        res[key] = patch[key];
+      }
+    }
+    return res;
   }
 }
 

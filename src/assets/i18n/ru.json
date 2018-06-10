@@ -39,8 +39,5 @@
         "EMAIL": "E-mail"
       }
     }
-  },
-  "DATES": {
-    "YEAR": "{{test '123'}}"
   }
 }

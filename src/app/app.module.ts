@@ -17,6 +17,7 @@ import {LoggerModule as NGXLoggerModule, NGXLogger, NgxLoggerLevel} from 'ngx-lo
 import {NGXLoggerHttpServiceProvider} from '@app/logging/remote-logger.service';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {environment} from '@app-environment/environment';
+import {ToastrModule} from 'ngx-toastr';
 
 export function localeFactory(translationService: TranslateService): string {
   return translationService.getBrowserCultureLang();
@@ -43,6 +44,11 @@ export function localeFactory(translationService: TranslateService): string {
       level: NgxLoggerLevel.TRACE,
       serverLogLevel: NgxLoggerLevel.WARN,
       serverLoggingUrl: 'graphql'
+    }),
+    ToastrModule.forRoot({
+      progressBar: true,
+      progressAnimation: 'increasing',
+      newestOnTop: true
     })
   ],
   providers: [
