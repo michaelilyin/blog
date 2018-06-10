@@ -24,10 +24,9 @@ export class ErrorService implements ErrorHandler {
       let mess = error.message;
       if (mess) {
         mess = mess.substring(0, mess.indexOf('\n'));
-      } else {
-        mess = JSON.stringify(error);
+        toastr.error(mess, 'Error occurred!');
       }
-      toastr.error(mess, 'Error occured!');
+      toastr.error(JSON.stringify(error), 'Error occurred!');
     }
   }
 
