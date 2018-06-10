@@ -13,20 +13,21 @@ export class ErrorService implements ErrorHandler {
   handleError(error: any): void {
     const logger = this.logger;
     const toastr = this.toastr;
-    if (logger) {
-      logger.error('Unhandled error', error);
-      console.info('Unhandled error', error);
-    } else {
-      console.error('Critical error! Application fallback was\'t initialized!');
-      console.error(error);
-    }
     if (toastr) {
       let mess = error.message;
       if (mess) {
         mess = mess.substring(0, mess.indexOf('\n'));
         toastr.error(mess, 'Error occurred!');
       }
-      toastr.error(JSON.stringify(error), 'Error occurred!');
+      toastr.error(JSON.stringify(error), 'Error occurred (JSON)!');
+    }
+
+    if (logger) {
+      logger.error('Unhandled error', error);
+      console.info('Unhandled error', error);
+    } else {
+      console.error('Critical error! Application fallback was\'t initialized!');
+      console.error(error);
     }
   }
 
