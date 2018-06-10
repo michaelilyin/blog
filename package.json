@@ -12,6 +12,8 @@
     "e2e": "node_modules/.bin/ng e2e"
   },
   "private": true,
+  "pre-commit": [
+  ],
   "dependencies": {
     "@angular/animations": "6.0.3",
     "@angular/cdk": "6.2.0",
@@ -63,6 +65,7 @@
     "karma-coverage-istanbul-reporter": "^1.2.1",
     "karma-jasmine": "~1.1.0",
     "karma-jasmine-html-reporter": "^0.2.2",
+    "pre-commit": "^1.2.2",
     "protractor": "~5.1.2",
     "ts-node": "5.0.1",
     "tslint": "~5.9.1",
