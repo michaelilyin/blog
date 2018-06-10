@@ -18,7 +18,7 @@ import {NGXLoggerHttpServiceProvider} from '@app/logging/remote-logger.service';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {environment} from '@app-environment/environment';
 
-function localeFactory(translationService: TranslateService): string {
+export function localeFactory(translationService: TranslateService): string {
   return translationService.getBrowserCultureLang();
 }
 
