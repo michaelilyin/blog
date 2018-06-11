@@ -1,6 +1,13 @@
 {
   "SKILLS": {
     "UNDER-DEV": "Страница навыков находится в разработке",
+    "TITLE": {
+      "ACTIVE-PUBLIC-PROJECTS": "Активные открытые проекты"
+    },
+    "BTN": {
+      "ALL-PROJECTS": "Все проекты",
+      "ADD-PROJECT": "Добавить проект"
+    },
     "TABS": {
       "TIMELINE": "Временная шкала",
       "LIST": "Список"

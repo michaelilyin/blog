@@ -1,0 +1,13 @@
+.expansion-card-row {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+
+  mat-card {
+    margin: 5px;
+    display: flex;
+    height: 120px;
+    width: 120px;
+  }
+}

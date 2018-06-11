@@ -1,3 +1,46 @@
 <app-module-wrapper>
+  <ng-template #wrapperContent>
+    <div class="scrollable-y">
+      <mat-accordion>
+        <mat-expansion-panel [expanded]="true">
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              <span translate>SKILLS.TITLE.ACTIVE-PUBLIC-PROJECTS</span>
+            </mat-panel-title>
+          </mat-expansion-panel-header>
 
+          <div class="expansion-card-row">
+            <mat-card>12</mat-card>
+            <mat-card>12</mat-card>
+            <mat-card>12</mat-card>
+            <mat-card>12</mat-card>
+            <mat-card>12</mat-card>
+            <mat-card>12</mat-card>
+            <mat-card>12</mat-card>
+            <mat-card>12</mat-card>
+            <mat-card>12</mat-card>
+          </div>
+
+          <mat-action-row>
+            <button mat-button><span translate>SKILLS.BTN.ALL-PROJECTS</span></button>
+            <button mat-button><span translate>SKILLS.BTN.ADD-PROJECT</span></button>
+          </mat-action-row>
+        </mat-expansion-panel>
+
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              <span translate>SKILLS.TITLE.ACTIVE-PUBLIC-PROJECTS</span>
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+
+          <p>test</p>
+
+          <mat-action-row>
+            <button mat-button>Click me</button>
+          </mat-action-row>
+        </mat-expansion-panel>
+      </mat-accordion>
+    </div>
+  </ng-template>
 </app-module-wrapper>

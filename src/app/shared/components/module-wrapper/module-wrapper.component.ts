@@ -1,4 +1,4 @@
-import {Component, Inject, Input, OnDestroy, OnInit} from '@angular/core';
+import {Component, ContentChild, Inject, Input, OnDestroy, OnInit, TemplateRef} from '@angular/core';
 import {TranslateService} from '@ngx-translate/core';
 import {environment} from '@app-environment/environment';
 import {catchError, filter, first} from 'rxjs/operators';
@@ -26,6 +26,9 @@ export class ModuleWrapperComponent implements OnInit, OnDestroy {
 
   @Input('menu')
   public sideMenu: SideMenuGroup[];
+
+  @ContentChild('wrapperContent')
+  public wrapperContent: TemplateRef<any>;
 
   constructor(private translateService: TranslateService,
               @Inject(TRANSLATION_LOCATION) private translationLocation: string,

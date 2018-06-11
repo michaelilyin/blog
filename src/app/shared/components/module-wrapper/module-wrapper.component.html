@@ -27,4 +27,7 @@
 
 <ng-template #content>
   <ng-content></ng-content>
+  <ng-container *ngIf="wrapperContent">
+    <ng-container [ngTemplateOutlet]="wrapperContent"></ng-container>
+  </ng-container>
 </ng-template>

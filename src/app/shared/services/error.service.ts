@@ -14,12 +14,14 @@ export class ErrorService implements ErrorHandler {
     const logger = this.logger;
     const toastr = this.toastr;
     if (toastr) {
-      let mess = error.message;
+      let mess = error.message ? error.message : error.toString();
       if (mess) {
-        mess = mess.substring(0, mess.indexOf('\n'));
+        const line = mess.indexOf('\n');
+        if (line > 0) {
+          mess = mess.substring(0,);
+        }
         toastr.error(mess, 'Error occurred!');
       }
-      toastr.error(JSON.stringify(error), 'Error occurred (JSON)!');
     }
 
     if (logger) {
