@@ -11,6 +11,7 @@ export class ErrorService implements ErrorHandler {
   constructor(private injector: Injector) { }
 
   handleError(error: any): void {
+    // FIXME: Add real error place parser
     const logger = this.logger;
     const toastr = this.toastr;
     if (toastr) {

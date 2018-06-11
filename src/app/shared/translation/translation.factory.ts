@@ -40,6 +40,7 @@ export class ModuleTranslationLoader implements TranslateLoader {
 }
 
 export function translationLoaderFactory(http: HttpClient, location: string) {
+  // FIXME: Add culture support
   if (location && location !== '') {
     return new ModuleTranslationLoader(http, `./assets/i18n/${location}/`, '.json');
   } else {
