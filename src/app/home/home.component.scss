@@ -1,45 +1,56 @@
 @import "~sass/size";
 
+@mixin gravatar($size) {
+  background-image: url("https://gravatar.com/userimage/48307110/6987e3c43338eff8cee15af66ccfa2fd.jpeg?size=" + $size);
+}
+
 .home-content {
   overflow-y: auto;
   height: 100%;
-  display: flex;
   padding: 10px;
 
-  @include lt-md {
-    flex-direction: column;
-  }
-  @include gt-sm {
-    flex-direction: row;
-  }
+  .intro {
+    width: 820px;
+    height: 380px;
+    padding: 10px;
 
-  .main-pane {
-    display: flex;
+    .information {
+      .text {
+        user-select: none;
+        font-size: 2.7rem;
+        font-weight: bold;
+      }
 
-    @include gt-md { flex: 0.6; }
-    @include md { flex: 0.7; }
-    @include lt-md { flex: 1; }
-  }
+      .information-divider {
+        width: 100%;
+        margin: 10px;
+      }
 
-  .secondary-pane {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-
-    @include gt-md { flex: 0.4; }
-    @include md { flex: 0.3; }
-    @include lt-md { flex: 1; }
-
-    .card-small {
-      @include xl { flex: 0.5; min-width: 48%; }
-      @include lg { flex: 0.5; min-width: 48%; }
-      @include md { flex: 1; min-width: 96% }
-      @include sm { flex: 0.5; min-width: 48%; }
-      @include xs { flex: 1; min-width: 96% }
+      .link {
+        border-radius: 20px;
+        margin: 5px;
+      }
     }
 
-    .card-wide {
-      flex: 1; min-width: 96%;
+    .avatar {
+      $avatar-size-int: 300;
+      $avatar-size: $avatar-size-int * 1px;
+      $avatar-radius: $avatar-size / 2;
+      filter: drop-shadow(0 2px 2px rgba(10, 16, 20, .24));
+
+      height: $avatar-size;
+      width: $avatar-size;
+      border-radius: $avatar-radius;
+      overflow: hidden;
+      @include gravatar($avatar-size-int);
     }
   }
+
+  .announcement {
+    > mat-card {
+      width: 820px;
+      height: 100px;
+    }
+  }
+
 }

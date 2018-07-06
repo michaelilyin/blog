@@ -17,6 +17,8 @@ import { SimpleGridCardsComponent } from './grid/simple-grid/simple-grid-cards/s
 import { DialogColumnEditorComponent } from './grid/dialog-column-editor/dialog-column-editor.component';
 import { LoadingShadeComponent } from './loading-shade/loading-shade.component';
 import { ListChartCardComponent } from './list-chart-card/list-chart-card.component';
+import {ContactsComponent} from '@app-components/contacts/contacts.component';
+import {FlexLayoutModule} from '@angular/flex-layout';
 
 @NgModule({
   imports: [
@@ -37,7 +39,8 @@ import { ListChartCardComponent } from './list-chart-card/list-chart-card.compon
     MatDividerModule,
     MatSelectModule,
     MatMenuModule,
-    MatDialogModule
+    MatDialogModule,
+    FlexLayoutModule
   ],
   declarations: [
     ModuleWrapperComponent,
@@ -47,17 +50,20 @@ import { ListChartCardComponent } from './list-chart-card/list-chart-card.compon
     SimpleGridCardsComponent,
     DialogColumnEditorComponent,
     LoadingShadeComponent,
-    ListChartCardComponent
+    ListChartCardComponent,
+    ContactsComponent
   ],
   exports: [
     ModuleWrapperComponent,
     SideMenuComponent,
     SimpleGridComponent,
     LoadingShadeComponent,
-    ListChartCardComponent
+    ListChartCardComponent,
+    ContactsComponent
   ],
   entryComponents: [
-    DialogColumnEditorComponent
+    DialogColumnEditorComponent,
+    ContactsComponent
   ]
 })
 export class ComponentsModule {

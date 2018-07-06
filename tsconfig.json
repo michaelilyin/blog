@@ -19,6 +19,9 @@
       "esnext"
     ],
     "paths": {
+      "@app-core/*": [
+        "app/core/*"
+      ],
       "@app-shared/*": [
         "app/shared/*"
       ],

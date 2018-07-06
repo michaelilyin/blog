@@ -9,6 +9,7 @@ import {TitleServiceProvider} from '@app-shared/services/title.service';
 import {PipesModule} from '@app-shared/pipes/pipes.module';
 import {NumeralsTranslateServiceProvider} from '@app-shared/services/numerals-translate.service';
 import {ErrorServiceProvider} from '@app-shared/services/error.service';
+import {FlexLayoutModule} from '@angular/flex-layout';
 
 @NgModule({
   imports: [
@@ -16,12 +17,14 @@ import {ErrorServiceProvider} from '@app-shared/services/error.service';
     HttpClientModule,
     MatIconModule,
     ComponentsModule,
-    PipesModule
+    PipesModule,
+    FlexLayoutModule
   ],
   exports: [
     MatIconModule,
     ComponentsModule,
-    PipesModule
+    PipesModule,
+    FlexLayoutModule
   ],
   declarations: []
 })

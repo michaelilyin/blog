@@ -1,0 +1,59 @@
+.social {
+  $social-size: 38px;
+  $social-radius: $social-size / 2;
+
+  //&-block {
+  //  background-color: rgba(0, 0, 0, .6);
+  //  width: 100%;
+  //  padding: 5px;
+  //}
+
+  &-row {
+    > a {
+      user-select: none;
+      margin: 3px;
+
+      > .twitter {
+        background-image: url("/assets/icons/social/twitter.png");
+      }
+
+      > .github {
+        background-image: url("/assets/icons/social/github.svg");
+      }
+    }
+  }
+
+  &-circle {
+    height: $social-size;
+    width: $social-size;
+    border-radius: $social-radius;
+    overflow: hidden;
+
+    > div {
+      height: $social-size;
+      width: $social-size;
+      background-size: $social-size;
+      border-radius: $social-radius;
+      filter: drop-shadow(0 2px 2px rgba(10, 16, 20, .24));
+    }
+  }
+}
+
+//.avatar {
+//  .social-block {
+//    transition: transform .2s, opacity .2s;
+//  }
+//
+//  &:not(:hover) {
+//    .social-block {
+//      transform: translateY(100px);
+//      opacity: 0;
+//    }
+//  }
+//
+//  &:hover {
+//    .social-block {
+//      transform: translateY(0);
+//    }
+//  }
+//}

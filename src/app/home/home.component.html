@@ -1,11 +1,43 @@
 <app-module-wrapper>
-  <div class="home-content">
-    <div class="main-pane"></div>
+  <ng-template #wrapperContent>
+    <div class="home-content"
+         fxLayout="column"
+         fxLayoutAlign="start center">
+      <div class="intro"
+           fxLayout="row"
+           fxLayoutAlign="space-between center">
+        <div class="avatar"></div>
+        <div class="information"
+             fxLayout="column"
+             fxLayoutAlign="start center">
+          <div class="text">
+            Hello! <br/>
+            My name is Michael. <br/>
+            I'm software developer.
+          </div>
+          <mat-divider class="information-divider"></mat-divider>
+          <div fxLayout="row"
+               fxLayoutAlign="center center">
+            <a mat-raised-button
+               class="link">
+              About me
+            </a>
+            <a mat-raised-button
+               class="link"
+               (click)="openContacts()">
+              Contacts
+            </a>
+          </div>
+        </div>
+      </div>
 
-    <div class="secondary-pane">
-      <app-top-exp class="card-padding card-small"></app-top-exp>
-      <app-latest-usages class="card-padding card-small"></app-latest-usages>
-      <app-resent-usage-notes class="card-padding card-wide"></app-resent-usage-notes>
+      <div class="announcement">
+        <mat-card></mat-card>
+      </div>
+
+      <div class="content">
+
+      </div>
     </div>
-  </div>
+  </ng-template>
 </app-module-wrapper>

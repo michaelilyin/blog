@@ -7,6 +7,7 @@ import {createTranslationConfig, TRANSLATION_LOCATION} from '@app-shared/transla
 import {SharedModule} from '@app-shared/shared.module';
 import {TopExpComponent} from '@app-home/top-exp/top-exp.component';
 import {
+  MatBottomSheetModule,
   MatButtonModule,
   MatCardModule,
   MatGridListModule,
@@ -18,6 +19,7 @@ import {LatestUsagesComponent} from '@app-home/latest-usages/latest-usages.compo
 import {NgxChartsModule} from '@swimlane/ngx-charts';
 import {ScrollbarModule} from 'ngx-scrollbar';
 import {ResentUsageNotesComponent} from '@app-home/resent-usage-notes/resent-usage-notes.component';
+import {FlexLayoutModule} from '@angular/flex-layout';
 
 @NgModule({
   imports: [
@@ -25,12 +27,14 @@ import {ResentUsageNotesComponent} from '@app-home/resent-usage-notes/resent-usa
     CommonModule,
     SharedModule,
     TranslateModule.forChild(createTranslationConfig()),
+
     MatCardModule,
     MatIconModule,
     MatGridListModule,
     MatListModule,
     MatTooltipModule,
     MatButtonModule,
+    MatBottomSheetModule,
 
     NgxChartsModule,
     ScrollbarModule
