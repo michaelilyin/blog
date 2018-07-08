@@ -5,27 +5,29 @@
          fxLayoutAlign="start center">
       <div class="intro"
            fxLayout="row"
+           fxLayout.lt-sm="column"
            fxLayoutAlign="space-between center">
         <div class="avatar"></div>
         <div class="information"
              fxLayout="column"
              fxLayoutAlign="start center">
-          <div class="text">
-            Hello! <br/>
-            My name is Michael. <br/>
-            I'm software developer.
+          <div fxLayout="column"
+               class="text">
+            <span translate>HOME.INTRO.HELLO</span>
+            <span translate>HOME.INTRO.HEADER</span>
+            <span translate>HOME.INTRO.SUB-HEADER</span>
           </div>
           <mat-divider class="information-divider"></mat-divider>
           <div fxLayout="row"
                fxLayoutAlign="center center">
             <a mat-raised-button
                class="link">
-              About me
+              <span translate>HOME.BUTTONS.ABOUT-ME</span>
             </a>
             <a mat-raised-button
                class="link"
                (click)="openContacts()">
-              Contacts
+              <span translate>HOME.BUTTONS.CONTACTS</span>
             </a>
           </div>
         </div>

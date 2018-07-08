@@ -1,27 +1,33 @@
 <mat-nav-list>
   <h3 matSubheader>
-    <span matLine>На текущий момент доступен контакт только через форму обратной связи</span>
+    <span matLine
+          translate>
+      SHARED.FEEDBACK.FORM-NOTICE
+    </span>
     <mat-icon style="margin-left: 10px">info</mat-icon>
   </h3>
   <mat-list-item>
     <a matLine
        routerLink="/feedback"
-       (click)="close()">Перейти к форме обратной связи</a>
+       (click)="close()">
+      <span translate>SHARED.FEEDBACK.FORM</span>
+    </a>
   </mat-list-item>
 </mat-nav-list>
 <mat-list>
   <mat-list-item>
-    <span style="margin-right: 10px">
-      Профили в соцсетях:
+    <span style="margin-right: 10px"
+          translate>
+      SHARED.FEEDBACK.SOCIAL-PROFILES
     </span>
     <div fxLayout="row"
          class="social-row">
-      <a href="https://twitter.com/michael_ilyin"
-         target="_blank"
-         class="social-circle"
-         (click)="close()">
-        <div class="twitter"></div>
-      </a>
+      <!--<a href="https://twitter.com/michael_ilyin"-->
+         <!--target="_blank"-->
+         <!--class="social-circle"-->
+         <!--(click)="close()">-->
+        <!--<div class="twitter"></div>-->
+      <!--</a>-->
       <a href="https://github.com/michaelilyin"
          target="_blank"
          class="social-circle"

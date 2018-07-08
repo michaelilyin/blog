@@ -28,5 +28,12 @@
   },
   "DATES": {
     "YEAR": "{{test '123'}}"
+  },
+  "SHARED": {
+    "FEEDBACK": {
+      "FORM-NOTICE": "At the moment any contact with me is possible only though feedback form",
+      "FORM": "Open feedback form",
+      "SOCIAL-PROFILES": "Social profiles:"
+    }
   }
 }

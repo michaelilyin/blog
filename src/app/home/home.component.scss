@@ -1,7 +1,24 @@
 @import "~sass/size";
+@import "~@angular/material/theming";
 
 @mixin gravatar($size) {
   background-image: url("https://gravatar.com/userimage/48307110/6987e3c43338eff8cee15af66ccfa2fd.jpeg?size=" + $size);
+}
+
+@mixin avatar($size) {
+  $avatar-size-int: $size;
+  $avatar-size: $avatar-size-int * 1px;
+  $avatar-radius: $avatar-size / 2;
+  height: $avatar-size;
+  width: $avatar-size;
+  border-radius: $avatar-radius;
+  @include gravatar($avatar-size-int);
+}
+
+@mixin home-width {
+  @include gt-sm { width: 820px; }
+  @include sm { width: 570px; }
+  @include xs { width: 400px; }
 }
 
 .home-content {
@@ -10,14 +27,27 @@
   padding: 10px;
 
   .intro {
-    width: 820px;
-    height: 380px;
+    @include home-width;
+    @include gt-sm {
+      height: 380px;
+    }
+    @include sm {
+      height: 240px;
+    }
+    @include xs {
+      height: 360px;
+    }
     padding: 10px;
 
     .information {
       .text {
+        @include lt-md {
+          font-size: 2.0rem;
+        }
+        @include gt-sm {
+          font-size: 2.7rem;
+        }
         user-select: none;
-        font-size: 2.7rem;
         font-weight: bold;
       }
 
@@ -33,23 +63,20 @@
     }
 
     .avatar {
-      $avatar-size-int: 300;
-      $avatar-size: $avatar-size-int * 1px;
-      $avatar-radius: $avatar-size / 2;
-      filter: drop-shadow(0 2px 2px rgba(10, 16, 20, .24));
+      @include gt-sm { @include avatar(300) }
+      @include sm { @include avatar(200) }
+      @include xs { @include avatar(150) }
 
-      height: $avatar-size;
-      width: $avatar-size;
-      border-radius: $avatar-radius;
+      filter: drop-shadow(0 2px 2px rgba(10, 16, 20, .24));
       overflow: hidden;
-      @include gravatar($avatar-size-int);
     }
   }
 
   .announcement {
+    @include home-width;
+
     > mat-card {
-      width: 820px;
-      height: 100px;
+
     }
   }
 

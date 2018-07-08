@@ -1,5 +1,19 @@
 {
-    "HOME": {
-        "UNDER-DEV": "Home page is under development"
+  "HOME": {
+    "UNDER-DEV": "Home page is under development",
+    "WIDGETS": {
+      "TOP-EXP": "Top {{count}} technology usages",
+      "LAST-USAGES": "Latest {{count}} technology usages",
+      "RECENT-NOTES": "Latest {{count}} usage notes"
+    },
+    "INTRO": {
+      "HELLO": "Hello!",
+      "HEADER": "My name is Michael.",
+      "SUB-HEADER": "I'm software developer."
+    },
+    "BUTTONS": {
+      "ABOUT-ME": "About me",
+      "CONTACTS": "Contacts"
     }
+  }
 }
