@@ -1,0 +1,14 @@
+<svg
+  width="64"
+  height="64"
+  xmlns="http://www.w3.org/2000/svg">
+
+  <!--<path d="M10 10 h110 v15 h-110 z"/>-->
+
+  <path d="M10 10 v50 h5 v-50"/>
+  <path d="M40 10 v50 h5 v-50"/>
+  <!--<path d="M10 5 L32 32 v5 L10 10"/>-->
+
+  <!--<circle cx="10" cy="10" r="2" fill="red"/>-->
+
+</svg>

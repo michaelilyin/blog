@@ -41,9 +41,12 @@
 
     .information {
       .text {
-        @include lt-md {
+        @include lt-sm {
           font-size: 2.0rem;
         }
+        @include sm {
+          font-size: 1.8rem;
+        };
         @include gt-sm {
           font-size: 2.7rem;
         }
