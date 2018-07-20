@@ -7,9 +7,8 @@
       "RECENT-NOTES": "Последние {{count}} заметок использования"
     },
     "INTRO": {
-      "HELLO": "Привет!",
-      "HEADER": "Я Ильин Михаил,",
-      "SUB-HEADER": "full-stack разработчик."
+      "MY-NAME": "меня зовут",
+      "NAME": "Ильин Михаил"
     },
     "BUTTONS": {
       "ABOUT-ME": "Обо мне",

@@ -29,6 +29,7 @@
     "@angular/router": "6.0.7",
     "@ngx-translate/core": "10.0.2",
     "@ngx-translate/http-loader": "3.0.1",
+    "@nicky-lenaers/ngx-scroll-to": "^1.0.0",
     "@swimlane/ngx-charts": "8.0.2",
     "apollo-angular": "^1.0.1",
     "apollo-angular-link-http": "^1.0.3",

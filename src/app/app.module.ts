@@ -19,6 +19,7 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {environment} from '@app-environment/environment';
 import {ToastrModule} from 'ngx-toastr';
 import {CoreModule} from '@app/core/core.module';
+import {ScrollToModule} from '@nicky-lenaers/ngx-scroll-to';
 
 export function localeFactory(translationService: TranslateService): string {
   return translationService.getBrowserCultureLang();
@@ -51,6 +52,7 @@ export function localeFactory(translationService: TranslateService): string {
       progressAnimation: 'increasing',
       newestOnTop: true
     }),
+    ScrollToModule.forRoot(),
     CoreModule
   ],
   providers: [

@@ -1,46 +1,61 @@
 <app-module-wrapper>
   <ng-template #wrapperContent>
-    <div class="home-content"
-         fxLayout="column"
-         fxLayoutAlign="start center">
-      <div class="intro"
-           fxLayout="row"
-           fxLayout.lt-sm="column"
-           fxLayoutAlign="space-between center">
-        <div class="avatar"></div>
-        <div class="information"
+    <div class="landing">
+      <div class="landing__full-block"
+           fxLayout="column">
+        <div id="home"
              fxLayout="column"
-             fxLayoutAlign="start center">
-          <div fxLayout="column"
-               class="text">
-            <span translate>HOME.INTRO.HELLO</span>
-            <span translate>HOME.INTRO.HEADER</span>
-            <span translate>HOME.INTRO.SUB-HEADER</span>
-          </div>
-          <mat-divider class="information-divider"></mat-divider>
+             fxLayoutAlign="center center"
+             class="intro">
+          <div class="avatar"></div>
+          <span class="intro__first-line"
+                translate>HOME.INTRO.MY-NAME</span>
+          <span class="intro__second-line"
+                translate>HOME.INTRO.NAME</span>
+
           <div fxLayout="row"
                fxLayoutAlign="center center">
             <a mat-raised-button
-               class="link">
+               class="intro__link">
               <span translate>HOME.BUTTONS.ABOUT-ME</span>
             </a>
             <a mat-raised-button
-               class="link"
+               class="intro__link"
                (click)="openContacts()">
               <span translate>HOME.BUTTONS.CONTACTS</span>
             </a>
           </div>
         </div>
+        <div class="mouse-link"
+             fxLayout="row"
+             fxLayoutAlign="center">
+          <a [@mousePointer]="mouseAnimationState"
+             (@mousePointer.done)="onAnimationDone()"
+             ngx-scroll-to="intro"></a>
+        </div>
       </div>
-
-      <div class="announcement">
-        <mat-card>
-          Этот скромный сайт посвящен мне
-        </mat-card>
-      </div>
-
-      <div class="content">
-
+      <mat-toolbar class="landing-toolbar"
+                   color="primary"
+                   fxLayout="row"
+                   fxLayoutAlign="center">
+        <button mat-button
+                ngx-scroll-to="home">
+          Home
+        </button>
+        <button mat-button
+                ngx-scroll-to="intro">
+          Intro
+        </button>
+        <button mat-button>
+          Story
+        </button>
+        <button mat-button>
+          News
+        </button>
+      </mat-toolbar>
+      <div id="intro"
+           class="landing__full-block">
+        intro
       </div>
     </div>
   </ng-template>

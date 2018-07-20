@@ -12,14 +12,14 @@ import {
   MatCardModule,
   MatGridListModule,
   MatIconModule,
-  MatListModule,
+  MatListModule, MatToolbarModule,
   MatTooltipModule
 } from '@angular/material';
 import {LatestUsagesComponent} from '@app-home/latest-usages/latest-usages.component';
 import {NgxChartsModule} from '@swimlane/ngx-charts';
 import {ScrollbarModule} from 'ngx-scrollbar';
 import {ResentUsageNotesComponent} from '@app-home/resent-usage-notes/resent-usage-notes.component';
-import {FlexLayoutModule} from '@angular/flex-layout';
+import {ScrollToModule} from '@nicky-lenaers/ngx-scroll-to';
 
 @NgModule({
   imports: [
@@ -35,9 +35,11 @@ import {FlexLayoutModule} from '@angular/flex-layout';
     MatTooltipModule,
     MatButtonModule,
     MatBottomSheetModule,
+    MatToolbarModule,
 
     NgxChartsModule,
-    ScrollbarModule
+    ScrollbarModule,
+    ScrollToModule
   ],
   declarations: [
     HomeComponent,

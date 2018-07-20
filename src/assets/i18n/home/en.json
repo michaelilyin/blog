@@ -7,9 +7,8 @@
       "RECENT-NOTES": "Latest {{count}} usage notes"
     },
     "INTRO": {
-      "HELLO": "Hello!",
-      "HEADER": "I'm Michael Ilyin,",
-      "SUB-HEADER": "full-stack developer."
+      "MY-NAME": "my name",
+      "NAME": "Michael Ilyin"
     },
     "BUTTONS": {
       "ABOUT-ME": "About me",
