@@ -7,12 +7,12 @@
       "RECENT-NOTES": "Последние {{count}} заметок использования"
     },
     "INTRO": {
-      "MY-NAME": "меня зовут",
-      "NAME": "Ильин Михаил"
+      "MY-NAME": "my name is",
+      "NAME": "Michael Ilyin"
     },
     "BUTTONS": {
-      "ABOUT-ME": "Обо мне",
-      "CONTACTS": "Контакты"
+      "ABOUT-ME": "About me",
+      "CONTACTS": "Contacts"
     }
   }
 }

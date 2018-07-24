@@ -103,6 +103,26 @@
     height: 100%;
     width: 100%;
     position: relative;
+
+    &--after-toolbar {
+      @include xs {
+        height: calc(100% - 53px);
+      }
+      @include gt-xs {
+        height: calc(100% - 64px);
+      }
+    }
+  }
+}
+
+.anchor {
+  position: absolute;
+
+  @include xs {
+    top: -53px;
+  }
+  @include gt-xs {
+    top: -64px;
   }
 }
 
@@ -126,7 +146,6 @@
   &__second-line {
     color: white;
     font-variant-caps: all-petite-caps;
-    font-size: 6rem;
     font-weight: bold;
     font-family: Montserrat, sans-serif;
     line-height: 0.7;
@@ -135,6 +154,15 @@
     margin-bottom: 10px;
     text-align: center;
     user-select: none;
+
+    @include xs {
+      font-size: 4rem;
+      width: min-content;
+    }
+
+    @include gt-xs {
+      font-size: 6rem;
+    }
   }
 
   &__link {
@@ -146,7 +174,7 @@
 .avatar {
   @include gt-sm { @include avatar(250) }
   @include sm { @include avatar(250) }
-  @include xs { @include avatar(200) }
+  @include xs { @include avatar(150) }
 
   filter: drop-shadow(0 2px 2px rgba(10, 16, 20, .24));
   border-width: 5px;
@@ -166,14 +194,14 @@
   bottom: 0;
   z-index: 1;
   width: 100%;
-  height: 70px;
+  height: 50px;
 
   > a {
     background-image: url('/assets/images/mouse.png');
     background-position: 50% 100%;
-    background-size: auto;
+    background-size: contain;
     background-repeat: no-repeat;
-    height: 70px;
+    height: 50px;
     width: 30px;
     display: flex;
     cursor: pointer;

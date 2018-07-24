@@ -23,7 +23,7 @@ nav {
 
 @mixin app-content {
   @include xs {
-    height: calc(100% - 93px);
+    height: calc(100% - 53px);
   }
   @include gt-xs {
     height: calc(100% - 64px);

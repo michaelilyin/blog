@@ -46,16 +46,26 @@
                 ngx-scroll-to="intro">
           Intro
         </button>
-        <button mat-button>
+        <button mat-button
+                ngx-scroll-to="story">
           Story
         </button>
-        <button mat-button>
+        <button mat-button
+                ngx-scroll-to="news">
           News
         </button>
       </mat-toolbar>
-      <div id="intro"
-           class="landing__full-block">
+      <div class="landing__full-block landing__full-block--after-toolbar">
+        <div id="intro" class="anchor"></div>
         intro
+      </div>
+      <div class="landing__full-block landing__full-block--after-toolbar">
+        <div id="story" class="anchor"></div>
+        story
+      </div>
+      <div class="landing__full-block landing__full-block--after-toolbar">
+        <div id="news" class="anchor"></div>
+        news
       </div>
     </div>
   </ng-template>
