@@ -6,25 +6,12 @@
         <div id="home"
              fxLayout="column"
              fxLayoutAlign="center center"
-             class="intro">
+             class="landing-start">
           <div class="avatar"></div>
-          <span class="intro__first-line"
-                translate>HOME.INTRO.MY-NAME</span>
-          <span class="intro__second-line"
+          <span class="landing-start__second-line"
                 translate>HOME.INTRO.NAME</span>
-
-          <div fxLayout="row"
-               fxLayoutAlign="center center">
-            <a mat-raised-button
-               class="intro__link">
-              <span translate>HOME.BUTTONS.ABOUT-ME</span>
-            </a>
-            <a mat-raised-button
-               class="intro__link"
-               (click)="openContacts()">
-              <span translate>HOME.BUTTONS.CONTACTS</span>
-            </a>
-          </div>
+          <span class="landing-start__third-line"
+                translate>HOME.INTRO.SPEC</span>
         </div>
         <div class="mouse-link"
              fxLayout="row"
@@ -40,33 +27,101 @@
                    fxLayoutAlign="center">
         <button mat-button
                 ngx-scroll-to="home">
-          Home
+          <span translate>HOME.LINK.HOME</span>
         </button>
         <button mat-button
                 ngx-scroll-to="intro">
-          Intro
+          <span translate>HOME.LINK.INTRO</span>
         </button>
-        <button mat-button
-                ngx-scroll-to="story">
-          Story
-        </button>
-        <button mat-button
-                ngx-scroll-to="news">
-          News
-        </button>
+        <!--<button mat-button-->
+        <!--ngx-scroll-to="story">-->
+        <!--<span translate>HOME.LINK.STORY</span>-->
+        <!--</button>-->
+        <!--<button mat-button-->
+        <!--ngx-scroll-to="news">-->
+        <!--<span translate>HOME.LINK.NEWS</span>-->
+        <!--</button>-->
       </mat-toolbar>
-      <div class="landing__full-block landing__full-block--after-toolbar">
+      <div class="landing__block intro">
         <div id="intro" class="anchor"></div>
-        intro
+
+        <div fxLayout="row"
+             fxLayoutAlign="center stretch">
+          <mat-card class="intro__summary">
+            <mat-card-content>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent non tristique tellus.
+              Integer in enim quam. Sed non felis ut ipsum tristique fermentum in eget nisl.
+              Morbi egestas orci ex, et facilisis sem tempus vitae. Aenean imperdiet metus et lobortis dignissim.
+              Curabitur ante tortor, scelerisque eget posuere ac, iaculis congue.
+            </mat-card-content>
+          </mat-card>
+        </div>
+
+        <div fxLayout="row"
+             fxLayoutAlign="center stretch">
+          <mat-card class="intro__block">
+            <mat-card-header>
+              <mat-card-title>Персональная информация</mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis leo risus, consectetur ut leo in, vulputate
+              bibendum eros.
+              Aliquam sed massa id erat hendrerit aliquam a eu orci. In quis risus ante.
+              Donec dapibus ipsum in tortor rutrum, vel convallis nunc euismod.
+            </mat-card-content>
+          </mat-card>
+          <mat-card class="intro__block">
+            <mat-card-header>
+              <mat-card-title>Блог</mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+              Aenean gravida eget est vel congue.
+              Cras porta dignissim facilisis. Vestibulum a vehicula ligula, sit amet viverra ante.
+              Nunc auctor varius mi in placerat.
+              Vestibulum lobortis non metus vitae pharetra.
+            </mat-card-content>
+          </mat-card>
+          <mat-card class="intro__block">
+            <mat-card-header>
+              <mat-card-title>Технические навыки</mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+              Aenean ullamcorper tortor nulla, eu facilisis enim dignissim ut.
+              Praesent blandit sem eget sagittis accumsan.
+            </mat-card-content>
+          </mat-card>
+          <mat-card class="intro__block">
+            <mat-card-header>
+              <mat-card-title>Демо-доступ к сайту</mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed faucibus ultricies urna eget pulvinar.
+              Aliquam lacinia cursus turpis et convallis. Phasellus rutrum lectus eu nunc malesuada, quis euismod ante
+              tempor.
+            </mat-card-content>
+          </mat-card>
+        </div>
       </div>
-      <div class="landing__full-block landing__full-block--after-toolbar">
-        <div id="story" class="anchor"></div>
-        story
-      </div>
-      <div class="landing__full-block landing__full-block--after-toolbar">
-        <div id="news" class="anchor"></div>
-        news
-      </div>
+      <!--<div fxLayout="row"-->
+      <!--fxLayoutAlign="center center">-->
+      <!--<a mat-raised-button-->
+      <!--class="landing-start__link">-->
+      <!--<span translate>HOME.BUTTONS.ABOUT-ME</span>-->
+      <!--</a>-->
+      <!--<a mat-raised-button-->
+      <!--class="landing-start__link"-->
+      <!--(click)="openContacts()">-->
+      <!--<span translate>HOME.BUTTONS.CONTACTS</span>-->
+      <!--</a>-->
+      <!--</div>-->
+      <!--<div class="landing__full-block landing__full-block&#45;&#45;after-toolbar">-->
+      <!--<div id="story" class="anchor"></div>-->
+      <!--story-->
+      <!--</div>-->
+      <!--<div class="landing__full-block landing__full-block&#45;&#45;after-toolbar">-->
+      <!--<div id="news" class="anchor"></div>-->
+      <!--news-->
+      <!--</div>-->
     </div>
   </ng-template>
 </app-module-wrapper>

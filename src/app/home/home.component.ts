@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {MatBottomSheet} from '@angular/material';
 import {ContactsComponent} from '@app-components/index';
 import {animate, state, style, transition, trigger} from '@angular/animations';
+import {StoryBlock} from '@app-components/story/story.component';
 
 @Component({
   selector: 'app-home',

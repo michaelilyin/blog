@@ -7,12 +7,18 @@
       "RECENT-NOTES": "Latest {{count}} usage notes"
     },
     "INTRO": {
-      "MY-NAME": "my name is",
-      "NAME": "Michael Ilyin"
+      "NAME": "Michael Ilyin",
+      "SPEC": "Software developer"
     },
     "BUTTONS": {
       "ABOUT-ME": "About me",
       "CONTACTS": "Contacts"
+    },
+    "LINK": {
+      "HOME": "Home",
+      "INTRO": "Intro",
+      "STORY": "Story",
+      "NEWS": "News"
     }
   }
 }

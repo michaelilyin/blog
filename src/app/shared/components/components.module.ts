@@ -19,6 +19,7 @@ import { LoadingShadeComponent } from './loading-shade/loading-shade.component';
 import { ListChartCardComponent } from './list-chart-card/list-chart-card.component';
 import {ContactsComponent} from '@app-components/contacts/contacts.component';
 import {FlexLayoutModule} from '@angular/flex-layout';
+import { StoryComponent } from './story/story.component';
 
 @NgModule({
   imports: [
@@ -51,7 +52,8 @@ import {FlexLayoutModule} from '@angular/flex-layout';
     DialogColumnEditorComponent,
     LoadingShadeComponent,
     ListChartCardComponent,
-    ContactsComponent
+    ContactsComponent,
+    StoryComponent
   ],
   exports: [
     ModuleWrapperComponent,
@@ -59,7 +61,8 @@ import {FlexLayoutModule} from '@angular/flex-layout';
     SimpleGridComponent,
     LoadingShadeComponent,
     ListChartCardComponent,
-    ContactsComponent
+    ContactsComponent,
+    StoryComponent
   ],
   entryComponents: [
     DialogColumnEditorComponent,
