@@ -13,7 +13,7 @@ import {Apollo, ApolloModule} from 'apollo-angular';
 import {HttpLink, HttpLinkModule} from 'apollo-angular-link-http';
 import {ApolloLink, NextLink, Operation} from 'apollo-link';
 import {InMemoryCache} from 'apollo-cache-inmemory';
-import {LoggerModule as NGXLoggerModule, NGXLogger, NgxLoggerLevel} from 'ngx-logger';
+import {LoggerModule as NGXLoggerModule, NgxLoggerLevel} from 'ngx-logger';
 import {NGXLoggerHttpServiceProvider} from '@app/logging/remote-logger.service';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {environment} from '@app-environment/environment';
@@ -41,7 +41,7 @@ export function localeFactory(translationService: TranslateService): string {
     MatButtonModule,
     ApolloModule,
     HttpLinkModule,
-    TranslateModule.forRoot(createTranslationConfig(true)),
+    TranslateModule.forRoot(createTranslationConfig()),
     NGXLoggerModule.forRoot({
       level: NgxLoggerLevel.TRACE,
       serverLogLevel: NgxLoggerLevel.WARN,
@@ -58,7 +58,6 @@ export function localeFactory(translationService: TranslateService): string {
   providers: [
     {provide: TRANSLATION_LOCATION, useValue: ''},
     ...(environment.providers),
-    NGXLogger,
     NGXLoggerHttpServiceProvider,
     {
       provide: LOCALE_ID,

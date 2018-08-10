@@ -1,5 +1,5 @@
 import {ModuleWithProviders, NgModule} from '@angular/core';
-import {MatIconModule} from '@angular/material';
+import {MatIconModule, MatRippleModule} from '@angular/material';
 import {CommonModule} from '@angular/common';
 import {HttpClientModule} from '@angular/common/http';
 import {ConfigurationServiceProvider} from '@app-shared/configuration/configuration.service';
@@ -10,6 +10,7 @@ import {PipesModule} from '@app-shared/pipes/pipes.module';
 import {NumeralsTranslateServiceProvider} from '@app-shared/services/numerals-translate.service';
 import {ErrorServiceProvider} from '@app-shared/services/error.service';
 import {FlexLayoutModule} from '@angular/flex-layout';
+import {ObserversModule} from '@angular/cdk/observers';
 
 @NgModule({
   imports: [
@@ -21,6 +22,8 @@ import {FlexLayoutModule} from '@angular/flex-layout';
     FlexLayoutModule
   ],
   exports: [
+    CommonModule,
+    HttpClientModule,
     MatIconModule,
     ComponentsModule,
     PipesModule,

@@ -48,7 +48,7 @@ export function translationLoaderFactory(http: HttpClient, location: string) {
   }
 }
 
-export function createTranslationConfig(root?: boolean): TranslateModuleConfig {
+export function createTranslationConfig(): TranslateModuleConfig {
   return {
     loader: {
       provide: TranslateLoader,
