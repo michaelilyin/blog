@@ -1,5 +1,5 @@
 import {action} from '@storybook/addon-actions';
-import {Directive, ModuleWithProviders, Provider, Type} from '@angular/core';
+import {ModuleWithProviders, Provider, Type} from '@angular/core';
 import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
 import {Observable, of} from 'rxjs';
 import {BrowserModule} from '@angular/platform-browser';
@@ -7,7 +7,7 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {APP_BASE_HREF, CommonModule} from '@angular/common';
 import {CoreModule} from '@app-core/core.module';
 import {SharedModule} from '@app-shared/shared.module';
-import {Router, Routes} from '@angular/router';
+import {ActivatedRouteSnapshot, RouterStateSnapshot} from '@angular/router';
 import {RouterTestingModule} from '@angular/router/testing';
 import {HttpClientModule} from '@angular/common/http';
 import {LoggerModule as NGXLoggerModule, NgxLoggerLevel} from 'ngx-logger';
@@ -48,6 +48,18 @@ export class StoryBookImportsConfigBuilder {
     return this;
   }
 
+  withRouting(): StoryBookImportsConfigBuilder {
+    this.modules.push(
+      RouterTestingModule.withRoutes([{
+        path: '**',
+        redirectTo: '',
+        pathMatch: 'full',
+        canActivate: ['StoryCanActivate']
+      }])
+    );
+    return this;
+  }
+
   build(): (ModuleWithProviders | Type<any>)[] {
     return this.modules;
   }
@@ -81,9 +93,10 @@ export class StoryBookProvidersConfigBuilder {
 
   withRouting(): StoryBookProvidersConfigBuilder {
     this.providers.push({
-      provide: Router,
-      useValue: {
-
+      provide: 'StoryCanActivate',
+      useValue: (route: ActivatedRouteSnapshot, state: RouterStateSnapshot) => {
+        action('navigation')(route, state);
+        return false;
       }
     });
     return this;
@@ -103,20 +116,8 @@ export function storybookProviders(): StoryBookProvidersConfigBuilder {
   return new StoryBookProvidersConfigBuilder();
 }
 
-@Directive({
-  selector: '[routerLink]'
-})
-export class RouterLinkDirective {
-
-}
-
 export class StorybookDeclarationsConfigBuilder {
   private declarations: Type<any>[] = [];
-
-  withRouting(): StorybookDeclarationsConfigBuilder {
-    this.declarations.push(RouterLinkDirective);
-    return this;
-  }
 
   build(): Type<any>[] {
     return this.declarations;

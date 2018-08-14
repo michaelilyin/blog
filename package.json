@@ -60,6 +60,7 @@
     "@storybook/addon-actions": "4.0.0-alpha.14",
     "@storybook/addon-links": "4.0.0-alpha.14",
     "@storybook/addon-notes": "4.0.0-alpha.14",
+    "@storybook/addon-viewport": "^3.4.10",
     "@storybook/addons": "4.0.0-alpha.14",
     "@storybook/angular": "4.0.0-alpha.14",
     "@types/browserify": "^12.0.33",

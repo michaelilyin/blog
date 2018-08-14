@@ -21,19 +21,17 @@ storiesOf('Contacts', module)
                  <app-contacts></app-contacts>
                </app-module-wrapper>`,
     moduleMetadata: {
-      declarations: storybookDeclarations()
-        .withRouting()
-        .build(),
       imports: storybookImports()
         .withTranslation(translations)
+        .withRouting()
         .withCustom([
           MatListModule,
           MatIconModule
         ])
         .build(),
       providers: storybookProviders()
-        .withRouting()
         .withDialog()
+        .withRouting()
         .build()
     }
   }));
