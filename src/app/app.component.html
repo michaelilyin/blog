@@ -1,44 +1,4 @@
 <ng-progress thick="true" [showSpinner]="false"></ng-progress>
 <app-module-wrapper [root]="true">
-
-  <mat-toolbar class="main-toolbar" color="primary">
-    <mat-toolbar-row>
-      <div class="header" (click)="onTitleClick()">
-        {{appName}}
-      </div>
-      <nav class="nav-menu">
-        <!--<a mat-button routerLink="blog">-->
-        <!--<span translate>MENU.BLOG</span>-->
-        <!--</a>-->
-        <!--<a mat-button routerLink="skills">-->
-          <!--<span translate>MENU.SKILLS</span>-->
-        <!--</a>-->
-        <!--<a mat-button routerLink="projects">-->
-        <!--<span translate>MENU.PROJECTS</span>-->
-        <!--</a>-->
-        <!--<a mat-button routerLink="admin">-->
-          <!--<span translate>MENU.ADMIN</span>-->
-        <!--</a>-->
-      </nav>
-      <span class="spacer"></span>
-      <!--<app-auth></app-auth>-->
-    </mat-toolbar-row>
-    <!--<mat-toolbar-row class="submenu">-->
-      <!--<a mat-button routerLink="skills">-->
-        <!--<span translate>MENU.SKILLS</span>-->
-      <!--</a>-->
-      <!--<a mat-button routerLink="admin">-->
-        <!--<span translate>MENU.ADMIN</span>-->
-      <!--</a>-->
-    <!--</mat-toolbar-row>-->
-  </mat-toolbar>
-
-  <div class="app-content">
-    <router-outlet></router-outlet>
-  </div>
-
+  <router-outlet></router-outlet>
 </app-module-wrapper>
-
-<ng-template #menu>
-
-</ng-template>

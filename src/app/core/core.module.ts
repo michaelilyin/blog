@@ -6,21 +6,28 @@ import {createTranslationConfig, TRANSLATION_LOCATION} from '@app-shared/transla
 import {FeedbackComponent} from '@app/core/feedback/feedback.component';
 import {SharedModule} from '@app-shared/shared.module';
 import {FlexLayoutModule} from '@angular/flex-layout';
+import {MainComponent} from '@app-core/main/main.component';
+import {MatToolbarModule} from '@angular/material';
+import {RouterModule} from '@angular/router';
 
 @NgModule({
   imports: [
     TranslateModule.forRoot(createTranslationConfig()),
     NGXLoggerModule.forChild(),
     ToastrModule,
+    MatToolbarModule,
+    RouterModule,
 
     SharedModule,
     FlexLayoutModule
   ],
   declarations: [
-    FeedbackComponent
+    FeedbackComponent,
+    MainComponent
   ],
   exports: [
-    FeedbackComponent
+    FeedbackComponent,
+    MainComponent
   ],
   providers: [
     {provide: TRANSLATION_LOCATION, useValue: 'core'}

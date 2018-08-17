@@ -1,0 +1,53 @@
+@import "~sass/size";
+@import "~sass/flex";
+
+nav {
+  padding-left: 16px;
+  padding-right: 16px;
+}
+
+.header {
+  cursor: pointer;
+}
+
+.main-toolbar {
+  box-shadow: 0 3px 1px -2px rgba(0,0,0,.2), 0 2px 2px 0 rgba(0,0,0,.14), 0 1px 5px 0 rgba(0,0,0,.12);
+  position: relative;
+  z-index: 1000;
+}
+
+:host {
+  display: block;
+  height: 100%;
+}
+
+@mixin app-content {
+  @include xs {
+    height: calc(100% - 53px);
+  }
+  @include gt-xs {
+    height: calc(100% - 64px);
+  }
+}
+
+.app-content {
+  @include app-content;
+  overflow: hidden;
+}
+
+.nav-menu {
+  @include xs {
+    display: none;
+  }
+}
+
+.submenu {
+  @include gt-xs {
+    display: none;
+  }
+  > a {
+    flex: 1;
+  }
+  padding: 0;
+  height: auto;
+}

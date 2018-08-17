@@ -2,7 +2,12 @@ import {storiesOf} from '@storybook/angular';
 import {action} from '@storybook/addon-actions';
 import {MatIconModule, MatListModule} from '@angular/material';
 import {FeedbackComponent} from '@app-core/feedback/feedback.component';
-import {storybookDeclarations, storybookImports, storybookProviders} from '@app/storybook/storybook.util';
+import {
+  storybookDeclarations,
+  storybookImports,
+  storybookModule,
+  storybookProviders
+} from '@app/storybook/storybook.util';
 
 const translations = {
   "SHARED": {
@@ -13,25 +18,25 @@ const translations = {
     }
   }
 };
-const routes = [{path: 'feedback', component: FeedbackComponent}];
+
+const meta = storybookModule()
+  .withTranslation(translations)
+  .withRouting()
+  .withDialog()
+  .withImports(
+    MatListModule,
+    MatIconModule
+  )
+  .build();
 
 storiesOf('Contacts', module)
   .add('simple', () => ({
     template: `<app-module-wrapper>
                  <app-contacts></app-contacts>
                </app-module-wrapper>`,
-    moduleMetadata: {
-      imports: storybookImports()
-        .withTranslation(translations)
-        .withRouting()
-        .withCustom([
-          MatListModule,
-          MatIconModule
-        ])
-        .build(),
-      providers: storybookProviders()
-        .withDialog()
-        .withRouting()
-        .build()
-    }
+    moduleMetadata: meta
   }));
+
+export {
+  translations as contactsTranslations
+}

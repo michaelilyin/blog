@@ -12,6 +12,7 @@ import {RouterTestingModule} from '@angular/router/testing';
 import {HttpClientModule} from '@angular/common/http';
 import {LoggerModule as NGXLoggerModule, NgxLoggerLevel} from 'ngx-logger';
 import {MatBottomSheetRef} from '@angular/material';
+import {NgModuleMetadata} from '../../../node_modules/@storybook/angular/dist/client/preview/angular/types';
 
 export class StoryTranslationLoader implements TranslateLoader {
 
@@ -119,6 +120,11 @@ export function storybookProviders(): StoryBookProvidersConfigBuilder {
 export class StorybookDeclarationsConfigBuilder {
   private declarations: Type<any>[] = [];
 
+  withCustom(declarations: Type<any>[]): StorybookDeclarationsConfigBuilder {
+    this.declarations.push(...declarations);
+    return this;
+  }
+
   build(): Type<any>[] {
     return this.declarations;
   }
@@ -126,4 +132,52 @@ export class StorybookDeclarationsConfigBuilder {
 
 export function storybookDeclarations(): StorybookDeclarationsConfigBuilder {
   return new StorybookDeclarationsConfigBuilder();
+}
+
+export class StorybookModuleMetaConfigBuilder {
+  private declarations = storybookDeclarations();
+  private imports = storybookImports();
+  private providers = storybookProviders();
+
+  constructor(...declarations: Type<any>[]) {
+    this.declarations.withCustom(declarations);
+  }
+
+  withTranslation(translation: object): StorybookModuleMetaConfigBuilder {
+    this.imports.withTranslation(translation);
+    return this;
+  }
+
+  withRouting(): StorybookModuleMetaConfigBuilder {
+    this.imports.withRouting();
+    this.providers.withRouting();
+    return this;
+  }
+
+  withDialog(): StorybookModuleMetaConfigBuilder {
+    this.providers.withDialog();
+    return this;
+  }
+
+  withImports(...imports: (ModuleWithProviders | Type<any>)[]): StorybookModuleMetaConfigBuilder {
+    this.imports.withCustom(imports);
+    return this;
+  }
+
+  withProviders(...providers: Provider[]): StorybookModuleMetaConfigBuilder {
+    this.providers.withCustom(providers);
+    return this;
+  }
+
+  build(): Partial<NgModuleMetadata> {
+    return {
+      declarations: this.declarations.build(),
+      imports: this.imports.build(),
+      providers: this.providers.build()
+    }
+  }
+}
+
+export function storybookModule(...declarations: Type<any>[]): StorybookModuleMetaConfigBuilder {
+  return new StorybookModuleMetaConfigBuilder(...declarations);
 }

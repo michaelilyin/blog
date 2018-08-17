@@ -1,0 +1,16 @@
+<div fxLayout="column"
+     fxLayoutAlign="center center"
+     class="landing-start">
+  <div class="avatar"></div>
+  <span class="landing-start__second-line"
+        translate>HOME.INTRO.NAME</span>
+  <span class="landing-start__third-line"
+        translate>HOME.INTRO.SPEC</span>
+</div>
+<div class="mouse-link"
+     fxLayout="row"
+     fxLayoutAlign="center">
+  <a [@mousePointer]="mouseAnimationState"
+     (@mousePointer.done)="onAnimationDone()"
+     (click)="onOpenDetails()"></a>
+</div>

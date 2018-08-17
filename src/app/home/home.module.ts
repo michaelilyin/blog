@@ -20,6 +20,9 @@ import {NgxChartsModule} from '@swimlane/ngx-charts';
 import {ScrollbarModule} from 'ngx-scrollbar';
 import {ResentUsageNotesComponent} from '@app-home/resent-usage-notes/resent-usage-notes.component';
 import {ScrollToModule} from '@nicky-lenaers/ngx-scroll-to';
+import {LandingHomeComponent} from '@app-home/landing/landing-home/landing-home.component';
+import {LandingIntroComponent} from '@app-home/landing/landing-intro/landing-intro.component';
+import {ParticlesModule} from 'angular-particle';
 
 @NgModule({
   imports: [
@@ -39,13 +42,16 @@ import {ScrollToModule} from '@nicky-lenaers/ngx-scroll-to';
 
     NgxChartsModule,
     ScrollbarModule,
-    ScrollToModule
+    ScrollToModule,
+    ParticlesModule
   ],
   declarations: [
     HomeComponent,
     TopExpComponent,
     LatestUsagesComponent,
-    ResentUsageNotesComponent
+    ResentUsageNotesComponent,
+    LandingHomeComponent,
+    LandingIntroComponent
   ],
   providers: [
     {provide: TRANSLATION_LOCATION, useValue: 'home'}

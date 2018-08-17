@@ -1,6 +1,6 @@
 import {storiesOf} from '@storybook/angular';
 import {withNotes} from '@storybook/addon-notes';
-import {storybookImports, storybookProviders} from '@app/storybook/storybook.util';
+import {storybookImports, storybookModule, storybookProviders} from '@app/storybook/storybook.util';
 import {
   MatButtonModule,
   MatIconModule,
@@ -9,36 +9,32 @@ import {
   MatSidenavModule
 } from '@angular/material';
 
-const meta = {
-  imports: storybookImports()
-    .withRouting()
-    .withTranslation({
-      'ADMIN': {
-        'MENU': {
-          'AUTH': {
-            'TITLE': 'Auth',
-            'USERS': 'Users',
-            'ROLES': 'Roles'
-          },
-          'AUDIT': {
-            'TITLE': 'Audit',
-            'CLIENT-LOG': 'Client log',
-            'SERVER-LOG': 'Server log',
-            'AUDIT': 'Audit'
-          }
-        }
+let translations = {
+  'ADMIN': {
+    'MENU': {
+      'AUTH': {
+        'TITLE': 'Auth',
+        'USERS': 'Users',
+        'ROLES': 'Roles'
+      },
+      'AUDIT': {
+        'TITLE': 'Audit',
+        'CLIENT-LOG': 'Client log',
+        'SERVER-LOG': 'Server log',
+        'AUDIT': 'Audit'
       }
-    })
-    .withCustom([
-      MatSidenavModule,
-      MatIconModule,
-      MatButtonModule
-    ])
-    .build(),
-  providers: storybookProviders()
-    .withRouting()
-    .build()
+    }
+  }
 };
+
+const meta = storybookModule()
+  .withRouting()
+  .withTranslation(translations)
+  .withImports(
+    MatSidenavModule,
+    MatIconModule,
+    MatButtonModule
+  ).build();
 
 storiesOf('Side menu', module)
   .add('basic', withNotes('Simple menu with basic behaviour')(() => ({

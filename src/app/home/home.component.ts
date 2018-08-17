@@ -1,76 +1,79 @@
-import {Component, OnInit} from '@angular/core';
-import {MatBottomSheet} from '@angular/material';
-import {ContactsComponent} from '@app-components/index';
-import {animate, state, style, transition, trigger} from '@angular/animations';
+import {Component} from '@angular/core';
+import {ScrollToService} from '@nicky-lenaers/ngx-scroll-to';
 
 @Component({
   selector: 'app-home',
   templateUrl: 'home.component.html',
-  styleUrls: ['home.component.scss'],
-  animations: [
-    trigger('mousePointer', [
-      state('start', style({
-        transform: 'translateY(0)'
-      })),
-      state('middle', style({
-        transform: 'translateY(10%)'
-      })),
-      state('end', style({
-        transform: 'translateY(0)'
-      })),
-      transition('start => middle', [
-        animate(400)
-      ]),
-      transition('middle => end', [
-        animate(800)
-      ]),
-      transition('end => start', [
-        animate(100)
-      ])
-    ])
-  ]
+  styleUrls: ['home.component.scss']
 })
-export class HomeComponent implements OnInit {
-
-  public mouseAnimationState = 'start';
-
-  public storyItems = [{
-    point: new Date(2001, 0),
-    text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed faucibus ultricies urna eget pulvinar. Aliquam lacinia cursus turpis et convallis. Phasellus rutrum lectus eu nunc malesuada, quis euismod ante tempor.'
-  }, {
-    point: new Date(2002, 2),
-    text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed faucibus ultricies urna eget pulvinar. Aliquam lacinia cursus turpis et convallis. Phasellus rutrum lectus eu nunc malesuada, quis euismod ante tempor.'
-  }, {
-    point: new Date(2003),
-    text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed faucibus ultricies urna eget pulvinar. Aliquam lacinia cursus turpis et convallis. Phasellus rutrum lectus eu nunc malesuada, quis euismod ante tempor.'
-  }, {
-    point: new Date(2001, 5, 12),
-    text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed faucibus ultricies urna eget pulvinar. Aliquam lacinia cursus turpis et convallis. Phasellus rutrum lectus eu nunc malesuada, quis euismod ante tempor.'
-  }];
-
-  constructor(private bottomSheet: MatBottomSheet) {
-
-  }
-
-  ngOnInit(): void {
-
-  }
-
-  public openContacts() {
-    this.bottomSheet.open(ContactsComponent);
-  }
-
-  public onAnimationDone() {
-    switch (this.mouseAnimationState) {
-      case 'start':
-        this.mouseAnimationState = 'middle';
-        break;
-      case 'middle':
-        this.mouseAnimationState = 'end';
-        break;
-      case 'end':
-        this.mouseAnimationState = 'start';
+export class HomeComponent {
+  public particles = {
+    width: '100%',
+    height: '100%',
+    position: 'fixed',
+    'z-index': -1,
+    top: 0,
+    left: 0,
+    right: 0,
+    bottom: 0
+  };
+  public particlesParams = {
+    particles: {
+      number: {
+        value: 80,
+        density: {
+          enable: false,
+          value_area: 800
+        }
+      },
+      color: {
+        value: '#ffffff'
+      },
+      shape: {
+        type: 'circle',
+      },
+      size: {
+        anim: {
+          enable: true,
+          speed: 1,
+          size_min: 0.1,
+          sync: false
+        },
+        value: 3,
+        random: true
+      },
+      line_linked: {
+        enable: true,
+        distance: 150,
+        color: '#ffffff',
+        opacity: 0.4,
+        width: 1.5
+      },
+      move: {
+        enable: true,
+        speed: 1.5,
+        direction: 'none',
+        random: true,
+        straight: false,
+        out_mode: 'out',
+        bounce: false,
+        attract: {
+          enable: false,
+          rotateX: 600,
+          rotateY: 1200
+        }
+      }
     }
+  };
+
+
+  public constructor(private scrollToService: ScrollToService) {
+
   }
 
+  scrollTo(target: string) {
+    this.scrollToService.scrollTo({
+      target
+    })
+  }
 }

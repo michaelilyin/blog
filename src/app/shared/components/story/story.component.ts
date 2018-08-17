@@ -1,13 +1,4 @@
-import {
-  AfterContentInit,
-  Component, ContentChild,
-  ContentChildren,
-  Input,
-  OnInit,
-  QueryList, Renderer, Renderer2,
-  ViewChild,
-  ViewContainerRef
-} from '@angular/core';
+import {Component, ContentChildren, OnInit, QueryList, Renderer2} from '@angular/core';
 import {StoryElementDefDirective} from '@app-components/story/story-element/story-element-def.directive';
 
 @Component({

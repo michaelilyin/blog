@@ -1,16 +1,10 @@
 import {storiesOf} from '@storybook/angular';
-import {storybookImports, storybookProviders} from '@app/storybook/storybook.util';
+import {storybookImports, storybookModule, storybookProviders} from '@app/storybook/storybook.util';
 import {MatIconModule, MatListModule, MatProgressSpinnerModule} from '@angular/material';
 
-const meta = {
-  imports: storybookImports()
-    .withCustom([
-      MatProgressSpinnerModule
-    ])
-    .build(),
-  providers: storybookProviders()
-    .build()
-};
+const meta = storybookModule()
+  .withImports(MatProgressSpinnerModule)
+  .build();
 
 storiesOf('Loading shade', module)
   .add('active', () => ({
