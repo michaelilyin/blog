@@ -1,0 +1,26 @@
+@import "~@angular/material/theming";
+@import "~sass/theme";
+
+.tl-container {
+  width: 90%;
+  position: relative;
+  padding: 20px;
+  margin: 0 auto;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    margin-left: -2px;
+    height: 100%;
+    width: 4px;
+    background: mat-color($app-primary);
+  }
+
+  &::after {
+    content: '';
+    display: table;
+    clear: both;
+  }
+}

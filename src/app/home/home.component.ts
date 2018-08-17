@@ -2,7 +2,6 @@ import {Component, OnInit} from '@angular/core';
 import {MatBottomSheet} from '@angular/material';
 import {ContactsComponent} from '@app-components/index';
 import {animate, state, style, transition, trigger} from '@angular/animations';
-import {StoryBlock} from '@app-components/story/story.component';
 
 @Component({
   selector: 'app-home',
@@ -34,6 +33,20 @@ import {StoryBlock} from '@app-components/story/story.component';
 export class HomeComponent implements OnInit {
 
   public mouseAnimationState = 'start';
+
+  public storyItems = [{
+    point: new Date(2001, 0),
+    text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed faucibus ultricies urna eget pulvinar. Aliquam lacinia cursus turpis et convallis. Phasellus rutrum lectus eu nunc malesuada, quis euismod ante tempor.'
+  }, {
+    point: new Date(2002, 2),
+    text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed faucibus ultricies urna eget pulvinar. Aliquam lacinia cursus turpis et convallis. Phasellus rutrum lectus eu nunc malesuada, quis euismod ante tempor.'
+  }, {
+    point: new Date(2003),
+    text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed faucibus ultricies urna eget pulvinar. Aliquam lacinia cursus turpis et convallis. Phasellus rutrum lectus eu nunc malesuada, quis euismod ante tempor.'
+  }, {
+    point: new Date(2001, 5, 12),
+    text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed faucibus ultricies urna eget pulvinar. Aliquam lacinia cursus turpis et convallis. Phasellus rutrum lectus eu nunc malesuada, quis euismod ante tempor.'
+  }];
 
   constructor(private bottomSheet: MatBottomSheet) {
 

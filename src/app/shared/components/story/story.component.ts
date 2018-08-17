@@ -1,9 +1,14 @@
-import {Component, Input, OnInit} from '@angular/core';
-
-export interface StoryBlock {
-  date: Date;
-  description: string;
-}
+import {
+  AfterContentInit,
+  Component, ContentChild,
+  ContentChildren,
+  Input,
+  OnInit,
+  QueryList, Renderer, Renderer2,
+  ViewChild,
+  ViewContainerRef
+} from '@angular/core';
+import {StoryElementDefDirective} from '@app-components/story/story-element/story-element-def.directive';
 
 @Component({
   selector: 'app-story',
@@ -12,12 +17,18 @@ export interface StoryBlock {
 })
 export class StoryComponent implements OnInit {
 
-  @Input()
-  public blocks: StoryBlock[];
+  // @ViewChild('elementsContainer', {read: ViewContainerRef})
+  // public elementsContainer: ViewContainerRef;
 
-  constructor() { }
+  @ContentChildren(StoryElementDefDirective)
+  public storyElements: QueryList<StoryElementDefDirective>;
+
+ constructor(private renderer2: Renderer2) {
+
+ }
 
   ngOnInit() {
+
   }
 
 }

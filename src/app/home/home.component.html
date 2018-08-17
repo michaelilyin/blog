@@ -33,10 +33,10 @@
                 ngx-scroll-to="intro">
           <span translate>HOME.LINK.INTRO</span>
         </button>
-        <!--<button mat-button-->
-        <!--ngx-scroll-to="story">-->
-        <!--<span translate>HOME.LINK.STORY</span>-->
-        <!--</button>-->
+        <button mat-button
+                ngx-scroll-to="story">
+          <span translate>HOME.LINK.STORY</span>
+        </button>
         <!--<button mat-button-->
         <!--ngx-scroll-to="news">-->
         <!--<span translate>HOME.LINK.NEWS</span>-->
@@ -69,6 +69,15 @@
               Aliquam sed massa id erat hendrerit aliquam a eu orci. In quis risus ante.
               Donec dapibus ipsum in tortor rutrum, vel convallis nunc euismod.
             </mat-card-content>
+            <mat-card-actions>
+              <a mat-button>
+                <span translate>HOME.BUTTONS.ABOUT-ME</span>
+              </a>
+              <a mat-button
+                 (click)="openContacts()">
+                <span translate>HOME.BUTTONS.CONTACTS</span>
+              </a>
+            </mat-card-actions>
           </mat-card>
           <mat-card class="intro__block">
             <mat-card-header>
@@ -102,22 +111,17 @@
           </mat-card>
         </div>
       </div>
-      <!--<div fxLayout="row"-->
-      <!--fxLayoutAlign="center center">-->
-      <!--<a mat-raised-button-->
-      <!--class="landing-start__link">-->
-      <!--<span translate>HOME.BUTTONS.ABOUT-ME</span>-->
-      <!--</a>-->
-      <!--<a mat-raised-button-->
-      <!--class="landing-start__link"-->
-      <!--(click)="openContacts()">-->
-      <!--<span translate>HOME.BUTTONS.CONTACTS</span>-->
-      <!--</a>-->
-      <!--</div>-->
-      <!--<div class="landing__full-block landing__full-block&#45;&#45;after-toolbar">-->
-      <!--<div id="story" class="anchor"></div>-->
-      <!--story-->
-      <!--</div>-->
+      <div class="landing__block">
+        <div id="story" class="anchor"></div>
+        <app-story>
+          <ng-container *ngFor="let item of storyItems">
+            <app-story-element *appStoryElementDef
+                               [point]="item.point">
+              <p>{{item.text}}</p>
+            </app-story-element>
+          </ng-container>
+        </app-story>
+      </div>
       <!--<div class="landing__full-block landing__full-block&#45;&#45;after-toolbar">-->
       <!--<div id="news" class="anchor"></div>-->
       <!--news-->

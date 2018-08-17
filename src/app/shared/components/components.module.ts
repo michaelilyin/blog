@@ -11,15 +11,17 @@ import {
 import {SideMenuComponent} from '@app-components/side-menu/side-menu.component';
 import {RouterModule} from '@angular/router';
 import {TranslateModule} from '@ngx-translate/core';
-import { SimpleGridComponent } from './grid/simple-grid/simple-grid.component';
-import { SimpleGridTableComponent } from './grid/simple-grid/simple-grid-table/simple-grid-table.component';
-import { SimpleGridCardsComponent } from './grid/simple-grid/simple-grid-cards/simple-grid-cards.component';
-import { DialogColumnEditorComponent } from './grid/dialog-column-editor/dialog-column-editor.component';
-import { LoadingShadeComponent } from './loading-shade/loading-shade.component';
-import { ListChartCardComponent } from './list-chart-card/list-chart-card.component';
+import {SimpleGridComponent} from './grid/simple-grid/simple-grid.component';
+import {SimpleGridTableComponent} from './grid/simple-grid/simple-grid-table/simple-grid-table.component';
+import {SimpleGridCardsComponent} from './grid/simple-grid/simple-grid-cards/simple-grid-cards.component';
+import {DialogColumnEditorComponent} from './grid/dialog-column-editor/dialog-column-editor.component';
+import {LoadingShadeComponent} from './loading-shade/loading-shade.component';
+import {ListChartCardComponent} from './list-chart-card/list-chart-card.component';
 import {ContactsComponent} from '@app-components/contacts/contacts.component';
 import {FlexLayoutModule} from '@angular/flex-layout';
-import { StoryComponent } from './story/story.component';
+import {StoryComponent} from './story/story.component';
+import {StoryElementDefDirective} from './story/story-element/story-element-def.directive';
+import {StoryElementComponent} from '@app-components/story/story-element/story-element.component';
 
 @NgModule({
   imports: [
@@ -53,16 +55,21 @@ import { StoryComponent } from './story/story.component';
     LoadingShadeComponent,
     ListChartCardComponent,
     ContactsComponent,
-    StoryComponent
+    StoryComponent,
+    StoryElementComponent,
+    StoryElementDefDirective
   ],
   exports: [
+    CommonModule,
     ModuleWrapperComponent,
     SideMenuComponent,
     SimpleGridComponent,
     LoadingShadeComponent,
     ListChartCardComponent,
     ContactsComponent,
-    StoryComponent
+    StoryComponent,
+    StoryElementComponent,
+    StoryElementDefDirective
   ],
   entryComponents: [
     DialogColumnEditorComponent,
