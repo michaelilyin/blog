@@ -7,8 +7,8 @@ import {FeedbackComponent} from '@app/core/feedback/feedback.component';
 import {SharedModule} from '@app-shared/shared.module';
 import {FlexLayoutModule} from '@angular/flex-layout';
 import {MainComponent} from '@app-core/main/main.component';
-import {MatToolbarModule} from '@angular/material';
-import {RouterModule} from '@angular/router';
+import {MatBottomSheetModule, MatToolbarModule} from '@angular/material';
+import {CoreRoutingModule} from '@app-core/core.routing.module';
 
 @NgModule({
   imports: [
@@ -16,7 +16,8 @@ import {RouterModule} from '@angular/router';
     NGXLoggerModule.forChild(),
     ToastrModule,
     MatToolbarModule,
-    RouterModule,
+    MatBottomSheetModule,
+    CoreRoutingModule,
 
     SharedModule,
     FlexLayoutModule
@@ -31,6 +32,9 @@ import {RouterModule} from '@angular/router';
   ],
   providers: [
     {provide: TRANSLATION_LOCATION, useValue: 'core'}
+  ],
+  entryComponents: [
+
   ]
 })
 export class CoreModule {

@@ -13,6 +13,7 @@ import {HttpClientModule} from '@angular/common/http';
 import {LoggerModule as NGXLoggerModule, NgxLoggerLevel} from 'ngx-logger';
 import {MatBottomSheetRef} from '@angular/material';
 import {NgModuleMetadata} from '../../../node_modules/@storybook/angular/dist/client/preview/angular/types';
+import {moduleMetadata} from '@storybook/angular';
 
 export class StoryTranslationLoader implements TranslateLoader {
 
@@ -175,6 +176,10 @@ export class StorybookModuleMetaConfigBuilder {
       imports: this.imports.build(),
       providers: this.providers.build()
     }
+  }
+
+  buildMetadata(): (storyFn: () => any) => any {
+    return moduleMetadata(this.build())
   }
 }
 

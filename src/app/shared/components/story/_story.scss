@@ -1,0 +1,53 @@
+@import "~@angular/material/theming";
+@import "~sass/theme";
+@import "~sass/size";
+
+$main-color: mat-color($app-primary);
+$timeline-width: 8px;
+$timeline-circle-size: 12px;
+
+@mixin timeline {
+  border-left: $timeline-width solid $main-color;
+}
+
+@mixin full-disc {
+  &:after {
+    position: absolute;
+    display: block;
+    box-shadow: 0 0 0 8px $main-color;
+    left: -($timeline-width + $timeline-circle-size) / 2;
+    background: #212121;
+    border-radius: 50%;
+    height: $timeline-circle-size;
+    width: $timeline-circle-size;
+    content: "";
+  }
+}
+
+@mixin empty-disc {
+  &:after {
+    position: absolute;
+    display: block;
+    border: 8px solid $main-color;
+    border-bottom-color: transparent;
+    left: -($timeline-circle-size / 2) * 3;
+    background: transparent;
+    border-radius: 50%;
+    height: $timeline-circle-size;
+    width: $timeline-circle-size;
+    content: "";
+  }
+}
+
+@mixin center-disc {
+  &:after {
+    position: absolute;
+    display: block;
+    left: -($timeline-width + $timeline-circle-size) / 2;
+    background: #212121;
+    border-radius: 50%;
+    height: $timeline-circle-size;
+    width: $timeline-circle-size;
+    content: "";
+  }
+}

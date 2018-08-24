@@ -1,6 +1,6 @@
-<ng-content></ng-content>
-<div class="tl-container">
-  <ng-container *ngFor="let element of storyElements">
-    <ng-container *ngTemplateOutlet="element.template"></ng-container>
-  </ng-container>
-</div>
+<div class="story-line-begin"></div>
+<ng-container *ngFor="let element of storyElements">
+  <ng-container *ngTemplateOutlet="element.template"></ng-container>
+</ng-container>
+<div class="story-line-end"></div>
+

@@ -1,0 +1,10 @@
+<mat-card class="story-container">
+  <app-story class="story">
+    <ng-container *ngFor="let item of storyItems">
+      <app-story-element *appStoryElementDef
+                         [point]="item.point">
+        <p>{{item.text}}</p>
+      </app-story-element>
+    </ng-container>
+  </app-story>
+</mat-card>

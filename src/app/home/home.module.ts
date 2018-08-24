@@ -23,6 +23,8 @@ import {ScrollToModule} from '@nicky-lenaers/ngx-scroll-to';
 import {LandingHomeComponent} from '@app-home/landing/landing-home/landing-home.component';
 import {LandingIntroComponent} from '@app-home/landing/landing-intro/landing-intro.component';
 import {ParticlesModule} from 'angular-particle';
+import {LandingStoryComponent} from '@app-home/landing/landing-story/landing-story.component';
+import {AboutComponent} from '@app-home/about/about.component';
 
 @NgModule({
   imports: [
@@ -51,7 +53,9 @@ import {ParticlesModule} from 'angular-particle';
     LatestUsagesComponent,
     ResentUsageNotesComponent,
     LandingHomeComponent,
-    LandingIntroComponent
+    LandingIntroComponent,
+    LandingStoryComponent,
+    AboutComponent
   ],
   providers: [
     {provide: TRANSLATION_LOCATION, useValue: 'home'}

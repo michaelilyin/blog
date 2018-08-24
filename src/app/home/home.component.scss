@@ -3,79 +3,6 @@
 @import "~@angular/material/theming";
 @import "~sass/theme";
 
-@mixin home-width {
-  @include gt-sm { width: 820px; }
-  @include sm { width: 570px; }
-  @include xs { width: 400px; }
-}
-
-.home-content {
-  overflow-y: auto;
-  height: 100%;
-  padding: 10px;
-
-  .intro {
-    @include home-width;
-    @include gt-sm {
-      height: 380px;
-    }
-    @include sm {
-      height: 240px;
-    }
-    @include xs {
-      height: 360px;
-    }
-    padding: 10px;
-
-    .information {
-      flex: 1;
-      padding: 10px;
-
-      .text {
-        user-select: none;
-        font-weight: bold;
-
-        .main {
-          @include lt-sm {
-            font-size: 2.0rem;
-          }
-          @include sm {
-            font-size: 1.8rem;
-          };
-          @include gt-sm {
-            font-size: 2.7rem;
-          }
-        }
-
-        .secondary {
-          @include lt-sm {
-            font-size: 1.9rem;
-          }
-          @include sm {
-            font-size: 1.2rem;
-          };
-          @include gt-sm {
-            font-size: 1.6rem;
-          }
-        }
-      }
-
-
-    }
-
-
-  }
-
-  .announcement {
-    @include home-width;
-
-    > mat-card {
-
-    }
-  }
-
-}
-
 :host {
   height: 100%;
   width: 100%;
@@ -91,8 +18,36 @@
     height: 100%;
     width: 100%;
     z-index: -2;
+    transform-origin: 50% 50%;
 
-    background-color: mat-color($app-primary);
+
+    background: linear-gradient(-45deg, mat-color($app-primary, lighter), mat-color($app-primary), mat-color($app-primary, darker));
+    background-size: 100% 100%;
+    animation: Gradient 15s ease infinite;//, Rotation 5s infinite;
+
+    @keyframes Rotation {
+      0% {
+        transform: translate(-25%, -50%) rotateZ(0deg);
+      }
+      50% {
+        transform: translate(-25%, -50%) rotateZ(180deg);
+      }
+      100% {
+        transform: translate(-25%, -50%) rotateZ(360deg);
+      }
+    }
+
+    @keyframes Gradient {
+      0% {
+        background-position: 0% 50%
+      }
+      50% {
+        background-position: 100% 50%
+      }
+      100% {
+        background-position: 0% 50%
+      }
+    }
   }
 
   &__block {
@@ -115,6 +70,14 @@
     }
   }
 }
+
+.landing-toolbar {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  box-shadow: 0 3px 1px -2px rgba(0,0,0,.2), 0 2px 2px 0 rgba(0,0,0,.14), 0 1px 5px 0 rgba(0,0,0,.12);
+}
+
 
 .anchor {
   position: absolute;

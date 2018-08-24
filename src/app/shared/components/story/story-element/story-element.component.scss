@@ -1,19 +1,47 @@
+@import "~@angular/material/theming";
+@import "~sass/theme";
+@import "../story";
+
 :host {
-  display: block;
-  position: relative;
-  width: 45%;
-  margin: 10px;
-  float: left;
+  display: flex;
+  flex-direction: row;
 
-  &:first-child {
-    margin-top: 0;
+  .story-date {
+    width: 150px;
+    text-align: right;
+    margin: 25px 16px 8px 8px;
   }
 
-  &:last-child {
-    margin-bottom: 0;
+  .story-element {
+    @include timeline();
+    flex: 1;
+
+    @include full-disc();
+
+    &:after {
+      top: 27px;
+    }
   }
 
-  &:nth-child(even) {
-    float: right;
+  &:first-of-type {
+    .story-element {
+      border-top-left-radius: 0;
+      border-bottom-left-radius: 0;
+      border-bottom-right-radius: 0;
+    }
+  }
+
+  &:not(:first-of-type):not(:last-of-type) {
+    .story-element {
+      border-radius: 0;
+    }
+  }
+
+  &:last-of-type {
+    .story-element {
+      border-top-left-radius: 0;
+      border-top-right-radius: 0;
+      border-bottom-left-radius: 0;
+    }
   }
 }

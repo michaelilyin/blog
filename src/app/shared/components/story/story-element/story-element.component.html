@@ -1,10 +1,10 @@
-<!--<div class="tl-img tl-picture">-->
-  <!--<mat-icon>home</mat-icon>-->
-<!--</div>-->
-
-<!--<div class="tl-date">{{point | date}}</div>-->
-
-<mat-card class="tl-content">
+<div class="story-date">{{point | date}}</div>
+<mat-card class="story-element">
+  <mat-card-header>
+    <mat-card-title>
+      {{title}}
+    </mat-card-title>
+  </mat-card-header>
   <mat-card-content>
     <ng-content></ng-content>
   </mat-card-content>

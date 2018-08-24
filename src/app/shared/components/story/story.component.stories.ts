@@ -1,32 +1,43 @@
 import {storiesOf} from '@storybook/angular';
 import {action} from '@storybook/addon-actions';
 import {storybookModule} from '@app/storybook/storybook.util';
-import {StoryComponent} from '@app-components/story/story.component';
-import {StoryElementComponent} from '@app-components/story/story-element/story-element.component';
-import {StoryElementDefDirective} from '@app-components/story/story-element/story-element-def.directive';
 
 const meta = storybookModule(
-
 ).build();
+
+const data = [{
+  point: new Date(1993, 9, 29),
+  title: 'Title for one',
+  data: 'Text for one'
+}, {
+  point: new Date(2011, 8, 1),
+  title: 'Title for two',
+  data: 'Text for two'
+}, {
+  point: new Date(2016, 5, 15),
+  title: 'Title for three',
+  data: 'Text for three'
+}, {
+  point: new Date(),
+  title: 'Title for now',
+  data: 'Text for now'
+}];
 
 storiesOf('Story', module)
   .add('with simple data', () => ({
     template: `
         <app-story>
-          <app-story-element *appStoryElementDef>
-            <p>Story one</p>
+          <ng-container *ngFor="let story of data">
+          <app-story-element *appStoryElementDef 
+                             [point]="story.point"
+                             [title]="story.title">
+            <p>{{story.data}}</p>
           </app-story-element>
-          <app-story-element *appStoryElementDef>
-            <p>Story two</p>
-          </app-story-element>
-          <app-story-element *appStoryElementDef>
-            <p>Story three</p>
-          </app-story-element>
-          <app-story-element *appStoryElementDef>
-            <p>Story four</p>
-          </app-story-element>
+          </ng-container>
         </app-story>    
     `,
     moduleMetadata: meta,
-    props: {},
+    props: {
+      data
+    },
   }));

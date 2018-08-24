@@ -1,10 +1,13 @@
 <app-module-wrapper>
   <ng-template #wrapperContent>
     <div class="landing">
-      <particles [style]="particles"
-                 class="landing__background"
-                 [params]="particlesParams">
-      </particles>
+      <!--<particles [style]="particles"-->
+                 <!--class="landing__background"-->
+                 <!--[params]="particlesParams">-->
+      <!--</particles>-->
+      <div class="landing__background" style="display: flex; align-content: center; align-items: center; justify-content: center; justify-items: center;">
+        <div style="height: 10px; width: 10px; background-color: red"></div>
+      </div>
       <div class="landing__full-block">
         <div id="home"></div>
         <app-landing-home (openDetails)="scrollTo('intro')"></app-landing-home>
@@ -37,14 +40,7 @@
       </div>
       <div class="landing__block">
         <div id="story" class="anchor"></div>
-        <app-story>
-          <ng-container *ngFor="let item of storyItems">
-            <app-story-element *appStoryElementDef
-                               [point]="item.point">
-              <p>{{item.text}}</p>
-            </app-story-element>
-          </ng-container>
-        </app-story>
+        <app-landing-story></app-landing-story>
       </div>
       <!--<div class="landing__full-block landing__full-block&#45;&#45;after-toolbar">-->
       <!--<div id="news" class="anchor"></div>-->

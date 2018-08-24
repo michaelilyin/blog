@@ -7,7 +7,5 @@ import {Component, HostBinding, Input} from '@angular/core';
 })
 export class StoryElementComponent {
   @Input() point: Date;
-
-  @HostBinding('class.tl-block')
-  public css = true;
+  @Input() title: string;
 }

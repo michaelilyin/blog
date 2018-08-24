@@ -22,6 +22,7 @@ import {FlexLayoutModule} from '@angular/flex-layout';
 import {StoryComponent} from './story/story.component';
 import {StoryElementDefDirective} from './story/story-element/story-element-def.directive';
 import {StoryElementComponent} from '@app-components/story/story-element/story-element.component';
+import {ContactsSheetComponent} from '@app-components/contacts/contacts-sheet.component';
 
 @NgModule({
   imports: [
@@ -57,7 +58,8 @@ import {StoryElementComponent} from '@app-components/story/story-element/story-e
     ContactsComponent,
     StoryComponent,
     StoryElementComponent,
-    StoryElementDefDirective
+    StoryElementDefDirective,
+    ContactsSheetComponent
   ],
   exports: [
     CommonModule,
@@ -69,7 +71,8 @@ import {StoryElementComponent} from '@app-components/story/story-element/story-e
     ContactsComponent,
     StoryComponent,
     StoryElementComponent,
-    StoryElementDefDirective
+    StoryElementDefDirective,
+    ContactsSheetComponent
   ],
   entryComponents: [
     DialogColumnEditorComponent,

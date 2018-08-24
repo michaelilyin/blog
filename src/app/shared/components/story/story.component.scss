@@ -1,26 +1,44 @@
 @import "~@angular/material/theming";
 @import "~sass/theme";
+@import "story";
 
-.tl-container {
-  width: 95%;
-  position: relative;
-  padding: 10px;
-  margin: 0 auto;
+$main-color: mat-color($app-primary);
 
-  &::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 50%;
-    margin-left: -2px;
-    height: 100%;
-    width: 4px;
-    background: mat-color($app-primary);
+:host {
+  display: flex;
+  flex-direction: column;
+}
+
+.story-line {
+  &-begin {
+    @include timeline();
+
+    position: relative;
+    margin-left: 174px;;
+    margin-top: 10px;
+    height: 25px;
+    z-index: 1;
+
+    @include center-disc();
+
+    &:after {
+      top: -5px;
+    }
   }
 
-  &::after {
-    content: '';
-    display: table;
-    clear: both;
+  &-end {
+    @include timeline();
+
+    position: relative;
+    margin-left: 174px;;
+    margin-bottom: 25px;
+    height: 25px;
+    z-index: 1;
+
+    @include empty-disc();
+
+    &:after {
+      bottom: -20px;
+    }
   }
 }

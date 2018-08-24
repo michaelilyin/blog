@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {MatBottomSheet} from '@angular/material';
 import {ContactsComponent} from '@app-shared/components';
+import {Route, Router} from '@angular/router';
 
 @Component({
   selector: 'app-landing-intro',
@@ -8,7 +9,7 @@ import {ContactsComponent} from '@app-shared/components';
   styleUrls: ['./landing-intro.component.scss']
 })
 export class LandingIntroComponent implements OnInit {
-  constructor(private bottomSheet: MatBottomSheet) {
+  constructor(private router: Router) {
 
   }
 
@@ -17,6 +18,10 @@ export class LandingIntroComponent implements OnInit {
   }
 
   public openContacts() {
-    this.bottomSheet.open(ContactsComponent);
+    this.router.navigate([{
+      outlets: {
+        'bottom-sheet': ['home/contacts']
+      }
+    }]);
   }
 }
